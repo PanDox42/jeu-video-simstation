@@ -21,30 +21,30 @@ var inventaire = {
 	"labo_recherche": 1, 
 	"dortoir": 0, 
 	"cantine": 1, 
+	"hopital": 1,
 	"observatoire" : 0,
 	"salle_sport": 0, 
 	"salle_repos": 0, 
-	"hopital": 1,
 }
 
 var batiments_prix = {
 	"labo_recherche": 646463, 
 	"dortoir": 54867, 
 	"cantine": 50000, 
+	"hopital": 100000,
 	"observatoire" : 100000,
 	"salle_sport": 957376, 
 	"salle_repos": 75743, 
-	"hopital": 10000,
 }
 
 var batiments_nombre = {
 	"labo_recherche": 0, 
 	"dortoir": 0, 
 	"cantine": 0, 
+	"hopital": 0,
 	"observatoire" : 0,
 	"salle_sport": 0, 
 	"salle_repos": 0, 
-	"hopital": 0,
 }
 
  # [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
@@ -52,10 +52,10 @@ var info_batiments = {
 	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire de recherche", true], 
 	"dortoir": [60, 60, "Permet de se reposer tranquillement", "Dortoir", true],  
 	"cantine": [60, 70, "Fournit de la nourriture aux habitants", "Cantine", true],
+	"hopital": [40, 60, "Permet de soigner les malades", "Hopital", true],    
 	"observatoire" : [20, 50, "Permet de découvrire de nouvelles étoiles", "Observatoire", true],
 	"salle_sport": [70, 70, "Améliore la condition physique des habitants", "Salle de sport", false],  
 	"salle_repos": [40, 60, "Endroit calme pour se détendre", "Salle de repos", true],    
-	"hopital": [40, 60, "Permet de soigner les malades", "Hopital", true],    
 }
 
 var stats = {
