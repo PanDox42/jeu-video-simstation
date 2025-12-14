@@ -46,10 +46,9 @@ func _unhandled_input(event):
 func _process(_delta):
 	if dragging and batiment_instance and map_ref:
 		var mouse_global_pos = map_ref.get_global_mouse_position()
-		
-		var snapped_pos = mouse_global_pos.snapped(Vector2(grid_size, grid_size))
-		
-		batiment_instance.global_position = snapped_pos
+		var grid_pos = (mouse_global_pos / grid_size).floor() * grid_size
+
+		batiment_instance.global_position = grid_pos
 		update_visual_feedback()
 
 func start_dragging():
