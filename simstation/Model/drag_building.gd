@@ -132,7 +132,7 @@ func update_visual_feedback():
 class GridDrawer extends Node2D:
 	var cell_size = 64
 	var grid_color = Color(0.0, 0.0, 0.0, 1.0)
-	var draw_area = Rect2(-5000, -5000, 10000, 10000)
+	var draw_area = Rect2(-6000, -6000, 14000, 14000)
 
 	func _draw():
 		var left = int(draw_area.position.x / cell_size) * cell_size
