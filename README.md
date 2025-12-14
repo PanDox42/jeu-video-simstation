@@ -93,7 +93,7 @@ Le projet SimStation a pour objectifs de :
 ## Captures d’écran
 
 ### Vue générale de la station
-![Carte de la station et bâtiments](/home/fabio/Images/Capture d’écran du 2025-12-14 23-07-31.png)
+![Carte de la station et bâtiments](/home/fabio/Images/Capture d’écran du 2025-12-14 23-0)
 
 Cette capture présente la carte isométrique de la station polaire, avec les bâtiments construits par le joueur et l’organisation globale de la base.
 
@@ -125,6 +125,7 @@ L’arbre de recherche offre différentes améliorations et débloque de nouvell
 
 ## Structure du projet
 
+'''text
 t3-simstation/
 ├── README.md
 └── simstation
