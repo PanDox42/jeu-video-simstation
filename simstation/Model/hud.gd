@@ -5,6 +5,12 @@ extends Control
 @onready var temperature_label = $CanvasLayer/BorderContainer/background/temperature
 @onready var saison_label = $CanvasLayer/BorderContainer/background/saison
 @onready var chart_stats = $CanvasLayer/BorderContainer/ChartStats
+@onready var night_mode = $CanvasLayer/BorderContainer/NightMode
+@onready var background = $CanvasLayer/BorderContainer/TopBorder
+@onready var inventory = $CanvasLayer/BorderContainer/Inventaire
+
+const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
+const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
 
 func _ready():
 	chart_stats.hide()
@@ -30,11 +36,25 @@ func _on_argent_changed(new_value):
 	if argent_label:
 		argent_label.bbcode_text = "[right][font_size=32]" + GlobalScript.format_money(new_value) + " €"
 
+func _maj_night_mode():
+	if GlobalScript.get_tour() % 2 == 0:
+		night_mode.visible = !night_mode.visible
+		
+
 func _on_passer_tour_pressed():
 	CalculStats.passer_tour()
 	_maj_temperature()
+	_maj_night_mode()
 	GlobalScript.emit_signal("tour_change")
 
 func _on_btn_graphique_stats_pressed() -> void:
 	chart_stats.show()
 	#GameManager.load_scene("res://View/chart_stats.tscn", "CharStats")
+
+func _on_fermer_pressed_close_inventory() -> void:
+	if inventory.visible:
+		background.texture = BACKGROUND_TEXTURE_WITHOUT
+	else :
+		background.texture = BACKGROUND_TEXTURE_WITH
+		
+	inventory.visible = !inventory.visible
