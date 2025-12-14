@@ -4,18 +4,18 @@
 [ext_resource type="Script" uid="uid://dyxsjxpvsie0m" path="res://Model/shop.gd" id="2_ei2gw"]
 [ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="3_0mlmv"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="4_o4j7t"]
-[ext_resource type="Texture2D" uid="uid://tnma6odo0arh" path="res://assets/exit_button/exit_button.png" id="5_rn3ik"]
-[ext_resource type="Texture2D" uid="uid://c60liaujyeegu" path="res://assets/exit_button/exit_button_click.png" id="6_tbl8w"]
-[ext_resource type="Texture2D" uid="uid://ccgfp7p2mojhr" path="res://assets/exit_button/exit_button_hover.png" id="7_7ost5"]
+[ext_resource type="Texture2D" uid="uid://tnma6odo0arh" path="res://assets/button/exit_button/exit_button.png" id="5_rn3ik"]
+[ext_resource type="Texture2D" uid="uid://c60liaujyeegu" path="res://assets/button/exit_button/exit_button_click.png" id="6_tbl8w"]
+[ext_resource type="Texture2D" uid="uid://ccgfp7p2mojhr" path="res://assets/button/exit_button/exit_button_hover.png" id="7_7ost5"]
 [ext_resource type="Texture2D" uid="uid://cb6veodg6ri75" path="res://assets/batiments/dortoir.png" id="8_pmug7"]
-[ext_resource type="Texture2D" uid="uid://c0lj3fxjn31bl" path="res://assets/shop_button/shop_button.png" id="9_3acnc"]
-[ext_resource type="Texture2D" uid="uid://hvimxf5eltc3" path="res://assets/shop_button/shop_button_click.png" id="10_mjjod"]
-[ext_resource type="Texture2D" uid="uid://b07uv5qepy2li" path="res://assets/shop_button/shop_button_hover.png" id="11_cud4g"]
+[ext_resource type="Texture2D" uid="uid://c0lj3fxjn31bl" path="res://assets/button/shop_button/shop_button.png" id="9_3acnc"]
+[ext_resource type="Texture2D" uid="uid://hvimxf5eltc3" path="res://assets/button/shop_button/shop_button_click.png" id="10_mjjod"]
+[ext_resource type="Texture2D" uid="uid://b07uv5qepy2li" path="res://assets/button/shop_button/shop_button_hover.png" id="11_cud4g"]
 [ext_resource type="Texture2D" uid="uid://b2hdab6gkv756" path="res://assets/batiments/cantine.png" id="12_i7rjl"]
 [ext_resource type="Texture2D" uid="uid://dxl74rn5nort8" path="res://assets/batiments/labo_recherche.png" id="13_3acnc"]
 [ext_resource type="Texture2D" uid="uid://cp1l2nfy0tvqq" path="res://assets/batiments/salle_sport.png" id="14_mjjod"]
 [ext_resource type="Texture2D" uid="uid://dr7f5q686agxy" path="res://assets/batiments/salle_repos.png" id="15_cud4g"]
-[ext_resource type="Texture2D" uid="uid://claecrp3ebw80" path="res://assets/batiments/observatoire.png" id="16_3acnc"]
+[ext_resource type="Texture2D" uid="uid://buqkftepk0spm" path="res://assets/batiments/observatoire.png" id="16_3acnc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjjod"]
 bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
@@ -23,7 +23,7 @@ border_width_left = 4
 border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
+border_color = Color(0.8509804, 0.7529412, 0.16078432, 1)
 corner_radius_top_left = 40
 corner_radius_top_right = 40
 corner_radius_bottom_right = 40

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dgxvotb63m4ye" path="res://Model/chart_stats.gd" id="1_jw5xl"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_ykjvn"]
-[ext_resource type="Texture2D" uid="uid://tnma6odo0arh" path="res://assets/exit_button/exit_button.png" id="3_18e5g"]
-[ext_resource type="Texture2D" uid="uid://c60liaujyeegu" path="res://assets/exit_button/exit_button_click.png" id="4_kwu2s"]
-[ext_resource type="Texture2D" uid="uid://ccgfp7p2mojhr" path="res://assets/exit_button/exit_button_hover.png" id="5_2oelh"]
+[ext_resource type="Texture2D" uid="uid://tnma6odo0arh" path="res://assets/button/exit_button/exit_button.png" id="3_18e5g"]
+[ext_resource type="Texture2D" uid="uid://c60liaujyeegu" path="res://assets/button/exit_button/exit_button_click.png" id="4_kwu2s"]
+[ext_resource type="Texture2D" uid="uid://ccgfp7p2mojhr" path="res://assets/button/exit_button/exit_button_hover.png" id="5_2oelh"]
 
 [node name="ChartStats" type="Control"]
 layout_mode = 3
