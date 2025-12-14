@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cxwf1b48xtn2o" path="res://assets/particles/snow_particle.png" id="25_3v7fu"]
 [ext_resource type="Texture2D" uid="uid://cvotmb1sxlf0h" path="res://assets/particles/big_snow_particle.png" id="26_bljva"]
 [ext_resource type="Texture2D" uid="uid://bi8lcddwpxb1g" path="res://assets/button/eyes_button/open_eye/open_eye_button.png" id="26_f7j0k"]
-[ext_resource type="Texture2D" uid="uid://x6iouychuvfb" path="res://assets/background/background.png" id="27_bljva"]
+[ext_resource type="Texture2D" uid="uid://ds3d0odg8y71k" path="res://assets/background/background.png" id="27_bljva"]
 [ext_resource type="Texture2D" uid="uid://dtm5x50fvd03q" path="res://assets/button/eyes_button/open_eye/open_eye_button_click.png" id="27_q5bha"]
 [ext_resource type="Texture2D" uid="uid://bau443fg47xtc" path="res://assets/button/eyes_button/open_eye/open_eye_button_hover.png" id="28_si2ni"]
 

@@ -33,6 +33,8 @@ func get_batiment_inventaire(nameBat) -> int: return Global.inventaire[nameBat]
 func get_recherche_en_cours() -> Dictionary: return Global.recherche_en_cours
 func get_recherche_debloque() -> Array: return Global.recherche_debloque
 
+func get_environnement(envi): return Global.environnement[envi]
+
 # SET
 
 func set_sante(val): Global.stats["sante"] = val
