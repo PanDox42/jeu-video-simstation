@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://djclb5m4lgayv" path="res://Model/camera_2d.gd" id="2_bofkp"]
 [ext_resource type="PackedScene" uid="uid://cnva1t7elyuce" path="res://View/hud.tscn" id="3_bq38n"]
 [ext_resource type="PackedScene" uid="uid://cnd66etwire0l" path="res://View/Map.tscn" id="5_65v2a"]
-[ext_resource type="AudioStream" uid="uid://bqtpw1h60ggrb" path="res://assets/sons/musiques/ori_music.mp3" id="5_j27tm"]
+[ext_resource type="AudioStream" uid="uid://c7hg2twegk3x0" path="res://assets/sons/musiques/ori_music.mp3" id="5_j27tm"]
 
 [node name="Play" type="Node2D"]
 script = ExtResource("1_ioox1")
@@ -15,11 +15,14 @@ position = Vector2(127, -194)
 [node name="hud" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="hud" instance=ExtResource("3_bq38n")]
-mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
+limit_enabled = false
+limit_smoothed = true
 script = ExtResource("2_bofkp")
+map_limit_top_left = Vector2(-5000, -5000)
+map_limit_bottom_right = Vector2(4500, 1300)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
