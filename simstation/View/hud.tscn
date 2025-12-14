@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://b07uv5qepy2li" path="res://assets/shop_button/shop_button_hover.png" id="20_xp7qj"]
 [ext_resource type="Texture2D" uid="uid://cxwf1b48xtn2o" path="res://assets/particles/snow_particle.png" id="25_3v7fu"]
 [ext_resource type="Texture2D" uid="uid://cvotmb1sxlf0h" path="res://assets/particles/big_snow_particle.png" id="26_bljva"]
-[ext_resource type="Texture2D" uid="uid://dcrgxsquua5l7" path="res://assets/background.png" id="27_bljva"]
+[ext_resource type="Texture2D" uid="uid://cdi88rkcbmnsf" path="res://assets/background/background.png" id="27_bljva"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -62,23 +62,24 @@ texture = ExtResource("27_bljva")
 
 [node name="Inventaire" type="Control" parent="CanvasLayer/BorderContainer"]
 layout_mode = 1
-anchor_left = 0.04654167
-anchor_top = 0.587963
-anchor_right = 0.04654167
-anchor_bottom = 0.587963
-offset_left = -63.36
-offset_top = -276.0
-offset_right = 64.64
-offset_bottom = 276.0
+anchor_left = 0.067
+anchor_top = 0.52400005
+anchor_right = 0.067
+anchor_bottom = 0.52400005
+offset_left = -88.64
+offset_top = -253.92004
+offset_right = 52.36
+offset_bottom = 379.07996
 grow_vertical = 2
 script = ExtResource("13_ew7f8")
 
 [node name="ScrollInventaire" type="ScrollContainer" parent="CanvasLayer/BorderContainer/Inventaire"]
-layout_mode = 0
-offset_left = 30.0
-offset_top = -128.0
-offset_right = 158.0
-offset_bottom = 500.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginInventaire" type="MarginContainer" parent="CanvasLayer/BorderContainer/Inventaire/ScrollInventaire"]
 layout_mode = 2
@@ -165,14 +166,14 @@ offset_bottom = -357.48004
 [node name="shop_button" type="TextureButton" parent="CanvasLayer/BorderContainer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.051958337
+anchor_left = 0.07591667
 anchor_top = 0.9133334
-anchor_right = 0.051958337
+anchor_right = 0.07591667
 anchor_bottom = 0.9133334
-offset_left = -49.76001
-offset_top = -50.400085
-offset_right = 50.23999
-offset_bottom = 49.599915
+offset_left = 62.23999
+offset_top = -67.400085
+offset_right = 162.23999
+offset_bottom = 32.599915
 grow_vertical = 0
 texture_normal = ExtResource("18_nlktb")
 texture_pressed = ExtResource("19_vpgw3")
@@ -180,7 +181,6 @@ texture_hover = ExtResource("20_xp7qj")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_jtq4o")
-metadata/_edit_use_anchors_ = true
 
 [node name="background" type="Panel" parent="CanvasLayer/BorderContainer"]
 self_modulate = Color(1, 1, 1, 0)
@@ -245,12 +245,15 @@ text = "[center][font_size=24]24 C°"
 
 [node name="state_bar" type="HBoxContainer" parent="CanvasLayer/BorderContainer/background"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -667.5
+offset_top = -70.5
 offset_right = 667.5
-offset_bottom = 133.0
+offset_bottom = 62.5
 grow_horizontal = 2
 alignment = 1
 
@@ -353,11 +356,12 @@ metadata/_edit_use_anchors_ = true
 [node name="settings_button" type="TextureButton" parent="CanvasLayer/BorderContainer/background"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9692956
+anchor_left = 0.99600005
 anchor_top = 0.04662464
-anchor_right = 0.9692956
+anchor_right = 0.99600005
 anchor_bottom = 0.04662464
-offset_right = 50.0
+offset_left = -50.471313
+offset_right = -0.47131348
 offset_bottom = 50.0
 texture_normal = ExtResource("15_2wmmq")
 texture_pressed = ExtResource("15_6wuao")
@@ -366,6 +370,37 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_jtq4o")
 metadata/_edit_use_anchors_ = true
+
+[node name="NightMode" type="Panel" parent="CanvasLayer/BorderContainer"]
+visible = false
+modulate = Color(0, 0.6415867, 0.7852611, 1)
+z_index = -900
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="fermer" type="TextureButton" parent="CanvasLayer/BorderContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07591667
+anchor_top = 0.9133334
+anchor_right = 0.07591667
+anchor_bottom = 0.9133334
+offset_left = -78.76001
+offset_top = -756.4001
+offset_right = -26.76001
+offset_bottom = -704.4001
+grow_vertical = 0
+texture_normal = ExtResource("18_nlktb")
+texture_pressed = ExtResource("19_vpgw3")
+texture_hover = ExtResource("20_xp7qj")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("11_jtq4o")
 
 [node name="SnowParticle" type="CPUParticles2D" parent="CanvasLayer"]
 z_index = -4096
@@ -407,3 +442,4 @@ scale_amount_max = 1.6
 [connection signal="pressed" from="CanvasLayer/BorderContainer/stats_button" to="." method="_on_btn_graphique_stats_pressed"]
 [connection signal="pressed" from="CanvasLayer/BorderContainer/shop_button" to="CanvasLayer/BorderContainer/shop_button" method="_on_pressed_shop"]
 [connection signal="pressed" from="CanvasLayer/BorderContainer/background/settings_button" to="CanvasLayer/BorderContainer/background/settings_button" method="_on_pressed_pause"]
+[connection signal="pressed" from="CanvasLayer/BorderContainer/fermer" to="." method="_on_fermer_pressed_close_inventory"]
