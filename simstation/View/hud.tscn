@@ -27,7 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cxwf1b48xtn2o" path="res://assets/particles/snow_particle.png" id="25_3v7fu"]
 [ext_resource type="Texture2D" uid="uid://cvotmb1sxlf0h" path="res://assets/particles/big_snow_particle.png" id="26_bljva"]
 [ext_resource type="Texture2D" uid="uid://bi8lcddwpxb1g" path="res://assets/button/eyes_button/open_eye/open_eye_button.png" id="26_f7j0k"]
-[ext_resource type="Texture2D" uid="uid://ds3d0odg8y71k" path="res://assets/background/background.png" id="27_bljva"]
+[ext_resource type="Texture2D" uid="uid://x6iouychuvfb" path="res://assets/background/background.png" id="27_bljva"]
 [ext_resource type="Texture2D" uid="uid://dtm5x50fvd03q" path="res://assets/button/eyes_button/open_eye/open_eye_button_click.png" id="27_q5bha"]
 [ext_resource type="Texture2D" uid="uid://bau443fg47xtc" path="res://assets/button/eyes_button/open_eye/open_eye_button_hover.png" id="28_si2ni"]
 
@@ -406,14 +406,14 @@ mouse_filter = 2
 [node name="Close_Inventory" type="TextureButton" parent="CanvasLayer/BorderContainer"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.046000004
-anchor_top = 0.19900002
-anchor_right = 0.046000004
-anchor_bottom = 0.19900002
-offset_left = 109.67999
-offset_top = -28.920013
-offset_right = 150.68
-offset_bottom = 12.079987
+anchor_left = 0.11400001
+anchor_top = 0.19100001
+anchor_right = 0.11400001
+anchor_bottom = 0.19100001
+offset_left = -20.88002
+offset_top = -20.280014
+offset_right = 20.11998
+offset_bottom = 20.719986
 grow_vertical = 0
 texture_normal = ExtResource("26_f7j0k")
 texture_pressed = ExtResource("27_q5bha")
