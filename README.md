@@ -90,9 +90,27 @@ Le projet SimStation a pour objectifs de :
 
 ## Captures d’écran
 
-- À compléter : en cours de développement.
+## Captures d’écran
+
+### Vue générale de la station
+![Carte de la station et bâtiments](/home/fabio/Images/Capture d’écran du 2025-12-14 23-07-31.png)
+
+Cette capture présente la carte isométrique de la station polaire, avec les bâtiments construits par le joueur et l’organisation globale de la base.
 
 ---
+
+### Boutique
+![Interface de la boutique](/home/fabio/Images/Capture d’écran du 2025-12-14 23-08-37.png)
+
+La boutique permet de commander de nouveaux bâtiments et équipements, avec des délais de livraison nécessitant une planification à long terme.
+
+---
+
+### Arbre de recherche
+![Arbre de recherche](/home/fabio/Images/Capture d’écran du 2025-12-14 23-09-03.png)
+
+L’arbre de recherche offre différentes améliorations et débloque de nouvelles possibilités pour optimiser la survie et l’efficacité de la station.
+
 
 ## Procédures d’installation et d’exécution
 
@@ -104,3 +122,145 @@ Le projet SimStation a pour objectifs de :
 
 - Manuel utilisateur : à venir.
 - Rapport de projet et documentation technique inclus dans le dossier Projet T3.
+
+## Structure du projet
+
+t3-simstation/
+├── README.md
+└── simstation
+    ├── assets
+    │   ├── arbre_recherche
+    │   ├── bar
+    │   ├── batiments
+    │   │   └── en rab
+    │   ├── buildings
+    │   │   └── more_buildings
+    │   ├── confirm_button
+    │   ├── exit_button
+    │   ├── menu_pictures
+    │   │   ├── placeholder.jpg
+    │   │   └── placeholder.jpg.import
+    │   ├── particles
+    │   ├── shop
+    │   │   └── buy_button
+    │   ├── side
+    │   ├── snow
+    │   ├── sons
+    │   │   └── musiques
+    │   │       ├── dark_souls_main_theme.mp3
+    │   │       ├── dark_souls_main_theme.mp3.import
+    │   │       ├── ori_music.mp3
+    │   │       └── ori_music.mp3.import
+    │   ├── sounds
+    │   │   └── musics
+    │   │       ├── dark_souls_main_theme.mp3
+    │   │       ├── dark_souls_main_theme.mp3.import
+    │   │       ├── ori_music.mp3
+    │   │       └── ori_music.mp3.import
+    │   ├── text_button
+    │   ├── tileset1
+    │   │   ├── environment
+    │   │   │   ├── rocks_small
+    │   │   │   └── trees
+    │   │   ├── rocks_big
+    │   │   └── walls_and_floors
+    │   │       ├── floor_tiles
+    │   │       └── wall_tiles
+    │   └── tileset2
+    │       ├── Decoration
+    │       ├── Fences
+    │       ├── ground
+    │       │   ├── ice
+    │       │   ├── misc
+    │       │   └── snow
+    │       ├── Terrain
+    │       │   ├── Ice
+    │       │   ├── Misc
+    │       │   └── Snow
+    │       └── Trees
+    ├── Controller
+    │   ├── game_manager.gd
+    │   └── game_manager.gd.uid
+    ├── default_bus_layout.tres
+    ├── font
+    │   ├── Minecraftia-Regular.ttf
+    │   └── Minecraftia-Regular.ttf.import
+    ├── global_script.gd
+    ├── global_script.gd.uid
+    ├── hud_theme.tres
+    ├── icon.svg
+    ├── icon.svg.import
+    ├── Model
+    │   ├── arbre_recherche.gd
+    │   ├── arbre_recherche.gd.uid
+    │   ├── arbre_recherche_graphique.gd
+    │   ├── arbre_recherche_graphique.gd.uid
+    │   ├── button_action.gd
+    │   ├── button_action.gd.uid
+    │   ├── buy_confirmation.gd
+    │   ├── buy_confirmation.gd.uid
+    │   ├── camera_2d.gd
+    │   ├── camera_2d.gd.uid
+    │   ├── chart_stats.gd
+    │   ├── chart_stats.gd.uid
+    │   ├── credits.gd
+    │   ├── credits.gd.uid
+    │   ├── crop_bar.gd
+    │   ├── crop_bar.gd.uid
+    │   ├── drag_building.gd
+    │   ├── drag_building.gd.uid
+    │   ├── efficiency_bar_empty.gd
+    │   ├── efficiency_bar_empty.gd.uid
+    │   ├── Global
+    │   │   ├── calcul_stats.gd
+    │   │   ├── calcul_stats.gd.uid
+    │   │   ├── global.gd
+    │   │   ├── global.gd.uid
+    │   │   ├── global_script.gd
+    │   │   └── global_script.gd.uid
+    │   ├── HUD
+    │   │   ├── resize_control.gd
+    │   │   ├── resize_control.gd.uid
+    │   │   ├── resize_state_bar.gd
+    │   │   └── resize_state_bar.gd.uid
+    │   ├── hud.gd
+    │   ├── hud.gd.uid
+    │   ├── info_panel.gd
+    │   ├── info_panel.gd.uid
+    │   ├── InventaireUI.gd
+    │   ├── InventaireUI.gd.uid
+    │   ├── main_menu.gd
+    │   ├── main_menu.gd.uid
+    │   ├── map.gd
+    │   ├── map.gd.uid
+    │   ├── night_mode.gd
+    │   ├── night_mode.gd.uid
+    │   ├── options.gd
+    │   ├── options.gd.uid
+    │   ├── pause.gd
+    │   ├── pause.gd.uid
+    │   ├── shadow_manager.gd
+    │   ├── shadow_manager.gd.uid
+    │   ├── shop.gd
+    │   ├── shop.gd.uid
+    │   ├── state_bar.gd
+    │   └── state_bar.gd.uid
+    ├── project.godot
+    ├── themes
+    │   └── hud_theme.tres
+    └── View
+        ├── arbre_recherche.tscn
+        ├── buy_confirmation.tscn
+        ├── chart_stats.tscn
+        ├── credits.tscn
+        ├── description_batiment.tscn
+        ├── hud.tscn
+        ├── main_menu.tscn
+        ├── Map.tscn
+        ├── occluder.gd
+        ├── occluder.gd.uid
+        ├── options.tscn
+        ├── pause.tscn
+        ├── play.tscn
+        └── shop.tscn
+
