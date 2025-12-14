@@ -245,12 +245,15 @@ text = "[center][font_size=24]24 C°"
 
 [node name="state_bar" type="HBoxContainer" parent="CanvasLayer/BorderContainer/background"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
+anchor_bottom = 0.5
 offset_left = -667.5
+offset_top = -70.5
 offset_right = 667.5
-offset_bottom = 133.0
+offset_bottom = 62.5
 grow_horizontal = 2
 alignment = 1
 
@@ -353,11 +356,12 @@ metadata/_edit_use_anchors_ = true
 [node name="settings_button" type="TextureButton" parent="CanvasLayer/BorderContainer/background"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.9692956
+anchor_left = 0.99600005
 anchor_top = 0.04662464
-anchor_right = 0.9692956
+anchor_right = 0.99600005
 anchor_bottom = 0.04662464
-offset_right = 50.0
+offset_left = -50.471313
+offset_right = -0.47131348
 offset_bottom = 50.0
 texture_normal = ExtResource("15_2wmmq")
 texture_pressed = ExtResource("15_6wuao")
