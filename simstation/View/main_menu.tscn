@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://rar5onkg2hjt" path="res://assets/menu_pictures/button.png" id="4_dq6vp"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://dhnl88e4uhdrx" path="res://assets/menu_pictures/button_hover.png" id="5_wntf2"]
-[ext_resource type="AudioStream" uid="uid://i702nadbvxuy" path="res://assets/sons/musiques/dark_souls_main_theme.mp3" id="7_oa1go"]
+[ext_resource type="AudioStream" uid="uid://bk2da0qw33ru3" path="res://assets/sons/musiques/dark_souls_main_theme.mp3" id="7_oa1go"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
@@ -169,9 +169,18 @@ theme_override_font_sizes/font_size = 38
 text = "QUITTER"
 metadata/_edit_use_anchors_ = true
 
-[node name="Logo" type="Sprite2D" parent="Panel"]
-position = Vector2(482, -16)
-scale = Vector2(7.49356, 6.7221923)
+[node name="Logo" type="TextureRect" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.024
+anchor_right = 0.5
+anchor_bottom = -0.024
+offset_left = -375.0
+offset_top = -77.208
+offset_right = -251.33331
+offset_bottom = -51.374664
+scale = Vector2(6, 6)
 texture = ExtResource("3_oa1go")
 
 [node name="version" type="Label" parent="."]
