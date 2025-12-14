@@ -8,9 +8,11 @@ extends Control
 @onready var night_mode = $CanvasLayer/BorderContainer/NightMode
 @onready var background = $CanvasLayer/BorderContainer/TopBorder
 @onready var inventory = $CanvasLayer/BorderContainer/Inventaire
+@onready var close_button = $CanvasLayer/BorderContainer/Close_Inventory
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
+
 
 func _ready():
 	chart_stats.hide()
@@ -54,7 +56,17 @@ func _on_btn_graphique_stats_pressed() -> void:
 func _on_fermer_pressed_close_inventory() -> void:
 	if inventory.visible:
 		background.texture = BACKGROUND_TEXTURE_WITHOUT
+		
+		close_button.texture_normal = preload("res://assets/button/eyes_button/close_eye/close_eye_button.png")
+		close_button.texture_hover = preload("res://assets/button/eyes_button/close_eye/close_eye_button_hover.png")
+		close_button.texture_pressed = preload("res://assets/button/eyes_button/close_eye/close_eye_button_click.png")
+		
 	else :
 		background.texture = BACKGROUND_TEXTURE_WITH
 		
+		close_button.texture_normal = preload("res://assets/button/eyes_button/open_eye/open_eye_button.png")
+		close_button.texture_hover = preload("res://assets/button/eyes_button/open_eye/open_eye_button_hover.png")
+		close_button.texture_pressed = preload("res://assets/button/eyes_button/open_eye/open_eye_button_click.png")
+		
 	inventory.visible = !inventory.visible
+	

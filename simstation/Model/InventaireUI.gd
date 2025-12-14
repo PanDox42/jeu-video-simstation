@@ -14,6 +14,8 @@ extends Control
 
 func _ready():
 	await get_tree().process_frame
+	grid.add_theme_constant_override("v_separation", 15)
+	
 	afficher_inventaire()
 	
 	if GlobalScript.has_signal("batiment_changed"):
@@ -36,13 +38,13 @@ func creer_bouton_batiment(nom_batiment: String, quantite: int) -> Control:
 	var icon = TextureRect.new()
 	icon.name = nom_batiment
 	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
 	icon.set_anchors_preset(Control.PRESET_FULL_RECT)
 	
 	var path_img = "res://assets/batiments/%s.png" % nom_batiment
 	if ResourceLoader.exists(path_img):
 		icon.texture = load(path_img)
-		icon.modulate = Color(0.5, 0.5, 0.5) if quantite <= 0 else Color.WHITE
+		icon.modulate = Color(0.658, 0.658, 0.658, 1.0) if quantite <= 0 else Color.WHITE
 	else:
 		icon.texture = PlaceholderTexture2D.new() 
 		printerr("Image manquante pour : ", path_img)
@@ -52,9 +54,12 @@ func creer_bouton_batiment(nom_batiment: String, quantite: int) -> Control:
 
 	var label = Label.new()
 	label.name = "nombre"
-	label.text = str(quantite)
+	
+	var nom = "Laboratoire" if Global.info_batiments[nom_batiment][3] == "Laboratoire de recherche" else Global.info_batiments[nom_batiment][3]
+	
+	label.text = nom + " (x" + str(quantite) + ")"
 	label.position = Vector2(5, 80)
-	label.modulate = Color(0.0, 0.0, 0.0, 1.0)
+	label.modulate = Color(1.0, 1.0, 1.0, 1.0)
 	icon.add_child(label)
 	
 	box.add_child(icon)
@@ -65,5 +70,8 @@ func _on_batiment_changed(nom_batiment, new_val):
 		var icon = box.get_child(0)
 		if icon.name == nom_batiment:
 			var lbl = icon.get_node("nombre")
-			lbl.text = str(new_val)
-			icon.modulate = Color(0.5, 0.5, 0.5) if new_val <= 0 else Color.WHITE
+			
+			var nom = "Laboratoire" if Global.info_batiments[nom_batiment][3] == "Laboratoire de recherche" else Global.info_batiments[nom_batiment][3]
+			
+			lbl.text = nom + " (x" + str(new_val) + ")"
+			icon.modulate = Color(0.658, 0.658, 0.658, 1.0) if new_val <= 0 else Color.WHITE
