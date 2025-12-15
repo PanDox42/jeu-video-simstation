@@ -29,10 +29,10 @@ func _maj_mois():
 	date_label.text = "[center][font_size=24]Mois "+str(tour*3)
 	
 func _maj_saison():
-	saison_label.text = "[center][font_size=24]" + str(Global.environnement["saison"])
+	saison_label.text = "[center][font_size=24]" + str(GlobalScript.get_environnement("saison"))
 	
 func _maj_temperature():
-	temperature_label.text = "[center][font_size=24]" + str(Global.environnement["temperature"]) + " C°"
+	temperature_label.text = "[center][font_size=24]" + str(GlobalScript.get_environnement("temperature")) + " C°"
 	
 func _on_argent_changed(new_value):
 	if argent_label:

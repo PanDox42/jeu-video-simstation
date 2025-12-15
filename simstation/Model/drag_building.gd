@@ -72,18 +72,18 @@ func start_dragging():
 	batiment_instance.set_meta("type_batiment", name)
 	batiment_instance.z_index = 2
 	
-	var contour = ReferenceRect.new()
-	contour.name = "ContourDeSelection"
-	contour.editor_only = false
-	contour.border_color = Color.GRAY
-	contour.border_width = 2.0
-	contour.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var fond = ColorRect.new()
+	fond.name = "FondDePlacement" 
+	fond.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fond.color = Color(0.5, 0.5, 0.5, 0.5)
+	var tex_size = texture.get_size()
+	fond.custom_minimum_size = tex_size
+	fond.size = tex_size
+	fond.position = -tex_size / 2
+	fond.show_behind_parent = true 
 	
-	contour.custom_minimum_size = texture.get_size()
-	contour.size = texture.get_size()
-	contour.position = -texture.get_size() / 2
+	batiment_instance.add_child(fond)
 	
-	batiment_instance.add_child(contour)
 	map_ref.add_temp_building(batiment_instance)
 	
 	dragging = true
@@ -95,9 +95,9 @@ func place_building():
 	if map_ref.is_placable(batiment_instance):
 		batiment_instance.modulate = Color(1, 1, 1, 1)
 		
-		var contour = batiment_instance.get_node_or_null("ContourDeSelection")
-		if contour:
-			contour.queue_free()
+		var fond = batiment_instance.get_node_or_null("FondDePlacement")
+		if fond:
+			fond.queue_free()
 		
 		map_ref.validate_building(batiment_instance)
 		CalculStats._ajouter_stats_nouveau_batiment(name)

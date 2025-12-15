@@ -27,19 +27,18 @@ func afficher_inventaire():
 
 	for nom_batiment in GlobalScript.get_inventaire().keys():
 		var quantite = GlobalScript.get_inventaire()[nom_batiment]
-		var box = creer_bouton_batiment(nom_batiment, quantite)
-		if box:
-			grid.add_child(box)
+		creer_bouton_batiment(nom_batiment, quantite)
 
-func creer_bouton_batiment(nom_batiment: String, quantite: int) -> Control:
-	var box = Control.new()
-	box.custom_minimum_size = Vector2(100, 100)
-	
+func creer_bouton_batiment(nom_batiment: String, quantite: int):
+	var container = VBoxContainer.new()
+	container.name = "Box_" + nom_batiment
+	container.alignment = BoxContainer.ALIGNMENT_CENTER 
+
 	var icon = TextureRect.new()
-	icon.name = nom_batiment
+	icon.name = nom_batiment 
 	icon.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
-	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_COVERED
-	icon.set_anchors_preset(Control.PRESET_FULL_RECT)
+	icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	icon.custom_minimum_size = Vector2(64, 64) 
 	
 	var path_img = "res://assets/batiments/%s.png" % nom_batiment
 	if ResourceLoader.exists(path_img):
@@ -51,27 +50,33 @@ func creer_bouton_batiment(nom_batiment: String, quantite: int) -> Control:
 
 	var drag_script = load("res://Model/drag_building.gd") 
 	icon.set_script(drag_script)
+	icon.mouse_filter = Control.MOUSE_FILTER_STOP 
 
 	var label = Label.new()
-	label.name = "nombre"
+	label.name = "lbl"+nom_batiment
 	
-	var nom = "Laboratoire" if Global.info_batiments[nom_batiment][3] == "Laboratoire de recherche" else Global.info_batiments[nom_batiment][3]
+	var nom_affiche = GlobalScript.get_batiment_info(nom_batiment)[3]
+	if nom_affiche == "Laboratoire de recherche":
+		nom_affiche = "Laboratoire"
 	
-	label.text = nom + " (x" + str(quantite) + ")"
-	label.position = Vector2(5, 80)
-	label.modulate = Color(1.0, 1.0, 1.0, 1.0)
-	icon.add_child(label)
-	
-	box.add_child(icon)
-	return box
+	label.text = "%s (x%d)" % [nom_affiche, quantite]
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER 
+	label.modulate = Color(0.658, 0.658, 0.658, 1.0) if quantite <= 0 else Color.WHITE
+
+	container.add_child(icon) 
+	container.add_child(label) 
+	grid.add_child(container)   
 
 func _on_batiment_changed(nom_batiment, new_val):
 	for box in grid.get_children():
-		var icon = box.get_child(0)
-		if icon.name == nom_batiment:
-			var lbl = icon.get_node("nombre")
+		if box.has_node(nom_batiment):
+			var icon = box.get_node(nom_batiment)
+			var lbl = box.get_node("lbl"+nom_batiment)
 			
-			var nom = "Laboratoire" if Global.info_batiments[nom_batiment][3] == "Laboratoire de recherche" else Global.info_batiments[nom_batiment][3]
+			var nom_affiche = GlobalScript.get_batiment_info(nom_batiment)[3]
+			if nom_affiche == "Laboratoire de recherche":
+				nom_affiche = "Laboratoire"
 			
-			lbl.text = nom + " (x" + str(new_val) + ")"
+			lbl.text = "%s (x%d)" % [nom_affiche, new_val]
 			icon.modulate = Color(0.658, 0.658, 0.658, 1.0) if new_val <= 0 else Color.WHITE
+			lbl.modulate = Color(0.658, 0.658, 0.658, 1.0) if new_val <= 0 else Color.WHITE
