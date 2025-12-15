@@ -18,16 +18,18 @@ func _ready():
 	
 	afficher_inventaire()
 	
-	if GlobalScript.has_signal("batiment_changed"):
-		GlobalScript.connect("batiment_changed", Callable(self, "_on_batiment_changed"))
+	GlobalScript.connect("debloque_bat", afficher_inventaire)
+	GlobalScript.connect("batiment_changed", _on_batiment_changed)
 
 func afficher_inventaire():
+	print("INVENTAIRE RELOAD")
 	for child in grid.get_children():
 		child.queue_free()
 
 	for nom_batiment in GlobalScript.get_inventaire().keys():
 		var quantite = GlobalScript.get_inventaire()[nom_batiment]
-		creer_bouton_batiment(nom_batiment, quantite)
+		if(GlobalScript.get_batiments_debloque(nom_batiment)!=false):
+			creer_bouton_batiment(nom_batiment, quantite)
 
 func creer_bouton_batiment(nom_batiment: String, quantite: int):
 	var container = VBoxContainer.new()
@@ -74,6 +76,8 @@ func _on_batiment_changed(nom_batiment, new_val):
 			var lbl = box.get_node("lbl"+nom_batiment)
 			
 			var nom_affiche = GlobalScript.get_batiment_info(nom_batiment)[3]
+			if nom_affiche == "Laboratoire de recherche":
+				nom_affiche = "Laboratoire"
 			
 			lbl.text = "%s (x%d)" % [nom_affiche, new_val]
 			icon.modulate = Color(0.658, 0.658, 0.658, 1.0) if new_val <= 0 else Color.WHITE

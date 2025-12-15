@@ -49,13 +49,19 @@ var batiments_nombre = {
 
  # [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
 var info_batiments = {
-	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire", true], 
-	"dortoir": [60, 60, "Permet de se reposer tranquillement", "Dortoir", true],  
-	"cantine": [60, 70, "Fournit de la nourriture aux habitants", "Cantine", true],
-	"hopital": [40, 60, "Permet de soigner les malades", "Hopital", true],    
-	"observatoire" : [20, 50, "Permet de découvrire de nouvelles étoiles", "Observatoire", true],
-	"salle_sport": [70, 70, "Améliore la condition physique des habitants", "Salle de sport", false],  
-	"salle_repos": [40, 60, "Endroit calme pour se détendre", "Salle de repos", true],    
+	# [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
+	# --- Bâtiments de base (Débloqués par défaut) ---
+	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire de recherche", true],
+	"dortoir": [60, 60, "Permet de se reposer tranquillement", "Dortoir", true],
+	
+	# --- Bâtiments à débloquer via l'Arbre "Infrastructure" ---
+	"salle_sport": [70, 70, "Améliore la condition physique des habitants", "Salle de sport", false],
+	"cantine": [60, 70, "Fournit de la nourriture chaude", "Cantine", false],
+	"salle_repos": [40, 60, "Endroit calme pour se détendre", "Salle de repos", false],
+	
+	# --- Bâtiments à débloquer via l'Arbre "Science" ---
+	"hopital": [40, 60, "Permet de soigner les malades graves", "Hopital", false],
+	"observatoire" : [20, 50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false],
 }
 
 var stats = {

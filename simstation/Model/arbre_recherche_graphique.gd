@@ -32,28 +32,48 @@ func _ready():
 	
 	tree = SearchTree.new()
 
-	var root_infra = tree.create_root("Générateurs Diesel", 1, 5000, 0, "Électricité de base.", "salle_sport")
-	var infra_2a = tree.add_child(root_infra, "Isolation Renforcée", 2, 25000, 10, "Protection -50°C.", "")
-	var infra_3a = tree.add_child(infra_2a, "Dortoirs Modulaires", 3, 60000, 20, "Modules chauffés.", "")
-	var infra_2b = tree.add_child(root_infra, "Garage à Chenilles", 2, 45000, 15, "Hangar véhicules.", "")
-	var infra_3b = tree.add_child(infra_2b, "Rover d'Exploration", 4, 120000, 40, "Accès zones lointaines.", "")
-	var infra_final = tree.add_child(infra_3a, "Centrale Géothermique", 12, 2500000, 100, "Énergie illimitée.", "")
+	var root_infra = tree.create_root("Générateurs Diesel", 1, 5000, 0, "Fournit l'électricité de base.", "salle_sport")
+	
+	# Niveau 2 : Débloque la Cantine (Nécessite de l'isolation pour cuisiner au chaud)
+	var infra_2a = tree.add_child(root_infra, "Isolation Renforcée", 2, 25000, 10, "Protection -50°C.", "cantine")
+	
+	# Niveau 3 : Débloque la Salle de Repos (Amélioration des dortoirs)
+	var infra_3a = tree.add_child(infra_2a, "Dortoirs Modulaires", 3, 60000, 20, "Modules d'habitation avancés.", "salle_repos")
+	
+	# Autres branches Infra (Véhicules & Energie finale) - Pas de bâtiment ici pour l'instant
+	var infra_2b = tree.add_child(root_infra, "Garage à Chenilles", 2, 45000, 15, "Hangar pour véhicules lourds.", "")
+	var infra_3b = tree.add_child(infra_2b, "Rover d'Exploration", 4, 120000, 40, "Accès aux zones lointaines.", "")
+	var infra_final = tree.add_child(infra_3a, "Centrale Géothermique", 12, 2500000, 100, "Source d'énergie illimitée.", "")
 
+
+	# --- ARBRE SCIENCE (Médecine & Savoir) ---
 	var root_science = tree.create_root("Labo de Terrain", 1, 10000, 0, "Le début de la recherche.", "")
 	root_science.debloque = true
-	var sci_2 = tree.add_child(root_science, "Forage Superficiel", 2, 35000, 10, "Carottes 0-50m.", "")
-	var sci_3a = tree.add_child(sci_2, "Labo de Chimie", 3, 80000, 25, "Analyse bulles d'air.", "")
-	var sci_4a = tree.add_child(sci_3a, "Données Climatiques", 4, 200000, 50, "Reconstitution climat.", "")
-	var sci_3b = tree.add_child(sci_2, "Cryobiologie", 3, 90000, 30, "Bactéries dormantes.", "")
+	
+	var sci_2 = tree.add_child(root_science, "Forage Superficiel", 2, 35000, 10, "Carottes glaciaires 0-50m.", "")
+	
+	# Niveau 3 (Chimie)
+	var sci_3a = tree.add_child(sci_2, "Labo de Chimie", 3, 80000, 25, "Analyse des bulles d'air.", "")
+	
+	# Niveau 4 (Climat) : Débloque l'Observatoire
+	var sci_4a = tree.add_child(sci_3a, "Données Climatiques", 4, 200000, 50, "Reconstitution du climat passé.", "observatoire")
+	
+	# Niveau 3 (Bio) : Débloque l'Hôpital (Cryobiologie -> Médecine)
+	var sci_3b = tree.add_child(sci_2, "Cryobiologie", 3, 90000, 30, "Étude des bactéries dormantes.", "hopital")
+	
 	var sci_4b = tree.add_child(sci_3b, "Séquençage ADN", 6, 500000, 80, "Nouvelles formes de vie.", "")
-	var sci_final = tree.add_child(sci_4a, "Forage Profond (3km)", 20, 15000000, 200, "Le socle rocheux.", "")
+	var sci_final = tree.add_child(sci_4a, "Forage Profond (3km)", 20, 15000000, 200, "Atteindre le socle rocheux.", "")
 
-	var root_comms = tree.create_root("Antenne Radio", 1, 8000, 0, "Lien radio basique.", "")
+
+	# --- ARBRE COMMUNICATIONS (Argent & Influence) ---
+	# Cette branche sert surtout à gagner de l'argent/prestige, pas de bâtiment ici pour l'instant.
+	var root_comms = tree.create_root("Antenne Radio", 1, 8000, 0, "Lien radio basique avec la Terre.", "")
 	root_comms.debloque = true
-	var com_2 = tree.add_child(root_comms, "Lien Satellite", 1, 150000, 20, "Haut débit.", "")
-	var com_3a = tree.add_child(com_2, "Reportage TV", 2, 500000, 30, "Droits TV.", "")
-	var com_4a = tree.add_child(com_3a, "Sponsoring Privé", 4, 2000000, 60, "Contrat Red Bull.", "")
-	var com_3b = tree.add_child(com_2, "Partenariat Univ.", 3, 400000, 40, "Fonds de recherche.", "")
+	
+	var com_2 = tree.add_child(root_comms, "Lien Satellite", 1, 150000, 20, "Connexion haut débit.", "")
+	var com_3a = tree.add_child(com_2, "Reportage TV", 2, 500000, 30, "Vendre les droits TV.", "")
+	var com_4a = tree.add_child(com_3a, "Sponsoring Privé", 4, 2000000, 60, "Contrat majeur (ex: Red Bull).", "")
+	var com_3b = tree.add_child(com_2, "Partenariat Univ.", 3, 400000, 40, "Fonds de recherche internationaux.", "")
 
 	roots = [root_infra, root_science, root_comms]
 
@@ -108,6 +128,9 @@ func _complete_research(nom_recherche: String):
 			break # On a trouvé le bon noeud, on arrête de chercher
 	
 	if node:
+		if(node.batiment_debloque!=""):
+			GlobalScript.set_batiment_debloque(node.batiment_debloque)
+			GlobalScript.emit_signal("debloque_bat")
 		# 2. Appliquer les gains
 		GlobalScript.modifier_argent(GlobalScript.get_argent() + node.money)
 		if(node.batiment_debloque!="") :
@@ -234,29 +257,59 @@ func ajouter_retirer_menu_node(pos: Vector2, node: SearchTree.NodeData):
 	var nom = RichTextLabel.new()
 	var bouton_recherche = Button.new()
 	
-	nom.bbcode_enabled = true
-	menu.set_size(Vector2(300, 145))
 	tree_canvas.add_child(menu) 
 	menu.set_position(pos)
 	
+	# Configuration de base du texte principal
+	nom.bbcode_enabled = true
 	nom.size = Vector2(280, 100)
 	nom.position = Vector2(10, 10)
-	
+	menu.add_child(nom)
+
 	if node.debloque:
-		nom.text = "[b]" + node.nom + "[/b]\n" + node.description + "\n[color=green]RECHERCHE TERMINÉE[/color]"
+		# --- CAS 1 : RECHERCHE DÉJÀ FAITE ---
+		nom.text = "[b]" + node.nom + "[/b]\n" + node.description + "\n\n[center][color=green]✔ RECHERCHE TERMINÉE[/color][/center]"
+		menu.set_size(Vector2(300, 120))
+		
 	else:
-		# Bouton Lancer Recherche
+		# --- CAS 2 : RECHERCHE DISPONIBLE ---
+		
+		# 1. Préparer le texte de description + Coût + Durée
+		var texte_desc = "[b]" + node.nom + "[/b]\n" + node.description + "\n"
+		texte_desc += "[color=#aaaaaa]_______________________[/color]\n" # Ligne de séparation
+		texte_desc += "[b]Gain :[/b] " + str(node.money) + "$ \n"
+		texte_desc += "[b]Durée :[/b] " + str(node.tour * 3) + " mois"
+		nom.text = texte_desc
+		
+		# Variable pour suivre la position verticale des éléments (curseur Y)
+		var current_y = 115 
+		
+		# 2. Vérifier s'il y a un BÂTIMENT à débloquer
+		if node.batiment_debloque != "":
+			var bat_label = RichTextLabel.new()
+			# On récupère le nom propre du bâtiment (index 3 du tableau info_batiments)
+			var nom_batiment = Global.info_batiments[node.batiment_debloque][3]
+			
+			bat_label.bbcode_enabled = true
+			bat_label.text = "[color=yellow]🔓 Débloque : " + nom_batiment + "[/color]"
+			bat_label.size = Vector2(280, 25)
+			bat_label.position = Vector2(10, current_y)
+			
+			menu.add_child(bat_label)
+			current_y += 25 # On décale le curseur vers le bas
+		
+		# 3. Placer le BOUTON en fonction du curseur Y
 		bouton_recherche.text = "Lancer (" + str(node.tour) + " tours)"
-		bouton_recherche.set_size(Vector2(280, 30))
-		bouton_recherche.set_position(Vector2(10, 105))
+		bouton_recherche.size = Vector2(280, 30)
+		bouton_recherche.position = Vector2(10, current_y + 5) # +5 pour un petit espacement
+		
+		# Connexion du signal
 		bouton_recherche.pressed.connect(func(): lancer_recherche(node))
 		menu.add_child(bouton_recherche)
 		
-		nom.text = "[b]" + node.nom + "[/b]\n" + node.description + \
-			"\n[b]Gain :[/b] " + str(node.money) + "$ " + \
-			"\n[b]Durée :[/b] " + str(node.tour * 3) + " mois"
-	
-	menu.add_child(nom)
+		# 4. Ajuster la taille finale du panneau
+		menu.set_size(Vector2(300, current_y + 45)) # 45 = Hauteur bouton + Marge bas
+
 	current_menu = menu
 
 func lancer_recherche(node):

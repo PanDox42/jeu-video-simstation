@@ -28,6 +28,7 @@ func get_batiment_prix(nom) -> int: return Global.batiments_prix[nom]
 func get_batiment_info(nom): return Global.info_batiments[nom]
 func get_batiments_counts() -> Dictionary: return Global.batiments_nombre
 func get_batiments_data() -> Dictionary: return Global.info_batiments
+func get_batiments_debloque(nom_batiment) -> bool: return Global.info_batiments[nom_batiment][4]
 func get_population() -> Array: return Global.population
 func get_batiment_inventaire(nameBat) -> int: return Global.inventaire[nameBat]
 func get_recherche_en_cours() -> Dictionary: return Global.recherche_en_cours
