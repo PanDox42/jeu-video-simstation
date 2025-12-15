@@ -11,12 +11,15 @@ extends Control
 @onready var close_button = $CanvasLayer/BorderContainer/Close_Inventory
 @onready var confirmation_passer_tour = $CanvasLayer/BorderContainer/passerTour
 @onready var affichage_tour_passe = $CanvasLayer/BorderContainer/affichageTour
+@onready var load_screen = $CanvasLayer/LoadScreen
+@onready var changement_tour = $"CanvasLayer/BorderContainer/PanelChangementTour"
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
 
 
 func _ready():
+	afficher_changement_tour()
 	chart_stats.hide()
 	GlobalScript.connect("argent_changed", Callable(self, "_on_argent_changed"))
 	GlobalScript.connect("tour_change", Callable(self, "_maj_saison"))
@@ -50,6 +53,7 @@ func _maj_night_mode():
 
 func _on_passer_tour_pressed():
 	CalculStats.passer_tour()
+	afficher_changement_tour()
 	_maj_temperature()
 	_maj_night_mode()
 	change_visible_confirmation_passer_tour()
@@ -90,3 +94,13 @@ func visible_affichage_tour_passe() :
 	change_visible_afichage_tour_passe()
 	await get_tree().create_timer(2).timeout
 	change_visible_afichage_tour_passe()
+	
+func charger_load_screen():
+	await get_tree().create_timer(1).timeout
+	load_screen.visible = false
+
+func afficher_changement_tour() :
+	changement_tour.get_child(0).bbcode_text = "[center][font_size=48]Tour " + str(GlobalScript.get_tour() + 1)
+	changement_tour.visible = true
+	await get_tree().create_timer(2).timeout
+	changement_tour.visible = false

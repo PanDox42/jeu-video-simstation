@@ -1,13 +1,14 @@
-[gd_scene load_steps=37 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=38 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Theme" uid="uid://jn71302gkvqy" path="res://hud_theme.tres" id="1_pil5s"]
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
-[ext_resource type="Texture2D" uid="uid://b5htmoxepvs57" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
+[ext_resource type="Texture2D" uid="uid://cqaaep04atrp3" path="res://assets/load_screen/start_load.jpg" id="3_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://cd2dc2vr6blus" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
 [ext_resource type="Texture2D" uid="uid://e14rlujxv2r6" path="res://assets/bar/filled_bar.png" id="7_s7bk8"]
 [ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://Model/crop_bar.gd" id="8_fj0si"]
-[ext_resource type="Texture2D" uid="uid://c7orjokudtall" path="res://assets/bar/efficiency_bar_empty.png" id="9_1cvsb"]
-[ext_resource type="Texture2D" uid="uid://dxoevfrf00nn6" path="res://assets/bar/happiness_bar_empty.png" id="10_0ig0g"]
+[ext_resource type="Texture2D" uid="uid://cgjqbebqtphh2" path="res://assets/bar/efficiency_bar_empty.png" id="9_1cvsb"]
+[ext_resource type="Texture2D" uid="uid://cjxus45xwl0ka" path="res://assets/bar/happiness_bar_empty.png" id="10_0ig0g"]
 [ext_resource type="Texture2D" uid="uid://b13byyd7hdnsp" path="res://assets/button/next_round_button/next_round.png" id="10_o4crf"]
 [ext_resource type="Script" uid="uid://dfm8a1cu60p68" path="res://Model/button_action.gd" id="11_jtq4o"]
 [ext_resource type="Texture2D" uid="uid://cr8hfxgtx8jql" path="res://assets/button/next_round_button/next_button_click.png" id="11_n3rgs"]
@@ -49,6 +50,17 @@ theme = ExtResource("1_pil5s")
 script = ExtResource("2_ugs5p")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="LoadScreen" type="TextureRect" parent="CanvasLayer"]
+visible = false
+z_index = 4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("3_vcgxy")
 
 [node name="BorderContainer" type="Control" parent="CanvasLayer"]
 z_index = -4000
@@ -430,6 +442,7 @@ script = ExtResource("11_jtq4o")
 
 [node name="passerTour" type="Panel" parent="CanvasLayer/BorderContainer"]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -522,6 +535,41 @@ theme_override_colors/default_color = Color(1, 1, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]Vous avez passé un tour !"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelChangementTour" type="Panel" parent="CanvasLayer/BorderContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.74997
+offset_top = -58.25
+offset_right = 246.74997
+offset_bottom = 58.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChangementTour" type="RichTextLabel" parent="CanvasLayer/BorderContainer/PanelChangementTour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.509
+offset_left = -236.99997
+offset_top = -41.0
+offset_right = 243.24261
+offset_bottom = 41.9515
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=48]Tour 1"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
