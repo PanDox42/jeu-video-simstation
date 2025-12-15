@@ -6,8 +6,13 @@ extends Control
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	music_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
-	effet_slider.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
+	
+	var default_volume_linear = 0.5
+	music_slider.value = default_volume_linear
+	effet_slider.value = default_volume_linear
+
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(default_volume_linear))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(default_volume_linear))
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN :
 		ecran_button.button_pressed = true
