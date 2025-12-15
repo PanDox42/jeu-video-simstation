@@ -34,6 +34,7 @@ func get_recherche_en_cours() -> Dictionary: return Global.recherche_en_cours
 func get_recherche_debloque() -> Array: return Global.recherche_debloque
 
 func get_environnement(envi): return Global.environnement[envi]
+func get_night_mode() : return Global.environnement["night"]
 
 # SET
 
@@ -42,6 +43,8 @@ func set_efficacite(val): Global.stats["efficacite"] = val
 func set_bonheur(val): Global.stats["bonheur"] = val
 func set_argent(val): Global.argent = val
 func set_camera(val): Global.camera_enable = val
+
+func set_night_mode(active : bool) : Global.environnement["night"] = active
 
 func set_tour(val: int):
 	Global.tour = val

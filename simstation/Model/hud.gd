@@ -24,6 +24,7 @@ func _ready():
 	_maj_mois()
 	_maj_saison()
 	_maj_temperature()
+	_maj_night_mode()
 	_on_argent_changed(GlobalScript.get_argent())
 	
 func _maj_mois():
@@ -41,9 +42,11 @@ func _on_argent_changed(new_value):
 		argent_label.bbcode_text = "[right][font_size=32]" + GlobalScript.format_money(new_value) + " €"
 
 func _maj_night_mode():
-	if GlobalScript.get_tour() % 2 == 0:
+	if GlobalScript.get_tour() % 2 == 0 && GlobalScript.get_tour() != 0:
 		night_mode.visible = !night_mode.visible
-		
+		GlobalScript.set_night_mode(true)
+	else :
+		GlobalScript.set_night_mode(false)
 
 func _on_passer_tour_pressed():
 	CalculStats.passer_tour()

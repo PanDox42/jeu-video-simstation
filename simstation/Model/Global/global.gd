@@ -66,6 +66,7 @@ var stats = {
 }
 
 var environnement = {
+	"night" : false,
 	"temperature": -25 - (randi() % 14),  # °C
 	"saison": "Été austral"
 }

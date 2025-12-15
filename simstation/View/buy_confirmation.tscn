@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4kukl2esgxwp"]
+[gd_scene load_steps=9 format=3 uid="uid://d4kukl2esgxwp"]
 
 [ext_resource type="Texture2D" uid="uid://s4r3rofou5eu" path="res://assets/button/confirm_button/confirm_button.png" id="1_0bhau"]
 [ext_resource type="Script" uid="uid://cc0lawlrgjo1q" path="res://Model/buy_confirmation.gd" id="1_vv2ij"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_i5yxb"]
 [ext_resource type="Texture2D" uid="uid://dxnjlbnjolp4q" path="res://assets/button/confirm_button/confirm_button_click.png" id="2_vv2ij"]
 [ext_resource type="Texture2D" uid="uid://dvedh4isp1kfq" path="res://assets/button/confirm_button/confirm_button_hover.png" id="3_4pj0v"]
 [ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_b7ln2"]
@@ -43,7 +44,8 @@ anchor_bottom = 0.238
 offset_left = -666.5
 offset_top = -77.112
 offset_right = 657.5
-offset_bottom = 16.888
+offset_bottom = 118.888
+theme_override_fonts/normal_font = ExtResource("2_i5yxb")
 bbcode_enabled = true
 text = "[center][font_size=56]Voulez vous vraiment acheter le batiment : 64cdh%03eh$ ?"
 fit_content = true

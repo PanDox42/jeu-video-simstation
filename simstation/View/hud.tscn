@@ -429,7 +429,6 @@ stretch_mode = 4
 script = ExtResource("11_jtq4o")
 
 [node name="passerTour" type="Panel" parent="CanvasLayer/BorderContainer"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -454,6 +453,7 @@ offset_left = -666.5
 offset_top = -77.112
 offset_right = 657.5
 offset_bottom = 16.888
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=56]Voulez vous vraiment passer au tour suivant ?"
 fit_content = true
@@ -510,9 +510,9 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0025190262
-anchor_top = 0.081632614
+anchor_top = 0.102040775
 anchor_right = 0.8025409
-anchor_bottom = 0.08163265
+anchor_bottom = 0.10204082
 offset_right = 82.945526
 offset_bottom = 56.0
 grow_horizontal = 2
