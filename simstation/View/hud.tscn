@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=37 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Theme" uid="uid://jn71302gkvqy" path="res://hud_theme.tres" id="1_pil5s"]
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
@@ -30,6 +30,12 @@
 [ext_resource type="Texture2D" uid="uid://x6iouychuvfb" path="res://assets/background/background.png" id="27_bljva"]
 [ext_resource type="Texture2D" uid="uid://dtm5x50fvd03q" path="res://assets/button/eyes_button/open_eye/open_eye_button_click.png" id="27_q5bha"]
 [ext_resource type="Texture2D" uid="uid://bau443fg47xtc" path="res://assets/button/eyes_button/open_eye/open_eye_button_hover.png" id="28_si2ni"]
+[ext_resource type="Texture2D" uid="uid://s4r3rofou5eu" path="res://assets/button/confirm_button/confirm_button.png" id="29_61voh"]
+[ext_resource type="Texture2D" uid="uid://dxnjlbnjolp4q" path="res://assets/button/confirm_button/confirm_button_click.png" id="30_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://dvedh4isp1kfq" path="res://assets/button/confirm_button/confirm_button_hover.png" id="31_wvy0n"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="32_nrmyt"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="33_4uvaq"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="34_rf6ic"]
 
 [node name="Hud" type="Control"]
 layout_mode = 3
@@ -422,6 +428,102 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_jtq4o")
 
+[node name="passerTour" type="Panel" parent="CanvasLayer/BorderContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -666.5
+offset_top = -162.0
+offset_right = 666.5
+offset_bottom = 162.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="message" type="RichTextLabel" parent="CanvasLayer/BorderContainer/passerTour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.238
+anchor_right = 0.5
+anchor_bottom = 0.238
+offset_left = -666.5
+offset_top = -77.112
+offset_right = 657.5
+offset_bottom = 16.888
+bbcode_enabled = true
+text = "[center][font_size=56]Voulez vous vraiment passer au tour suivant ?"
+fit_content = true
+scroll_active = false
+
+[node name="confirm_button" type="TextureButton" parent="CanvasLayer/BorderContainer/passerTour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.26900002
+anchor_top = 0.72800004
+anchor_right = 0.26900002
+anchor_bottom = 0.72800004
+offset_left = -59.577026
+offset_top = -58.87201
+offset_right = 58.422974
+offset_bottom = 59.12799
+texture_normal = ExtResource("29_61voh")
+texture_pressed = ExtResource("30_vcgxy")
+texture_hover = ExtResource("31_wvy0n")
+stretch_mode = 0
+
+[node name="cancel_button" type="TextureButton" parent="CanvasLayer/BorderContainer/passerTour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.65900004
+anchor_top = 0.721
+anchor_right = 0.65900004
+anchor_bottom = 0.721
+offset_left = -60.447083
+offset_top = -60.604004
+offset_right = 60.552917
+offset_bottom = 60.395996
+texture_normal = ExtResource("32_nrmyt")
+texture_pressed = ExtResource("33_4uvaq")
+texture_hover = ExtResource("34_rf6ic")
+stretch_mode = 0
+
+[node name="affichageTour" type="Panel" parent="CanvasLayer/BorderContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83900005
+anchor_top = 0.642
+anchor_right = 0.83900005
+anchor_bottom = 0.642
+offset_left = -126.88013
+offset_top = -24.360046
+offset_right = 288.11987
+offset_bottom = 24.639954
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Health_text" type="RichTextLabel" parent="CanvasLayer/BorderContainer/affichageTour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0025190262
+anchor_top = 0.081632614
+anchor_right = 0.8025409
+anchor_bottom = 0.08163265
+offset_right = 82.945526
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=24]Vous avez passé un tour !"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
 [node name="SnowParticle" type="CPUParticles2D" parent="CanvasLayer"]
 z_index = -4096
 position = Vector2(-250, -2321)
@@ -458,8 +560,10 @@ tangential_accel_max = 900.0
 scale_amount_min = 1.2
 scale_amount_max = 1.6
 
-[connection signal="pressed" from="CanvasLayer/BorderContainer/PasserTour" to="." method="_on_passer_tour_pressed"]
+[connection signal="pressed" from="CanvasLayer/BorderContainer/PasserTour" to="." method="change_visible_confirmation_passer_tour"]
 [connection signal="pressed" from="CanvasLayer/BorderContainer/stats_button" to="." method="_on_btn_graphique_stats_pressed"]
 [connection signal="pressed" from="CanvasLayer/BorderContainer/shop_button" to="CanvasLayer/BorderContainer/shop_button" method="_on_pressed_shop"]
 [connection signal="pressed" from="CanvasLayer/BorderContainer/background/settings_button" to="CanvasLayer/BorderContainer/background/settings_button" method="_on_pressed_pause"]
 [connection signal="pressed" from="CanvasLayer/BorderContainer/Close_Inventory" to="." method="_on_fermer_pressed_close_inventory"]
+[connection signal="pressed" from="CanvasLayer/BorderContainer/passerTour/confirm_button" to="." method="_on_passer_tour_pressed"]
+[connection signal="pressed" from="CanvasLayer/BorderContainer/passerTour/cancel_button" to="." method="change_visible_confirmation_passer_tour"]

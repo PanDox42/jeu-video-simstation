@@ -9,6 +9,8 @@ extends Control
 @onready var background = $CanvasLayer/BorderContainer/TopBorder
 @onready var inventory = $CanvasLayer/BorderContainer/Inventaire
 @onready var close_button = $CanvasLayer/BorderContainer/Close_Inventory
+@onready var confirmation_passer_tour = $CanvasLayer/BorderContainer/passerTour
+@onready var affichage_tour_passe = $CanvasLayer/BorderContainer/affichageTour
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
@@ -47,7 +49,10 @@ func _on_passer_tour_pressed():
 	CalculStats.passer_tour()
 	_maj_temperature()
 	_maj_night_mode()
+	change_visible_confirmation_passer_tour()
 	GlobalScript.emit_signal("tour_change")
+
+	visible_affichage_tour_passe()
 
 func _on_btn_graphique_stats_pressed() -> void:
 	chart_stats.show()
@@ -70,3 +75,15 @@ func _on_fermer_pressed_close_inventory() -> void:
 		
 	inventory.visible = !inventory.visible
 	
+
+
+func change_visible_confirmation_passer_tour() -> void:
+	confirmation_passer_tour.visible = !confirmation_passer_tour.visible
+	
+func change_visible_afichage_tour_passe() :
+	affichage_tour_passe.visible = !affichage_tour_passe.visible
+	
+func visible_affichage_tour_passe() :
+	change_visible_afichage_tour_passe()
+	await get_tree().create_timer(2).timeout
+	change_visible_afichage_tour_passe()
