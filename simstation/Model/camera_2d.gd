@@ -66,3 +66,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			position.y = clamp(position.y, map_limit_top_left.y, map_limit_bottom_right.y)
 			
 			GameManager.set_current_zoom_cam(zoom)
+
+func recentrer_camera() -> void:
+	# Définir la position au centre (0, 0)
+	position = Vector2.ZERO

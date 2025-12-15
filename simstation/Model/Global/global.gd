@@ -49,7 +49,7 @@ var batiments_nombre = {
 
  # [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
 var info_batiments = {
-	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire de recherche", true], 
+	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire", true], 
 	"dortoir": [60, 60, "Permet de se reposer tranquillement", "Dortoir", true],  
 	"cantine": [60, 70, "Fournit de la nourriture aux habitants", "Cantine", true],
 	"hopital": [40, 60, "Permet de soigner les malades", "Hopital", true],    

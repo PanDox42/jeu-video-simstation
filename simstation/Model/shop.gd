@@ -3,31 +3,128 @@ extends Control
 @onready var batiments_container = $background/ScrollContainer/Batiments
 
 func _ready():
-	remplir_labels()
+	for batiment in Global.info_batiments :
+		if Global.info_batiments[batiment][4] == true :
+			initialize(batiment)
+		
 	
-		
-func remplir_labels():
-	var enfants_batiments = batiments_container.get_children()
+var building_name = ""
 
-	for i in range(enfants_batiments.size()):
-		if i % 2 == 0:
-			var batiment_node = enfants_batiments[i]
+func initialize(batiment_name: String):
+	var vboxBat = VBoxContainer.new()
+	var separateur = ColorRect.new()
+	var bat_name = RichTextLabel.new()
+	var image = TextureRect.new()
+	var cost = RichTextLabel.new()
+	var button = TextureButton.new()
+	
+	var vboxDesc = VBoxContainer.new()
+	var panel_desc = PanelContainer.new()
+	var contenu_description = VBoxContainer.new()
+	var description = RichTextLabel.new()
+	
+	building_name = batiment_name
 
-			var cost_label = batiment_node.get_node("Cost_text")
-			var name_label = batiment_node.get_node("Name_text")
+	# Récupérer les informations via GlobalScript
+	var prix = GlobalScript.get_batiment_prix(building_name)
+	var info_array = GlobalScript.get_batiment_info(batiment_name)
 
-			var batiment_name = batiment_node.name
-			var prix = GlobalScript.get_batiment_prix(batiment_name)
+	# Assurez-vous que info_array[3] est le nom traduit, et info_array[2] est la description
+	var translated_name = info_array[3] 
+	var description_text = info_array[2]
+	
+	vboxBat.custom_minimum_size = Vector2(512, 300)
+	
+	separateur.color = Color(255, 255, 255)
+	separateur.custom_minimum_size = Vector2(0, 2)
+	
+	bat_name.bbcode_enabled = true
+	bat_name.bbcode_text = "[center][font_size=48]" + translated_name
+	bat_name.fit_content = true
+	
+	var path = "res://assets/batiments/" + building_name + ".png"
+	image.texture = load(path)
+	image.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	image.custom_minimum_size = Vector2(300, 290)
+	
+	cost.bbcode_enabled = true
+	var hex = "00D900"
+	cost.bbcode_text = "[center][font_size=48][color=#" + hex + "]" + GlobalScript.format_money(prix) + " €"
+	cost.fit_content = true
+	
+	button.texture_normal = preload("res://assets/button/shop_button/shop_button.png")
+	button.texture_hover = preload("res://assets/button/shop_button/shop_button_hover.png")
+	button.texture_pressed = preload("res://assets/button/shop_button/shop_button_click.png")
+	button.size = Vector2(80, 80)
+	button.scale = Vector2(0.9, 0.9)
+	button.stretch_mode = TextureButton.STRETCH_SCALE
+	button.layout_direction = Control.LAYOUT_DIRECTION_RTL
+	button.connect("pressed",acheter_batiment.bind(batiment_name))
+	
+	cost.add_child(button)
+	
+	
+	vboxDesc.custom_minimum_size = Vector2(510, 300)
+	
+	contenu_description.add_theme_constant_override("separation", 10)
+	
+	panel_desc.custom_minimum_size = Vector2(0, 400)
+	var style_box_plat = StyleBoxFlat.new()
+	style_box_plat.bg_color = Color(0.294, 0.635, 0.722, 0.604) 
+	var corner_radius = 40
+	style_box_plat.set_corner_radius_all(corner_radius)
+	var border_width = 4
+	style_box_plat.set_border_width_all(border_width)
+	style_box_plat.border_color = Color(0.851, 0.753, 0.161, 1.0)
+	panel_desc.add_theme_stylebox_override("panel", style_box_plat)
+	
+	description.bbcode_enabled = true
+	description.bbcode_text = "[center][font_size=48]DESCRIPTION[/font_size]\n[font_size=32]" + description_text
+	description.fit_content = true
+	
+	contenu_description.add_child(description)
+	
+	var sante = TextureRect.new()
+	sante.texture = preload("res://assets/bar/health_icon.png")
+	sante.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	sante.custom_minimum_size = Vector2(50, 50)
+	sante.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN 
+	sante.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	
+	contenu_description.add_child(sante)
 
-			# Application des modifications (Identique à votre code original)
-			cost_label.bbcode_text = "[center][font_size=48]" + GlobalScript.format_money(prix) + " €"
-			name_label.bbcode_text = "[center][font_size=48]" + GlobalScript.get_batiment_info(batiment_name)[3]
-			
-			batiment_node = enfants_batiments[i+1]
-			var description_label = batiment_node.get_node("Backgournd/Description")
-			
-			description_label.bbcode_text = "[center][font_size=32]" + GlobalScript.get_batiment_info(batiment_name)[2] + "[/font_size]"
-		
+	var efficacite = TextureRect.new()
+	efficacite.texture = preload("res://assets/bar/efficiency_icon.png")
+	efficacite.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	efficacite.custom_minimum_size = Vector2(50, 50)
+	efficacite.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN 
+	efficacite.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	
+	contenu_description.add_child(efficacite)
+
+	
+	var bonheur = TextureRect.new()
+	bonheur.texture = preload("res://assets/bar/happiness_icon.png")
+	bonheur.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	bonheur.custom_minimum_size = Vector2(50, 50)
+	bonheur.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN 
+	bonheur.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+	
+	contenu_description.add_child(bonheur)
+	
+	
+	panel_desc.add_child(contenu_description)
+	
+	
+	vboxDesc.add_child(panel_desc)
+	
+	vboxBat.add_child(separateur)
+	vboxBat.add_child(bat_name)
+	vboxBat.add_child(image)
+	vboxBat.add_child(cost)
+	
+	batiments_container.add_child(vboxBat)
+	batiments_container.add_child(vboxDesc)
 
 func _on_exit_button_pressed() -> void:
 	var play_scene = get_tree().current_scene
@@ -52,34 +149,3 @@ func acheter_batiment(nom_batiment):
 	else:
 		var node = hud.get_node("BuyConfirmation")
 		node.visible = !node.visible  
-
-
-func _on_buy_button_pressed_dortoir() -> void:
-	acheter_batiment("dortoir")
-	
-func _on_buy_button_pressed_cantine() -> void:
-	acheter_batiment("cantine")
-	
-func _on_buy_button_pressed_labo_recherche() -> void:
-	acheter_batiment("labo_recherche")
-
-func _on_buy_button_pressed_salle_sport() -> void:
-	acheter_batiment("salle_sport")
-
-func _on_buy_button_pressed_salle_repos() -> void:
-	acheter_batiment("salle_repos")
-
-func _on_buy_button_pressed_panneaux_solaires() -> void:
-	acheter_batiment("panneaux_solaires")
-
-func _on_buy_button_pressed_generateur_petrole() -> void:
-	acheter_batiment("generateur_petrole")
-	
-func _on_buy_button_pressed_observatoire() -> void:
-	acheter_batiment("observatoire")
-
-func _on_buy_button_pressed_hopital() -> void:
-	acheter_batiment("hopital")
-
-
-#func afficher_description(nom_batiment):
