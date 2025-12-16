@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4wx3fpdnps7x"]
+[gd_scene load_steps=7 format=3 uid="uid://4wx3fpdnps7x"]
 
 [ext_resource type="Script" uid="uid://bnhtj0jj88m17" path="res://Model/pause.gd" id="1_m0klm"]
 [ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="2_aicil"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_jn4bt"]
-[ext_resource type="Texture2D" uid="uid://rar5onkg2hjt" path="res://assets/menu_pictures/button.png" id="4_b82to"]
-[ext_resource type="Texture2D" uid="uid://dhnl88e4uhdrx" path="res://assets/menu_pictures/button_hover.png" id="5_3rfc6"]
+[ext_resource type="Texture2D" uid="uid://c6vfvajch8lb3" path="res://assets/button/main_button/button.png" id="4_b82to"]
+[ext_resource type="Texture2D" uid="uid://dkelxgs723wfu" path="res://assets/button/main_button/button_hover.png" id="5_3rfc6"]
+[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://Model/masked_button.gd" id="6_3rfc6"]
 
 [node name="Pause" type="Control"]
 layout_mode = 3
@@ -73,6 +74,7 @@ texture_normal = ExtResource("4_b82to")
 texture_hover = ExtResource("5_3rfc6")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_3rfc6")
 
 [node name="Label" type="Label" parent="background/Panel/continue_button"]
 layout_mode = 1
@@ -110,6 +112,7 @@ texture_normal = ExtResource("4_b82to")
 texture_hover = ExtResource("5_3rfc6")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_3rfc6")
 
 [node name="Label" type="Label" parent="background/Panel/options_button"]
 layout_mode = 1
@@ -146,6 +149,7 @@ texture_normal = ExtResource("4_b82to")
 texture_hover = ExtResource("5_3rfc6")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("6_3rfc6")
 
 [node name="Label" type="Label" parent="background/Panel/menu_button"]
 layout_mode = 1
