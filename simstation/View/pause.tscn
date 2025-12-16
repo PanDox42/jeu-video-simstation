@@ -3,21 +3,21 @@
 [ext_resource type="Script" uid="uid://bnhtj0jj88m17" path="res://Model/pause.gd" id="1_m0klm"]
 [ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="2_aicil"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_jn4bt"]
-[ext_resource type="Texture2D" uid="uid://c6vfvajch8lb3" path="res://assets/button/main_button/button.png" id="4_b82to"]
-[ext_resource type="Texture2D" uid="uid://dkelxgs723wfu" path="res://assets/button/main_button/button_hover.png" id="5_3rfc6"]
+[ext_resource type="Texture2D" uid="uid://02sg8dbb0l6q" path="res://assets/button/main_button/button.png" id="4_b82to"]
+[ext_resource type="Texture2D" uid="uid://bjjn527gmwrjx" path="res://assets/button/main_button/button_hover.png" id="5_3rfc6"]
 [ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://Model/masked_button.gd" id="6_3rfc6"]
 
-[node name="Pause" type="Control"]
-layout_mode = 3
+[node name="Pause" type="CanvasLayer"]
+script = ExtResource("1_m0klm")
+
+[node name="AntiClick" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_m0klm")
 
 [node name="background" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5

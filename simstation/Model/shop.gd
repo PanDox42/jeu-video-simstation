@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var batiments_container = $background/ScrollContainer/Batiments
 
@@ -57,7 +57,7 @@ func initialize(batiment_name: String):
 	
 	cost.bbcode_enabled = true
 	var hex = "00D900"
-	cost.bbcode_text = "[center][font_size=48][color=#" + hex + "]" + GlobalScript.format_money(prix) + " €"
+	cost.bbcode_text = "[center][font_size=48][color=#" + hex + "]" + GlobalScript.format_money(prix) + " €[/color][/font_size]\n[font_size=4] "
 	cost.fit_content = true
 	
 	button.texture_normal = preload("res://assets/button/shop_button/shop_button.png")
@@ -67,6 +67,7 @@ func initialize(batiment_name: String):
 	button.scale = Vector2(0.9, 0.9)
 	button.stretch_mode = TextureButton.STRETCH_SCALE
 	button.layout_direction = Control.LAYOUT_DIRECTION_RTL
+	
 	button.connect("pressed",acheter_batiment.bind(batiment_name))
 	
 	cost.add_child(button)

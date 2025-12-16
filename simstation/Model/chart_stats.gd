@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
  
 var x_espacement = 10
 var y_espacement = 10

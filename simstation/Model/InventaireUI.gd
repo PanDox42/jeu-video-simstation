@@ -76,8 +76,6 @@ func _on_batiment_changed(nom_batiment, new_val):
 			var lbl = box.get_node("lbl"+nom_batiment)
 			
 			var nom_affiche = GlobalScript.get_batiment_info(nom_batiment)[3]
-			if nom_affiche == "Laboratoire de recherche":
-				nom_affiche = "Laboratoire"
 			
 			lbl.text = "%s (x%d)" % [nom_affiche, new_val]
 			icon.modulate = Color(0.658, 0.658, 0.658, 1.0) if new_val <= 0 else Color.WHITE

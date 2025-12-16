@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 const MENU_OPTIONS_SCENE = preload("res://View/options.tscn")
 const CREDITS_SCENE = preload("res://View/credits.tscn")
