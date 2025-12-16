@@ -1,18 +1,18 @@
-extends Control
+extends CanvasLayer
 
-@onready var argent_label = $CanvasLayer/BorderContainer/background/argent
-@onready var date_label = $CanvasLayer/BorderContainer/background/mois
-@onready var temperature_label = $CanvasLayer/BorderContainer/background/temperature
-@onready var saison_label = $CanvasLayer/BorderContainer/background/saison
-@onready var chart_stats = $CanvasLayer/BorderContainer/ChartStats
-@onready var night_mode = $CanvasLayer/BorderContainer/NightMode
-@onready var background = $CanvasLayer/BorderContainer/TopBorder
-@onready var inventory = $CanvasLayer/BorderContainer/Inventaire
-@onready var close_button = $CanvasLayer/BorderContainer/Close_Inventory
-@onready var confirmation_passer_tour = $CanvasLayer/BorderContainer/passerTour
-@onready var load_screen = $CanvasLayer/LoadScreen
-@onready var changement_tour = $"CanvasLayer/BorderContainer/PanelChangementTour"
-@onready var nuit_jour = $"CanvasLayer/BorderContainer/PanelNuitJour" 
+@onready var argent_label = $BorderContainer/background/argent
+@onready var date_label = $BorderContainer/background/mois
+@onready var temperature_label = $BorderContainer/background/temperature
+@onready var saison_label = $BorderContainer/background/saison
+@onready var chart_stats = $BorderContainer/ChartStats
+@onready var night_mode = $BorderContainer/NightMode
+@onready var background = $BorderContainer/TopBorder
+@onready var inventory = $BorderContainer/Inventaire
+@onready var close_button = $BorderContainer/Close_Inventory
+@onready var confirmation_passer_tour = $BorderContainer/passerTour
+@onready var load_screen = $LoadScreen
+@onready var changement_tour = $"BorderContainer/PanelChangementTour"
+@onready var nuit_jour = $"BorderContainer/PanelNuitJour" 
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")

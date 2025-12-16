@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var message_label = $background/message
 var batiment = ""

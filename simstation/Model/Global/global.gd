@@ -50,8 +50,9 @@ var batiments_nombre = {
  # [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
 var info_batiments = {
 	# [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
+	
 	# --- Bâtiments de base (Débloqués par défaut) ---
-	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire de recherche", true],
+	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire", true],
 	"dortoir": [60, 60, "Permet de se reposer tranquillement", "Dortoir", true],
 	
 	# --- Bâtiments à débloquer via l'Arbre "Infrastructure" ---

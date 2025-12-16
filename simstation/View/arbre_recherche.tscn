@@ -2,16 +2,24 @@
 
 [ext_resource type="Script" uid="uid://e212qo50r3w0" path="res://Model/arbre_recherche_graphique.gd" id="1_cpw16"]
 [ext_resource type="Texture2D" uid="uid://gu3tp3ihrp1s" path="res://assets/side/shop_background.png" id="2_1e8ox"]
-[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="2_fs7f5"]
+[ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="2_fs7f5"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_5ubeo"]
-[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="3_b42bv"]
-[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="4_5ubeo"]
+[ext_resource type="Texture2D" uid="uid://cmx74ox4lapx2" path="res://assets/button/exit_button/exit_button_click.png" id="3_b42bv"]
+[ext_resource type="Texture2D" uid="uid://bwy2pfjstwykm" path="res://assets/button/exit_button/exit_button_hover.png" id="4_5ubeo"]
 
-[node name="ArbreRecherche" type="Node2D"]
+[node name="ArbreRecherche" type="CanvasLayer"]
 script = ExtResource("1_cpw16")
+
+[node name="AntiClick" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="background" type="TextureRect" parent="."]
 show_behind_parent = true
+z_index = 10
 offset_top = 162.0
 offset_right = 1921.0
 offset_bottom = 1080.0

@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @onready var music_slider = $background/VBoxContainer/VBoxContainer/Musique_slider
 @onready var effet_slider = $background/VBoxContainer/VBoxContainer2/Effet_slider

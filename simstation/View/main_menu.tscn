@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://c4e02x7hylkmt" path="res://Model/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/placeholder.jpg" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/logo.png" id="3_oa1go"]
-[ext_resource type="Texture2D" uid="uid://c6vfvajch8lb3" path="res://assets/button/main_button/button.png" id="4_dq6vp"]
+[ext_resource type="Texture2D" uid="uid://02sg8dbb0l6q" path="res://assets/button/main_button/button.png" id="4_dq6vp"]
 [ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://Model/masked_button.gd" id="5_3021e"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="5_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://dkelxgs723wfu" path="res://assets/button/main_button/button_hover.png" id="5_wntf2"]
+[ext_resource type="Texture2D" uid="uid://bjjn527gmwrjx" path="res://assets/button/main_button/button_hover.png" id="5_wntf2"]
 [ext_resource type="AudioStream" uid="uid://i702nadbvxuy" path="res://assets/sons/musiques/dark_souls_main_theme.mp3" id="7_oa1go"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
@@ -21,19 +21,10 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[node name="main_menu" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_right = 4.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="main_menu" type="CanvasLayer"]
 script = ExtResource("1_8ln24")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -44,7 +35,6 @@ grow_vertical = 2
 texture = ExtResource("2_rtw2f")
 
 [node name="Panel" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.45
 anchor_top = 0.531
@@ -61,13 +51,13 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.38796297
+anchor_top = 0.266
 anchor_right = 0.5
-anchor_bottom = 0.38796297
+anchor_bottom = 0.266
 offset_left = -181.0
-offset_top = -175.77963
+offset_top = -95.528
 offset_right = 181.0
-offset_bottom = 15.220367
+offset_bottom = 95.472
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_dq6vp")
@@ -100,13 +90,13 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5537037
+anchor_top = 0.53800005
 anchor_right = 0.5
-anchor_bottom = 0.5537037
+anchor_bottom = 0.53800005
 offset_left = -181.0
-offset_top = -105.837036
+offset_top = -95.50403
 offset_right = 181.0
-offset_bottom = 85.162964
+offset_bottom = 95.49597
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("4_dq6vp")
@@ -138,14 +128,14 @@ metadata/_edit_use_anchors_ = true
 [node name="btnQuitter" type="TextureButton" parent="Panel"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.49171272
-anchor_top = 1.4554975
-anchor_right = 0.49171272
-anchor_bottom = 1.4554975
-offset_left = -177.53592
-offset_top = -516.71735
-offset_right = 184.46408
-offset_bottom = -325.71735
+anchor_left = 0.49500003
+anchor_top = 0.81500006
+anchor_right = 0.49500003
+anchor_bottom = 0.81500006
+offset_left = -180.7312
+offset_top = -95.27002
+offset_right = 181.26877
+offset_bottom = 95.72998
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("4_dq6vp")
@@ -188,7 +178,6 @@ scale = Vector2(6, 6)
 texture = ExtResource("3_oa1go")
 
 [node name="btnCredits" type="TextureButton" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9140001
 anchor_top = 0.92700005
@@ -233,7 +222,6 @@ autoplay = true
 bus = &"Music"
 
 [node name="Panel2" type="Panel" parent="."]
-layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0615
 anchor_top = 0.9377778
