@@ -3,7 +3,7 @@
 [ext_resource type="Theme" uid="uid://jn71302gkvqy" path="res://hud_theme.tres" id="1_pil5s"]
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
-[ext_resource type="Texture2D" uid="uid://cqaaep04atrp3" path="res://assets/load_screen/start_load.jpg" id="3_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://qgqsilj22su3" path="res://assets/load_screen/godot_load_screen.png" id="3_vcgxy"]
 [ext_resource type="Texture2D" uid="uid://cd2dc2vr6blus" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
 [ext_resource type="Texture2D" uid="uid://e14rlujxv2r6" path="res://assets/bar/filled_bar.png" id="7_s7bk8"]
 [ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://Model/crop_bar.gd" id="8_fj0si"]
@@ -505,39 +505,6 @@ texture_pressed = ExtResource("33_4uvaq")
 texture_hover = ExtResource("34_rf6ic")
 stretch_mode = 0
 
-[node name="affichageTour" type="Panel" parent="CanvasLayer/BorderContainer"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.83900005
-anchor_top = 0.642
-anchor_right = 0.83900005
-anchor_bottom = 0.642
-offset_left = -126.88013
-offset_top = -24.360046
-offset_right = 288.11987
-offset_bottom = 24.639954
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Health_text" type="RichTextLabel" parent="CanvasLayer/BorderContainer/affichageTour"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0025190262
-anchor_top = 0.102040775
-anchor_right = 0.8025409
-anchor_bottom = 0.10204082
-offset_right = 82.945526
-offset_bottom = 56.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_o5r0d")
-bbcode_enabled = true
-text = "[center][font_size=24]Vous avez passé un tour !"
-fit_content = true
-metadata/_edit_use_anchors_ = true
-
 [node name="PanelChangementTour" type="Panel" parent="CanvasLayer/BorderContainer"]
 visible = false
 layout_mode = 1
@@ -570,6 +537,41 @@ theme_override_colors/default_color = Color(1, 1, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=48]Tour 1"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelNuitJour" type="Panel" parent="CanvasLayer/BorderContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.59000003
+anchor_right = 0.5
+anchor_bottom = 0.59000003
+offset_left = -246.75
+offset_top = -22.450012
+offset_right = 246.75
+offset_bottom = 21.799988
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NuitJour" type="RichTextLabel" parent="CanvasLayer/BorderContainer/PanelNuitJour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.614774
+anchor_right = 0.5
+anchor_bottom = 0.61477405
+offset_left = -236.99997
+offset_top = -23.07875
+offset_right = 243.24261
+offset_bottom = 23.04625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=24]La nuit tombe"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 

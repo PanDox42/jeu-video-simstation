@@ -10,9 +10,9 @@ extends Control
 @onready var inventory = $CanvasLayer/BorderContainer/Inventaire
 @onready var close_button = $CanvasLayer/BorderContainer/Close_Inventory
 @onready var confirmation_passer_tour = $CanvasLayer/BorderContainer/passerTour
-@onready var affichage_tour_passe = $CanvasLayer/BorderContainer/affichageTour
 @onready var load_screen = $CanvasLayer/LoadScreen
 @onready var changement_tour = $"CanvasLayer/BorderContainer/PanelChangementTour"
+@onready var nuit_jour = $"CanvasLayer/BorderContainer/PanelNuitJour" 
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
@@ -46,10 +46,13 @@ func _on_argent_changed(new_value):
 
 func _maj_night_mode():
 	if GlobalScript.get_tour() % 2 == 0 && GlobalScript.get_tour() != 0:
-		night_mode.visible = !night_mode.visible
-		GlobalScript.set_night_mode(true)
-	else :
-		GlobalScript.set_night_mode(false)
+		var status = !GlobalScript.get_night_mode()
+		
+		night_mode.visible = status
+		GlobalScript.set_night_mode(status)
+		
+		afficher_nuit_jour(status)
+	
 
 func _on_passer_tour_pressed():
 	CalculStats.passer_tour()
@@ -59,7 +62,6 @@ func _on_passer_tour_pressed():
 	change_visible_confirmation_passer_tour()
 	GlobalScript.emit_signal("tour_change")
 
-	visible_affichage_tour_passe()
 
 func _on_btn_graphique_stats_pressed() -> void:
 	chart_stats.show()
@@ -87,13 +89,6 @@ func _on_fermer_pressed_close_inventory() -> void:
 func change_visible_confirmation_passer_tour() -> void:
 	confirmation_passer_tour.visible = !confirmation_passer_tour.visible
 	
-func change_visible_afichage_tour_passe() :
-	affichage_tour_passe.visible = !affichage_tour_passe.visible
-	
-func visible_affichage_tour_passe() :
-	change_visible_afichage_tour_passe()
-	await get_tree().create_timer(2).timeout
-	change_visible_afichage_tour_passe()
 	
 func charger_load_screen():
 	await get_tree().create_timer(1).timeout
@@ -104,3 +99,13 @@ func afficher_changement_tour() :
 	changement_tour.visible = true
 	await get_tree().create_timer(2).timeout
 	changement_tour.visible = false
+	
+func afficher_nuit_jour(status : bool):
+	if status:
+		nuit_jour.get_child(0).bbcode_text = "[center][font_size=24]La nuit tombe"
+	else :
+		nuit_jour.get_child(0).bbcode_text = "[center][font_size=24]Le jour se lève"
+		
+	nuit_jour.visible = true
+	await get_tree().create_timer(2).timeout
+	nuit_jour.visible = false

@@ -9,6 +9,7 @@ signal stats_updated()
 signal demande_ouverture_info(nom_batiment)
 signal demande_fermeture_info() 
 signal tour_change() 
+signal debloque_bat()
 
 # GET
 

@@ -7,12 +7,15 @@ extends Control
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	
-	var default_volume_linear = 0.5
-	music_slider.value = default_volume_linear
-	effet_slider.value = default_volume_linear
+	var music_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	var sfx_volume_db = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Sound"))
+	
+	var music_volume_linear = db_to_linear(music_volume_db)
+	var sfx_volume_linear = db_to_linear(sfx_volume_db)
+	
+	music_slider.value = music_volume_linear
+	effet_slider.value = sfx_volume_linear
 
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(default_volume_linear))
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(default_volume_linear))
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN :
 		ecran_button.button_pressed = true
@@ -23,7 +26,7 @@ func _on_musique_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
 func _on_effet_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Sound"), linear_to_db(value))
 
 func _on_check_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:

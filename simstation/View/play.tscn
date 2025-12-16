@@ -10,7 +10,7 @@
 script = ExtResource("1_ioox1")
 
 [node name="Node2D" parent="." instance=ExtResource("5_65v2a")]
-position = Vector2(127, -194)
+position = Vector2(430, 1500)
 
 [node name="hud" type="CanvasLayer" parent="."]
 
@@ -21,13 +21,12 @@ anchor_mode = 0
 limit_enabled = false
 limit_smoothed = true
 script = ExtResource("2_bofkp")
-map_limit_top_left = Vector2(-5000, -5000)
-map_limit_bottom_right = Vector2(4500, 1300)
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
 [node name="MusiqueDeFond" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("5_j27tm")
+volume_db = -2.0
 autoplay = true
 bus = &"Music"

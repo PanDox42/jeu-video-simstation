@@ -13,6 +13,9 @@ config_version=5
 config/name="SimStation"
 run/main_scene="uid://byhx4nqhp22jo"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.09019608, 0.33333334, 0.5176471, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://jxmc7jawk5jx"
 config/icon="uid://jxmc7jawk5jx"
 
 [autoload]
@@ -26,7 +29,7 @@ CalculStats="*res://Model/Global/calcul_stats.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/vsync/vsync_mode=0

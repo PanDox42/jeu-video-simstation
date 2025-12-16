@@ -3,7 +3,7 @@ extends Camera2D
 # --- Config Zoom ---
 @export_category("Zoom")
 @export var zoom_step: float = 0.1
-@export var min_zoom: Vector2 = Vector2(0.8, 0.8)
+@export var min_zoom: Vector2 = Vector2(0.6, 0.6)
 @export var max_zoom: Vector2 = Vector2(3, 3)
 
 # --- Config Limites (Map) ---

@@ -20,8 +20,8 @@ var argent = 3000000
 var inventaire = {
 	"labo_recherche": 1, 
 	"dortoir": 0, 
-	"cantine": 1, 
-	"hopital": 1,
+	"cantine": 0, 
+	"hopital": 0,
 	"observatoire" : 0,
 	"salle_sport": 0, 
 	"salle_repos": 0, 

@@ -3,7 +3,15 @@ extends Control
 @onready var batiments_container = $background/ScrollContainer/Batiments
 
 func _ready():
-	for batiment in Global.info_batiments :
+	GlobalScript.connect("debloque_bat", charger_batiments)
+	charger_batiments()
+
+func charger_batiments():
+	print("SHOP RELOAD")
+	for child in batiments_container.get_children():
+		child.queue_free()
+		
+	for batiment in GlobalScript.get_inventaire().keys() :
 		if Global.info_batiments[batiment][4] == true :
 			initialize(batiment)
 		
