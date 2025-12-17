@@ -37,6 +37,7 @@ func get_recherche_debloque() -> Array: return Global.recherche_debloque
 
 func get_environnement(envi): return Global.environnement[envi]
 func get_night_mode() : return Global.environnement["night"]
+func get_currently_placing(): return Global.currently_placing
 
 # SET
 
@@ -62,6 +63,9 @@ func set_batiment_debloque(nom: String):
 	
 func set_saison(saison : String) :
 	Global.environnement["saison"] = saison
+	
+func set_currently_placing(placing: bool):
+	Global.currently_placing = placing
 	
 # ADD
 
