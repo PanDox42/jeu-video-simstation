@@ -13,9 +13,9 @@ extends TextureRect
 # 6. Validation (Clic Gauche) : Place le bâtiment, met à jour les stats et retire la grille.
 # 7. Annulation (Clic Droit) : Annule l'opération et rembourse le coût.
 
-@onready var pick_building_sound = "res://assets/sounds/builings/pick_for_place.mp3"
-@onready var bad_palcement_sound = "res://assets/sounds/builings/bad_placement.mp3"
-@onready var good_palcement_sound = "res://assets/sounds/builings/good_placement.mp3"
+@onready var pick_building_sound = "res://assets/sounds/buildings/pick_for_place.mp3"
+@onready var bad_palcement_sound = "res://assets/sounds/buildings/bad_placement.mp3"
+@onready var good_palcement_sound = "res://assets/sounds/buildings/good_placement.mp3"
 
 @export var grid_size : int = 64
 
