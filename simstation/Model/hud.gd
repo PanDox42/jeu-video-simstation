@@ -175,7 +175,7 @@ func afficher_nuit_jour(status : bool):
 		nuit_jour.get_child(0).bbcode_text = "[center][font_size=24]Le jour se lève"
 		
 	nuit_jour.visible = true
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(7).timeout
 	nuit_jour.visible = false
 
 func afficher_catastrophe():
