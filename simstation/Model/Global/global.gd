@@ -5,6 +5,7 @@ extends Node
 # de la population, de l'argent et du nombre de tour de la partie.
 
 var camera_enable = true;
+var currently_placing = false;
 var user = {"nom":"Martin","time":3}
 
 var population = [

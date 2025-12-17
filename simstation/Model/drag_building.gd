@@ -33,6 +33,9 @@ func _get_drag_data(_at_position):
 
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if GlobalScript.get_currently_placing():
+			print("Action impossible : un placement est déjà en cours")
+			return
 		if GlobalScript.get_batiment_inventaire(name) > 0:
 			start_dragging()
 		else:
@@ -57,6 +60,7 @@ func _process(_delta):
 		update_visual_feedback()
 
 func start_dragging():
+	GlobalScript.set_currently_placing(true)
 	GlobalScript.play_sound(pick_building_sound)
 	
 	var maps = get_tree().get_nodes_in_group("Map")
@@ -113,6 +117,7 @@ func place_building():
 		
 		batiment_instance = null
 		dragging = false
+		GlobalScript.set_currently_placing(false)
 		remove_grid()
 	else:
 		GlobalScript.play_sound(bad_palcement_sound)
@@ -125,6 +130,7 @@ func cancel_placement():
 		GlobalScript.modifier_batiment(name, 1)
 	
 	dragging = false
+	GlobalScript.set_currently_placing(false)
 	remove_grid()
 
 func remove_grid():
