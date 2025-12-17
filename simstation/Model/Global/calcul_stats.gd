@@ -35,6 +35,7 @@ func _ready() -> void:
 
 func passer_tour() -> void:	
 	_calculer_saison_et_meteo()
+	_gerer_catastrophes()
 	_appliquer_changements_tour()
 	actualiser_stats_derivees()
 	
@@ -126,3 +127,28 @@ func _appliquer_changements_tour() -> void:
 	
 	GlobalScript.set_sante(int(current_sante))
 	GlobalScript.set_bonheur(int(current_bonheur))
+
+func _gerer_catastrophes() -> void:
+	var catastrophe = Catastrophes.verifier_catastrophe()
+	
+	if not catastrophe.is_empty():
+		var info = catastrophe["info"]
+		# info = [Effet Santé, Effet Bonheur, Probabilité, Nom, Description]
+		var delta_sante = float(info[0])
+		var delta_bonheur = float(info[1])
+		var delta_efficacite = float(info[2])
+		
+		var current_sante = float(GlobalScript.get_sante())
+		var current_bonheur = float(GlobalScript.get_bonheur())
+		var current_efficacité = float(GlobalScript.get_efficacite())
+		
+		current_sante += delta_sante
+		current_bonheur += delta_bonheur
+		current_efficacité += delta_efficacite
+		
+		GlobalScript.set_sante(int(current_sante))
+		GlobalScript.set_bonheur(int(current_bonheur))
+		GlobalScript.set_efficacite(int(current_efficacité))
+		
+		print("CATASTROPHE: %s" % info[4])  # Nom
+		print("Effets catastrophe: Santé %d | Bonheur %d" % [delta_sante, delta_bonheur])
