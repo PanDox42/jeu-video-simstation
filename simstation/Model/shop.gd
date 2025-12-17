@@ -19,6 +19,8 @@ func charger_batiments():
 var building_name = ""
 
 func initialize(batiment_name: String):
+	var minecraft_font = load("res://font/Minecraftia-Regular.ttf")
+	
 	var vboxBat = VBoxContainer.new()
 	var separateur = ColorRect.new()
 	var bat_name = RichTextLabel.new()
@@ -27,9 +29,13 @@ func initialize(batiment_name: String):
 	var button = TextureButton.new()
 	
 	var vboxDesc = VBoxContainer.new()
-	var panel_desc = PanelContainer.new()
+	var rect_desc = TextureRect.new()
 	var contenu_description = VBoxContainer.new()
 	var description = RichTextLabel.new()
+	
+	bat_name.add_theme_font_override("normal_font", minecraft_font)
+	cost.add_theme_font_override("normal_font", minecraft_font)
+	description.add_theme_font_override("normal_font", minecraft_font)
 	
 	building_name = batiment_name
 
@@ -77,18 +83,13 @@ func initialize(batiment_name: String):
 	
 	contenu_description.add_theme_constant_override("separation", 10)
 	
-	panel_desc.custom_minimum_size = Vector2(0, 400)
-	var style_box_plat = StyleBoxFlat.new()
-	style_box_plat.bg_color = Color(0.294, 0.635, 0.722, 0.604) 
-	var corner_radius = 40
-	style_box_plat.set_corner_radius_all(corner_radius)
-	var border_width = 4
-	style_box_plat.set_border_width_all(border_width)
-	style_box_plat.border_color = Color(0.851, 0.753, 0.161, 1.0)
-	panel_desc.add_theme_stylebox_override("panel", style_box_plat)
+	rect_desc.texture = preload("res://assets/background/popup_background.png")
+	rect_desc.custom_minimum_size = Vector2(0, 400)
+	rect_desc.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	
 	description.bbcode_enabled = true
-	description.bbcode_text = "[center][font_size=48]DESCRIPTION[/font_size]\n[font_size=32]" + description_text
+	description.custom_minimum_size = Vector2(450, 0)
+	description.bbcode_text = "[font_size=26]\n[/font_size][center][font_size=48]DESCRIPTION[/font_size]\n[font_size=32]" + description_text
 	description.fit_content = true
 	
 	contenu_description.add_child(description)
@@ -122,10 +123,12 @@ func initialize(batiment_name: String):
 	contenu_description.add_child(bonheur)
 	
 	
-	panel_desc.add_child(contenu_description)
+	rect_desc.add_child(contenu_description)
+	
+	contenu_description.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 20)
 	
 	
-	vboxDesc.add_child(panel_desc)
+	vboxDesc.add_child(rect_desc)
 	
 	vboxBat.add_child(separateur)
 	vboxBat.add_child(bat_name)
@@ -141,7 +144,6 @@ func _on_exit_button_pressed() -> void:
 
 	if hud.has_node("Shop"):
 		hud.get_node("Shop").visible = false
-		GlobalScript.set_camera(!GlobalScript.get_camera())
 
 
 func acheter_batiment(nom_batiment):

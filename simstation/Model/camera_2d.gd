@@ -29,6 +29,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	# --- GESTION DU DRAG ---
 	if event is InputEventMouseButton:
+		if get_viewport().gui_get_focus_owner() != null:
+			return
+			
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			dragging = event.pressed
 	

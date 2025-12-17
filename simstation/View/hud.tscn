@@ -1,8 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=39 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
-[ext_resource type="Texture2D" uid="uid://kqwpf74iny3b" path="res://assets/load_screen/icon.png" id="3_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://k1j0tbf82u0v" path="res://assets/load_screen/icon.png" id="3_vcgxy"]
 [ext_resource type="Texture2D" uid="uid://cd2dc2vr6blus" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
 [ext_resource type="Texture2D" uid="uid://e14rlujxv2r6" path="res://assets/bar/filled_bar.png" id="7_s7bk8"]
 [ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://Model/crop_bar.gd" id="8_fj0si"]
@@ -13,29 +13,31 @@
 [ext_resource type="Texture2D" uid="uid://bdjdosauo7cn7" path="res://assets/button/next_round_button/next_button_click.png" id="11_n3rgs"]
 [ext_resource type="Texture2D" uid="uid://b606r1q7nyyme" path="res://assets/button/next_round_button/next_button_hover.png" id="12_s65m4"]
 [ext_resource type="Script" uid="uid://bqulw7dgngjad" path="res://Model/InventaireUI.gd" id="13_ew7f8"]
-[ext_resource type="Texture2D" uid="uid://5shnpi0shen" path="res://assets/button/stats_button/stats_button.png" id="13_xp7qj"]
-[ext_resource type="Texture2D" uid="uid://dvwspwokc7nel" path="res://assets/button/stats_button/stats_button_click.png" id="14_o4crf"]
+[ext_resource type="Texture2D" uid="uid://2dsxib5p5ln4" path="res://assets/button/stats_button/stats_button.png" id="13_xp7qj"]
+[ext_resource type="Texture2D" uid="uid://dg0dl0pp0b2o3" path="res://assets/button/stats_button/stats_button_click.png" id="14_o4crf"]
 [ext_resource type="PackedScene" uid="uid://r1h4u5yp1lk2" path="res://View/chart_stats.tscn" id="14_o7jfm"]
 [ext_resource type="Script" uid="uid://0h5bj5sdmbnu" path="res://Model/info_panel.gd" id="14_xnmgy"]
-[ext_resource type="Texture2D" uid="uid://bdsxeyinjifjk" path="res://assets/button/settings_button/settings_button.png" id="15_2wmmq"]
-[ext_resource type="Texture2D" uid="uid://bowodu7cj4rx6" path="res://assets/button/settings_button/settings_button_click.png" id="15_6wuao"]
-[ext_resource type="Texture2D" uid="uid://cr0b46d5w4tww" path="res://assets/button/stats_button/stats_button_hover.png" id="15_o4crf"]
-[ext_resource type="Texture2D" uid="uid://b2wvwolc4xo5i" path="res://assets/button/settings_button/settings_button_hover.png" id="16_6wuao"]
-[ext_resource type="Texture2D" uid="uid://b40w07owntxx8" path="res://assets/button/shop_button/shop_button.png" id="18_nlktb"]
-[ext_resource type="Texture2D" uid="uid://b03onv7qx5kj2" path="res://assets/button/shop_button/shop_button_click.png" id="19_vpgw3"]
-[ext_resource type="Texture2D" uid="uid://j1k2pn3l2oi4" path="res://assets/button/shop_button/shop_button_hover.png" id="20_xp7qj"]
+[ext_resource type="Texture2D" uid="uid://cru6bwl8j0vek" path="res://assets/button/settings_button/settings_button.png" id="15_2wmmq"]
+[ext_resource type="Texture2D" uid="uid://cyw0h0kjy3jbs" path="res://assets/button/settings_button/settings_button_click.png" id="15_6wuao"]
+[ext_resource type="Texture2D" uid="uid://d2m3io2hxk56x" path="res://assets/button/stats_button/stats_button_hover.png" id="15_o4crf"]
+[ext_resource type="Texture2D" uid="uid://ckaqgebnhuwxs" path="res://assets/button/settings_button/settings_button_hover.png" id="16_6wuao"]
+[ext_resource type="Texture2D" uid="uid://4forpfmmlb3v" path="res://assets/button/shop_button/shop_button.png" id="18_nlktb"]
+[ext_resource type="Texture2D" uid="uid://0sek50osfgk4" path="res://assets/button/shop_button/shop_button_click.png" id="19_vpgw3"]
+[ext_resource type="Texture2D" uid="uid://650xh47tavuu" path="res://assets/button/shop_button/shop_button_hover.png" id="20_xp7qj"]
 [ext_resource type="Texture2D" uid="uid://csnggu2ehoh72" path="res://assets/particles/snow_particle.png" id="25_3v7fu"]
 [ext_resource type="Texture2D" uid="uid://dl5ppyvdfd30x" path="res://assets/particles/big_snow_particle.png" id="26_bljva"]
-[ext_resource type="Texture2D" uid="uid://4a6tvcfbfumk" path="res://assets/button/eyes_button/open_eye/open_eye_button.png" id="26_f7j0k"]
-[ext_resource type="Texture2D" uid="uid://d30hroky1scqp" path="res://assets/background/background.png" id="27_bljva"]
-[ext_resource type="Texture2D" uid="uid://bmcljr2xoyo3o" path="res://assets/button/eyes_button/open_eye/open_eye_button_click.png" id="27_q5bha"]
-[ext_resource type="Texture2D" uid="uid://ddbfddbc20em5" path="res://assets/button/eyes_button/open_eye/open_eye_button_hover.png" id="28_si2ni"]
-[ext_resource type="Texture2D" uid="uid://cv86oqgilefmn" path="res://assets/button/confirm_button/confirm_button.png" id="29_61voh"]
-[ext_resource type="Texture2D" uid="uid://cqofxxs78y4fr" path="res://assets/button/confirm_button/confirm_button_click.png" id="30_vcgxy"]
-[ext_resource type="Texture2D" uid="uid://cmwb41p7n6uex" path="res://assets/button/confirm_button/confirm_button_hover.png" id="31_wvy0n"]
-[ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="32_nrmyt"]
-[ext_resource type="Texture2D" uid="uid://cmx74ox4lapx2" path="res://assets/button/exit_button/exit_button_click.png" id="33_4uvaq"]
-[ext_resource type="Texture2D" uid="uid://bwy2pfjstwykm" path="res://assets/button/exit_button/exit_button_hover.png" id="34_rf6ic"]
+[ext_resource type="Texture2D" uid="uid://bi8lcddwpxb1g" path="res://assets/button/eyes_button/open_eye/open_eye_button.png" id="26_f7j0k"]
+[ext_resource type="Texture2D" uid="uid://x6iouychuvfb" path="res://assets/background/background.png" id="27_bljva"]
+[ext_resource type="Texture2D" uid="uid://dtm5x50fvd03q" path="res://assets/button/eyes_button/open_eye/open_eye_button_click.png" id="27_q5bha"]
+[ext_resource type="Texture2D" uid="uid://bau443fg47xtc" path="res://assets/button/eyes_button/open_eye/open_eye_button_hover.png" id="28_si2ni"]
+[ext_resource type="Texture2D" uid="uid://s4r3rofou5eu" path="res://assets/button/confirm_button/confirm_button.png" id="29_61voh"]
+[ext_resource type="Texture2D" uid="uid://dxnjlbnjolp4q" path="res://assets/button/confirm_button/confirm_button_click.png" id="30_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://dvedh4isp1kfq" path="res://assets/button/confirm_button/confirm_button_hover.png" id="31_wvy0n"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="32_nrmyt"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="33_4uvaq"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="34_rf6ic"]
+[ext_resource type="Texture2D" uid="uid://bsyjngg7mks2c" path="res://assets/background/round_background.png" id="34_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://cjlryu112ggxb" path="res://assets/background/day_night_background.png" id="35_wvy0n"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("2_ugs5p")
@@ -79,7 +81,7 @@ anchor_bottom = 0.52400005
 offset_left = -84.64
 offset_top = -343.92004
 offset_right = 52.36
-offset_bottom = 411.07996
+offset_bottom = 411.07983
 grow_vertical = 2
 script = ExtResource("13_ew7f8")
 
@@ -117,7 +119,7 @@ texture_hover = ExtResource("12_s65m4")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="RichTextLabel" parent="BorderContainer/PasserTour"]
+[node name="lbl_passer_tour" type="RichTextLabel" parent="BorderContainer/PasserTour"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -131,8 +133,30 @@ offset_bottom = 108.39997
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.71600944, 0.6322402, 0.12397011, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]Passer le tour"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lbl_cooldown" type="RichTextLabel" parent="BorderContainer/PasserTour"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.16700001
+anchor_right = 0.5
+anchor_bottom = -0.16700001
+offset_left = -181.75
+offset_top = -31.459991
+offset_right = 181.75
+offset_bottom = 31.539993
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.75429463, 0.356728, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=16]Patientez 10 secondes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -154,16 +178,13 @@ anchor_bottom = 0.2288889
 offset_left = -50.360107
 offset_top = -50.200012
 offset_right = 49.639893
-offset_bottom = 49.799988
+offset_bottom = 49.799957
 texture_normal = ExtResource("13_xp7qj")
 texture_pressed = ExtResource("14_o4crf")
 texture_hover = ExtResource("15_o4crf")
 ignore_texture_size = true
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="ChartStats" parent="BorderContainer" instance=ExtResource("14_o7jfm")]
-visible = false
 
 [node name="shop_button" type="TextureButton" parent="BorderContainer"]
 layout_mode = 1
@@ -193,7 +214,7 @@ anchor_bottom = 0.15
 offset_left = 15.0
 offset_top = 16.0
 offset_right = -15.0
-offset_bottom = -5.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -205,9 +226,9 @@ anchor_top = 0.512
 anchor_right = 0.112
 anchor_bottom = 0.512
 offset_left = -137.68001
-offset_top = -60.192
+offset_top = -69.192
 offset_right = 123.31999
-offset_bottom = 41.407997
+offset_bottom = 32.407997
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24
@@ -221,9 +242,9 @@ anchor_top = 0.514
 anchor_right = 0.112
 anchor_bottom = 0.514
 offset_left = -142.68001
-offset_top = -18.473999
+offset_top = -27.473999
 offset_right = 119.31999
-offset_bottom = 51.126007
+offset_bottom = 42.126
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]Mois 0"
@@ -253,9 +274,9 @@ anchor_top = 0.509
 anchor_right = 0.112
 anchor_bottom = 0.509
 offset_left = -94.68001
-offset_top = 27.231003
+offset_top = 16.231003
 offset_right = 76.61998
-offset_bottom = 86.83101
+offset_bottom = 75.83102
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]24 C°"
@@ -421,7 +442,7 @@ script = ExtResource("11_jtq4o")
 
 [node name="passerTour" type="Panel" parent="BorderContainer"]
 visible = false
-z_index = 1
+z_index = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -484,70 +505,75 @@ texture_pressed = ExtResource("33_4uvaq")
 texture_hover = ExtResource("34_rf6ic")
 stretch_mode = 0
 
-[node name="PanelChangementTour" type="Panel" parent="BorderContainer"]
+[node name="ChartStats" parent="BorderContainer" instance=ExtResource("14_o7jfm")]
 visible = false
+
+[node name="PanelChangementTour" type="TextureRect" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -246.74997
-offset_top = -58.25
-offset_right = 246.74997
-offset_bottom = 58.25
+offset_left = -196.7727
+offset_top = -78.0
+offset_right = 196.7727
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("34_vcgxy")
 
 [node name="ChangementTour" type="RichTextLabel" parent="BorderContainer/PanelChangementTour"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.507623
 anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.509
-offset_left = -236.99997
-offset_top = -41.0
-offset_right = 243.24261
-offset_bottom = 41.9515
+anchor_right = 0.507623
+anchor_bottom = 0.5897436
+offset_left = -240.12128
+offset_top = -42.0
+offset_right = 240.12128
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
-text = "[center][font_size=48]Tour 1"
+text = "[center][font_size=56]Tour 1"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelNuitJour" type="Panel" parent="BorderContainer"]
+[node name="PanelNuitJour" type="TextureRect" parent="BorderContainer/PanelChangementTour"]
 visible = false
+z_index = -1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.59000003
+anchor_top = 1.3720001
 anchor_right = 0.5
-anchor_bottom = 0.59000003
-offset_left = -246.75
-offset_top = -22.450012
-offset_right = 246.75
-offset_bottom = 21.799988
+anchor_bottom = 1.3720001
+offset_left = -177.98294
+offset_top = -45.032013
+offset_right = 177.98294
+offset_bottom = 44.967987
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("35_wvy0n")
 
-[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelNuitJour"]
+[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelChangementTour/PanelNuitJour"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.614774
-anchor_right = 0.5
-anchor_bottom = 0.61477405
-offset_left = -236.99997
-offset_top = -23.07875
-offset_right = 243.24261
-offset_bottom = 23.04625
+anchor_left = 0.5028093
+anchor_top = 0.5222222
+anchor_right = 0.50280935
+anchor_bottom = 0.5222222
+offset_left = -240.12128
+offset_top = -18.9375
+offset_right = 240.12128
+offset_bottom = 23.0625
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/default_color = Color(1, 0.8392157, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]La nuit tombe"
@@ -567,6 +593,8 @@ spread = 180.0
 gravity = Vector2(400, 980)
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
+angular_velocity_min = -720.0
+angular_velocity_max = -100.0
 tangential_accel_min = -900.0
 tangential_accel_max = 900.0
 scale_amount_min = 1.2
@@ -585,6 +613,8 @@ spread = 180.0
 gravity = Vector2(400, 980)
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
+angular_velocity_min = -720.0
+angular_velocity_max = -100.0
 tangential_accel_min = -900.0
 tangential_accel_max = 900.0
 scale_amount_min = 1.2

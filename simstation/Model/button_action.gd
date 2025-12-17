@@ -33,7 +33,6 @@ func load_scene(chemin_scene, nom_node):
 		var node = hud.get_node(nom_node)
 		node.visible = !node.visible  
 
-	GlobalScript.set_camera(!GlobalScript.get_camera())
 
 func exit_button(nom_node):
 	var play_scene = get_tree().current_scene
@@ -41,4 +40,3 @@ func exit_button(nom_node):
 
 	if hud.has_node(nom_node):
 		hud.get_node(nom_node).visible = false
-		GlobalScript.set_camera(!GlobalScript.get_camera())
