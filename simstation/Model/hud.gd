@@ -107,6 +107,8 @@ func _on_btn_graphique_stats_pressed() -> void:
 	#GameManager.load_scene("res://View/chart_stats.tscn", "CharStats")
 
 func _on_fermer_pressed_close_inventory() -> void:
+	close_button.release_focus()
+	
 	GlobalScript.play_sound(hide_inventory_sound)
 	
 	if inventory.visible:
