@@ -13,6 +13,7 @@ extends CanvasLayer
 @onready var confirmation_passer_tour = $BorderContainer/passerTour
 @onready var load_screen = $LoadScreen
 @onready var changement_tour = $"BorderContainer/PanelChangementTour"
+@onready var panel_catastrophe = $"BorderContainer/PanelCatastrophe"
 @onready var nuit_jour = $"BorderContainer/PanelChangementTour/PanelNuitJour" 
 @onready var btn_next_round = $"BorderContainer/PasserTour" 
 @onready var lbl_cooldown = $"BorderContainer/PasserTour/lbl_cooldown"
@@ -20,6 +21,7 @@ extends CanvasLayer
 
 @onready var round_sound = "res://assets/sounds/hud/next_round.mp3"
 @onready var hide_inventory_sound = "res://assets/sounds/hud/hide_inventory.mp3"
+@onready var disaster_display_sound = "res://assets/sounds/hud/disaster_display.mp3"
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
@@ -80,6 +82,8 @@ func _on_passer_tour_pressed():
 	
 	btn_next_round_start_cooldown()
 	
+	afficher_catastrophe()
+	
 	
 func change_visible_confirmation_passer_tour() -> void:
 	btn_next_round.release_focus()
@@ -92,7 +96,7 @@ func change_visible_confirmation_passer_tour() -> void:
 func btn_next_round_start_cooldown():
 	btn_next_round.modulate.a = 0.5
 	btn_next_round_reload = true
-	await get_tree().create_timer(10.0).timeout
+	await get_tree().create_timer(15.0).timeout
 	btn_next_round.modulate.a = 1.0
 	lbl_cooldown.visible = false
 	btn_next_round_reload = false
@@ -176,29 +180,28 @@ func afficher_nuit_jour(status : bool):
 
 func afficher_catastrophe():
 	var catastrophe = Catastrophes.get_catastrophe_active()
+	
 	if catastrophe != null:
+		await get_tree().create_timer(3).timeout
+		
+		GlobalScript.play_sound(disaster_display_sound)
+		
+		var panel = panel_catastrophe
+		
 		var info = catastrophe["info"]
 		var nom = info[4]
 		var description = info[5]
 		
-		var panel = changement_tour
 		var text = "[center][font_size=36][color=red]" + nom + "\n"
-		text += "[font_size=24][color=white]" + description
-		
-		# Anchors pour étendre le panel
-		panel.anchor_left = 0.50
-		panel.anchor_right = 0.50
-		panel.anchor_top = 0.40
-		panel.anchor_bottom = 0.60
-		
+		text += "[font_size=12] [font_size=24][color=white]" + description
 		panel.get_child(0).bbcode_text = text
-		panel.visible = true
-		await get_tree().create_timer(8).timeout
-		panel.visible = false
 		
-		# Remettre la taille normale pour l'affichage du tour
-		panel.anchor_left = 0.5
-		panel.anchor_right = 0.5
-		panel.anchor_top = 0.5
-		panel.anchor_bottom = 0.5
-		panel.custom_minimum_size = Vector2(0, 0)
+		panel.visible = true
+		
+		var tween_afficher_catastrophe = create_tween()
+
+		tween_afficher_catastrophe.tween_property(panel_catastrophe, "modulate:a", 1.0, 0.5)
+		tween_afficher_catastrophe.tween_interval(10.0)
+		tween_afficher_catastrophe.tween_property(panel_catastrophe, "modulate:a", 0.0, 0.5)
+		tween_afficher_catastrophe.tween_callback(func(): panel_catastrophe.visible = false)
+	

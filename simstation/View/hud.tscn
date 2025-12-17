@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=40 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="34_rf6ic"]
 [ext_resource type="Texture2D" uid="uid://bsyjngg7mks2c" path="res://assets/background/round_background.png" id="34_vcgxy"]
 [ext_resource type="Texture2D" uid="uid://cjlryu112ggxb" path="res://assets/background/day_night_background.png" id="35_wvy0n"]
+[ext_resource type="Texture2D" uid="uid://ckkd6vhpdk8uj" path="res://assets/background/disaster_background.png" id="37_nrmyt"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("2_ugs5p")
@@ -156,7 +157,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0.75429463, 0.356728, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
-text = "[center][font_size=16]Patientez 10 secondes"
+text = "[center][font_size=16]Patientez 15 secondes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -580,6 +581,79 @@ text = "[center][font_size=24]La nuit tombe"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
+[node name="PanelCatastrophe" type="TextureRect" parent="BorderContainer"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 560.0
+offset_top = -181.0
+offset_right = 935.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_nrmyt")
+
+[node name="DescriptionCatastrophe" type="RichTextLabel" parent="BorderContainer/PanelCatastrophe"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.49733335
+anchor_top = 0.04701579
+anchor_right = 0.49733335
+anchor_bottom = 0.04701579
+offset_left = -161.5
+offset_right = 161.5
+offset_bottom = 382.20636
+grow_horizontal = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=>32][color=red]Dépression saisonnière
+[font_size=12]
+[font_size=24][color=white]Un blizzard violent frappe la station ! Les conditions météo extrêmes affectent la santé et le moral."
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelNuitJour" type="TextureRect" parent="BorderContainer/PanelCatastrophe"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 1.3720001
+anchor_right = 0.5
+anchor_bottom = 1.3720001
+offset_left = -177.98294
+offset_top = -45.032013
+offset_right = 177.98294
+offset_bottom = 44.967987
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("35_wvy0n")
+
+[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelCatastrophe/PanelNuitJour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5028093
+anchor_top = 0.5222222
+anchor_right = 0.50280935
+anchor_bottom = 0.5222222
+offset_left = -240.12128
+offset_top = -18.9375
+offset_right = 240.12128
+offset_bottom = 23.0625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0.8392157, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=24]La nuit tombe"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
 [node name="SnowParticle" type="CPUParticles2D" parent="."]
 z_index = -4096
 position = Vector2(-250, -2321)
@@ -620,6 +694,13 @@ tangential_accel_max = 900.0
 scale_amount_min = 1.2
 scale_amount_max = 1.6
 
+[node name="Button" type="Button" parent="."]
+offset_left = 869.0
+offset_top = 923.0
+offset_right = 1081.0
+offset_bottom = 1033.0
+text = "passer tour test"
+
 [connection signal="pressed" from="BorderContainer/PasserTour" to="." method="change_visible_confirmation_passer_tour"]
 [connection signal="pressed" from="BorderContainer/stats_button" to="." method="_on_btn_graphique_stats_pressed"]
 [connection signal="pressed" from="BorderContainer/shop_button" to="BorderContainer/shop_button" method="_on_pressed_shop"]
@@ -627,3 +708,4 @@ scale_amount_max = 1.6
 [connection signal="pressed" from="BorderContainer/Close_Inventory" to="." method="_on_fermer_pressed_close_inventory"]
 [connection signal="pressed" from="BorderContainer/passerTour/confirm_button" to="." method="_on_passer_tour_pressed"]
 [connection signal="pressed" from="BorderContainer/passerTour/cancel_button" to="." method="change_visible_confirmation_passer_tour"]
+[connection signal="pressed" from="Button" to="." method="_on_passer_tour_pressed"]
