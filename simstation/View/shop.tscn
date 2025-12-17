@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://dyxsjxpvsie0m" path="res://Model/shop.gd" id="2_ei2gw"]
 [ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="3_0mlmv"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="4_o4j7t"]
-[ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="5_rn3ik"]
-[ext_resource type="Texture2D" uid="uid://cmx74ox4lapx2" path="res://assets/button/exit_button/exit_button_click.png" id="6_tbl8w"]
-[ext_resource type="Texture2D" uid="uid://bwy2pfjstwykm" path="res://assets/button/exit_button/exit_button_hover.png" id="7_7ost5"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="5_rn3ik"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="6_tbl8w"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="7_7ost5"]
 
 [node name="Shop" type="CanvasLayer"]
 script = ExtResource("2_ei2gw")
@@ -29,6 +29,7 @@ offset_right = 673.25
 offset_bottom = 475.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("3_0mlmv")
 
 [node name="Options_text" type="RichTextLabel" parent="background"]
