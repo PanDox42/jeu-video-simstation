@@ -39,7 +39,7 @@ func is_placable(ghost_building: Sprite2D) -> bool:
 	return true
 	
 func _unhandled_input(event):
-	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and GlobalScript.get_currently_placing()!=true:
 		
 		var batiment_clique = get_building_under_mouse()
 		
