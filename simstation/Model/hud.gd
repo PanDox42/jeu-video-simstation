@@ -52,15 +52,17 @@ func _maj_night_mode():
 		GlobalScript.set_night_mode(status)
 		
 		afficher_nuit_jour(status)
-	
+
 
 func _on_passer_tour_pressed():
 	CalculStats.passer_tour()
-	afficher_changement_tour()
-	_maj_temperature()
-	_maj_night_mode()
 	change_visible_confirmation_passer_tour()
 	GlobalScript.emit_signal("tour_change")
+	_maj_temperature()
+	_maj_night_mode()
+	await afficher_changement_tour()
+	afficher_catastrophe()
+
 
 
 func _on_btn_graphique_stats_pressed() -> void:
@@ -89,7 +91,7 @@ func _on_fermer_pressed_close_inventory() -> void:
 func change_visible_confirmation_passer_tour() -> void:
 	confirmation_passer_tour.visible = !confirmation_passer_tour.visible
 	
-	
+
 func charger_load_screen():
 	await get_tree().create_timer(1).timeout
 	load_screen.visible = false
@@ -109,3 +111,32 @@ func afficher_nuit_jour(status : bool):
 	nuit_jour.visible = true
 	await get_tree().create_timer(2).timeout
 	nuit_jour.visible = false
+
+func afficher_catastrophe():
+	var catastrophe = Catastrophes.get_catastrophe_active()
+	if catastrophe != null:
+		var info = catastrophe["info"]
+		var nom = info[4]
+		var description = info[5]
+		
+		var panel = changement_tour
+		var text = "[center][font_size=36][color=red]" + nom + "\n"
+		text += "[font_size=24][color=white]" + description
+		
+		# Anchors pour étendre le panel
+		panel.anchor_left = 0.50
+		panel.anchor_right = 0.50
+		panel.anchor_top = 0.40
+		panel.anchor_bottom = 0.60
+		
+		panel.get_child(0).bbcode_text = text
+		panel.visible = true
+		await get_tree().create_timer(8).timeout
+		panel.visible = false
+		
+		# Remettre la taille normale pour l'affichage du tour
+		panel.anchor_left = 0.5
+		panel.anchor_right = 0.5
+		panel.anchor_top = 0.5
+		panel.anchor_bottom = 0.5
+		panel.custom_minimum_size = Vector2(0, 0)

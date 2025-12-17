@@ -5,11 +5,11 @@ extends Node
 
 # [ Santé, Bonheur, Efficacité, Probabilité (%), Nom, Description ]
 var catastrophes_disponibles = {
-	"blizzard": [-5, -5, -5, 20, "Un Blizzard Antarctique", "Un blizzard violent frappe la station ! Les conditions météo extrêmes affectent la santé et le moral."],
-	"panne_electrique": [-10, -5, -15, 15, "Une Panne Électrique", "Une panne majeure du système électrique plonge une partie de la station dans le noir."],
-	"grippe_hivernale": [-20, -10, -5, 10, "Une Grippe Hivernale", "Une épidémie de grippe se propage dans la base confinée, affectant gravement l'équipe."],
-	"depression_saisonniere": [-10, -20, -10, 5, "Une Dépression Saisonnière", "L'isolement et le froid plongent l'équipe dans un profond malaise psychologique."],
-	"avalanche": [-20, -20, -20, 1, "Une Avalanche", "Une avalanche massive s'abat sur la base ! Dégâts importants et équipe en état de choc."]
+	"blizzard": [-5, -5, -5, 20, "Blizzard Antarctique", "Un blizzard violent frappe la station ! Les conditions météo extrêmes affectent la santé et le moral."],
+	"panne_electrique": [-10, -5, -15, 15, "Panne Électrique", "Une panne majeure du système électrique plonge une partie de la station dans le noir."],
+	"grippe_hivernale": [-20, -10, -5, 10, "Grippe Hivernale", "Une épidémie de grippe se propage dans la base confinée, affectant gravement l'équipe."],
+	"depression_saisonniere": [-10, -20, -10, 100, "Dépression Saisonnière", "L'isolement et le froid plongent l'équipe dans un profond malaise psychologique."],
+	"avalanche": [-20, -20, -20, 1, "Avalanche", "Une avalanche massive s'abat sur la base ! Dégâts importants et équipe en état de choc."]
 }
 
 # Var pour determiner quelle catastrophe est active
