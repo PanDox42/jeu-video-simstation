@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4kukl2esgxwp"]
+[gd_scene load_steps=10 format=3 uid="uid://d4kukl2esgxwp"]
 
 [ext_resource type="Texture2D" uid="uid://cv86oqgilefmn" path="res://assets/button/confirm_button/confirm_button.png" id="1_0bhau"]
 [ext_resource type="Script" uid="uid://cc0lawlrgjo1q" path="res://Model/buy_confirmation.gd" id="1_vv2ij"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_i5yxb"]
+[ext_resource type="Texture2D" uid="uid://cbc0xkgrmfh00" path="res://assets/background/popup_background.png" id="2_qft0i"]
 [ext_resource type="Texture2D" uid="uid://cqofxxs78y4fr" path="res://assets/button/confirm_button/confirm_button_click.png" id="2_vv2ij"]
 [ext_resource type="Texture2D" uid="uid://cmwb41p7n6uex" path="res://assets/button/confirm_button/confirm_button_hover.png" id="3_4pj0v"]
 [ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="4_b7ln2"]
@@ -19,67 +20,74 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="Panel" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -666.5
-offset_top = -162.0
-offset_right = 666.5
-offset_bottom = 162.0
+offset_left = -345.95374
+offset_top = -230.625
+offset_right = 345.95374
+offset_bottom = 230.625
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_qft0i")
 
-[node name="message" type="RichTextLabel" parent="background"]
+[node name="message" type="RichTextLabel" parent="Background"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.238
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.238
-offset_left = -666.5
-offset_top = -77.112
-offset_right = 657.5
-offset_bottom = 118.888
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = -151.0
+offset_right = 268.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("2_i5yxb")
 bbcode_enabled = true
-text = "[center][font_size=56]Voulez vous vraiment acheter le batiment : 64cdh%03eh$ ?"
+text = "[center][font_size=38]Voulez vous vraiment acheter le batiment : 64cdh%03eh$ ?"
 fit_content = true
 scroll_active = false
 
-[node name="confirm_button" type="TextureButton" parent="background"]
+[node name="confirm_button" type="TextureButton" parent="Background"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.26900002
-anchor_top = 0.72800004
-anchor_right = 0.26900002
-anchor_bottom = 0.72800004
-offset_left = -59.577026
-offset_top = -58.87201
-offset_right = 58.422974
-offset_bottom = 59.12799
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.0
+offset_top = 61.0
+offset_right = -153.0
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("1_0bhau")
 texture_pressed = ExtResource("2_vv2ij")
 texture_hover = ExtResource("3_4pj0v")
 stretch_mode = 0
 
-[node name="cancel_button" type="TextureButton" parent="background"]
+[node name="cancel_button" type="TextureButton" parent="Background"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.65900004
-anchor_top = 0.721
-anchor_right = 0.65900004
-anchor_bottom = 0.721
-offset_left = -60.447083
-offset_top = -60.604004
-offset_right = 60.552917
-offset_bottom = 60.395996
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = 56.0
+offset_right = 242.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("4_b7ln2")
 texture_pressed = ExtResource("5_4r87u")
 texture_hover = ExtResource("6_r20lg")
 stretch_mode = 0
 
-[connection signal="pressed" from="background/confirm_button" to="." method="_on_confirm_button_pressed"]
-[connection signal="pressed" from="background/cancel_button" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="Background/confirm_button" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="Background/cancel_button" to="." method="_on_cancel_button_pressed"]

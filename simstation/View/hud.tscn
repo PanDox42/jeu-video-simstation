@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=39 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
@@ -36,6 +36,8 @@
 [ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="32_nrmyt"]
 [ext_resource type="Texture2D" uid="uid://cmx74ox4lapx2" path="res://assets/button/exit_button/exit_button_click.png" id="33_4uvaq"]
 [ext_resource type="Texture2D" uid="uid://bwy2pfjstwykm" path="res://assets/button/exit_button/exit_button_hover.png" id="34_rf6ic"]
+[ext_resource type="Texture2D" uid="uid://3aje2d5rsttn" path="res://assets/background/round_background.png" id="34_vcgxy"]
+[ext_resource type="Texture2D" uid="uid://c5vishkxdu76a" path="res://assets/background/day_night_background.png" id="35_wvy0n"]
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("2_ugs5p")
@@ -79,7 +81,7 @@ anchor_bottom = 0.52400005
 offset_left = -84.64
 offset_top = -343.92004
 offset_right = 52.36
-offset_bottom = 411.07996
+offset_bottom = 411.07983
 grow_vertical = 2
 script = ExtResource("13_ew7f8")
 
@@ -117,7 +119,7 @@ texture_hover = ExtResource("12_s65m4")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="Label" type="RichTextLabel" parent="BorderContainer/PasserTour"]
+[node name="lbl_passer_tour" type="RichTextLabel" parent="BorderContainer/PasserTour"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -131,8 +133,30 @@ offset_bottom = 108.39997
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(0.71600944, 0.6322402, 0.12397011, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]Passer le tour"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lbl_cooldown" type="RichTextLabel" parent="BorderContainer/PasserTour"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.16700001
+anchor_right = 0.5
+anchor_bottom = -0.16700001
+offset_left = -181.75
+offset_top = -31.459991
+offset_right = 181.75
+offset_bottom = 31.539993
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.75429463, 0.356728, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=16]Patientez 10 secondes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -154,16 +178,13 @@ anchor_bottom = 0.2288889
 offset_left = -50.360107
 offset_top = -50.200012
 offset_right = 49.639893
-offset_bottom = 49.799988
+offset_bottom = 49.799957
 texture_normal = ExtResource("13_xp7qj")
 texture_pressed = ExtResource("14_o4crf")
 texture_hover = ExtResource("15_o4crf")
 ignore_texture_size = true
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="ChartStats" parent="BorderContainer" instance=ExtResource("14_o7jfm")]
-visible = false
 
 [node name="shop_button" type="TextureButton" parent="BorderContainer"]
 layout_mode = 1
@@ -193,7 +214,7 @@ anchor_bottom = 0.15
 offset_left = 15.0
 offset_top = 16.0
 offset_right = -15.0
-offset_bottom = -5.0
+offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -205,9 +226,9 @@ anchor_top = 0.512
 anchor_right = 0.112
 anchor_bottom = 0.512
 offset_left = -137.68001
-offset_top = -60.192
+offset_top = -69.192
 offset_right = 123.31999
-offset_bottom = 41.407997
+offset_bottom = 32.407997
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24
@@ -221,9 +242,9 @@ anchor_top = 0.514
 anchor_right = 0.112
 anchor_bottom = 0.514
 offset_left = -142.68001
-offset_top = -18.473999
+offset_top = -27.473999
 offset_right = 119.31999
-offset_bottom = 51.126007
+offset_bottom = 42.126
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]Mois 0"
@@ -253,9 +274,9 @@ anchor_top = 0.509
 anchor_right = 0.112
 anchor_bottom = 0.509
 offset_left = -94.68001
-offset_top = 27.231003
+offset_top = 16.231003
 offset_right = 76.61998
-offset_bottom = 86.83101
+offset_bottom = 75.83102
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]24 C°"
@@ -421,7 +442,7 @@ script = ExtResource("11_jtq4o")
 
 [node name="passerTour" type="Panel" parent="BorderContainer"]
 visible = false
-z_index = 1
+z_index = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -484,70 +505,75 @@ texture_pressed = ExtResource("33_4uvaq")
 texture_hover = ExtResource("34_rf6ic")
 stretch_mode = 0
 
-[node name="PanelChangementTour" type="Panel" parent="BorderContainer"]
+[node name="ChartStats" parent="BorderContainer" instance=ExtResource("14_o7jfm")]
 visible = false
+
+[node name="PanelChangementTour" type="TextureRect" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -246.74997
-offset_top = -58.25
-offset_right = 246.74997
-offset_bottom = 58.25
+offset_left = -196.7727
+offset_top = -78.0
+offset_right = 196.7727
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("34_vcgxy")
 
 [node name="ChangementTour" type="RichTextLabel" parent="BorderContainer/PanelChangementTour"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
+anchor_left = 0.507623
 anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.509
-offset_left = -236.99997
-offset_top = -41.0
-offset_right = 243.24261
-offset_bottom = 41.9515
+anchor_right = 0.507623
+anchor_bottom = 0.5897436
+offset_left = -240.12128
+offset_top = -42.0
+offset_right = 240.12128
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
-text = "[center][font_size=48]Tour 1"
+text = "[center][font_size=56]Tour 1"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelNuitJour" type="Panel" parent="BorderContainer"]
+[node name="PanelNuitJour" type="TextureRect" parent="BorderContainer/PanelChangementTour"]
 visible = false
+z_index = -1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.59000003
+anchor_top = 1.3720001
 anchor_right = 0.5
-anchor_bottom = 0.59000003
-offset_left = -246.75
-offset_top = -22.450012
-offset_right = 246.75
-offset_bottom = 21.799988
+anchor_bottom = 1.3720001
+offset_left = -177.98294
+offset_top = -45.032013
+offset_right = 177.98294
+offset_bottom = 44.967987
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("35_wvy0n")
 
-[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelNuitJour"]
+[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelChangementTour/PanelNuitJour"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.614774
-anchor_right = 0.5
-anchor_bottom = 0.61477405
-offset_left = -236.99997
-offset_top = -23.07875
-offset_right = 243.24261
-offset_bottom = 23.04625
+anchor_left = 0.5028093
+anchor_top = 0.5222222
+anchor_right = 0.50280935
+anchor_bottom = 0.5222222
+offset_left = -240.12128
+offset_top = -18.9375
+offset_right = 240.12128
+offset_bottom = 23.0625
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_colors/default_color = Color(1, 0.8392157, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]La nuit tombe"
@@ -567,6 +593,8 @@ spread = 180.0
 gravity = Vector2(400, 980)
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
+angular_velocity_min = -720.0
+angular_velocity_max = -100.0
 tangential_accel_min = -900.0
 tangential_accel_max = 900.0
 scale_amount_min = 1.2
@@ -585,6 +613,8 @@ spread = 180.0
 gravity = Vector2(400, 980)
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
+angular_velocity_min = -720.0
+angular_velocity_max = -100.0
 tangential_accel_min = -900.0
 tangential_accel_max = 900.0
 scale_amount_min = 1.2

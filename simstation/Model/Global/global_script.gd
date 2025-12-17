@@ -109,3 +109,20 @@ func format_money(value: int) -> String:
 		if count % 3 == 0 and i != 0:
 			result = " " + result
 	return result
+	
+	
+func play_sound(sound_path: String):
+	var sound = AudioStreamPlayer.new()
+	var stream = load(sound_path)
+	
+	if not stream:
+		print("Erreur : Impossible de trouver le son : ", sound_path)
+		return
+		
+	sound.stream = stream
+	sound.bus = "Sound"
+
+	add_child(sound)
+
+	sound.play()
+	sound.finished.connect(sound.queue_free)

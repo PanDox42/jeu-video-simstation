@@ -4,12 +4,10 @@ func _ready():
 	process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	visible = true
 	get_tree().paused = true  
-	GlobalScript.set_camera(false)
 
 func _on_resume_button_pressed() -> void:
 	visible = false
 	get_tree().paused = false
-	GlobalScript.set_camera(true)
 	
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud")
@@ -29,8 +27,6 @@ func _on_option_button_pressed() -> void:
 	else:
 		var node = hud.get_node("Options")
 		node.visible = !node.visible
-
-	GlobalScript.set_camera(!GlobalScript.get_camera())
 
 
 func _on_menu_button_pressed() -> void:
