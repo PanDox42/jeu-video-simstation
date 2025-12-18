@@ -79,8 +79,8 @@ func start_dragging():
 	batiment_instance = Sprite2D.new()
 	batiment_instance.texture = texture_res 
 	
-	batiment_instance.name = name
-	batiment_instance.set_meta("type_batiment", name)
+	batiment_instance.name = str(GlobalScript.get_batiments_counts()+1)
+	batiment_instance.set_meta("type_batiment", str(GlobalScript.get_batiments_counts()+1))
 	batiment_instance.z_index = 2
 	
 	var fond = ColorRect.new()
@@ -113,7 +113,8 @@ func place_building():
 			fond.queue_free()
 		
 		map_ref.validate_building(batiment_instance)
-		CalculStats._ajouter_stats_nouveau_batiment(name)
+		
+		GlobalScript.add_batiment(batiment_instance.name, name) 
 		
 		batiment_instance = null
 		dragging = false

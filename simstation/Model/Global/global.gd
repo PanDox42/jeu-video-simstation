@@ -21,6 +21,7 @@ var argent = 3000000
 var inventaire = {
 	"labo_recherche": 1, 
 	"dortoir": 0, 
+	"chaufferie": 1, 
 	"cantine": 0, 
 	"hopital": 0,
 	"observatoire" : 0,
@@ -28,42 +29,26 @@ var inventaire = {
 	"salle_repos": 0, 
 }
 
-var batiments_prix = {
-	"labo_recherche": 646463, 
-	"dortoir": 54867, 
-	"cantine": 50000, 
-	"hopital": 100000,
-	"observatoire" : 100000,
-	"salle_sport": 957376, 
-	"salle_repos": 75743, 
+var batiments_place = {
+	# id : {type, temp, sante}
 }
 
-var batiments_nombre = {
-	"labo_recherche": 0, 
-	"dortoir": 0, 
-	"cantine": 0, 
-	"hopital": 0,
-	"observatoire" : 0,
-	"salle_sport": 0, 
-	"salle_repos": 0, 
-}
-
- # [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
 var info_batiments = {
-	# [ Santé, Bonheur, Description, Nom (à afficher), Débloqué ou pas ]
+	# [ Bonheur, Description, Nom (à afficher), Débloqué ou pas, prix ]
 	
 	# --- Bâtiments de base (Débloqués par défaut) ---
-	"labo_recherche": [-20, -10, "Permet de faire des recherches scientifiques", "Laboratoire", true],
-	"dortoir": [60, 60, "Permet de se reposer tranquillement", "Dortoir", true],
+	"labo_recherche": [-10, "Permet de faire des recherches scientifiques", "Laboratoire", true, 646463],
+	"dortoir": [60, "Permet de se reposer tranquillement", "Dortoir", true, 54867],
+	"chaufferie": [60, "Chauffe tous les batiments de la station", "Chaufferie", true, 54867],
 	
 	# --- Bâtiments à débloquer via l'Arbre "Infrastructure" ---
-	"salle_sport": [70, 70, "Améliore la condition physique des habitants", "Salle de sport", false],
-	"cantine": [60, 70, "Fournit de la nourriture chaude", "Cantine", false],
-	"salle_repos": [40, 60, "Endroit calme pour se détendre", "Salle de repos", false],
+	"salle_sport": [70, "Améliore la condition physique des habitants", "Salle de sport", false, 957376],
+	"cantine": [70, "Fournit de la nourriture chaude", "Cantine", false, 50000],
+	"salle_repos": [60, "Endroit calme pour se détendre", "Salle de repos", false, 75743],
 	
 	# --- Bâtiments à débloquer via l'Arbre "Science" ---
-	"hopital": [40, 60, "Permet de soigner les malades graves", "Hopital", false],
-	"observatoire" : [20, 50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false],
+	"hopital": [60, "Permet de soigner les malades graves", "Hopital", false, 100000],
+	"observatoire" : [50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false, 100000],
 }
 
 var stats = {

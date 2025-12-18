@@ -57,7 +57,7 @@ func creer_bouton_batiment(nom_batiment: String, quantite: int):
 	var label = Label.new()
 	label.name = "lbl"+nom_batiment
 	
-	var nom_affiche = GlobalScript.get_batiment_info(nom_batiment)[3]
+	var nom_affiche = GlobalScript.get_batiment_real_name(nom_batiment)
 	if nom_affiche == "Laboratoire de recherche":
 		nom_affiche = "Laboratoire"
 	
@@ -75,7 +75,7 @@ func _on_batiment_changed(nom_batiment, new_val):
 			var icon = box.get_node(nom_batiment)
 			var lbl = box.get_node("lbl"+nom_batiment)
 			
-			var nom_affiche = GlobalScript.get_batiment_info(nom_batiment)[3]
+			var nom_affiche = GlobalScript.get_batiment_real_name(nom_batiment)
 			
 			lbl.text = "%s (x%d)" % [nom_affiche, new_val]
 			icon.modulate = Color(0.658, 0.658, 0.658, 1.0) if new_val <= 0 else Color.WHITE

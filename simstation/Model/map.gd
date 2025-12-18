@@ -44,14 +44,14 @@ func _unhandled_input(event):
 		var batiment_clique = get_building_under_mouse()
 		
 		if batiment_clique:
-			var nom_a_envoyer = batiment_clique.name
+			var id_a_envoyer = batiment_clique.name
 
 			# On vérifie si une étiquette "type_batiment" a été collée sur le sprite
 			if batiment_clique.has_meta("type_batiment"):
-				nom_a_envoyer = batiment_clique.get_meta("type_batiment")
+				id_a_envoyer = batiment_clique.get_meta("type_batiment")
 			
-			print("Clic détecté sur : ", batiment_clique.name, " -> Envoi signal : ", nom_a_envoyer)
-			GlobalScript.demande_ouverture_info.emit(nom_a_envoyer)
+			print("Clic détecté sur : ", batiment_clique.name, " -> Envoi signal : ", id_a_envoyer)
+			GlobalScript.demande_ouverture_info.emit(id_a_envoyer)
 
 func get_building_under_mouse() -> Sprite2D:
 	var mouse_pos = get_global_mouse_position()
