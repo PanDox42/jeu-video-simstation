@@ -20,7 +20,8 @@ pages:
     paths:
       - public
   
-  # Only deploy on main/master branch
+  # Deploy on main/master and docs-test branch
   only:
     - main
     - master
+    - 64-commenter-le-code-entier
