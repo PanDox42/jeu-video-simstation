@@ -21,11 +21,11 @@ config/icon="uid://jxmc7jawk5jx"
 
 [autoload]
 
-Global="*res://Model/Global/global.gd"
-GameManager="*res://Controller/game_manager.gd"
-GlobalScript="*res://Model/Global/global_script.gd"
-CalculStats="*res://Model/Global/calcul_stats.gd"
-Catastrophes="*res://Model/Global/catastrophes.gd"
+Global="*res://model/global/global.gd"
+GameManager="*res://controller/game_manager.gd"
+GlobalScript="*res://model/global/global_script.gd"
+CalculStats="*res://model/global/calcul_stats.gd"
+Catastrophes="*res://model/global/disaster.gd"
 
 [display]
 
@@ -43,9 +43,9 @@ project/assembly_name="SimStation"
 [file_customization]
 
 folder_colors={
-"res://Controller/": "green",
-"res://Model/": "red",
-"res://View/": "blue"
+"res://controller/": "green",
+"res://model/": "red",
+"res://view/": "blue"
 }
 
 [input]

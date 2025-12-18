@@ -1,23 +1,23 @@
 [gd_scene load_steps=7 format=3 uid="uid://chi4cvlu1uqbp"]
 
-[ext_resource type="Script" uid="uid://dyxsjxpvsie0m" path="res://Model/shop.gd" id="2_ei2gw"]
-[ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="3_0mlmv"]
-[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="4_o4j7t"]
-[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="5_rn3ik"]
-[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="6_tbl8w"]
-[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="7_7ost5"]
+[ext_resource type="Script" uid="uid://dyxsjxpvsie0m" path="res://model/shop/shop.gd" id="1_hnfw6"]
+[ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="2_ml1kn"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_42id8"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_nbf5o"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="5_m57ju"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="6_86ks1"]
 
 [node name="Shop" type="CanvasLayer"]
-script = ExtResource("2_ei2gw")
+script = ExtResource("1_hnfw6")
 
-[node name="AntiClick" type="Panel" parent="."]
+[node name="PanelAntiClick" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="TextureRect" parent="."]
+[node name="TRectBackground" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,9 +30,9 @@ offset_bottom = 475.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-texture = ExtResource("3_0mlmv")
+texture = ExtResource("2_ml1kn")
 
-[node name="Options_text" type="RichTextLabel" parent="background"]
+[node name="RLabelTitle" type="RichTextLabel" parent="TRectBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -48,41 +48,45 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0.5372549, 0.8117647, 0.9411765, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 15
-theme_override_fonts/normal_font = ExtResource("4_o4j7t")
+theme_override_fonts/normal_font = ExtResource("3_42id8")
 bbcode_enabled = true
 text = "[center][font_size=65]BOUTIQUE
 "
 scroll_active = false
 metadata/_edit_use_anchors_ = true
 
-[node name="Exit_button" type="TextureButton" parent="background"]
+[node name="TButtonExit" type="TextureButton" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -129.0
-offset_top = 46.0
-offset_right = -54.5
-offset_bottom = 120.5
+anchors_preset = -1
+anchor_left = 0.93200004
+anchor_top = 0.08800001
+anchor_right = 0.93200004
+anchor_bottom = 0.08800001
+offset_left = -37.43811
+offset_top = -37.600006
+offset_right = 37.06189
+offset_bottom = 36.899994
 grow_horizontal = 0
-texture_normal = ExtResource("5_rn3ik")
-texture_pressed = ExtResource("6_tbl8w")
-texture_hover = ExtResource("7_7ost5")
+texture_normal = ExtResource("4_nbf5o")
+texture_pressed = ExtResource("5_m57ju")
+texture_hover = ExtResource("6_86ks1")
 stretch_mode = 0
 
-[node name="ScrollContainer" type="ScrollContainer" parent="background"]
+[node name="ScrollBuildings" type="ScrollContainer" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 122.25
-offset_top = 279.0
-offset_right = -134.25
-offset_bottom = -139.35004
+anchors_preset = -1
+anchor_left = 0.091000006
+anchor_top = 0.294
+anchor_right = 0.90000004
+anchor_bottom = 0.85300004
+offset_left = -0.2815094
+offset_top = -0.2999878
+offset_right = 0.39990234
+offset_bottom = 0.29992676
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Batiments" type="GridContainer" parent="background/ScrollContainer"]
+[node name="Buildings" type="GridContainer" parent="TRectBackground/ScrollBuildings"]
 custom_minimum_size = Vector2(1000, 1000)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -91,4 +95,4 @@ theme_override_constants/h_separation = 56
 theme_override_constants/v_separation = 40
 columns = 2
 
-[connection signal="pressed" from="background/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="TRectBackground/TButtonExit" to="." method="_on_exit_button_pressed"]

@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://ssm7kf5lxt27"]
 
-[ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="1_7x7bw"]
-[ext_resource type="Script" uid="uid://l2mh27b8jh1b" path="res://Model/credits.gd" id="1_hid40"]
-[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_hid40"]
-[ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="3_1cwp1"]
-[ext_resource type="Texture2D" uid="uid://cmx74ox4lapx2" path="res://assets/button/exit_button/exit_button_click.png" id="4_r7np8"]
-[ext_resource type="Texture2D" uid="uid://bwy2pfjstwykm" path="res://assets/button/exit_button/exit_button_hover.png" id="5_m0jbp"]
+[ext_resource type="Script" uid="uid://l2mh27b8jh1b" path="res://model/main_menu/credits.gd" id="1_q6mjs"]
+[ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="2_20ih0"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_ooed1"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_an1kk"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="5_tvixg"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="6_rdhdb"]
 
 [node name="Credits" type="CanvasLayer"]
-script = ExtResource("1_hid40")
+script = ExtResource("1_q6mjs")
 metadata/_edit_use_anchors_ = true
 
-[node name="AntiClick" type="Panel" parent="."]
+[node name="PanelAntiClick" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="TextureRect" parent="."]
+[node name="TRectBackground" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -30,39 +30,45 @@ offset_right = 673.25
 offset_bottom = 475.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_7x7bw")
+texture = ExtResource("2_20ih0")
 
-[node name="Exit_button" type="TextureButton" parent="background"]
+[node name="RLabelTitle" type="RichTextLabel" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -129.0
-offset_top = 46.0
-offset_right = -54.5
-offset_bottom = 120.5
-grow_horizontal = 0
-texture_normal = ExtResource("3_1cwp1")
-texture_pressed = ExtResource("4_r7np8")
-texture_hover = ExtResource("5_m0jbp")
-stretch_mode = 0
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.16389474
+anchor_right = 0.5
+anchor_bottom = 0.16389474
+offset_left = -396.0
+offset_top = -63.006317
+offset_right = 411.75
+offset_bottom = 34.299988
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.5372549, 0.8117647, 0.9411765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("3_ooed1")
+bbcode_enabled = true
+text = "[center][font_size=65]CREDITS
+"
+scroll_active = false
 
-[node name="RichTextLabel" type="RichTextLabel" parent="background"]
+[node name="RLabelCredits" type="RichTextLabel" parent="TRectBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.097
-anchor_top = 0.31300002
-anchor_right = 0.97800004
-anchor_bottom = 0.851
+anchor_top = 0.28300002
+anchor_right = 0.88400006
+anchor_bottom = 0.85300004
 offset_left = -0.4850006
-offset_top = -28.04004
-offset_right = -126.390015
-offset_bottom = 1.9199829
+offset_top = 0.45999146
+offset_right = 0.18103027
+offset_bottom = 0.019958496
 size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/outline_size = 5
-theme_override_fonts/normal_font = ExtResource("2_hid40")
-theme_override_fonts/bold_font = ExtResource("2_hid40")
+theme_override_fonts/normal_font = ExtResource("3_ooed1")
+theme_override_fonts/bold_font = ExtResource("3_ooed1")
 theme_override_font_sizes/normal_font_size = 26
 theme_override_font_sizes/bold_font_size = 32
 bbcode_enabled = true
@@ -110,25 +116,19 @@ ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE
 OR THE USE OR OTHER DEALINGS IN THE SOFTWARE."
 
-[node name="Credits_text" type="RichTextLabel" parent="background"]
+[node name="TButtonExit" type="TextureButton" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.16389474
-anchor_right = 0.5
-anchor_bottom = 0.16389474
-offset_left = -396.0
-offset_top = -63.006317
-offset_right = 411.75
-offset_bottom = 34.299988
-grow_horizontal = 2
-theme_override_colors/default_color = Color(0.5372549, 0.8117647, 0.9411765, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 15
-theme_override_fonts/normal_font = ExtResource("2_hid40")
-bbcode_enabled = true
-text = "[center][font_size=65]CREDITS
-"
-scroll_active = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -129.0
+offset_top = 46.0
+offset_right = -54.5
+offset_bottom = 120.5
+grow_horizontal = 0
+texture_normal = ExtResource("4_an1kk")
+texture_pressed = ExtResource("5_tvixg")
+texture_hover = ExtResource("6_rdhdb")
+stretch_mode = 0
 
-[connection signal="pressed" from="background/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="TRectBackground/TButtonExit" to="." method="_on_exit_button_pressed"]

@@ -1,14 +1,14 @@
 [gd_scene load_steps=11 format=3 uid="uid://byhx4nqhp22jo"]
 
-[ext_resource type="Script" uid="uid://c4e02x7hylkmt" path="res://Model/main_menu.gd" id="1_8ln24"]
-[ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/placeholder.jpg" id="2_rtw2f"]
-[ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/logo.png" id="3_oa1go"]
-[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="4_dq6vp"]
-[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://Model/masked_button.gd" id="5_3021e"]
-[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="5_jk1qb"]
-[ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_wntf2"]
-[ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="7_dq6vp"]
-[ext_resource type="AudioStream" uid="uid://k2l4hck1y7oc" path="res://assets/sounds/musics/main_theme_music.mp3" id="8_3021e"]
+[ext_resource type="Script" uid="uid://c4e02x7hylkmt" path="res://model/main_menu/main_menu.gd" id="1_ngrdv"]
+[ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/background.jpg" id="2_olpy7"]
+[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="3_kxc1c"]
+[ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="4_w7ty5"]
+[ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_7a01j"]
+[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="6_5id5m"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="7_n77rl"]
+[ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/game_logo.png" id="8_ss4sa"]
+[ext_resource type="AudioStream" uid="uid://k2l4hck1y7oc" path="res://assets/sounds/musics/main_theme_music.mp3" id="9_jqfgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
@@ -22,10 +22,10 @@ corner_radius_top_right = 40
 corner_radius_bottom_right = 40
 corner_radius_bottom_left = 40
 
-[node name="main_menu" type="CanvasLayer"]
-script = ExtResource("1_8ln24")
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_ngrdv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="TRectBackground" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -33,9 +33,9 @@ offset_left = -4.0
 offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rtw2f")
+texture = ExtResource("2_olpy7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="PanelGameMenu" type="Panel" parent="."]
 anchors_preset = -1
 anchor_left = 0.45
 anchor_top = 0.531
@@ -50,7 +50,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
 metadata/_edit_use_anchors_ = true
 
-[node name="btnJouer" type="TextureButton" parent="Panel"]
+[node name="TButtonPlay" type="TextureButton" parent="PanelGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -63,15 +63,15 @@ offset_right = 181.0
 offset_bottom = 95.472
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_dq6vp")
-texture_pressed = ExtResource("7_dq6vp")
-texture_hover = ExtResource("5_wntf2")
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_3021e")
+script = ExtResource("6_5id5m")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="Panel/btnJouer"]
+[node name="LabelPlay" type="Label" parent="PanelGameMenu/TButtonPlay"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -85,12 +85,12 @@ offset_bottom = 33.51799
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_jk1qb")
+theme_override_fonts/font = ExtResource("7_n77rl")
 theme_override_font_sizes/font_size = 38
 text = "JOUER"
 metadata/_edit_use_anchors_ = true
 
-[node name="btnOptions" type="TextureButton" parent="Panel"]
+[node name="TButtonOptions" type="TextureButton" parent="PanelGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -103,14 +103,14 @@ offset_right = 181.0
 offset_bottom = 95.49597
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_dq6vp")
-texture_pressed = ExtResource("7_dq6vp")
-texture_hover = ExtResource("5_wntf2")
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_3021e")
+script = ExtResource("6_5id5m")
 
-[node name="Label" type="Label" parent="Panel/btnOptions"]
+[node name="LabelOptions" type="Label" parent="PanelGameMenu/TButtonOptions"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -124,12 +124,12 @@ offset_bottom = 33.506996
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_jk1qb")
+theme_override_fonts/font = ExtResource("7_n77rl")
 theme_override_font_sizes/font_size = 38
 text = "OPTIONS"
 metadata/_edit_use_anchors_ = true
 
-[node name="btnTuto" type="TextureButton" parent="Panel"]
+[node name="TButtonTuto" type="TextureButton" parent="PanelGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -142,14 +142,14 @@ offset_right = 938.0
 offset_bottom = -392.0041
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_dq6vp")
-texture_pressed = ExtResource("7_dq6vp")
-texture_hover = ExtResource("5_wntf2")
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_3021e")
+script = ExtResource("6_5id5m")
 
-[node name="Label" type="Label" parent="Panel/btnTuto"]
+[node name="LabelTuto" type="Label" parent="PanelGameMenu/TButtonTuto"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -163,13 +163,13 @@ offset_bottom = 33.506996
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_jk1qb")
+theme_override_fonts/font = ExtResource("7_n77rl")
 theme_override_font_sizes/font_size = 38
 text = "TUTO"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="btnQuitter" type="TextureButton" parent="Panel"]
+[node name="TButtonExit" type="TextureButton" parent="PanelGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -182,14 +182,14 @@ offset_right = 181.2688
 offset_bottom = 103.72998
 grow_horizontal = 2
 grow_vertical = 0
-texture_normal = ExtResource("4_dq6vp")
-texture_pressed = ExtResource("7_dq6vp")
-texture_hover = ExtResource("5_wntf2")
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_3021e")
+script = ExtResource("6_5id5m")
 
-[node name="Label" type="Label" parent="Panel/btnQuitter"]
+[node name="LabelExit" type="Label" parent="PanelGameMenu/TButtonExit"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -203,12 +203,12 @@ offset_bottom = 33.506996
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_jk1qb")
+theme_override_fonts/font = ExtResource("7_n77rl")
 theme_override_font_sizes/font_size = 38
 text = "QUITTER"
 metadata/_edit_use_anchors_ = true
 
-[node name="Logo" type="TextureRect" parent="Panel"]
+[node name="TRectGameLogo" type="TextureRect" parent="PanelGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -220,9 +220,9 @@ offset_top = -77.208
 offset_right = -251.33331
 offset_bottom = -51.374664
 scale = Vector2(6, 6)
-texture = ExtResource("3_oa1go")
+texture = ExtResource("8_ss4sa")
 
-[node name="btnCredits" type="TextureButton" parent="."]
+[node name="TButtonCredits" type="TextureButton" parent="."]
 anchors_preset = -1
 anchor_left = 0.9140001
 anchor_top = 0.92700005
@@ -234,15 +234,15 @@ offset_right = 119.11987
 offset_bottom = 63.839966
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_dq6vp")
-texture_pressed = ExtResource("7_dq6vp")
-texture_hover = ExtResource("5_wntf2")
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_3021e")
+script = ExtResource("6_5id5m")
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="btnCredits"]
+[node name="LabelCredits" type="Label" parent="TButtonCredits"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.50415903
@@ -256,19 +256,12 @@ offset_bottom = 21.973999
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_jk1qb")
+theme_override_fonts/font = ExtResource("7_n77rl")
 theme_override_font_sizes/font_size = 25
 text = "CRÉDITS"
 metadata/_edit_use_anchors_ = true
 
-[node name="MusiqueDeFond" type="AudioStreamPlayer" parent="."]
-process_mode = 3
-stream = ExtResource("8_3021e")
-volume_db = -2.0
-autoplay = true
-bus = &"Music"
-
-[node name="Panel2" type="Panel" parent="."]
+[node name="PanelVersion" type="Panel" parent="."]
 anchors_preset = -1
 anchor_left = 0.0615
 anchor_top = 0.9377778
@@ -281,7 +274,7 @@ offset_bottom = 37.19995
 theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
 metadata/_edit_use_anchors_ = true
 
-[node name="version" type="Label" parent="Panel2"]
+[node name="LabelVersion" type="Label" parent="PanelVersion"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.508
@@ -295,13 +288,20 @@ offset_bottom = 33.523964
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("5_jk1qb")
+theme_override_fonts/font = ExtResource("7_n77rl")
 theme_override_font_sizes/font_size = 38
 text = "v 1.0.0"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="Panel/btnJouer" to="." method="_on_btn_jouer_pressed"]
-[connection signal="pressed" from="Panel/btnOptions" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="Panel/btnTuto" to="." method="_on_btn_tuto_pressed"]
-[connection signal="pressed" from="Panel/btnQuitter" to="." method="_on_btn_quitter_pressed"]
-[connection signal="pressed" from="btnCredits" to="." method="_on_btn_credits_pressed"]
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_jqfgn")
+volume_db = -2.0
+autoplay = true
+bus = &"Music"
+
+[connection signal="pressed" from="PanelGameMenu/TButtonPlay" to="." method="_on_btn_jouer_pressed"]
+[connection signal="pressed" from="PanelGameMenu/TButtonOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="PanelGameMenu/TButtonTuto" to="." method="_on_btn_tuto_pressed"]
+[connection signal="pressed" from="PanelGameMenu/TButtonExit" to="." method="_on_btn_quitter_pressed"]
+[connection signal="pressed" from="TButtonCredits" to="." method="_on_btn_credits_pressed"]

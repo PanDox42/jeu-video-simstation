@@ -1,0 +1,17 @@
+extends Sprite2D
+
+func _update_bar(value: int):
+	var ratio = value / 100.0
+	region_enabled = true
+	region_rect = Rect2(33.999, 45.353, ratio * 83.872, 54.51)
+
+func _process(_delta):
+	match name: # name c'est le name du truc appelant
+		"SpriteFilledBarHealth":
+			_update_bar(GlobalScript.get_health())
+		"SpriteFilledBarEfficiency":
+			_update_bar(GlobalScript.get_efficiency())
+		"SpriteFilledBarHappiness":
+			_update_bar(GlobalScript.get_hapiness())
+		_: # default
+			print ("Erreur : Pas le bon appelant")

@@ -1,36 +1,36 @@
 [gd_scene load_steps=12 format=3 uid="uid://dtot0gisi5vyy"]
 
-[ext_resource type="Script" uid="uid://dcqycusxc035r" path="res://Model/tuto.gd" id="1_jpiht"]
-[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_k12no"]
-[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="2_plvcq"]
-[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="3_k12no"]
-[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="4_7y1a1"]
-[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="6_x3qeh"]
-[ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="7_i4jys"]
-[ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="8_e2xje"]
-[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://Model/masked_button.gd" id="9_i4jys"]
+[ext_resource type="Script" uid="uid://dcqycusxc035r" path="res://model/main_menu/tuto.gd" id="1_463a4"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_p6g3g"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="3_ns7xi"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="4_17x04"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="5_gfegd"]
+[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="6_dsxt3"]
+[ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="7_54ssy"]
+[ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="8_4s3m5"]
+[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="9_21y4n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7y1a1"]
-font = ExtResource("2_k12no")
+font = ExtResource("2_p6g3g")
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_ujoy1"]
-font = ExtResource("2_k12no")
+font = ExtResource("2_p6g3g")
 font_size = 23
 font_color = Color(0, 0, 0, 1)
 
 [node name="Tuto" type="CanvasLayer"]
-script = ExtResource("1_jpiht")
+script = ExtResource("1_463a4")
 
-[node name="DisplayImage" type="TextureRect" parent="."]
+[node name="TRectDisplayImage" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BottomPanel" type="Panel" parent="."]
-anchors_preset = -1
+[node name="PanelBottom" type="Panel" parent="."]
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -42,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 
-[node name="Description" type="Label" parent="BottomPanel"]
+[node name="LabelDescription" type="Label" parent="PanelBottom"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.39800003
@@ -58,7 +58,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="CloseButton" type="TextureButton" parent="BottomPanel"]
+[node name="ButtonClose" type="TextureButton" parent="PanelBottom"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.97700006
@@ -70,12 +70,12 @@ offset_top = -21.955002
 offset_right = 23.045654
 offset_bottom = 22.044998
 grow_horizontal = 0
-texture_normal = ExtResource("2_plvcq")
-texture_pressed = ExtResource("3_k12no")
-texture_hover = ExtResource("4_7y1a1")
+texture_normal = ExtResource("3_ns7xi")
+texture_pressed = ExtResource("4_17x04")
+texture_hover = ExtResource("5_gfegd")
 stretch_mode = 5
 
-[node name="NextButton" type="TextureButton" parent="BottomPanel"]
+[node name="ButtonNext" type="TextureButton" parent="PanelBottom"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.88500005
@@ -88,14 +88,14 @@ offset_right = 122.43298
 offset_bottom = 74.5
 grow_horizontal = 0
 grow_vertical = 0
-texture_normal = ExtResource("6_x3qeh")
-texture_pressed = ExtResource("7_i4jys")
-texture_hover = ExtResource("8_e2xje")
+texture_normal = ExtResource("6_dsxt3")
+texture_pressed = ExtResource("7_54ssy")
+texture_hover = ExtResource("8_4s3m5")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("9_i4jys")
+script = ExtResource("9_21y4n")
 
-[node name="Label" type="Label" parent="BottomPanel/NextButton"]
+[node name="LabelNext" type="Label" parent="PanelBottom/ButtonNext"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -113,5 +113,5 @@ label_settings = SubResource("LabelSettings_ujoy1")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="BottomPanel/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="BottomPanel/NextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="PanelBottom/ButtonClose" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="PanelBottom/ButtonNext" to="." method="_on_next_button_pressed"]

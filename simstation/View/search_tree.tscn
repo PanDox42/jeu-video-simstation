@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqk628cbpj4y8"]
+
+[ext_resource type="Script" uid="uid://e212qo50r3w0" path="res://model/search_tree/chart_search_tree.gd" id="1_i8ovn"]
+[ext_resource type="Texture2D" uid="uid://gu3tp3ihrp1s" path="res://assets/side/shop_background.png" id="2_ix13j"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o0hrl"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_slc3x"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="5_ec1wv"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="6_qpc66"]
+
+[node name="ArbreRecherche" type="CanvasLayer"]
+script = ExtResource("1_i8ovn")
+
+[node name="PanelAntiClick" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TRectBackground" type="TextureRect" parent="."]
+show_behind_parent = true
+z_index = 10
+offset_top = 162.0
+offset_right = 1921.0
+offset_bottom = 1080.0
+texture = ExtResource("2_ix13j")
+
+[node name="titre" type="RichTextLabel" parent="TRectBackground"]
+layout_mode = 0
+offset_left = 492.0
+offset_top = 49.0
+offset_right = 1396.0
+offset_bottom = 124.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/normal_font = ExtResource("3_o0hrl")
+theme_override_fonts/bold_font = ExtResource("3_o0hrl")
+theme_override_fonts/bold_italics_font = ExtResource("3_o0hrl")
+theme_override_fonts/italics_font = ExtResource("3_o0hrl")
+theme_override_fonts/mono_font = ExtResource("3_o0hrl")
+bbcode_enabled = true
+text = "[center][font_size=40]Arbre de recherche"
+
+[node name="Exit_button" type="TextureButton" parent="TRectBackground"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -229.0
+offset_top = 51.0
+offset_right = -154.5
+offset_bottom = 125.5
+grow_horizontal = 0
+texture_normal = ExtResource("4_slc3x")
+texture_pressed = ExtResource("5_ec1wv")
+texture_hover = ExtResource("6_qpc66")
+stretch_mode = 0
+
+[node name="time_recherche" type="Label" parent="TRectBackground"]
+visible = false
+layout_mode = 0
+offset_left = 901.0
+offset_top = 311.0
+offset_right = 1011.0
+offset_bottom = 412.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TRectBackground"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 138.0
+offset_right = 1685.0
+offset_bottom = 766.0
+
+[node name="tree_canvas" type="Control" parent="TRectBackground/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="TRectBackground/Exit_button" to="." method="_on_exit_button_pressed"]
