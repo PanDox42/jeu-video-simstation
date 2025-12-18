@@ -118,7 +118,7 @@ theme_override_fonts/font = ExtResource("3_8muv4")
 theme_override_font_sizes/font_size = 30
 text = "Plein  écran"
 
-[connection signal="pressed" from="TRectBackground/ButtonBack" to="." method="_on_retour_button_pressed"]
+[connection signal="pressed" from="TRectBackground/ButtonBack" to="." method="_on_reround_button_pressed"]
 [connection signal="value_changed" from="TRectBackground/VBoxParametres/VBoxVolumeMusics/SliderMusics" to="." method="_on_musique_slider_value_changed"]
 [connection signal="value_changed" from="TRectBackground/VBoxParametres/VBoxVolumeSounds/SliderSounds" to="." method="_on_effet_slider_value_changed"]
 [connection signal="toggled" from="TRectBackground/VBoxParametres/ButtonFullScreen" to="." method="_on_check_button_toggled"]

@@ -20,23 +20,23 @@ func _physics_process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		_on_pressed_pause()
 
-func load_scene(chemin_scene, nom_node):
-	var arbre_scene = load(chemin_scene)
+func load_scene(scene_path, node_name):
+	var arbre_scene = load(scene_path)
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud") 
 
-	if not hud.has_node(nom_node):
+	if not hud.has_node(node_name):
 		var instance = arbre_scene.instantiate()
-		instance.name = nom_node
+		instance.name = node_name
 		hud.add_child(instance)
 	else:
-		var node = hud.get_node(nom_node)
+		var node = hud.get_node(node_name)
 		node.visible = !node.visible  
 
 
-func exit_button(nom_node):
+func exit_button(node_name):
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud")
 
-	if hud.has_node(nom_node):
-		hud.get_node(nom_node).visible = false
+	if hud.has_node(node_name):
+		hud.get_node(node_name).visible = false

@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://cnd66etwire0l"]
+[gd_scene load_steps=5 format=4 uid="uid://ctdruieaph1fg"]
 
 [ext_resource type="Script" uid="uid://cklo8r0adm8oj" path="res://model/map/map.gd" id="1_o7eqr"]
-[ext_resource type="Texture2D" uid="uid://uxk73ab1jk6e" path="res://assets/snow/spritesheet.png" id="1_pn7st"]
+[ext_resource type="Texture2D" uid="uid://uxk73ab1jk6e" path="res://assets/map/spritesheet.png" id="1_pn7st"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mg43x"]
 texture = ExtResource("1_pn7st")

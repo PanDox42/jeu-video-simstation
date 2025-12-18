@@ -1,13 +1,13 @@
 [gd_scene load_steps=11 format=3 uid="uid://byhx4nqhp22jo"]
 
 [ext_resource type="Script" uid="uid://c4e02x7hylkmt" path="res://model/main_menu/main_menu.gd" id="1_ngrdv"]
-[ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/placeholder.jpg" id="2_olpy7"]
+[ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/background.jpg" id="2_olpy7"]
 [ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="3_kxc1c"]
 [ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="4_w7ty5"]
 [ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_7a01j"]
 [ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="6_5id5m"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="7_n77rl"]
-[ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/logo.png" id="8_ss4sa"]
+[ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/game_logo.png" id="8_ss4sa"]
 [ext_resource type="AudioStream" uid="uid://k2l4hck1y7oc" path="res://assets/sounds/musics/main_theme_music.mp3" id="9_jqfgn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]

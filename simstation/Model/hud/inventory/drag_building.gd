@@ -20,7 +20,7 @@ const NOT_ENOUGH_RESOUCES = "res://assets/sounds/buildings/not_enough_resources.
 
 @export var grid_size : int = 64
 
-var batiment_instance : Sprite2D = null
+var building_instance : Sprite2D = null
 var map_ref = null
 var dragging : bool = false
 var grid_visual_instance : Node2D = null
@@ -37,14 +37,14 @@ func _gui_input(event):
 		if GlobalScript.get_currently_placing():
 			print("Action impossible : un placement est déjà en cours")
 			return
-		if GlobalScript.get_batiment_inventaire(name) > 0:
+		if GlobalScript.get_building_inventory(name) > 0:
 			start_dragging()
 		else:
 			GlobalScript.play_sound(NOT_ENOUGH_RESOUCES)
 			print("Pas assez de ressources !")
 
 func _unhandled_input(event):
-	if dragging and batiment_instance:
+	if dragging and building_instance:
 		if event is InputEventMouseButton:
 			if event.button_index == MOUSE_BUTTON_LEFT and not event.pressed: 
 				place_building()
@@ -54,11 +54,11 @@ func _unhandled_input(event):
 				get_viewport().set_input_as_handled()
 
 func _process(_delta):
-	if dragging and batiment_instance and map_ref:
+	if dragging and building_instance and map_ref:
 		var mouse_global_pos = map_ref.get_global_mouse_position()
 		var grid_pos = (mouse_global_pos / grid_size).floor() * grid_size
 
-		batiment_instance.global_position = grid_pos
+		building_instance.global_position = grid_pos
 		update_visual_feedback()
 
 func start_dragging():
@@ -76,58 +76,58 @@ func start_dragging():
 	grid_visual_instance.z_index = 1 
 	map_ref.add_child(grid_visual_instance)
 	
-	var texture_res = load("res://assets/batiments/"+name+".png")
+	var texture_res = load("res://assets/buildings/"+name+".png")
 	
 	# --- CALCUL DE LA TAILLE ET DE L'ECHELLE ---
-	var taille_cible = GlobalScript.get_batiment_taille(name) # Récupère le 128 ou 64
+	var target_size = GlobalScript.get_size_building(name) # Récupère le 128 ou 64
 	var tex_size = texture_res.get_size()
 	
-	batiment_instance = Sprite2D.new()
-	batiment_instance.texture = texture_res 
+	building_instance = Sprite2D.new()
+	building_instance.texture = texture_res 
 	
 	# On applique l'échelle : Taille voulue / Taille réelle de l'image
 	# Exemple : 128 / 64 = scale de 2.0
-	var ratio = float(taille_cible) / tex_size.x 
-	batiment_instance.scale = Vector2(ratio, ratio)
+	var ratio = float(target_size) / tex_size.x 
+	building_instance.scale = Vector2(ratio, ratio)
 	# -------------------------------------------
 	
-	batiment_instance.set_meta("id", GlobalScript.get_batiments_counts()+1)
-	batiment_instance.set_meta("type_batiment", name)
-	batiment_instance.z_index = 2
+	building_instance.set_meta("id", GlobalScript.get_buildings_counts()+1)
+	building_instance.set_meta("building_type", name)
+	building_instance.z_index = 2
 	
-	var fond = ColorRect.new()
-	fond.name = "FondDePlacement" 
-	fond.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	fond.color = Color(0.5, 0.5, 0.5, 0.5)
+	var trect_hud_border = ColorRect.new()
+	trect_hud_border.name = "BackgroundPlacement"
+	trect_hud_border.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	trect_hud_border.color = Color(0.5, 0.5, 0.5, 0.5)
 	
-	# Le fond doit correspondre à la taille de la texture (car il subit le scale du parent)
-	fond.size = tex_size
-	fond.position = -tex_size / 2
-	fond.show_behind_parent = true 
+	# Le trect_hud_border doit correspondre à la taille de la texture (car il subit le scale du parent)
+	trect_hud_border.size = tex_size
+	trect_hud_border.position = -tex_size / 2
+	trect_hud_border.show_behind_parent = true 
 	
-	batiment_instance.add_child(fond)
-	map_ref.add_temp_building(batiment_instance)
+	building_instance.add_child(trect_hud_border)
+	map_ref.add_temp_building(building_instance)
 	
 	dragging = true
-	GlobalScript.modifier_batiment(name, -1)
+	GlobalScript.edit_building(name, -1)
 
 func place_building():
-	if not batiment_instance: return
+	if not building_instance: return
 	
-	if map_ref.is_placable(batiment_instance):
+	if map_ref.is_placable(building_instance):
 		GlobalScript.play_sound(GOOD_PLACEMENT_SOUND)
 		
-		batiment_instance.modulate = Color(1, 1, 1, 1)
+		building_instance.modulate = Color(1, 1, 1, 1)
 		
-		var fond = batiment_instance.get_node_or_null("FondDePlacement")
-		if fond:
-			fond.queue_free()
+		var trect_hud_border = building_instance.get_node_or_null("BackgroundPlacement")
+		if trect_hud_border:
+			trect_hud_border.queue_free()
 		
-		map_ref.validate_building(batiment_instance)
+		map_ref.validate_building(building_instance)
 		
-		GlobalScript.add_batiment(batiment_instance.get_meta("id"), name) 
+		GlobalScript.add_building(building_instance.get_meta("id"), name) 
 		
-		batiment_instance = null
+		building_instance = null
 		dragging = false
 		GlobalScript.set_currently_placing(false)
 		remove_grid()
@@ -136,10 +136,10 @@ func place_building():
 		cancel_placement()
 
 func cancel_placement():
-	if batiment_instance:
-		batiment_instance.queue_free()
-		batiment_instance = null
-		GlobalScript.modifier_batiment(name, 1)
+	if building_instance:
+		building_instance.queue_free()
+		building_instance = null
+		GlobalScript.edit_building(name, 1)
 	
 	dragging = false
 	GlobalScript.set_currently_placing(false)
@@ -151,10 +151,10 @@ func remove_grid():
 		grid_visual_instance = null
 
 func update_visual_feedback():
-	if map_ref.is_placable(batiment_instance):
-		batiment_instance.modulate = Color(1, 1, 1, 0.7)
+	if map_ref.is_placable(building_instance):
+		building_instance.modulate = Color(1, 1, 1, 0.7)
 	else:
-		batiment_instance.modulate = Color(1, 0.2, 0.2, 0.7)
+		building_instance.modulate = Color(1, 0.2, 0.2, 0.7)
 
 class GridDrawer extends Node2D:
 	var cell_size = 64

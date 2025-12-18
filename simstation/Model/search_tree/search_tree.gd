@@ -4,42 +4,42 @@ class_name SearchTree
 # DESCRIPTION :
 # Script de gestion d'un arbre de recherche (SearchTree), étendant RefCounted.
 # Il s'appuie sur une classe interne NodeData qui contient les propriétés d'une recherche :
-# nom, coût en argent, coût en temps, description, état débloqué, ainsi que ses liens (parent/enfants).
+# name, coût en money, coût en temps, description, état débloqué, ainsi que ses liens (parent/childs).
 # Les fonctions disponibles sont :
 # _init() : Constructeur de base (implicite ou hérité).
 # create_root : Initialise la racine de l'arbre avec les données spécifiées.
 # add_child : Ajoute un nouveau nœud enfant à un parent donné et met à jour les liens.
-# depth_first_search : Parcourt l'arbre en profondeur pour trouver un nœud par son nom.
-# breadth_first_search : Parcourt l'arbre en largeur pour trouver un nœud par son nom.
+# depth_first_search : Parcourt l'arbre en profondeur pour trouver un nœud par son name.
+# breadth_first_search : Parcourt l'arbre en largeur pour trouver un nœud par son name.
 
 class NodeData:
-	var nom: String
+	var name: String
 	var money: int
-	var tour: int
+	var round: int
 	var description: String
-	var debloque: bool
+	var unblocked: bool
 	var children: Array = []
 	var parent: NodeData
-	var cout_science: int
-	var batiment_debloque: String
+	var science_cost: int
+	var building_unblocked: String
 
-	func _init(k: String, t: int, gain_s: int, r_cost: int, desc: String, bat_debloque: String):
-		nom = k
+	func _init(k: String, t: int, gain_s: int, r_cost: int, desc: String, buil_unblocked: String):
+		name = k
 		money = gain_s
-		tour = t
+		round = t
 		description = desc
-		debloque = false
-		cout_science = r_cost
-		batiment_debloque = bat_debloque
+		unblocked = false
+		science_cost = r_cost
+		building_unblocked = buil_unblocked
 
 var root: NodeData
 
-func create_root(k: String, t: int, gain_s: int, r_cost: int, desc: String, bat_debloque: String) -> NodeData:
-	root = NodeData.new(k, t, gain_s, r_cost, desc, bat_debloque)
+func create_root(k: String, t: int, gain_s: int, r_cost: int, desc: String, buil_unblocked: String) -> NodeData:
+	root = NodeData.new(k, t, gain_s, r_cost, desc, buil_unblocked)
 	return root
 
-func add_child(parent: NodeData, k: String, t: int, gain_s: int, r_cost: int, desc: String, bat_debloque: String) -> NodeData:
-	var child = NodeData.new(k, t, gain_s, r_cost, desc, bat_debloque)
+func add_child(parent: NodeData, k: String, t: int, gain_s: int, r_cost: int, desc: String, buil_unblocked: String) -> NodeData:
+	var child = NodeData.new(k, t, gain_s, r_cost, desc, buil_unblocked)
 	child.parent = parent
 	parent.children.append(child)
 	return child
@@ -48,7 +48,7 @@ func depth_first_search(target, node: NodeData = null) -> NodeData:
 	if node == null:
 		node = root
 
-	if node.nom == target:
+	if node.name == target:
 		return node
 
 	for child in node.children:
@@ -66,7 +66,7 @@ func breadth_first_search(target) -> NodeData:
 
 	while queue.size() > 0:
 		var current = queue.pop_front()
-		if current.nom == target:
+		if current.name == target:
 			return current
 		for child in current.children:
 			queue.append(child)

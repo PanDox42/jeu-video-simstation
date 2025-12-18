@@ -61,8 +61,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				return
 			
 			zoom = new_zoom
-			var mouse_pos = get_global_mouse_position()
-			position += (mouse_pos - position) - (mouse_pos - position) * (old_zoom / zoom)
+			var mouse_position = get_global_mouse_position()
+			position += (mouse_position - position) - (mouse_position - position) * (old_zoom / zoom)
 			
 			# On re-clampe aussi après le zoom pour ne pas sortir de la map en zoomant
 			position.x = clamp(position.x, map_limit_top_left.x, map_limit_bottom_right.x)

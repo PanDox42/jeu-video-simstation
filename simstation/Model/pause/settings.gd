@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @onready var music_slider = $TRectBackground/VBoxParametres/VBoxVolumeMusics/SliderMusics
 @onready var effet_slider = $TRectBackground/VBoxParametres/VBoxVolumeSounds/SliderSounds
-@onready var ecran_button = $TRectBackground/VBoxParametres/ButtonFullScreen
+@onready var screen_button = $TRectBackground/VBoxParametres/ButtonFullScreen
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -18,9 +18,9 @@ func _ready():
 
 	
 	if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN :
-		ecran_button.button_pressed = true
+		screen_button.button_pressed = true
 	else :
-		ecran_button.button_pressed = false
+		screen_button.button_pressed = false
 
 func _on_musique_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
@@ -34,6 +34,6 @@ func _on_check_button_toggled(toggled_on: bool) -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
-func _on_retour_button_pressed() -> void:
+func _on_reround_button_pressed() -> void:
 	#get_tree().paused = false
 	queue_free() 

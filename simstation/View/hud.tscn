@@ -686,10 +686,10 @@ tangential_accel_max = 900.0
 scale_amount_min = 1.2
 scale_amount_max = 1.6
 
-[connection signal="pressed" from="BorderContainer/TButtonNextRound" to="." method="change_visible_confirmation_passer_tour"]
-[connection signal="pressed" from="BorderContainer/TButtonStatistics" to="." method="_on_btn_graphique_stats_pressed"]
+[connection signal="pressed" from="BorderContainer/TButtonNextRound" to="." method="change_visible_confirmation_next_round"]
+[connection signal="pressed" from="BorderContainer/TButtonStatistics" to="." method="_on_btn_chart_stats_pressed"]
 [connection signal="pressed" from="BorderContainer/TButtonShop" to="BorderContainer/TButtonShop" method="_on_pressed_shop"]
 [connection signal="pressed" from="BorderContainer/PanelTopBar/TButtonSettings" to="BorderContainer/PanelTopBar/TButtonSettings" method="_on_pressed_pause"]
-[connection signal="pressed" from="BorderContainer/TButtonCloseInventory" to="." method="_on_fermer_pressed_close_inventory"]
-[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonConfirm" to="." method="_on_passer_tour_pressed"]
-[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonCancel" to="." method="change_visible_confirmation_passer_tour"]
+[connection signal="pressed" from="BorderContainer/TButtonCloseInventory" to="." method="_on_close_inventory_pressed_"]
+[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonConfirm" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonCancel" to="." method="change_visible_confirmation_next_round"]

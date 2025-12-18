@@ -16,20 +16,20 @@ func set_current_zoom_cam(zoom_cam : Vector2):
 func get_zoom_cam() -> Vector2:
 	return zoom_cam
 	
-func ouvrir_recherche():
+func open_search():
 	load_scene("res://View/search_tree.tscn", "ArbreRecherche")
 	
-func load_scene(chemin_scene, nom_node):
+func load_scene(chemin_scene, name_node):
 	var arbre_scene = load(chemin_scene)
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud") 
 
-	if not hud.has_node(nom_node):
+	if not hud.has_node(name_node):
 		var instance = arbre_scene.instantiate()
-		instance.name = nom_node
+		instance.name = name_node
 		hud.add_child(instance)
 	else:
-		var node = hud.get_node(nom_node)
+		var node = hud.get_node(name_node)
 		node.visible = !node.visible  
 
 	GlobalScript.set_camera(!GlobalScript.get_camera())

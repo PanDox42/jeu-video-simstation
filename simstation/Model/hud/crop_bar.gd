@@ -6,12 +6,12 @@ func _update_bar(value: int):
 	region_rect = Rect2(33.999, 45.353, ratio * 83.872, 54.51)
 
 func _process(_delta):
-	match name: # name c'est le nom du truc appelant
+	match name: # name c'est le name du truc appelant
 		"SpriteFilledBarHealth":
-			_update_bar(GlobalScript.get_sante())
+			_update_bar(GlobalScript.get_health())
 		"SpriteFilledBarEfficiency":
-			_update_bar(GlobalScript.get_efficacite())
+			_update_bar(GlobalScript.get_efficiency())
 		"SpriteFilledBarHappiness":
-			_update_bar(GlobalScript.get_bonheur())
+			_update_bar(GlobalScript.get_hapiness())
 		_: # default
 			print ("Erreur : Pas le bon appelant")
