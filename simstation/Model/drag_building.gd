@@ -76,8 +76,18 @@ func start_dragging():
 	
 	var texture_res = load("res://assets/batiments/"+name+".png")
 	
+	# --- CALCUL DE LA TAILLE ET DE L'ECHELLE ---
+	var taille_cible = GlobalScript.get_batiment_taille(name) # Récupère le 128 ou 64
+	var tex_size = texture_res.get_size()
+	
 	batiment_instance = Sprite2D.new()
 	batiment_instance.texture = texture_res 
+	
+	# On applique l'échelle : Taille voulue / Taille réelle de l'image
+	# Exemple : 128 / 64 = scale de 2.0
+	var ratio = float(taille_cible) / tex_size.x 
+	batiment_instance.scale = Vector2(ratio, ratio)
+	# -------------------------------------------
 	
 	batiment_instance.set_meta("id", GlobalScript.get_batiments_counts()+1)
 	batiment_instance.set_meta("type_batiment", name)
@@ -87,14 +97,13 @@ func start_dragging():
 	fond.name = "FondDePlacement" 
 	fond.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fond.color = Color(0.5, 0.5, 0.5, 0.5)
-	var tex_size = texture.get_size()
-	fond.custom_minimum_size = tex_size
+	
+	# Le fond doit correspondre à la taille de la texture (car il subit le scale du parent)
 	fond.size = tex_size
 	fond.position = -tex_size / 2
 	fond.show_behind_parent = true 
 	
 	batiment_instance.add_child(fond)
-	
 	map_ref.add_temp_building(batiment_instance)
 	
 	dragging = true

@@ -47,6 +47,8 @@ func get_currently_placing(): return Global.currently_placing
 func get_batiment_real_name(batName): return Global.info_batiments[batName][2]
 func get_batiment_false_name_by_id(batId): return Global.batiments_place[batId][0]
 
+func get_batiment_taille(batName): return Global.info_batiments[batName][5]
+
 # SET
 
 func set_sante(val): Global.stats["sante"] = val
