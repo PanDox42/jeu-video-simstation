@@ -17,7 +17,7 @@ func charger_batiments():
 	for batiment in GlobalScript.get_inventaire().keys() :
 		if GlobalScript.get_batiments_debloque(batiment) :
 			initialize(batiment)
-		
+
 
 func initialize(building_name: String):
 	var vboxBat = VBoxContainer.new()
@@ -41,8 +41,8 @@ func initialize(building_name: String):
 	var info_array = GlobalScript.get_batiment_info(building_name)
 
 	# Assurez-vous que info_array[3] est le nom traduit, et info_array[2] est la description
-	var translated_name = info_array[3] 
-	var description_text = info_array[2]
+	var translated_name = GlobalScript.get_batiment_real_name(batiment_name)
+	var description_text = GlobalScript.get_batiment_description(batiment_name)
 	
 	vboxBat.custom_minimum_size = Vector2(512, 300)
 	

@@ -288,7 +288,7 @@ func ajouter_retirer_menu_node(pos: Vector2, node: SearchTree.NodeData):
 		if node.batiment_debloque != "":
 			var bat_label = RichTextLabel.new()
 			# On récupère le nom propre du bâtiment (index 3 du tableau info_batiments)
-			var nom_batiment = Global.info_batiments[node.batiment_debloque][3]
+			var nom_batiment = GlobalScript.get_batiment_real_name(node.batiment_debloque)
 			
 			bat_label.bbcode_enabled = true
 			bat_label.text = "[color=yellow]🔓 Débloque : " + nom_batiment + "[/color]"

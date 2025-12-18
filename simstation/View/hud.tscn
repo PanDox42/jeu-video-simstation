@@ -698,13 +698,6 @@ tangential_accel_max = 900.0
 scale_amount_min = 1.2
 scale_amount_max = 1.6
 
-[node name="Button" type="Button" parent="."]
-offset_left = 869.0
-offset_top = 923.0
-offset_right = 1081.0
-offset_bottom = 1033.0
-text = "passer tour test"
-
 [connection signal="pressed" from="BorderContainer/PasserTour" to="." method="change_visible_confirmation_passer_tour"]
 [connection signal="pressed" from="BorderContainer/stats_button" to="." method="_on_btn_graphique_stats_pressed"]
 [connection signal="pressed" from="BorderContainer/shop_button" to="BorderContainer/shop_button" method="_on_pressed_shop"]
@@ -712,4 +705,3 @@ text = "passer tour test"
 [connection signal="pressed" from="BorderContainer/Close_Inventory" to="." method="_on_fermer_pressed_close_inventory"]
 [connection signal="pressed" from="BorderContainer/passerTour/confirm_button" to="." method="_on_passer_tour_pressed"]
 [connection signal="pressed" from="BorderContainer/passerTour/cancel_button" to="." method="change_visible_confirmation_passer_tour"]
-[connection signal="pressed" from="Button" to="." method="_on_passer_tour_pressed"]

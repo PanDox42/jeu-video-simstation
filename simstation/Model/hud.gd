@@ -78,12 +78,10 @@ func _on_passer_tour_pressed():
 	afficher_changement_tour()
 	_maj_temperature()
 	_maj_night_mode()
-	GlobalScript.emit_signal("tour_change")
 	
 	btn_next_round_start_cooldown()
 	
-	afficher_catastrophe()
-	
+	afficher_catastrophe()	
 	
 func change_visible_confirmation_passer_tour() -> void:
 	btn_next_round.release_focus()

@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://dtot0gisi5vyy"]
+
+[ext_resource type="Script" uid="uid://dcqycusxc035r" path="res://Model/tuto.gd" id="1_jpiht"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_k12no"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="2_plvcq"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="3_k12no"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="4_7y1a1"]
+[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="6_x3qeh"]
+[ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="7_i4jys"]
+[ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="8_e2xje"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7y1a1"]
+font = ExtResource("2_k12no")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_ujoy1"]
+font = ExtResource("2_k12no")
+font_size = 23
+font_color = Color(0, 0, 0, 1)
+
+[node name="Tuto" type="CanvasLayer"]
+script = ExtResource("1_jpiht")
+
+[node name="DisplayImage" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+stretch_mode = 5
+
+[node name="BottomPanel" type="Panel" parent="."]
+offset_top = 911.0
+offset_right = 1637.0
+offset_bottom = 1080.0
+
+[node name="Description" type="Label" parent="BottomPanel"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 17.0
+offset_right = 1616.0
+offset_bottom = 150.0
+label_settings = SubResource("LabelSettings_7y1a1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="CloseButton" type="TextureButton" parent="."]
+offset_left = 1780.7571
+offset_top = 34.0
+offset_right = 1884.0
+offset_bottom = 133.0
+texture_normal = ExtResource("2_plvcq")
+texture_pressed = ExtResource("3_k12no")
+texture_hover = ExtResource("4_7y1a1")
+stretch_mode = 5
+
+[node name="NextButton" type="TextureButton" parent="."]
+offset_left = 1656.0
+offset_top = 916.0
+offset_right = 1901.6327
+offset_bottom = 1069.0
+texture_normal = ExtResource("6_x3qeh")
+texture_pressed = ExtResource("7_i4jys")
+texture_hover = ExtResource("8_e2xje")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="NextButton"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 68.0
+offset_right = 197.0
+offset_bottom = 117.0
+text = "Next"
+label_settings = SubResource("LabelSettings_ujoy1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

@@ -42,20 +42,26 @@ func _ready():
 	GlobalScript.connect("demande_fermeture_info", Callable(self, "cacher_infos"))
 	
 	hide()
-func afficher_infos(nom_batiment: String):
-	var infos = GlobalScript.get_batiment_info(nom_batiment)
+func afficher_infos(id_batiment: int):
+	var infos = GlobalScript.get_batiment_info(id_batiment)
 	
-	label_nom.text = infos[3]
+	if infos == null:
+		print("Erreur : Bâtiment introuvable dans Global")
+		return
+
+	var type_nom = infos["type"] 
 	
-	label_sante.text = "Santé : " + str(infos[0])
-	label_bonheur.text = "Bonheur : " + str(infos[1])
-	label_description.text = "Description :\n" + str(infos[2])
+	label_nom.text = GlobalScript.get_batiment_real_name(type_nom)
 	
-	if nom_batiment == "labo_recherche":
+	label_sante.text = "Santé : " + str(infos["sante"]) + "%"
+	label_bonheur.text = "Bonheur : " + str(GlobalScript.get_batiment_bonheur(type_nom))
+	label_description.text = "Description :\n" + str(GlobalScript.get_batiment_description(type_nom))
+	
+	if type_nom == "labo_recherche":
 		bouton_rech.show()
 	else:
 		bouton_rech.hide()
-	show() 
+	show()
 
 func cacher_infos():
 	hide()

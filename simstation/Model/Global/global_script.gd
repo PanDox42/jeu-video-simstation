@@ -12,7 +12,6 @@ signal tour_change()
 signal debloque_bat()
 
 # GET
-
 func get_sante() -> int: return Global.stats["sante"]
 func get_efficacite() -> int: return Global.stats["efficacite"]
 func get_bonheur() -> int: return Global.stats["bonheur"]
@@ -25,11 +24,18 @@ func get_tour() -> int: return Global.tour
 func get_temperature() -> int: return Global.environnement["temperature"]
 
 # Gestion Batiments
-func get_batiment_prix(nom) -> int: return Global.batiments_prix[nom]
-func get_batiment_info(nom): return Global.info_batiments[nom]
-func get_batiments_counts() -> Dictionary: return Global.batiments_nombre
+func get_batiment_prix(nom) -> int: return Global.info_batiments[nom][4]
+func get_batiment_info(id): 
+	var id_int = int(id) 
+	if Global.batiments_place.has(id_int):
+		return Global.batiments_place[id_int]
+	return null
+func get_batiments_counts() -> int: return Global.batiments_place.size()
+func get_batiments_place() -> Dictionary: return Global.batiments_place
 func get_batiments_data() -> Dictionary: return Global.info_batiments
-func get_batiments_debloque(nom_batiment) -> bool: return Global.info_batiments[nom_batiment][4]
+func get_batiments_debloque(nom_batiment) -> bool: return Global.info_batiments[nom_batiment][3]
+func get_batiment_bonheur(nom_batiment) : return Global.info_batiments[nom_batiment][0]
+func get_batiment_description(nom_batiment) : return Global.info_batiments[nom_batiment][1]
 func get_population() -> Array: return Global.population
 func get_batiment_inventaire(nameBat) -> int: return Global.inventaire[nameBat]
 func get_recherche_en_cours() -> Dictionary: return Global.recherche_en_cours
@@ -38,6 +44,10 @@ func get_recherche_debloque() -> Array: return Global.recherche_debloque
 func get_environnement(envi): return Global.environnement[envi]
 func get_night_mode() : return Global.environnement["night"]
 func get_currently_placing(): return Global.currently_placing
+func get_batiment_real_name(batName): return Global.info_batiments[batName][2]
+func get_batiment_false_name_by_id(batId): return Global.batiments_place[batId][0]
+
+func get_batiment_taille(batName): return Global.info_batiments[batName][5]
 
 # SET
 
@@ -59,7 +69,7 @@ func set_recherche_en_cours(nomRecherche, tourfin):
 	Global.recherche_en_cours[nomRecherche] = tourfin
 	
 func set_batiment_debloque(nom: String):
-	Global.info_batiments[nom][4] = true;
+	Global.info_batiments[nom][3] = true;
 	
 func set_saison(saison : String) :
 	Global.environnement["saison"] = saison
@@ -75,10 +85,14 @@ func add_recherche_debloque(recherche_nom):
 func add_recherche_en_cours(recherche_nom):
 	Global.recherche_en_cours.append(recherche_nom) 
 
-func add_batiment(nomBatiment, nombre):
-	if Global.batiments_nombre.has(nomBatiment):
-		Global.batiments_nombre[nomBatiment] += nombre
-
+func add_batiment(id_node: int, type_batiment: String):
+	var id_int = int(id_node)
+	Global.batiments_place[id_int] = {
+		"type": type_batiment, 
+		"temp": 18, 
+		"sante": 100
+	}
+	
 # ERASE
 
 func erase_recherche_en_cours(recherche_nom):
@@ -86,6 +100,9 @@ func erase_recherche_en_cours(recherche_nom):
 
 # AUTRE
 
+func has_recherche(nom: String) -> bool:
+	return Global.recherche_debloque.has(nom)
+	
 func modifier_argent(delta: int) -> void:
 	set_argent(get_argent() + delta)
 	emit_signal("argent_changed", get_argent())

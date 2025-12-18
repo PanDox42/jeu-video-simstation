@@ -22,7 +22,7 @@ func add_temp_building(node: Sprite2D):
 	buildings_layer.add_child(node)
 
 func validate_building(node: Sprite2D):
-	print("Bâtiment placé : ", node.name)
+	print("Bâtiment placé : ", node.get_meta("type_batiment"))
 
 func is_placable(ghost_building: Sprite2D) -> bool:
 	var ghost_rect = get_global_rect_of(ghost_building).grow(-2.0)
@@ -44,14 +44,13 @@ func _unhandled_input(event):
 		var batiment_clique = get_building_under_mouse()
 		
 		if batiment_clique:
-			var nom_a_envoyer = batiment_clique.name
-
+			var id_a_envoyer;
 			# On vérifie si une étiquette "type_batiment" a été collée sur le sprite
-			if batiment_clique.has_meta("type_batiment"):
-				nom_a_envoyer = batiment_clique.get_meta("type_batiment")
+			if batiment_clique.has_meta("id"):
+				id_a_envoyer = batiment_clique.get_meta("id")
 			
-			print("Clic détecté sur : ", batiment_clique.name, " -> Envoi signal : ", nom_a_envoyer)
-			GlobalScript.demande_ouverture_info.emit(nom_a_envoyer)
+			print("Clic détecté sur : ", batiment_clique.get_meta("type_batiment"), " -> Envoi signal : ", id_a_envoyer)
+			GlobalScript.demande_ouverture_info.emit(id_a_envoyer)
 
 func get_building_under_mouse() -> Sprite2D:
 	var mouse_pos = get_global_mouse_position()
