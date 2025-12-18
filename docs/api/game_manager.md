@@ -2,7 +2,11 @@
 
 **Extends:** `Node`
 
-GameManager - Contrôleur principal du jeu  Singleton qui gère l'état global du jeu, incluant la référence à la carte courante, le zoom de la caméra et le chemin du bâtiment en cours de placement.
+GameManager - Contrôleur principal du jeu
+
+Singleton qui gère l'état global du jeu, incluant la référence à la carte courante,
+le zoom de la caméra et le chemin du bâtiment en cours de placement.
+
 
 **Fichier:** `controller\game_manager.gd`
 
@@ -52,11 +56,13 @@ Récupère le niveau de zoom actuel de la caméra
 
 ### open_search()
 
-Ouvre l'interface de l'arbre de recherche Charge et affiche la scène de l'arbre de recherche dans le HUD
+Ouvre l'interface de l'arbre de recherche
+Charge et affiche la scène de l'arbre de recherche dans le HUD
 
 ### load_scene(chemin_scene, name_node)
 
-Charge dynamiquement une scène dans le HUD Si la scène existe déjà, bascule sa visibilité au lieu de la recharger
+Charge dynamiquement une scène dans le HUD
+Si la scène existe déjà, bascule sa visibilité au lieu de la recharger
 
 **Paramètres:**
 

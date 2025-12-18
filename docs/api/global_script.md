@@ -2,7 +2,16 @@
 
 **Extends:** `Node`
 
-GlobalScript - Singleton utilitaire pour SimStation  Autoload qui fournit une interface complète pour accéder et modifier les données du singleton Global. Contient tous les getters, setters et fonctions utilitaires pour gérer l'économie, les bâtiments, les statistiques et l'environnement.  Ce script agit comme une couche d'abstraction entre le code du jeu et le Global, et émet des signaux pour notifier les changements d'état.
+GlobalScript - Singleton utilitaire pour SimStation
+
+Autoload qui fournit une interface complète pour accéder et modifier les données
+du singleton Global. Contient tous les getters, setters et fonctions utilitaires
+pour gérer l'économie, les bâtiments, les statistiques et l'environnement.
+
+
+Ce script agit comme une couche d'abstraction entre le code du jeu et le Global,
+et émet des signaux pour notifier les changements d'état.
+
 
 **Fichier:** `model\global\global_script.gd`
 
@@ -346,7 +355,8 @@ Vérifie si une recherche est déjà débloquée
 
 ### edit_money(delta: int) -> void
 
-Modifie l'argent du joueur (ajoute ou retire) Émet le signal money_changed
+Modifie l'argent du joueur (ajoute ou retire)
+Émet le signal money_changed
 
 **Paramètres:**
 
@@ -354,7 +364,8 @@ Modifie l'argent du joueur (ajoute ou retire) Émet le signal money_changed
 
 ### edit_building(name: String, delta: int) -> void
 
-Modifie la quantité d'un bâtiment dans l'inventaire Émet le signal building_changed
+Modifie la quantité d'un bâtiment dans l'inventaire
+Émet le signal building_changed
 
 **Paramètres:**
 
@@ -363,7 +374,8 @@ Modifie la quantité d'un bâtiment dans l'inventaire Émet le signal building_c
 
 ### update_population_stats(health: float, hapiness: float, efficiency: float) -> void
 
-Met à jour les statistiques de toute la population avec un lerp Émet le signal stats_updated
+Met à jour les statistiques de toute la population avec un lerp
+Émet le signal stats_updated
 
 **Paramètres:**
 
@@ -383,7 +395,8 @@ Formate un nombre en ajoutant des espaces tous les 3 chiffres
 
 ### play_sound(sound_path: String)
 
-Joue un son en créant un AudioStreamPlayer temporaire Le player se supprime automatiquement à la fin du son
+Joue un son en créant un AudioStreamPlayer temporaire
+Le player se supprime automatiquement à la fin du son
 
 **Paramètres:**
 
@@ -391,7 +404,8 @@ Joue un son en créant un AudioStreamPlayer temporaire Le player se supprime aut
 
 ### generate_fade_display(start_fade_time, end_fade_time, display_time, element)
 
-Crée une animation de fade-in/fade-out pour un élément UI Utile pour afficher temporairement des notifications
+Crée une animation de fade-in/fade-out pour un élément UI
+Utile pour afficher temporairement des notifications
 
 **Paramètres:**
 
