@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var label_date = $BorderContainer/PanelTopBar/RLabelMonth
 @onready var label_temperature = $BorderContainer/PanelTopBar/RLabelTemperature
 @onready var label_season = $BorderContainer/PanelTopBar/RLabelSeason
-@onready var clayer_chart_stats = $BorderContainer/CLayerChartStats
+@onready var panel_chart_stats = $BorderContainer/PanelChartStats
 @onready var panel_night_mode = $BorderContainer/PanelNightMode
 @onready var background = $BorderContainer/TRectHudBorder
 @onready var inventory = $BorderContainer/PanelInventory
@@ -34,7 +34,7 @@ func _ready():
 	GlobalScript.connect("round_changed", Callable(self, "_update_month"))
 	
 	display_next_round()
-	clayer_chart_stats.hide()
+	panel_chart_stats.hide()
 	_update_month()
 	_update_season()
 	display_night_filter(GlobalScript.get_night_mode())
@@ -105,7 +105,7 @@ func btn_next_round_start_cooldown():
 
 func _on_btn_chart_stats_pressed() -> void:
 	stats_button.release_focus()
-	clayer_chart_stats.show()
+	change_visible_chart_stats()
 	#GameManager.load_scene("res://View/clayer_chart_stats.tscn", "CharStats")
 
 func _on_close_inventory_pressed_() -> void:
@@ -167,6 +167,9 @@ func display_night_day(status : bool):
 	await get_tree().create_timer(7).timeout
 	night_day.visible = false
 
+
+func change_visible_chart_stats():
+	panel_chart_stats.visible = !panel_chart_stats.visible
 
 func display_disaster():
 	var disaster = Catastrophes.get_active_disaster()

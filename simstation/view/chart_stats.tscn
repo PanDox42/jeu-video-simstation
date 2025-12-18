@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://r1h4u5yp1lk2"]
+[gd_scene load_steps=6 format=3 uid="uid://b0s7cfgml3toy"]
 
 [ext_resource type="Script" uid="uid://dgxvotb63m4ye" path="res://model/hud/statistics/chart_stats.gd" id="1_jw5xl"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_ykjvn"]

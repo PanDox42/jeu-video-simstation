@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Panel
  
 var x_spacing = 10
 var y_spacing = 10
@@ -10,7 +10,7 @@ var x_line = Line2D.new()
 var y_line = Line2D.new()
 
 @onready var internal_container = Control.new()
-@onready var scrollContainer = $PanelChartStats/ScrollStatistics
+@onready var scrollContainer = $ScrollStatistics
 
 var size_x
 var size_y
