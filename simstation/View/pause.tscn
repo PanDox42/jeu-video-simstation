@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://4wx3fpdnps7x"]
 
-[ext_resource type="Script" uid="uid://bnhtj0jj88m17" path="res://Model/pause.gd" id="1_m0klm"]
+[ext_resource type="Script" uid="uid://bnhtj0jj88m17" path="res://model/pause/pause.gd" id="1_m0klm"]
 [ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="2_aicil"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_jn4bt"]
 [ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="4_b82to"]
 [ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_3rfc6"]
 [ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="5_mjmie"]
-[ext_resource type="Script" path="res://Model/masked_button.gd" id="6_3rfc6"]
+[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="6_3rfc6"]
 
 [node name="Pause" type="CanvasLayer"]
 script = ExtResource("1_m0klm")

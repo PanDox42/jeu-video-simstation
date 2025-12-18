@@ -1,15 +1,15 @@
 [gd_scene load_steps=6 format=3 uid="uid://r1h4u5yp1lk2"]
 
-[ext_resource type="Script" path="res://Model/chart_stats.gd" id="1_jw5xl"]
+[ext_resource type="Script" uid="uid://dgxvotb63m4ye" path="res://model/statistics/chart_stats.gd" id="1_jw5xl"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_ykjvn"]
-[ext_resource type="Texture2D" uid="uid://6jutd8xsqsmp" path="res://assets/button/exit_button/exit_button.png" id="3_18e5g"]
-[ext_resource type="Texture2D" uid="uid://cmx74ox4lapx2" path="res://assets/button/exit_button/exit_button_click.png" id="4_kwu2s"]
-[ext_resource type="Texture2D" uid="uid://bwy2pfjstwykm" path="res://assets/button/exit_button/exit_button_hover.png" id="5_2oelh"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="3_18e5g"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="4_kwu2s"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="5_2oelh"]
 
 [node name="ChartStats" type="CanvasLayer"]
 script = ExtResource("1_jw5xl")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="PanelChartStats" type="Panel" parent="."]
 anchors_preset = -1
 anchor_left = 0.81500006
 anchor_top = 0.33200002
@@ -20,7 +20,7 @@ offset_top = -174.56003
 offset_right = 340.19995
 offset_bottom = 175.43997
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+[node name="ScrollStatistics" type="ScrollContainer" parent="PanelChartStats"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -32,7 +32,7 @@ offset_top = -162.35002
 offset_right = 330.0
 offset_bottom = 162.64998
 
-[node name="Title" type="Label" parent="Panel"]
+[node name="LabelTitle" type="Label" parent="PanelChartStats"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.652
@@ -47,7 +47,7 @@ theme_override_fonts/font = ExtResource("2_ykjvn")
 text = "Evolution des stats de la partie"
 horizontal_alignment = 2
 
-[node name="Exit_button" type="TextureButton" parent="Panel"]
+[node name="TButtonExit" type="TextureButton" parent="PanelChartStats"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.94900006
@@ -64,4 +64,4 @@ texture_pressed = ExtResource("4_kwu2s")
 texture_hover = ExtResource("5_2oelh")
 stretch_mode = 0
 
-[connection signal="pressed" from="Panel/Exit_button" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="PanelChartStats/TButtonExit" to="." method="_on_exit_button_pressed"]

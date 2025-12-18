@@ -17,7 +17,7 @@ func get_zoom_cam() -> Vector2:
 	return zoom_cam
 	
 func ouvrir_recherche():
-	load_scene("res://View/arbre_recherche.tscn", "ArbreRecherche")
+	load_scene("res://View/search_tree.tscn", "ArbreRecherche")
 	
 func load_scene(chemin_scene, nom_node):
 	var arbre_scene = load(chemin_scene)

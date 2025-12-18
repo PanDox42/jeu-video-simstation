@@ -1,0 +1,124 @@
+[gd_scene load_steps=4 format=3 uid="uid://cffhw5w7xcqjp"]
+
+[ext_resource type="Script" uid="uid://dh7g2uv6wrydj" path="res://model/pause/settings.gd" id="1_ebnl0"]
+[ext_resource type="Texture2D" uid="uid://cqwsm3uxbo3v1" path="res://assets/shop/shop_background.png" id="2_2rtjg"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_8muv4"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_ebnl0")
+
+[node name="PanelAntiClick" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TRectBackground" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -673.25
+offset_top = -475.0
+offset_right = 673.25
+offset_bottom = 475.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2rtjg")
+
+[node name="LabelTitle" type="RichTextLabel" parent="TRectBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.143
+anchor_right = 0.5
+anchor_bottom = 0.143
+offset_left = -175.75
+offset_top = -41.850006
+offset_right = 175.75
+offset_bottom = 42.149994
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.5372549, 0.8117647, 0.9411765, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/normal_font = ExtResource("3_8muv4")
+bbcode_enabled = true
+text = "[center][font_size=65]OPTIONS
+"
+scroll_active = false
+
+[node name="ButtonBack" type="Button" parent="TRectBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.804
+anchor_right = 0.5
+anchor_bottom = 0.804
+offset_left = -120.0
+offset_top = -35.80005
+offset_right = 120.0
+offset_bottom = 35.19995
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("3_8muv4")
+theme_override_font_sizes/font_size = 35
+text = "Retour"
+
+[node name="VBoxParametres" type="VBoxContainer" parent="TRectBackground"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -332.0
+offset_top = -118.375
+offset_right = 332.0
+offset_bottom = 158.625
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="VBoxVolumeMusics" type="VBoxContainer" parent="TRectBackground/VBoxParametres"]
+layout_mode = 2
+
+[node name="LabelMusics" type="Label" parent="TRectBackground/VBoxParametres/VBoxVolumeMusics"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_8muv4")
+theme_override_font_sizes/font_size = 30
+text = "Musique"
+
+[node name="SliderMusics" type="HSlider" parent="TRectBackground/VBoxParametres/VBoxVolumeMusics"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="VBoxVolumeSounds" type="VBoxContainer" parent="TRectBackground/VBoxParametres"]
+layout_mode = 2
+
+[node name="LabelSounds" type="Label" parent="TRectBackground/VBoxParametres/VBoxVolumeSounds"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_8muv4")
+theme_override_font_sizes/font_size = 30
+text = "Effets  sonores"
+
+[node name="SliderSounds" type="HSlider" parent="TRectBackground/VBoxParametres/VBoxVolumeSounds"]
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+
+[node name="ButtonFullScreen" type="CheckButton" parent="TRectBackground/VBoxParametres"]
+layout_mode = 2
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("3_8muv4")
+theme_override_font_sizes/font_size = 30
+text = "Plein  écran"
+
+[connection signal="pressed" from="TRectBackground/ButtonBack" to="." method="_on_retour_button_pressed"]
+[connection signal="value_changed" from="TRectBackground/VBoxParametres/VBoxVolumeMusics/SliderMusics" to="." method="_on_musique_slider_value_changed"]
+[connection signal="value_changed" from="TRectBackground/VBoxParametres/VBoxVolumeSounds/SliderSounds" to="." method="_on_effet_slider_value_changed"]
+[connection signal="toggled" from="TRectBackground/VBoxParametres/ButtonFullScreen" to="." method="_on_check_button_toggled"]

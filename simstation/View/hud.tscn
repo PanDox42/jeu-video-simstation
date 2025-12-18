@@ -1,22 +1,21 @@
-[gd_scene load_steps=40 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=39 format=3 uid="uid://cnva1t7elyuce"]
 
-[ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://Model/hud.gd" id="2_ugs5p"]
+[ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://model/hud/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
-[ext_resource type="Texture2D" uid="uid://k1j0tbf82u0v" path="res://assets/load_screen/icon.png" id="3_vcgxy"]
 [ext_resource type="Texture2D" uid="uid://cd2dc2vr6blus" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
 [ext_resource type="Texture2D" uid="uid://e14rlujxv2r6" path="res://assets/bar/filled_bar.png" id="7_s7bk8"]
-[ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://Model/crop_bar.gd" id="8_fj0si"]
+[ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://model/hud/crop_bar.gd" id="8_fj0si"]
 [ext_resource type="Texture2D" uid="uid://cgjqbebqtphh2" path="res://assets/bar/efficiency_bar_empty.png" id="9_1cvsb"]
 [ext_resource type="Texture2D" uid="uid://cjxus45xwl0ka" path="res://assets/bar/happiness_bar_empty.png" id="10_0ig0g"]
 [ext_resource type="Texture2D" uid="uid://dqr6pies270gc" path="res://assets/button/next_round_button/next_round.png" id="10_o4crf"]
-[ext_resource type="Script" uid="uid://dfm8a1cu60p68" path="res://Model/button_action.gd" id="11_jtq4o"]
+[ext_resource type="Script" uid="uid://dfm8a1cu60p68" path="res://model/button/button_action.gd" id="11_jtq4o"]
 [ext_resource type="Texture2D" uid="uid://bdjdosauo7cn7" path="res://assets/button/next_round_button/next_button_click.png" id="11_n3rgs"]
 [ext_resource type="Texture2D" uid="uid://b606r1q7nyyme" path="res://assets/button/next_round_button/next_button_hover.png" id="12_s65m4"]
-[ext_resource type="Script" uid="uid://bqulw7dgngjad" path="res://Model/InventaireUI.gd" id="13_ew7f8"]
+[ext_resource type="Script" uid="uid://bqulw7dgngjad" path="res://model/hud/inventory/InventaireUI.gd" id="13_ew7f8"]
 [ext_resource type="Texture2D" uid="uid://2dsxib5p5ln4" path="res://assets/button/stats_button/stats_button.png" id="13_xp7qj"]
 [ext_resource type="Texture2D" uid="uid://dg0dl0pp0b2o3" path="res://assets/button/stats_button/stats_button_click.png" id="14_o4crf"]
-[ext_resource type="PackedScene" uid="uid://r1h4u5yp1lk2" path="res://View/chart_stats.tscn" id="14_o7jfm"]
-[ext_resource type="Script" uid="uid://0h5bj5sdmbnu" path="res://Model/info_panel.gd" id="14_xnmgy"]
+[ext_resource type="PackedScene" uid="uid://r1h4u5yp1lk2" path="res://view/chart_stats.tscn" id="14_o7jfm"]
+[ext_resource type="Script" uid="uid://0h5bj5sdmbnu" path="res://model/hud/info_panel.gd" id="14_xnmgy"]
 [ext_resource type="Texture2D" uid="uid://cru6bwl8j0vek" path="res://assets/button/settings_button/settings_button.png" id="15_2wmmq"]
 [ext_resource type="Texture2D" uid="uid://cyw0h0kjy3jbs" path="res://assets/button/settings_button/settings_button_click.png" id="15_6wuao"]
 [ext_resource type="Texture2D" uid="uid://d2m3io2hxk56x" path="res://assets/button/stats_button/stats_button_hover.png" id="15_o4crf"]
@@ -43,17 +42,6 @@
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("2_ugs5p")
 
-[node name="LoadScreen" type="TextureRect" parent="."]
-visible = false
-z_index = 4096
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-texture = ExtResource("3_vcgxy")
-
 [node name="BorderContainer" type="Control" parent="."]
 z_index = -4000
 layout_mode = 3
@@ -64,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="TopBorder" type="TextureRect" parent="BorderContainer"]
+[node name="TRectHudBorder" type="TextureRect" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -73,7 +61,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("27_bljva")
 
-[node name="Inventaire" type="Control" parent="BorderContainer"]
+[node name="PanelInventory" type="Control" parent="BorderContainer"]
 layout_mode = 1
 anchor_left = 0.067
 anchor_top = 0.52400005
@@ -86,7 +74,7 @@ offset_bottom = 411.07983
 grow_vertical = 2
 script = ExtResource("13_ew7f8")
 
-[node name="ScrollInventaire" type="ScrollContainer" parent="BorderContainer/Inventaire"]
+[node name="ScrollInventory" type="ScrollContainer" parent="BorderContainer/PanelInventory"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.38000003
@@ -100,14 +88,14 @@ offset_bottom = 404.07492
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginInventaire" type="MarginContainer" parent="BorderContainer/Inventaire/ScrollInventaire"]
+[node name="MarginInventory" type="MarginContainer" parent="BorderContainer/PanelInventory/ScrollInventory"]
 layout_mode = 2
 
-[node name="GridInventaire" type="GridContainer" parent="BorderContainer/Inventaire/ScrollInventaire/MarginInventaire"]
+[node name="GridInventory" type="GridContainer" parent="BorderContainer/PanelInventory/ScrollInventory/MarginInventory"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="PasserTour" type="TextureButton" parent="BorderContainer"]
+[node name="TButtonNextRound" type="TextureButton" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.91400003
@@ -124,7 +112,7 @@ texture_hover = ExtResource("12_s65m4")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="lbl_passer_tour" type="RichTextLabel" parent="BorderContainer/PasserTour"]
+[node name="RLabelNextRound" type="RichTextLabel" parent="BorderContainer/TButtonNextRound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -144,7 +132,7 @@ text = "[center][font_size=24]Passer le tour"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="lbl_cooldown" type="RichTextLabel" parent="BorderContainer/PasserTour"]
+[node name="RLabelCooldown" type="RichTextLabel" parent="BorderContainer/TButtonNextRound"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -165,7 +153,7 @@ text = "[center][font_size=16]Patientez 15 secondes"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="InfoPanel" type="PanelContainer" parent="BorderContainer"]
+[node name="PanelInfoBuilding" type="PanelContainer" parent="BorderContainer"]
 layout_mode = 0
 offset_left = 1547.0
 offset_top = 342.0
@@ -173,7 +161,7 @@ offset_right = 1655.0
 offset_bottom = 441.0
 script = ExtResource("14_xnmgy")
 
-[node name="stats_button" type="TextureButton" parent="BorderContainer"]
+[node name="TButtonStatistics" type="TextureButton" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.9335209
@@ -191,7 +179,7 @@ ignore_texture_size = true
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="shop_button" type="TextureButton" parent="BorderContainer"]
+[node name="TButtonShop" type="TextureButton" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.16700001
@@ -210,7 +198,7 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("11_jtq4o")
 
-[node name="background" type="Panel" parent="BorderContainer"]
+[node name="PanelTopBar" type="Panel" parent="BorderContainer"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
@@ -223,7 +211,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="saison" type="RichTextLabel" parent="BorderContainer/background"]
+[node name="RLabelSeason" type="RichTextLabel" parent="BorderContainer/PanelTopBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.112
@@ -239,7 +227,7 @@ bbcode_enabled = true
 text = "[center][font_size=24
 ]Printemps austral"
 
-[node name="mois" type="RichTextLabel" parent="BorderContainer/background"]
+[node name="RLabelMonth" type="RichTextLabel" parent="BorderContainer/PanelTopBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.112
@@ -254,7 +242,22 @@ theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
 text = "[center][font_size=24]Mois 0"
 
-[node name="argent" type="RichTextLabel" parent="BorderContainer/background"]
+[node name="RLabelTemperature" type="RichTextLabel" parent="BorderContainer/PanelTopBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.112
+anchor_top = 0.509
+anchor_right = 0.112
+anchor_bottom = 0.509
+offset_left = -94.68001
+offset_top = 16.231003
+offset_right = 76.61998
+offset_bottom = 75.83102
+theme_override_fonts/normal_font = ExtResource("3_o5r0d")
+bbcode_enabled = true
+text = "[center][font_size=24]24 C°"
+
+[node name="RLabelMoney" type="RichTextLabel" parent="BorderContainer/PanelTopBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.86600006
@@ -271,22 +274,7 @@ bbcode_enabled = true
 text = "[right][font_size=32]1 000 000 €"
 scroll_active = false
 
-[node name="temperature" type="RichTextLabel" parent="BorderContainer/background"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.112
-anchor_top = 0.509
-anchor_right = 0.112
-anchor_bottom = 0.509
-offset_left = -94.68001
-offset_top = 16.231003
-offset_right = 76.61998
-offset_bottom = 75.83102
-theme_override_fonts/normal_font = ExtResource("3_o5r0d")
-bbcode_enabled = true
-text = "[center][font_size=24]24 C°"
-
-[node name="state_bar" type="HBoxContainer" parent="BorderContainer/background"]
+[node name="HBoxStateBar" type="HBoxContainer" parent="BorderContainer/PanelTopBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -300,14 +288,14 @@ offset_bottom = 62.5
 grow_horizontal = 2
 alignment = 1
 
-[node name="HealthBarEmpty" type="Sprite2D" parent="BorderContainer/background/state_bar"]
+[node name="SpriteHealthBarEmpty" type="Sprite2D" parent="BorderContainer/PanelTopBar/HBoxStateBar"]
 position = Vector2(321.1875, 81.625)
 scale = Vector2(2.875, 2.875)
 texture = ExtResource("6_nmx3l")
 region_enabled = true
 region_rect = Rect2(8.589, 45.353, 109.282, 54.51)
 
-[node name="FilledBarHealth" type="Sprite2D" parent="BorderContainer/background/state_bar/HealthBarEmpty"]
+[node name="SpriteFilledBarHealth" type="Sprite2D" parent="BorderContainer/PanelTopBar/HBoxStateBar/SpriteHealthBarEmpty"]
 position = Vector2(-29.231003, -27.259998)
 texture = ExtResource("7_s7bk8")
 centered = false
@@ -315,7 +303,7 @@ region_enabled = true
 region_rect = Rect2(33.999, 45.353, 83.872, 54.51)
 script = ExtResource("8_fj0si")
 
-[node name="Health_text" type="RichTextLabel" parent="BorderContainer/background/state_bar/HealthBarEmpty"]
+[node name="RLabelHealth" type="RichTextLabel" parent="BorderContainer/PanelTopBar/HBoxStateBar/SpriteHealthBarEmpty"]
 anchors_preset = -1
 anchor_left = 0.6
 anchor_top = 1.0
@@ -332,14 +320,14 @@ bbcode_enabled = true
 text = "[center][font_size=8]Santé"
 metadata/_edit_use_anchors_ = true
 
-[node name="EfficiencyBarEmpty" type="Sprite2D" parent="BorderContainer/background/state_bar"]
+[node name="SpriteEfficiencyBarEmpty" type="Sprite2D" parent="BorderContainer/PanelTopBar/HBoxStateBar"]
 position = Vector2(661.1875, 81.625)
 scale = Vector2(2.875, 2.875)
 texture = ExtResource("9_1cvsb")
 region_enabled = true
 region_rect = Rect2(8.589, 45.353, 109.282, 54.51)
 
-[node name="FilledBarEfficiency" type="Sprite2D" parent="BorderContainer/background/state_bar/EfficiencyBarEmpty"]
+[node name="SpriteFilledBarEfficiency" type="Sprite2D" parent="BorderContainer/PanelTopBar/HBoxStateBar/SpriteEfficiencyBarEmpty"]
 position = Vector2(-29.231, -27.26)
 texture = ExtResource("7_s7bk8")
 centered = false
@@ -347,7 +335,7 @@ region_enabled = true
 region_rect = Rect2(33.9985, 45.353, 83.8725, 54.51)
 script = ExtResource("8_fj0si")
 
-[node name="Efficiency_text" type="RichTextLabel" parent="BorderContainer/background/state_bar/EfficiencyBarEmpty"]
+[node name="RLabelEfficiency" type="RichTextLabel" parent="BorderContainer/PanelTopBar/HBoxStateBar/SpriteEfficiencyBarEmpty"]
 anchors_preset = -1
 anchor_left = 0.6
 anchor_top = 1.0
@@ -364,14 +352,14 @@ bbcode_enabled = true
 text = "[center][font_size=8]Efficacité"
 metadata/_edit_use_anchors_ = true
 
-[node name="HappinessBarEmpty" type="Sprite2D" parent="BorderContainer/background/state_bar"]
+[node name="SpriteHappinessBarEmpty" type="Sprite2D" parent="BorderContainer/PanelTopBar/HBoxStateBar"]
 position = Vector2(1001.1875, 81.625)
 scale = Vector2(2.875, 2.875)
 texture = ExtResource("10_0ig0g")
 region_enabled = true
 region_rect = Rect2(8.589, 45.353, 109.282, 54.51)
 
-[node name="FilledBarHappiness" type="Sprite2D" parent="BorderContainer/background/state_bar/HappinessBarEmpty"]
+[node name="SpriteFilledBarHappiness" type="Sprite2D" parent="BorderContainer/PanelTopBar/HBoxStateBar/SpriteHappinessBarEmpty"]
 position = Vector2(-29.231, -27.26)
 texture = ExtResource("7_s7bk8")
 centered = false
@@ -379,7 +367,7 @@ region_enabled = true
 region_rect = Rect2(33.9985, 45.353, 83.8725, 54.51)
 script = ExtResource("8_fj0si")
 
-[node name="Happiness_text" type="RichTextLabel" parent="BorderContainer/background/state_bar/HappinessBarEmpty"]
+[node name="RLabelHappiness" type="RichTextLabel" parent="BorderContainer/PanelTopBar/HBoxStateBar/SpriteHappinessBarEmpty"]
 anchors_preset = -1
 anchor_left = 0.6
 anchor_top = 1.0
@@ -396,7 +384,7 @@ bbcode_enabled = true
 text = "[center][font_size=8]Bonheur"
 metadata/_edit_use_anchors_ = true
 
-[node name="settings_button" type="TextureButton" parent="BorderContainer/background"]
+[node name="TButtonSettings" type="TextureButton" parent="BorderContainer/PanelTopBar"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.99600005
@@ -414,7 +402,7 @@ stretch_mode = 4
 script = ExtResource("11_jtq4o")
 metadata/_edit_use_anchors_ = true
 
-[node name="NightMode" type="Panel" parent="BorderContainer"]
+[node name="PanelNightMode" type="Panel" parent="BorderContainer"]
 visible = false
 modulate = Color(0, 0.6415867, 0.7852611, 1)
 z_index = -900
@@ -426,7 +414,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Close_Inventory" type="TextureButton" parent="BorderContainer"]
+[node name="TButtonCloseInventory" type="TextureButton" parent="BorderContainer"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.11400001
@@ -444,7 +432,7 @@ texture_hover = ExtResource("28_si2ni")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="passerTour" type="Panel" parent="BorderContainer"]
+[node name="PanelConfirmNextRound" type="Panel" parent="BorderContainer"]
 visible = false
 z_index = 3
 layout_mode = 1
@@ -460,7 +448,7 @@ offset_bottom = 162.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="message" type="RichTextLabel" parent="BorderContainer/passerTour"]
+[node name="RLabelConfirmMessage" type="RichTextLabel" parent="BorderContainer/PanelConfirmNextRound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -477,7 +465,7 @@ text = "[center][font_size=56]Voulez vous vraiment passer au tour suivant ?"
 fit_content = true
 scroll_active = false
 
-[node name="confirm_button" type="TextureButton" parent="BorderContainer/passerTour"]
+[node name="TButtonConfirm" type="TextureButton" parent="BorderContainer/PanelConfirmNextRound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.26900002
@@ -493,7 +481,7 @@ texture_pressed = ExtResource("30_vcgxy")
 texture_hover = ExtResource("31_wvy0n")
 stretch_mode = 0
 
-[node name="cancel_button" type="TextureButton" parent="BorderContainer/passerTour"]
+[node name="TButtonCancel" type="TextureButton" parent="BorderContainer/PanelConfirmNextRound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.65900004
@@ -509,10 +497,10 @@ texture_pressed = ExtResource("33_4uvaq")
 texture_hover = ExtResource("34_rf6ic")
 stretch_mode = 0
 
-[node name="ChartStats" parent="BorderContainer" instance=ExtResource("14_o7jfm")]
+[node name="CLayerChartStats" parent="BorderContainer" instance=ExtResource("14_o7jfm")]
 visible = false
 
-[node name="PanelChangementTour" type="TextureRect" parent="BorderContainer"]
+[node name="TRectRoundTransition" type="TextureRect" parent="BorderContainer"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -528,7 +516,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("34_vcgxy")
 
-[node name="ChangementTour" type="RichTextLabel" parent="BorderContainer/PanelChangementTour"]
+[node name="RLabelRoundNumber" type="RichTextLabel" parent="BorderContainer/TRectRoundTransition"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.507623
@@ -548,7 +536,7 @@ text = "[center][font_size=56]Tour 1"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelNuitJour" type="TextureRect" parent="BorderContainer/PanelChangementTour"]
+[node name="TRectDayNightIndicator" type="TextureRect" parent="BorderContainer/TRectRoundTransition"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -565,7 +553,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("35_wvy0n")
 
-[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelChangementTour/PanelNuitJour"]
+[node name="RLabelDayNightMessage" type="RichTextLabel" parent="BorderContainer/TRectRoundTransition/TRectDayNightIndicator"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5028093
@@ -585,7 +573,7 @@ text = "[center][font_size=24]La nuit tombe"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelCatastrophe" type="TextureRect" parent="BorderContainer"]
+[node name="TRectDisasterPanel" type="TextureRect" parent="BorderContainer"]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -601,7 +589,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("37_nrmyt")
 
-[node name="DescriptionCatastrophe" type="RichTextLabel" parent="BorderContainer/PanelCatastrophe"]
+[node name="RLabelDisasterDescription" type="RichTextLabel" parent="BorderContainer/TRectDisasterPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49733335
@@ -621,7 +609,7 @@ text = "[center][font_size=>32][color=red]Dépression saisonnière
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelNuitJour" type="TextureRect" parent="BorderContainer/PanelCatastrophe"]
+[node name="TRectDayNightIndicator" type="TextureRect" parent="BorderContainer/TRectDisasterPanel"]
 visible = false
 z_index = -1
 layout_mode = 1
@@ -638,7 +626,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("35_wvy0n")
 
-[node name="NuitJour" type="RichTextLabel" parent="BorderContainer/PanelCatastrophe/PanelNuitJour"]
+[node name="RLabelDayNightMessage" type="RichTextLabel" parent="BorderContainer/TRectDisasterPanel/TRectDayNightIndicator"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5028093
@@ -658,7 +646,7 @@ text = "[center][font_size=24]La nuit tombe"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
-[node name="SnowParticle" type="CPUParticles2D" parent="."]
+[node name="CPUParticlesSnowSmall" type="CPUParticles2D" parent="."]
 z_index = -4096
 position = Vector2(-250, -2321)
 amount = 500
@@ -678,7 +666,7 @@ tangential_accel_max = 900.0
 scale_amount_min = 1.2
 scale_amount_max = 1.6
 
-[node name="SnowParticle2" type="CPUParticles2D" parent="."]
+[node name="CPUParticlesSnowBig" type="CPUParticles2D" parent="."]
 z_index = -4096
 position = Vector2(-250, -2321)
 amount = 500
@@ -698,10 +686,10 @@ tangential_accel_max = 900.0
 scale_amount_min = 1.2
 scale_amount_max = 1.6
 
-[connection signal="pressed" from="BorderContainer/PasserTour" to="." method="change_visible_confirmation_passer_tour"]
-[connection signal="pressed" from="BorderContainer/stats_button" to="." method="_on_btn_graphique_stats_pressed"]
-[connection signal="pressed" from="BorderContainer/shop_button" to="BorderContainer/shop_button" method="_on_pressed_shop"]
-[connection signal="pressed" from="BorderContainer/background/settings_button" to="BorderContainer/background/settings_button" method="_on_pressed_pause"]
-[connection signal="pressed" from="BorderContainer/Close_Inventory" to="." method="_on_fermer_pressed_close_inventory"]
-[connection signal="pressed" from="BorderContainer/passerTour/confirm_button" to="." method="_on_passer_tour_pressed"]
-[connection signal="pressed" from="BorderContainer/passerTour/cancel_button" to="." method="change_visible_confirmation_passer_tour"]
+[connection signal="pressed" from="BorderContainer/TButtonNextRound" to="." method="change_visible_confirmation_passer_tour"]
+[connection signal="pressed" from="BorderContainer/TButtonStatistics" to="." method="_on_btn_graphique_stats_pressed"]
+[connection signal="pressed" from="BorderContainer/TButtonShop" to="BorderContainer/TButtonShop" method="_on_pressed_shop"]
+[connection signal="pressed" from="BorderContainer/PanelTopBar/TButtonSettings" to="BorderContainer/PanelTopBar/TButtonSettings" method="_on_pressed_pause"]
+[connection signal="pressed" from="BorderContainer/TButtonCloseInventory" to="." method="_on_fermer_pressed_close_inventory"]
+[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonConfirm" to="." method="_on_passer_tour_pressed"]
+[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonCancel" to="." method="change_visible_confirmation_passer_tour"]

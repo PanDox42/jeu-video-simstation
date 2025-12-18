@@ -1,26 +1,26 @@
 [gd_scene load_steps=10 format=3 uid="uid://d4kukl2esgxwp"]
 
-[ext_resource type="Texture2D" uid="uid://s4r3rofou5eu" path="res://assets/button/confirm_button/confirm_button.png" id="1_0bhau"]
-[ext_resource type="Script" uid="uid://cc0lawlrgjo1q" path="res://Model/buy_confirmation.gd" id="1_vv2ij"]
-[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_i5yxb"]
-[ext_resource type="Texture2D" uid="uid://jyh2dbeahdrg" path="res://assets/background/popup_background.png" id="2_qft0i"]
-[ext_resource type="Texture2D" uid="uid://dxnjlbnjolp4q" path="res://assets/button/confirm_button/confirm_button_click.png" id="2_vv2ij"]
-[ext_resource type="Texture2D" uid="uid://dvedh4isp1kfq" path="res://assets/button/confirm_button/confirm_button_hover.png" id="3_4pj0v"]
-[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_b7ln2"]
-[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="5_4r87u"]
-[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="6_r20lg"]
+[ext_resource type="Script" uid="uid://cc0lawlrgjo1q" path="res://model/shop/buy_confirmation.gd" id="1_13c4c"]
+[ext_resource type="Texture2D" uid="uid://jyh2dbeahdrg" path="res://assets/background/popup_background.png" id="2_fvmvc"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_1n2j4"]
+[ext_resource type="Texture2D" uid="uid://s4r3rofou5eu" path="res://assets/button/confirm_button/confirm_button.png" id="4_a6gw4"]
+[ext_resource type="Texture2D" uid="uid://dxnjlbnjolp4q" path="res://assets/button/confirm_button/confirm_button_click.png" id="5_huxuq"]
+[ext_resource type="Texture2D" uid="uid://dvedh4isp1kfq" path="res://assets/button/confirm_button/confirm_button_hover.png" id="6_ixalv"]
+[ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="7_5whil"]
+[ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="8_p180v"]
+[ext_resource type="Texture2D" uid="uid://01twtxxewgs2" path="res://assets/button/exit_button/exit_button_hover.png" id="9_4aq8n"]
 
 [node name="BuyConfirmation" type="CanvasLayer"]
-script = ExtResource("1_vv2ij")
+script = ExtResource("1_13c4c")
 
-[node name="AntiClick" type="Panel" parent="."]
+[node name="PanelAntiClick" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="TRectBackground" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,62 +32,62 @@ offset_right = 345.95374
 offset_bottom = 230.625
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_qft0i")
+texture = ExtResource("2_fvmvc")
 
-[node name="message" type="RichTextLabel" parent="Background"]
+[node name="RLabelMessage" type="RichTextLabel" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.39600003
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.39600003
 offset_left = -265.0
-offset_top = -151.0
+offset_top = -103.030014
 offset_right = 268.0
-offset_bottom = 55.0
+offset_bottom = 102.969986
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("2_i5yxb")
+theme_override_fonts/normal_font = ExtResource("3_1n2j4")
 bbcode_enabled = true
 text = "[center][font_size=38]Voulez vous vraiment acheter le batiment : 64cdh%03eh$ ?"
 fit_content = true
 scroll_active = false
 
-[node name="confirm_button" type="TextureButton" parent="Background"]
+[node name="TButtonConfirm" type="TextureButton" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -243.0
-offset_top = 61.0
-offset_right = -153.0
-offset_bottom = 151.0
+anchors_preset = -1
+anchor_left = 0.21400002
+anchor_top = 0.73
+anchor_right = 0.21400002
+anchor_bottom = 0.73
+offset_left = -45.11447
+offset_top = -45.087494
+offset_right = 44.88553
+offset_bottom = 44.912506
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("1_0bhau")
-texture_pressed = ExtResource("2_vv2ij")
-texture_hover = ExtResource("3_4pj0v")
+texture_normal = ExtResource("4_a6gw4")
+texture_pressed = ExtResource("5_huxuq")
+texture_hover = ExtResource("6_ixalv")
 stretch_mode = 0
 
-[node name="cancel_button" type="TextureButton" parent="Background"]
+[node name="TButtonCancel" type="TextureButton" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 152.0
-offset_top = 56.0
-offset_right = 242.0
-offset_bottom = 146.0
+anchors_preset = -1
+anchor_left = 0.785
+anchor_top = 0.71900004
+anchor_right = 0.785
+anchor_bottom = 0.71900004
+offset_left = -45.193665
+offset_top = -45.013763
+offset_right = 44.806335
+offset_bottom = 44.986237
 grow_horizontal = 2
 grow_vertical = 2
-texture_normal = ExtResource("4_b7ln2")
-texture_pressed = ExtResource("5_4r87u")
-texture_hover = ExtResource("6_r20lg")
+texture_normal = ExtResource("7_5whil")
+texture_pressed = ExtResource("8_p180v")
+texture_hover = ExtResource("9_4aq8n")
 stretch_mode = 0
 
-[connection signal="pressed" from="Background/confirm_button" to="." method="_on_confirm_button_pressed"]
-[connection signal="pressed" from="Background/cancel_button" to="." method="_on_cancel_button_pressed"]
+[connection signal="pressed" from="TRectBackground/TButtonConfirm" to="." method="_on_confirm_button_pressed"]
+[connection signal="pressed" from="TRectBackground/TButtonCancel" to="." method="_on_cancel_button_pressed"]
