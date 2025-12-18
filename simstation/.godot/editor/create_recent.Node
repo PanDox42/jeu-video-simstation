@@ -1,7 +1,10 @@
+TextureRect
+Label
+TextureButton
 Button
-Control
 Panel
+ColorRect
+CanvasLayer
+Control
 AudioStreamPlayer
 AudioStreamPlayer2D
-TextureRect
-CanvasLayer
