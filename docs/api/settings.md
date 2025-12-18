@@ -4,16 +4,6 @@
 
 **Fichier:** `model\pause\settings.gd`
 
-## Variables
-
-### music_volume_db
-
-### sfx_volume_db
-
-### music_volume_linear
-
-### sfx_volume_linear
-
 ## Fonctions
 
 ### _ready()

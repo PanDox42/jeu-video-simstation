@@ -4,20 +4,6 @@
 
 **Fichier:** `model\map\map.gd`
 
-## Variables
-
-### ghost_rect
-
-### other_rect
-
-### building_click
-
-### id_a_envoyer
-
-### mouse_positionition
-
-### childs
-
 ## Fonctions
 
 ### _ready()

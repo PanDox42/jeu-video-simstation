@@ -1,20 +1,47 @@
+## CalculStats - Système de calcul des statistiques de la station
+##
+## Gère tous les calculs de statistiques round par round pour SimStation.
+## Calcule l'impact de la température, des bâtiments, des catastrophes
+## sur la santé, le bonheur et l'efficacité de la population.
+##
+## Ce système utilise des constantes d'équilibrage pour créer une difficulté progressive
+## et garantir que le joueur doit construire des infrastructures pour survivre.
 extends Node2D
 
-# ------------------------------------------------------------------------------
-# SYSTEME DE CALCUL DE STATISTIQUES (round PAR round)
-# ------------------------------------------------------------------------------
+# === CONSTANTES DE TEMPÉRATURE ===
 
+## Température extérieure confortable (-10°C = limite supportable)
 const TEMP_COMFORT_EXT = -10.0
+
+## Température intérieure de confort (18°C = température idéale)
 const TEMP_COMFORT_INT = 18.0
+
+## Coefficient d'impact de la température extérieure sur la santé par round
 const COEFF_TIME_EXT = 0.15
+
+## Coefficient d'impact de la température intérieure sur la santé par round
 const COEFF_TIME_INT = 0.1
+
+## Coefficient multiplicateur du bonus de bonheur des bâtiments
 const COEFF_BUILDINGS = 0.1
+
+# === CONSTANTES DE SOINS ===
+
+## Bonus de santé apporté par chaque hôpital par round
 const BONUS_HEALTH_HOSPITAL = 5.0
+
+## Plafond maximum de santé récupérable via les hôpitaux par round
 const CAP_HEALTH_MAX = 15.0
 
+# === CONSTANTES THERMIQUES ===
+
+## Puissance de chauffage apportée par chaque chaufferie
 const HEATING_POWER_PER_BUILDING = 9
+
+## Vitesse de refroidissement des bâtiments sans chauffage par round
 const COOLING_SPEED = 1.5
 
+## Initialisation des statistiques au démarrage
 func _ready() -> void:
 	# Initialisation via les getters du GlobalScript
 	if GlobalScript.get_health() <= 0:
@@ -24,6 +51,8 @@ func _ready() -> void:
 	
 	update_derived_stats()
 
+## Fonction principale appelée à chaque nouveau round
+## Enchaîne les calculs dans l'ordre : saisons, catastrophes, stats, signaux
 func next_round() -> void:
 	_calculate_season_and_weather()
 	_gerer_catastrophes()
@@ -31,7 +60,9 @@ func next_round() -> void:
 	update_derived_stats()
 	GlobalScript.emit_signal("round_changed")
 
-# Appelé lors de la construction pour un boost immédiat
+## Applique un boost immédiat de bonheur lors de la construction d'un bâtiment
+## Appelé par le système de construction
+## @param building_type_name: Type du bâtiment construit (ex: "dormitory")
 func _add_stats_new_building(building_type_name):
 	# On récupère le bonus de hapiness statique du bâtiment
 	var fixe_bonus = GlobalScript.get_building_hapiness(building_type_name)
@@ -42,6 +73,9 @@ func _add_stats_new_building(building_type_name):
 		GlobalScript.set_hapiness(GlobalScript.get_hapiness() + gain)
 		update_derived_stats()
 
+## Recalcule les statistiques dérivées à partir de santé et bonheur
+## Formule : Efficacité = (Santé * 0.6) + (Bonheur * 0.4)
+## Met à jour le Global et la population avec lerp
 func update_derived_stats() -> void:
 	var health = float(GlobalScript.get_health())
 	var hapiness = float(GlobalScript.get_hapiness())
@@ -65,6 +99,12 @@ func update_derived_stats() -> void:
 	
 	print("Stats : Santé %d%% | Bonheur %d%% | Efficacité %d%%" % [health, hapiness, efficiency])
 
+## Calcule et applique la saison suivante avec sa température
+## Cycle de 4 saisons : Été (0) -> Automne (1) -> Hiver (2) -> Printemps (3)
+## - Été: -25°C à -40°C
+## - Automne: -40°C à -55°C  
+## - Hiver: -60°C à -80°C (le plus dangereux)
+## - Printemps: -45°C à -60°C
 func _calculate_season_and_weather() -> void:
 	var current_round = GlobalScript.get_round() + 1
 	GlobalScript.set_round(current_round)
@@ -90,6 +130,13 @@ func _calculate_season_and_weather() -> void:
 	GlobalScript.set_temperature(new_temp)
 	GlobalScript.set_season(season_name)
 
+## Applique tous les changements statistiques du round
+## Séquence de calcul :
+## 1. Comptage des bâtiments spéciaux (chaufferies, hôpitaux)
+## 2. Simulation thermique (chauffage/refroidissement des bâtiments)
+## 3. Calcul impact température sur santé
+## 4. Calcul impact bâtiments sur bonheur
+## 5. Application finale des deltas
 func _apply_changes_turn() -> void:
 	var current_health = float(GlobalScript.get_health())
 	var current_hapiness = float(GlobalScript.get_hapiness())
@@ -165,6 +212,9 @@ func _apply_changes_turn() -> void:
 	GlobalScript.set_health(int(current_health))
 	GlobalScript.set_hapiness(int(current_hapiness))
 
+## Vérifie et applique une éventuelle catastrophe aléatoire
+## Utilise le système Catastrophes.verify_disaster()
+## Applique directement les malus de santé et bonheur si une catastrophe se déclenche
 func _gerer_catastrophes() -> void:
 	var disaster = Catastrophes.verify_disaster()
 	

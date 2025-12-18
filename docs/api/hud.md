@@ -4,28 +4,6 @@
 
 **Fichier:** `model\hud\hud.gd`
 
-## Variables
-
-### round
-
-### status
-
-### round
-
-### tween
-
-### disaster
-
-### panel
-
-### info
-
-### name
-
-### description
-
-### text
-
 ## Fonctions
 
 ### _ready()

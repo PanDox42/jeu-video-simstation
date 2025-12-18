@@ -24,16 +24,6 @@
 
 ### building_unblocked: String
 
-### root: NodeData
-
-### child
-
-### result
-
-### queue
-
-### current
-
 ## Fonctions
 
 ### _init(k: String, t: int, gain_s: int, r_cost: int, desc: String, buil_unblocked: String)

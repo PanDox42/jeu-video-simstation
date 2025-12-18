@@ -20,16 +20,6 @@ Niveau de zoom actuel de la caméra
 
 Référence vers le nœud du bâtiment en cours de placement
 
-### arbre_scene
-
-### play_scene
-
-### hud
-
-### instance
-
-### node
-
 ## Fonctions
 
 ### set_current_map(map: Node)

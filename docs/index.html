@@ -1,138 +1,154 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
-  <title>SimStation - Documentation</title>
+  <title>SimStation - Base de Connaissances</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Documentation du projet SimStation - Jeu de gestion de station antarctique">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  
-  <!-- Theme: Vue (dark mode available) -->
+
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
-  
+
   <style>
     :root {
-      --theme-color: #0984e3;
-      --base-background-color: #ffffff;
+      /* Palette Antarctique Pro */
+      --theme-color: #3498db;
+      /* Bleu glace */
+      --accent-color: #e67e22;
+      /* Orange sécurité (boutons/alertes) */
+      --bg-dark: #0f172a;
+      /* Bleu nuit profond */
+      --bg-sidebar: #1e293b;
+      /* Bleu ardoise */
+      --text-main: #e2e8f0;
+      /* Blanc cassé */
+      --text-muted: #94a3b8;
     }
-    
-    /* Dark mode by default */
+
+    /* Override global pour un look "App" moderne */
     body {
-      background-color: #1e1e1e;
-      color: #d4d4d4;
+      background-color: var(--bg-dark) !important;
+      color: var(--text-main) !important;
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
-    
+
+    /* Barre latérale stylisée */
     .sidebar {
-      background-color: #252526;
-      border-right: 1px solid #3e3e42;
+      background-color: var(--bg-sidebar) !important;
+      border-right: 1px solid #334155 !important;
+      color: var(--text-main);
     }
-    
+
     .sidebar-nav li a {
-      color: #d4d4d4;
+      color: var(--text-muted) !important;
+      transition: all 0.3s ease;
     }
-    
-    .sidebar-nav li.active > a {
-      color: #0984e3;
-      font-weight: 600;
+
+    .sidebar-nav li.active>a {
+      color: var(--theme-color) !important;
+      border-right: 2px solid var(--theme-color);
+      background: rgba(52, 152, 219, 0.1);
     }
-    
-    .content {
-      background-color: #1e1e1e;
-    }
-    
+
+    /* Contenu Markdown */
     .markdown-section {
-      color: #d4d4d4;
+      background-color: transparent !important;
+      max-width: 900px;
+      padding-top: 40px;
     }
-    
+
     .markdown-section h1,
-    .markdown-section h2,
-    .markdown-section h3,
-    .markdown-section h4 {
-      color: #ffffff;
+    .markdown-section h2 {
+      color: #ffffff !important;
+      font-weight: 700;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 10px;
     }
-    
-    .markdown-section a {
-      color: #4fc3f7;
+
+    .markdown-section blockquote {
+      border-left: 4px solid var(--accent-color);
+      background: rgba(230, 126, 34, 0.1);
+      color: #cbd5e1;
     }
-    
+
+    /* Blocs de Code (Look VS Code) */
     .markdown-section code {
-      background-color: #2d2d30;
-      color: #ce9178;
+      background-color: #1e293b !important;
+      color: #38bdf8 !important;
+      border-radius: 4px;
     }
-    
+
     .markdown-section pre {
-      background-color: #2d2d30;
+      background-color: #111827 !important;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+      border: 1px solid #334155;
     }
-    
+
+    /* Champ de recherche */
     .search input {
-      background-color: #2d2d30;
-      border: 1px solid #3e3e42;
-      color: #d4d4d4;
+      background-color: #0f172a !important;
+      border: 1px solid #334155 !important;
+      border-radius: 20px !important;
+      color: white !important;
+    }
+
+    /* Scrollbar fine */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-dark);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--theme-color);
     }
   </style>
 </head>
+
 <body>
-  <div id="app">Chargement...</div>
-  
+  <div id="app">Initialisation de la console de bord...</div>
+
   <script>
     window.$docsify = {
-      name: 'SimStation',
+      name: '<span>❄️ SimStation</span>',
       repo: 'https://gitlab.com/votre-username/simstation',
       loadSidebar: true,
-      subMaxLevel: 3,
+      subMaxLevel: 2,
       auto2top: true,
-      coverpage: false,
-      
-      // Search plugin
+
       search: {
-        maxAge: 86400000, // 1 day
-        paths: 'auto',
-        placeholder: 'Rechercher dans la documentation...',
-        noData: 'Aucun résultat trouvé.',
-        depth: 6,
-        hideOtherSidebarContent: false
+        placeholder: 'Rechercher une commande ou un bâtiment...',
+        noData: 'Aucun log trouvé.',
+        depth: 3
       },
-      
-      // Pagination
+
+      copyCode: {
+        buttonText: 'Copier',
+        successText: 'Copié !'
+      },
+
       pagination: {
         previousText: 'Précédent',
         nextText: 'Suivant',
-        crossChapter: true,
-        crossChapterText: true,
-      },
-      
-      // Copy code plugin
-      copyCode: {
-        buttonText: 'Copier',
-        errorText: 'Erreur',
-        successText: 'Copié !'
-      },
-      
-      // Alias for cleaner URLs
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md',
       }
     }
   </script>
-  
-  <!-- Docsify v4 -->
+
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  
-  <!-- Search plugin -->
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  
-  <!-- Copy code plugin -->
   <script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2"></script>
-  
-  <!-- Pagination plugin -->
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-  
-  <!-- Syntax highlighting for GDScript (using Python highlighter as fallback) -->
+
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-csharp.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
-  
-  <!-- Zoom image plugin -->
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
 </body>
+
 </html>

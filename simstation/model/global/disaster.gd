@@ -1,9 +1,21 @@
+## Catastrophes - Système d'événements aléatoires pour SimStation
+##
+## Gère les catastrophes et événements aléatoires qui peuvent affecter la station.
+## Chaque round, le système vérifie si une catastrophe se déclenche selon
+## des probabilités définies. Une seule catastrophe peut se produire par round.
+##
+## Les catastrophes affectent Santé, Bonheur et Efficacité avec des intensités variées.
 extends Node
 
-# DESCRIPTION :
-# FLEMME AUSSI
-
-# [ Santé, Bonheur, Efficacité, Probabilité (%), name, Description ]
+## Catalogue de toutes les catastrophes disponibles
+## Format par catastrophe: [Santé_Delta, Bonheur_Delta, Efficacité_Delta, Probabilité_%, Nom, Description]
+## 
+## **Types de catastrophes:**
+## - blizzard: Tempête fréquente (8% de chance), impact léger (-3/-2/-2)
+## - electrical_breakdown: Panne électrique (5%), impact moyen sur efficacité (-2/-3/-8)
+## - winter_flu: Grippe hivernale (4%), impact santé modéré (-7/-4/-2)
+## - seasonal_depression: Dépression saisonnière (3%), impact moral fort (-2/-10/-5)
+## - avalanche: Événement rare (1%), impact critique partout (-12/-12/-12)
 var disasters_available = {
 	# Un petit coup de froid, plus fréquent mais moins violent
 	"blizzard": [-3, -2, -2, 8, "Tempête de neige", "Un blizzard léger souffle sur la station. Les sorties sont limitées."],
@@ -21,10 +33,12 @@ var disasters_available = {
 	"avalanche": [-12, -12, -12, 1, "Avalanche", "Une avalanche a secoué la base. Des réparations sont nécessaires !"]
 }
 
-# Var pour determiner quelle disaster est active
+## Stocke la catastrophe actuellement active (null si aucune)
 var disaster_activated = null
 
-# Fonction qui teste si une disaster s'active ce round ou pas
+## Vérifie aléatoirement si une catastrophe se déclenche ce round
+## Utilise un système de mélange pour éviter que le blizzard bloque toujours les autres
+## @return: Dictionnaire {"id": nom_catastrophe, "info": [données]} ou {} si aucune
 func verify_disaster() -> Dictionary:
 	disaster_activated = null
 	
@@ -45,5 +59,7 @@ func verify_disaster() -> Dictionary:
 			return disaster_activated
 	return {}
 
+## Récupère la catastrophe actuellement active
+## @return: Dictionnaire de la catastrophe ou null
 func get_active_disaster():
 	return disaster_activated

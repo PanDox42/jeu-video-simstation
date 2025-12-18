@@ -8,14 +8,6 @@
 
 ### menu_instance
 
-### is_visibles
-
-### is_visibles
-
-### tuto_scene
-
-### tuto_instance
-
 ## Fonctions
 
 ### _on_btn_jouer_pressed() -> void

@@ -14,37 +14,11 @@
 
 ### grid_visual_instance: Node2D
 
-### mouse_global_pos
-
-### grid_pos
-
-### maps
-
-### texture_res
-
-### target_size
-
-### tex_size
-
-### ratio
-
-### trect_hud_border
-
-### trect_hud_border
-
 ### cell_size
 
 ### grid_color
 
 ### draw_area
-
-### left
-
-### right
-
-### top
-
-### bottom
 
 ## Fonctions
 

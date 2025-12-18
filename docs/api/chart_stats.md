@@ -30,30 +30,6 @@
 
 ### points_efficiency: Array[Vector2]
 
-### points_x: Array[Vector2]
-
-### points_y: Array[Vector2]
-
-### new_health
-
-### new_hapiness
-
-### new_efficiency
-
-### y_health
-
-### y_efficacy
-
-### y_bonheur
-
-### health_position
-
-### efficiency_position
-
-### health_hapiness
-
-### marker
-
 ## Fonctions
 
 ### _ready()

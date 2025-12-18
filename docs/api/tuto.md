@@ -10,8 +10,6 @@
 
 ### index_actuel
 
-### data
-
 ## Fonctions
 
 ### _ready()

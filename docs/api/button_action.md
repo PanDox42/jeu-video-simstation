@@ -4,22 +4,6 @@
 
 **Fichier:** `model\button\button_action.gd`
 
-## Variables
-
-### arbre_scene
-
-### play_scene
-
-### hud
-
-### instance
-
-### node
-
-### play_scene
-
-### hud
-
 ## Fonctions
 
 ### _on_pressed_shop() -> void

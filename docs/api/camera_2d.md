@@ -8,14 +8,6 @@
 
 ### dragging: bool
 
-### zoom_change
-
-### old_zoom
-
-### new_zoom
-
-### mouse_position
-
 ## Fonctions
 
 ### _ready() -> void

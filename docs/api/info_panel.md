@@ -20,14 +20,6 @@
 
 ### search_button
 
-### infos
-
-### name_type
-
-### style
-
-### title_style
-
 ## Fonctions
 
 ### _ready()

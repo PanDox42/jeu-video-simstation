@@ -4,10 +4,6 @@
 
 **Fichier:** `model\hud\crop_bar.gd`
 
-## Variables
-
-### ratio
-
 ## Fonctions
 
 ### _update_bar(value: int)

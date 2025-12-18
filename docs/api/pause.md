@@ -4,30 +4,6 @@
 
 **Fichier:** `model\pause\pause.gd`
 
-## Variables
-
-### play_scene
-
-### hud
-
-### pause_menu
-
-### options_scene
-
-### play_scene
-
-### hud
-
-### instance
-
-### node
-
-### play_scene
-
-### hud
-
-### pause_menu
-
 ## Fonctions
 
 ### _ready()

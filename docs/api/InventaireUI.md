@@ -4,26 +4,6 @@
 
 **Fichier:** `model\hud\inventory\InventaireUI.gd`
 
-## Variables
-
-### quantite
-
-### container
-
-### icon
-
-### path_img
-
-### label
-
-### display_name
-
-### icon
-
-### lbl
-
-### display_name
-
 ## Fonctions
 
 ### _ready()
