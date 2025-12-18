@@ -1,7 +1,6 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1766066081
+::res://::1766066159
 default_bus_layout.tres::AudioBusLayout::6839137915982797538::1766065879::0::1::::<><><>0<>0<><>::
-global_script.gd::GDScript::8270620997054216856::1766065879::0::1::::<>Node<><>0<>0<><>::
 hud_theme.tres::Theme::660527388464229468::1765744970::0::1::::<><><>0<>0<><>::uid://cpy65047eb1jb::::res://font/Minecraftia-Regular.ttf
 icon.png::CompressedTexture2D::5279963843982476834::1766065879::1765952641::1::::<><><>0<>0<>c23e895474973246f793d807e3195a8f<>res://.godot/imported/icon.png-487276ed1e3a0c39cad0279d744ee560.ctex::
 ::res://assets/::1766065698
