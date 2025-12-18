@@ -12,8 +12,6 @@ const Y_SPACING = 150
 const NODE_RADIUS = 30
 const TREE_SPACING = 800
 
-var roots = []
-
 var dernier_round_connu = -1
 
 # Références
@@ -21,6 +19,8 @@ var dernier_round_connu = -1
 
 # Canvas interne
 var tree_canvas = Control.new()
+
+var root;
 
 func _ready():
 	GlobalScript.connect("round_changed", _on_round_changed)
@@ -32,63 +32,43 @@ func _ready():
 	
 	tree = SearchTree.new()
 
-	var root_infra = tree.create_root("Générateurs Diesel", 1, 5000, 0, "Fournit l'électricité de base.", "gym")
-	
-	# Niveau 2 : Débloque la Cantine (Nécessite de l'isolation pour cuisiner au chaud)
-	var infra_2a = tree.add_child(root_infra, "Isolation Renforcée", 2, 25000, 10, "Protection -50°C.", "canteen")
-	
-	# Niveau 3 : Débloque la Salle de Repos (Amélioration des dortoirs)
-	var infra_3a = tree.add_child(infra_2a, "Dortoirs Modulaires", 3, 60000, 20, "Modules d'habitation avancés.", "rest_room")
-	
-	# Autres branches Infra (Véhicules & Energie finale) - Pas de bâtiment ici pour l'instant
-	var infra_2b = tree.add_child(root_infra, "Garage à Chenilles", 2, 45000, 15, "Hangar pour véhicules lourds.", "")
-	var infra_3b = tree.add_child(infra_2b, "Rover d'Exploration", 4, 120000, 40, "Accès aux zones lointaines.", "")
-	var infra_final = tree.add_child(infra_3a, "Centrale Géothermique", 12, 2500000, 100, "Source d'énergie illimitée.", "")
+	# --- ARBRE DE DÉVELOPPEMENT DE LA STATION ---
+
+	# NIVEAU 1 : La Racine (Vital)
+	# On commence par le chauffage, car sans lui, personne ne survit au débarquement.
+	root = tree.create_root("Survie Thermique", 1, 250000, 0, "Installe le réseau de chaleur primaire.", "boiler_room")
+	root.unblocked = true
+
+	# --- NIVEAU 2 : Infrastructures de Base (2 enfants max) ---
+
+	# Branche A : Vie et Santé
+	var node_vie = tree.add_child(root, "Meilleur isolation", 2, 450000, 15, "Permet d'avoir plus chaud dans les batiments", "")
+
+	# Branche B : Recherche
+	var node_sci = tree.add_child(root, "Méthode Scientifique", 2, 800000, 20, "Nouvelle méthode de recherche scientifique", "")
 
 
-	# --- ARBRE SCIENCE (Médecine & Savoir) ---
-	var root_science = tree.create_root("Labo de Terrain", 1, 10000, 0, "Le début de la recherche.", "")
-	root_science.unblocked = true
-	
-	var sci_2 = tree.add_child(root_science, "Forage Superficiel", 2, 35000, 10, "Carottes glaciaires 0-50m.", "")
-	
-	# Niveau 3 (Chimie)
-	var sci_3a = tree.add_child(sci_2, "Labo de Chimie", 3, 80000, 25, "Analyse des bulles d'air.", "")
-	
-	# Niveau 4 (Climat) : Débloque l'Observatoire
-	var sci_4a = tree.add_child(sci_3a, "Données Climatiques", 4, 200000, 50, "Reconstitution du climat passé.", "observatory")
-	
-	# Niveau 3 (Bio) : Débloque l'Hôpital (Cryobiologie -> Médecine)
-	var sci_3b = tree.add_child(sci_2, "Cryobiologie", 3, 90000, 30, "Étude des bactéries dormantes.", "hospital")
-	
-	var sci_4b = tree.add_child(sci_3b, "Séquençage ADN", 6, 500000, 80, "Nouvelles formes de vie.", "")
-	var sci_final = tree.add_child(sci_4a, "Forage Profond (3km)", 20, 15000000, 200, "Atteindre le socle rocheux.", "")
+	# --- NIVEAU 3 : Spécialisations (2 enfants max par parent du N2) ---
 
+	# Enfants de "Quartiers d'Hivernage" (Vie)
+	var node_hospital = tree.add_child(node_vie, "Soutien Médical", 3, 750000, 40, "Indispensable pour traiter les engelures.", "hospital")
+	var node_canteen = tree.add_child(node_vie, "Logistique Alimentaire", 3, 500000, 30, "Cuisine industrielle pour les rations d'hiver.", "canteen")
 
-	# --- ARBRE COMMUNICATIONS (money & Influence) ---
-	# Cette branche sert surtout à gagner de l'money/prestige, pas de bâtiment ici pour l'instant.
-	var root_comms = tree.create_root("Antenne Radio", 1, 8000, 0, "Lien radio basique avec la Terre.", "")
-	root_comms.unblocked = true
-	
-	var com_2 = tree.add_child(root_comms, "Lien Satellite", 1, 150000, 20, "Connexion haut débit.", "")
-	var com_3a = tree.add_child(com_2, "Reportage TV", 2, 500000, 30, "Vendre les droits TV.", "")
-	var com_4a = tree.add_child(com_3a, "Sponsoring Privé", 4, 2000000, 60, "Contrat majeur (ex: Red Bull).", "")
-	var com_3b = tree.add_child(com_2, "Partenariat Univ.", 3, 400000, 40, "Fonds de recherche internationaux.", "")
+	# Enfants de "Méthode Scientifique" (Recherche)
+	# Note : Ici on regroupe le Gym et la Rest Room sous le concept de "Santé Mentale" pour respecter les 7 nœuds
+	var node_confort = tree.add_child(node_sci, "Équilibre Psychologique", 3, 600000, 50, "Débloque le Module Sportif et le Salon de détente.", "gym") 
 
-	roots = [root_infra, root_science, root_comms]
+	var node_astro = tree.add_child(node_sci, "Astronomie Polaire", 3, 2000000, 100, "Exploite la pureté de l'air pour l'observation.", "observatory")
 
-	for r in roots:
-		_update_tree_state_recursive(r)
+	_update_tree_state_recursive(root)
 
 	var start_x = 0
-	for r in roots:
-		_calculate_positions(r, Vector2(start_x, 0), 0)
-		start_x += TREE_SPACING 
+	_calculate_positions(root, Vector2(start_x, 0), 0)
+	start_x += TREE_SPACING 
 
 	_setup_scroll_area()
-	
-	for r in roots:
-		_create_buttons_recursive(r)
+
+	_create_buttons_recursive(root)
 
 func _on_round_changed():
 	_check_research_completion()
@@ -121,11 +101,8 @@ func _complete_research(name_recherche: String):
 	print("Recherche terminée : ", name_recherche)
 	
 	var node = null
-	
-	for root_node in roots:
-		node = _find_node_by_name(root_node, name_recherche)
-		if node != null:
-			break # On a trouvé le bon noeud, on arrête de chercher
+
+	node = _find_node_by_name(root, name_recherche)
 	
 	if node:
 		if(node.building_unblocked!=""):
@@ -338,10 +315,8 @@ func _refresh_ui():
 	# SECURITÉ : Si le joueur a fermé le menu pendant l'attente, on arrête tout
 	if not is_inside_tree():
 		return
-	
-	# On recrée
-	for r in roots:
-		_create_buttons_recursive(r)
+
+	_create_buttons_recursive(root)
 		
 	tree_canvas.queue_redraw()
 
@@ -375,8 +350,7 @@ func _get_subtree_width(node) -> int:
 
 func _on_tree_canvas_draw():
 	if tree == null or tree.root == null: return
-	for root in roots:
-		_draw_lines_recursive(root)
+	_draw_lines_recursive(root)
 
 func _draw_lines_recursive(node):
 	if node == null: return

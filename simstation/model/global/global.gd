@@ -2,7 +2,7 @@ extends Node
 
 # DESCRIPTION :
 # Global qui sert à stocker les infos du joueur, des stats de la partie, des batiments, 
-# de la population, de l'money et du namebre de round de la partie.
+# de la population, de la money et du nombre de round de la partie.
 
 var camera_enable = true;
 var currently_placing = false;
@@ -15,16 +15,16 @@ var population = [
 var search_unblocked = []
 var research_in_progress = {}
 
-var money = 3000000
+var money = 500000
 
 # ce que le joueur possède
 var inventory = {
 	"labo": 1, 
-	"dormitory": 2, 
-	"boiler_room": 1, 
+	"dormitory": 1, 
+	"boiler_room": 0, 
 	"canteen": 0, 
-	"hospital": 1,
-	"observatory" : 0,
+	"hospital": 0,
+	"observatory": 0,
 	"gym": 0, 
 	"rest_room": 0, 
 }
@@ -34,28 +34,29 @@ var buildings_place = {
 }
 
 var buildings_info = {
-	# [ Bonheur, Description, name (à afficher), Débloqué ou pas, price ]
+	# Index : [ Bonheur, Description, Nom, Débloqué, Prix (Crédits), Consommation/Énergie ]
 	
-	# --- Bâtiments de base (Débloqués par défaut) ---
-	"labo": [0, "Permet de faire des recherches scientifiques", "Laboratoire", true, 646463, 384],
-	"dormitory": [60, "Permet de se reposer tranquillement", "Dortoir", true, 54867, 128],
-	"boiler_room": [60, "Chauffe tous les batiments de la station", "Chaufferie", true, 54867, 384],
+	# --- Bâtiments de base ---
+	"labo": [5, "Analyse des carottes de glace et météorites.", "Laboratoire", true, 1200000, 384],
+	"dormitory": [40, "Cabines isolées avec protection thermique renforcée.", "Dortoir", true, 450000, 256],
+	"hospital": [60, "Indispensable pour traiter l'hypothermie et les engelures.", "Unité\nMédicale", false, 850000, 256],
 	
-	# --- Bâtiments à débloquer via l'Arbre "Infrastructure" ---
-	"gym": [70, "Améliore la condition physique des habitants", "Salle de sport", false, 957376, 128],
-	"canteen": [70, "Fournit de la nourriture chaude", "Cantine", false, 50000, 256],
-	"rest_room": [60, "Endroit calme pour se détendre", "Salle de repos", false, 75743, 256],
+	# --- Infrastructure (Vital) ---
+	"boiler_room": [20, "Générateur thermique central à cogénération.", "Chaufferie\nCentrale", false, 750000, 384],
 	
-	# --- Bâtiments à débloquer via l'Arbre "Science" ---
-	"hospital": [60, "Permet de soigner les malades graves", "Hopital", true, 100000, 256],
-	"observatory" : [50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false, 100000, 384],
+	# --- Confort & Survie (À débloquer) ---
+	"canteen": [50, "Cuisine industrielle capable de stocker 2 ans de vivres.", "Réfectoire", false, 600000, 256],
+	"gym": [70, "Essentiel pour lutter contre l'atrophie musculaire en hivernage.", "Module\nSportif", false, 350000, 256],
+	"rest_room": [80, "Zone de détente avec simulateur de lumière solaire.", "Salon de détente", false, 250000, 256],
+	
+	# --- Haute Technologie ---
+	"observatory": [100, "Télescope infrarouge profitant de la pureté de l'air polaire.", "Observatoire", false, 2500000, 384],
 }
 
 var stats = {
 	"health": 50,
 	"efficiency": 50,
 	"happiness": 50,
-	"science": 50
 }
 
 var environnement = {
