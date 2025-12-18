@@ -1,10 +1,10 @@
-[gd_scene load_steps=39 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=40 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://model/hud/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
 [ext_resource type="Texture2D" uid="uid://cd2dc2vr6blus" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
 [ext_resource type="Texture2D" uid="uid://e14rlujxv2r6" path="res://assets/bar/filled_bar.png" id="7_s7bk8"]
-[ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://model/hud/crop_bar.gd" id="8_fj0si"]
+[ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://model/hud/statistics/crop_bar.gd" id="8_fj0si"]
 [ext_resource type="Texture2D" uid="uid://cgjqbebqtphh2" path="res://assets/bar/efficiency_bar_empty.png" id="9_1cvsb"]
 [ext_resource type="Texture2D" uid="uid://cjxus45xwl0ka" path="res://assets/bar/happiness_bar_empty.png" id="10_0ig0g"]
 [ext_resource type="Texture2D" uid="uid://dqr6pies270gc" path="res://assets/button/next_round_button/next_round.png" id="10_o4crf"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://csnggu2ehoh72" path="res://assets/particles/snow_particle.png" id="25_3v7fu"]
 [ext_resource type="Texture2D" uid="uid://dl5ppyvdfd30x" path="res://assets/particles/big_snow_particle.png" id="26_bljva"]
 [ext_resource type="Texture2D" uid="uid://bi8lcddwpxb1g" path="res://assets/button/eyes_button/open_eye/open_eye_button.png" id="26_f7j0k"]
+[ext_resource type="Texture2D" uid="uid://bahbdoa20lfik" path="res://assets/background/confirm_next_round_background.png" id="27_7xah1"]
 [ext_resource type="Texture2D" uid="uid://x6iouychuvfb" path="res://assets/background/background.png" id="27_bljva"]
 [ext_resource type="Texture2D" uid="uid://dtm5x50fvd03q" path="res://assets/button/eyes_button/open_eye/open_eye_button_click.png" id="27_q5bha"]
 [ext_resource type="Texture2D" uid="uid://bau443fg47xtc" path="res://assets/button/eyes_button/open_eye/open_eye_button_hover.png" id="28_si2ni"]
@@ -432,66 +433,72 @@ texture_hover = ExtResource("28_si2ni")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="PanelConfirmNextRound" type="Panel" parent="BorderContainer"]
+[node name="TRectConfirmNextRound" type="TextureRect" parent="BorderContainer"]
 visible = false
-z_index = 3
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -666.5
-offset_top = -162.0
-offset_right = 666.5
-offset_bottom = 162.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="RLabelConfirmMessage" type="RichTextLabel" parent="BorderContainer/PanelConfirmNextRound"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_top = 0.238
+anchor_top = 0.537
 anchor_right = 0.5
-anchor_bottom = 0.238
-offset_left = -666.5
-offset_top = -77.112
-offset_right = 657.5
-offset_bottom = 16.888
+anchor_bottom = 0.537
+offset_left = -345.95374
+offset_top = -230.58502
+offset_right = 345.95374
+offset_bottom = 230.66498
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("27_7xah1")
+
+[node name="RLabelConfirmMessage" type="RichTextLabel" parent="BorderContainer/TRectConfirmNextRound"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.39600003
+anchor_right = 0.5
+anchor_bottom = 0.39600003
+offset_left = -265.0
+offset_top = -103.030014
+offset_right = 268.0
+offset_bottom = 102.969986
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("3_o5r0d")
 bbcode_enabled = true
-text = "[center][font_size=56]Voulez vous vraiment passer au tour suivant ?"
+text = "[center][font_size=38]Voulez vous vraiment passer au tour suivant ?"
 fit_content = true
 scroll_active = false
 
-[node name="TButtonConfirm" type="TextureButton" parent="BorderContainer/PanelConfirmNextRound"]
+[node name="TButtonConfirm" type="TextureButton" parent="BorderContainer/TRectConfirmNextRound"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.26900002
-anchor_top = 0.72800004
-anchor_right = 0.26900002
-anchor_bottom = 0.72800004
-offset_left = -59.577026
-offset_top = -58.87201
-offset_right = 58.422974
-offset_bottom = 59.12799
+anchor_left = 0.21400002
+anchor_top = 0.73
+anchor_right = 0.21400002
+anchor_bottom = 0.73
+offset_left = -45.11447
+offset_top = -45.087494
+offset_right = 44.88553
+offset_bottom = 44.912506
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("29_61voh")
 texture_pressed = ExtResource("30_vcgxy")
 texture_hover = ExtResource("31_wvy0n")
 stretch_mode = 0
 
-[node name="TButtonCancel" type="TextureButton" parent="BorderContainer/PanelConfirmNextRound"]
+[node name="TButtonCancel" type="TextureButton" parent="BorderContainer/TRectConfirmNextRound"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.65900004
-anchor_top = 0.721
-anchor_right = 0.65900004
-anchor_bottom = 0.721
-offset_left = -60.447083
-offset_top = -60.604004
-offset_right = 60.552917
-offset_bottom = 60.395996
+anchor_left = 0.785
+anchor_top = 0.71900004
+anchor_right = 0.785
+anchor_bottom = 0.71900004
+offset_left = -45.193665
+offset_top = -45.013763
+offset_right = 44.806335
+offset_bottom = 44.986237
+grow_horizontal = 2
+grow_vertical = 2
 texture_normal = ExtResource("32_nrmyt")
 texture_pressed = ExtResource("33_4uvaq")
 texture_hover = ExtResource("34_rf6ic")
@@ -691,5 +698,5 @@ scale_amount_max = 1.6
 [connection signal="pressed" from="BorderContainer/TButtonShop" to="BorderContainer/TButtonShop" method="_on_pressed_shop"]
 [connection signal="pressed" from="BorderContainer/PanelTopBar/TButtonSettings" to="BorderContainer/PanelTopBar/TButtonSettings" method="_on_pressed_pause"]
 [connection signal="pressed" from="BorderContainer/TButtonCloseInventory" to="." method="_on_close_inventory_pressed_"]
-[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonConfirm" to="." method="_on_next_round_pressed"]
-[connection signal="pressed" from="BorderContainer/PanelConfirmNextRound/TButtonCancel" to="." method="change_visible_confirmation_next_round"]
+[connection signal="pressed" from="BorderContainer/TRectConfirmNextRound/TButtonConfirm" to="." method="_on_next_round_pressed"]
+[connection signal="pressed" from="BorderContainer/TRectConfirmNextRound/TButtonCancel" to="." method="change_visible_confirmation_next_round"]
