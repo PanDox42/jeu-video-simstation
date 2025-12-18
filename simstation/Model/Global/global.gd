@@ -20,7 +20,7 @@ var argent = 3000000
 # ce que le joueur possède
 var inventaire = {
 	"labo_recherche": 1, 
-	"dortoir": 0, 
+	"dortoir": 2, 
 	"chaufferie": 1, 
 	"cantine": 0, 
 	"hopital": 0,
@@ -37,18 +37,18 @@ var info_batiments = {
 	# [ Bonheur, Description, Nom (à afficher), Débloqué ou pas, prix ]
 	
 	# --- Bâtiments de base (Débloqués par défaut) ---
-	"labo_recherche": [-10, "Permet de faire des recherches scientifiques", "Laboratoire", true, 646463],
-	"dortoir": [60, "Permet de se reposer tranquillement", "Dortoir", true, 54867],
-	"chaufferie": [60, "Chauffe tous les batiments de la station", "Chaufferie", true, 54867],
+	"labo_recherche": [0, "Permet de faire des recherches scientifiques", "Laboratoire", true, 646463, 384],
+	"dortoir": [60, "Permet de se reposer tranquillement", "Dortoir", true, 54867, 128],
+	"chaufferie": [60, "Chauffe tous les batiments de la station", "Chaufferie", true, 54867, 384],
 	
 	# --- Bâtiments à débloquer via l'Arbre "Infrastructure" ---
-	"salle_sport": [70, "Améliore la condition physique des habitants", "Salle de sport", false, 957376],
-	"cantine": [70, "Fournit de la nourriture chaude", "Cantine", false, 50000],
-	"salle_repos": [60, "Endroit calme pour se détendre", "Salle de repos", false, 75743],
+	"salle_sport": [70, "Améliore la condition physique des habitants", "Salle de sport", false, 957376, 128],
+	"cantine": [70, "Fournit de la nourriture chaude", "Cantine", false, 50000, 256],
+	"salle_repos": [60, "Endroit calme pour se détendre", "Salle de repos", false, 75743, 256],
 	
 	# --- Bâtiments à débloquer via l'Arbre "Science" ---
-	"hopital": [60, "Permet de soigner les malades graves", "Hopital", false, 100000],
-	"observatoire" : [50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false, 100000],
+	"hopital": [60, "Permet de soigner les malades graves", "Hopital", false, 100000, 256],
+	"observatoire" : [50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false, 100000, 384],
 }
 
 var stats = {
