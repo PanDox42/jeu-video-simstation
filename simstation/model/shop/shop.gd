@@ -15,7 +15,7 @@ func load_buildings():
 		child.queue_free()
 		
 	for building in GlobalScript.get_inventory().keys() :
-		if GlobalScript.get_buildings_unblocked(building) :
+		if GlobalScript.get_buildings_unblocked(building) && building != "labo":
 			initialize(building)
 
 
