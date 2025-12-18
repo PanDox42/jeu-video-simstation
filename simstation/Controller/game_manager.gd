@@ -16,9 +16,6 @@ func set_current_zoom_cam(zoom_cam : Vector2):
 func get_zoom_cam() -> Vector2:
 	return zoom_cam
 	
-func add_batiment(nomBatiment, nombre):
-	GlobalScript.add_batiment(nomBatiment, nombre)
-	
 func ouvrir_recherche():
 	load_scene("res://View/arbre_recherche.tscn", "ArbreRecherche")
 	

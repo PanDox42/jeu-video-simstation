@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var batiment = ""
+
 @onready var message_label = $Background/message
 @onready var confirm_button = $"Background/confirm_button"
 
@@ -8,9 +10,7 @@ extends CanvasLayer
 @onready var prix = GlobalScript.get_batiment_prix(batiment)
 @onready var argent = GlobalScript.get_argent()
 @onready var argent_requis = GlobalScript.get_batiment_prix(batiment)
-@onready var building_name = Global.info_batiments[batiment][3]
-
-var batiment = ""
+@onready var building_name = GlobalScript.get_batiment_real_name(batiment)
 
 func _ready():
 	if argent >= argent_requis :
