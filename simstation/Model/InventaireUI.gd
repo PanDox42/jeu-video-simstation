@@ -12,6 +12,8 @@ extends Control
 
 @onready var grid = $ScrollInventaire/MarginInventaire/GridInventaire
 
+const MINECRAFT_FONT = preload("res://font/Minecraftia-Regular.ttf")
+
 func _ready():
 	await get_tree().process_frame
 	grid.add_theme_constant_override("v_separation", 15)
@@ -64,6 +66,8 @@ func creer_bouton_batiment(nom_batiment: String, quantite: int):
 	label.text = "%s (x%d)" % [nom_affiche, quantite]
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER 
 	label.modulate = Color(0.658, 0.658, 0.658, 1.0) if quantite <= 0 else Color.WHITE
+	label.add_theme_font_override("font", MINECRAFT_FONT)
+	label.add_theme_font_size_override("font_size", 13)
 
 	container.add_child(icon) 
 	container.add_child(label) 

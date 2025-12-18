@@ -16,7 +16,7 @@ var index_actuel = 0
 
 @onready var display_image = $DisplayImage
 @onready var description_label = $BottomPanel/Description
-@onready var btn_next = $NextButton/Label
+@onready var btn_next = $BottomPanel/NextButton/Label
 
 func _ready():
 	afficher_etape(0)
@@ -40,7 +40,7 @@ func _on_next_button_pressed():
 		afficher_etape(index_actuel + 1)
 	else:
 		# Fin du tuto
-		get_tree().change_scene_to_file("res://View/main_menu.tscn")
+		_on_close_button_pressed()
 
 func _on_close_button_pressed():
-	get_tree().change_scene_to_file("res://View/main_menu.tscn")
+	queue_free()

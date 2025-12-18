@@ -38,11 +38,10 @@ func initialize(building_name: String):
 
 	# Récupérer les informations via GlobalScript
 	var prix = GlobalScript.get_batiment_prix(building_name)
-	var info_array = GlobalScript.get_batiment_info(building_name)
 
 	# Assurez-vous que info_array[3] est le nom traduit, et info_array[2] est la description
-	var translated_name = GlobalScript.get_batiment_real_name(batiment_name)
-	var description_text = GlobalScript.get_batiment_description(batiment_name)
+	var translated_name = GlobalScript.get_batiment_real_name(building_name)
+	var description_text = GlobalScript.get_batiment_description(building_name)
 	
 	vboxBat.custom_minimum_size = Vector2(512, 300)
 	

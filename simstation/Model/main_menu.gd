@@ -28,4 +28,7 @@ func _on_btn_credits_pressed() -> void:
 		menu_instance.visible = not is_visibles
 
 func _on_btn_tuto_pressed():
-	get_tree().change_scene_to_file("res://View/Tuto.tscn")
+	var tuto_scene = load("res://View/Tuto.tscn")
+	var tuto_instance = tuto_scene.instantiate()
+	
+	add_child(tuto_instance)

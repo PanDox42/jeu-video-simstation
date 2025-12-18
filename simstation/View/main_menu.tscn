@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_wntf2"]
 [ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="7_dq6vp"]
-[ext_resource type="AudioStream" uid="uid://ckbmkfsvjvs02" path="res://assets/sounds/musics/main_theme_music.mp3" id="8_3021e"]
+[ext_resource type="AudioStream" uid="uid://k2l4hck1y7oc" path="res://assets/sounds/musics/main_theme_music.mp3" id="8_3021e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
