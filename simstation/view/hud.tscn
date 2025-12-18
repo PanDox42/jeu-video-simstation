@@ -530,7 +530,7 @@ offset_top = -162.35002
 offset_right = 330.0
 offset_bottom = 162.64998
 
-[node name="LabelTitle" type="Label" parent="BorderContainer/PanelChartStats"]
+[node name="LabelStatistics" type="Label" parent="BorderContainer/PanelChartStats"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.652
