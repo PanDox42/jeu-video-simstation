@@ -23,7 +23,7 @@ var inventaire = {
 	"dortoir": 2, 
 	"chaufferie": 1, 
 	"cantine": 0, 
-	"hopital": 0,
+	"hopital": 1,
 	"observatoire" : 0,
 	"salle_sport": 0, 
 	"salle_repos": 0, 
@@ -47,7 +47,7 @@ var info_batiments = {
 	"salle_repos": [60, "Endroit calme pour se détendre", "Salle de repos", false, 75743, 256],
 	
 	# --- Bâtiments à débloquer via l'Arbre "Science" ---
-	"hopital": [60, "Permet de soigner les malades graves", "Hopital", false, 100000, 256],
+	"hopital": [60, "Permet de soigner les malades graves", "Hopital", true, 100000, 256],
 	"observatoire" : [50, "Permet de découvrir de nouvelles étoiles", "Observatoire", false, 100000, 384],
 }
 

@@ -26,3 +26,6 @@ func _on_btn_credits_pressed() -> void:
 	else:
 		var is_visibles = menu_instance.visible
 		menu_instance.visible = not is_visibles
+
+func _on_btn_tuto_pressed():
+	get_tree().change_scene_to_file("res://View/Tuto.tscn")
