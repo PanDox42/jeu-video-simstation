@@ -3,12 +3,12 @@ extends CanvasLayer
 @onready var message_label = $Background/message
 @onready var confirm_button = $"Background/confirm_button"
 
-@onready var purchase_sound = "res://assets/sounds/shop/purchase.mp3"
-
 @onready var prix = GlobalScript.get_batiment_prix(batiment)
 @onready var argent = GlobalScript.get_argent()
 @onready var argent_requis = GlobalScript.get_batiment_prix(batiment)
 @onready var building_name = Global.info_batiments[batiment][3]
+
+const PURCHASE_SOUND = "res://assets/sounds/shop/purchase.mp3"
 
 var batiment = ""
 
@@ -22,7 +22,7 @@ func _ready():
 		
 
 func _on_confirm_button_pressed() -> void:
-	GlobalScript.play_sound(purchase_sound)
+	GlobalScript.play_sound(PURCHASE_SOUND)
 	
 	GlobalScript.modifier_argent(-prix)
 	GlobalScript.modifier_batiment(batiment, 1)

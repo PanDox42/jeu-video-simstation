@@ -19,9 +19,9 @@ extends CanvasLayer
 @onready var lbl_cooldown = $"BorderContainer/PasserTour/lbl_cooldown"
 @onready var btn_next_round_reload = true
 
-@onready var round_sound = "res://assets/sounds/hud/next_round.mp3"
-@onready var hide_inventory_sound = "res://assets/sounds/hud/hide_inventory.mp3"
-@onready var disaster_display_sound = "res://assets/sounds/hud/disaster_display.mp3"
+const ROUND_SOUND = "res://assets/sounds/hud/next_round.mp3"
+const HIDE_INVENTORY_SOUND = "res://assets/sounds/hud/hide_inventory.mp3"
+const DISASTER_DISPLAY_SOUND = "res://assets/sounds/hud/disaster_display.mp3"
 
 const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
@@ -45,17 +45,17 @@ func _ready():
 	
 func _maj_mois():
 	var tour = GlobalScript.get_tour()
-	date_label.text = "[center][font_size=24]Mois "+str(tour*3)
+	date_label.text = "[center][font_size=24]Mois %d" % (tour * 3)
 	
 func _maj_saison():
-	saison_label.text = "[center][font_size=24]" + str(GlobalScript.get_environnement("saison"))
+	saison_label.text = "[center][font_size=24]%s" % GlobalScript.get_environnement("saison")
 	
 func _maj_temperature():
-	temperature_label.text = "[center][font_size=24]" + str(GlobalScript.get_environnement("temperature")) + " C°"
+	temperature_label.text = "[center][font_size=24]%d C°" % GlobalScript.get_environnement("temperature")
 	
 func _on_argent_changed(new_value):
 	if argent_label:
-		argent_label.bbcode_text = "[right][font_size=32]" + GlobalScript.format_money(new_value) + " €"
+		argent_label.bbcode_text = "[right][font_size=32]%s €" % GlobalScript.format_money(new_value)
 
 func _maj_night_mode():
 	if GlobalScript.get_tour() % 2 == 0 && GlobalScript.get_tour() != 0:
@@ -96,7 +96,9 @@ func change_visible_confirmation_passer_tour() -> void:
 func btn_next_round_start_cooldown():
 	btn_next_round.modulate.a = 0.5
 	btn_next_round_reload = true
+	
 	await get_tree().create_timer(15.0).timeout
+	
 	btn_next_round.modulate.a = 1.0
 	lbl_cooldown.visible = false
 	btn_next_round_reload = false
@@ -109,7 +111,7 @@ func _on_btn_graphique_stats_pressed() -> void:
 func _on_fermer_pressed_close_inventory() -> void:
 	close_button.release_focus()
 	
-	GlobalScript.play_sound(hide_inventory_sound)
+	GlobalScript.play_sound(HIDE_INVENTORY_SOUND)
 	
 	if inventory.visible:
 		background.texture = BACKGROUND_TEXTURE_WITHOUT
@@ -135,28 +137,12 @@ func charger_load_screen():
 
 
 func afficher_changement_tour() :
-	GlobalScript.play_sound(round_sound)
+	GlobalScript.play_sound(ROUND_SOUND)
 	
 	var tour = changement_tour.get_child(0)
-	tour.bbcode_text = "[center][font_size=56]Tour " + str(GlobalScript.get_tour() + 1)
+	tour.bbcode_text = "[center][font_size=56]Tour %d" % (GlobalScript.get_tour() + 1)
 	
-	changement_tour.modulate.a = 0
-	changement_tour.visible = true
-
-	# Création du Tween
-	var tween_afficher_tour = create_tween()
-
-	# 1. Apparition (Fade In) en 0.5 seconde
-	tween_afficher_tour.tween_property(changement_tour, "modulate:a", 1.0, 0.5)
-
-	# 2. Attendre x secondes
-	tween_afficher_tour.tween_interval(5.0)
-
-	# 3. Disparition (Fade Out) en 0.5 seconde
-	tween_afficher_tour.tween_property(changement_tour, "modulate:a", 0.0, 0.5)
-
-	# 4. Cacher le nœud à la fin pour la performance
-	tween_afficher_tour.tween_callback(func(): changement_tour.visible = false)
+	GlobalScript.generate_fade_display(0.5, 0.5, 5, changement_tour)
 	
 	
 func afficher_filtre_nuit(status : bool) :
@@ -180,13 +166,14 @@ func afficher_nuit_jour(status : bool):
 	await get_tree().create_timer(7).timeout
 	nuit_jour.visible = false
 
+
 func afficher_catastrophe():
 	var catastrophe = Catastrophes.get_catastrophe_active()
 	
 	if catastrophe != null:
 		await get_tree().create_timer(3).timeout
 		
-		GlobalScript.play_sound(disaster_display_sound)
+		GlobalScript.play_sound(DISASTER_DISPLAY_SOUND)
 		
 		var panel = panel_catastrophe
 		
@@ -194,16 +181,10 @@ func afficher_catastrophe():
 		var nom = info[4]
 		var description = info[5]
 		
-		var text = "[center][font_size=36][color=red]" + nom + "\n"
-		text += "[font_size=12] [font_size=24][color=white]" + description
+		var text = "[center][font_size=36][color=red]%s\n" % nom
+		text += "[font_size=12] [font_size=24][color=white]%s" % description
+		
 		panel.get_child(0).bbcode_text = text
 		
-		panel.visible = true
-		
-		var tween_afficher_catastrophe = create_tween()
-
-		tween_afficher_catastrophe.tween_property(panel_catastrophe, "modulate:a", 1.0, 0.5)
-		tween_afficher_catastrophe.tween_interval(10.0)
-		tween_afficher_catastrophe.tween_property(panel_catastrophe, "modulate:a", 0.0, 0.5)
-		tween_afficher_catastrophe.tween_callback(func(): panel_catastrophe.visible = false)
+		GlobalScript.generate_fade_display(0, 1, 10, panel)
 	

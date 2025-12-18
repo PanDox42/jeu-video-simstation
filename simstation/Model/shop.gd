@@ -2,6 +2,9 @@ extends CanvasLayer
 
 @onready var batiments_container = $background/ScrollContainer/Batiments
 
+const MINECRAFT_FONT = preload("res://font/Minecraftia-Regular.ttf")
+
+
 func _ready():
 	GlobalScript.connect("debloque_bat", charger_batiments)
 	charger_batiments()
@@ -12,15 +15,11 @@ func charger_batiments():
 		child.queue_free()
 		
 	for batiment in GlobalScript.get_inventaire().keys() :
-		if Global.info_batiments[batiment][4] == true :
+		if GlobalScript.get_batiments_debloque(batiment) :
 			initialize(batiment)
 		
-	
-var building_name = ""
 
-func initialize(batiment_name: String):
-	var minecraft_font = load("res://font/Minecraftia-Regular.ttf")
-	
+func initialize(building_name: String):
 	var vboxBat = VBoxContainer.new()
 	var separateur = ColorRect.new()
 	var bat_name = RichTextLabel.new()
@@ -33,15 +32,13 @@ func initialize(batiment_name: String):
 	var contenu_description = VBoxContainer.new()
 	var description = RichTextLabel.new()
 	
-	bat_name.add_theme_font_override("normal_font", minecraft_font)
-	cost.add_theme_font_override("normal_font", minecraft_font)
-	description.add_theme_font_override("normal_font", minecraft_font)
-	
-	building_name = batiment_name
+	bat_name.add_theme_font_override("normal_font", MINECRAFT_FONT)
+	cost.add_theme_font_override("normal_font", MINECRAFT_FONT)
+	description.add_theme_font_override("normal_font", MINECRAFT_FONT)
 
 	# Récupérer les informations via GlobalScript
 	var prix = GlobalScript.get_batiment_prix(building_name)
-	var info_array = GlobalScript.get_batiment_info(batiment_name)
+	var info_array = GlobalScript.get_batiment_info(building_name)
 
 	# Assurez-vous que info_array[3] est le nom traduit, et info_array[2] est la description
 	var translated_name = info_array[3] 
@@ -74,7 +71,7 @@ func initialize(batiment_name: String):
 	button.stretch_mode = TextureButton.STRETCH_SCALE
 	button.layout_direction = Control.LAYOUT_DIRECTION_RTL
 	
-	button.connect("pressed",acheter_batiment.bind(batiment_name))
+	button.connect("pressed",acheter_batiment.bind(building_name))
 	
 	cost.add_child(button)
 	

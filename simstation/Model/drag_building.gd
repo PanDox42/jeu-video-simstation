@@ -13,9 +13,9 @@ extends TextureRect
 # 6. Validation (Clic Gauche) : Place le bâtiment, met à jour les stats et retire la grille.
 # 7. Annulation (Clic Droit) : Annule l'opération et rembourse le coût.
 
-@onready var pick_building_sound = "res://assets/sounds/buildings/pick_for_place.mp3"
-@onready var bad_palcement_sound = "res://assets/sounds/buildings/bad_placement.mp3"
-@onready var good_palcement_sound = "res://assets/sounds/buildings/good_placement.mp3"
+const PICK_BUILDING_SOUND = "res://assets/sounds/buildings/pick_for_place.mp3"
+const BAB_PLACEMENT_SOUND = "res://assets/sounds/buildings/bad_placement.mp3"
+const GOOD_PLACEMENT_SOUND = "res://assets/sounds/buildings/good_placement.mp3"
 
 @export var grid_size : int = 64
 
@@ -61,7 +61,7 @@ func _process(_delta):
 
 func start_dragging():
 	GlobalScript.set_currently_placing(true)
-	GlobalScript.play_sound(pick_building_sound)
+	GlobalScript.play_sound(PICK_BUILDING_SOUND)
 	
 	var maps = get_tree().get_nodes_in_group("Map")
 	if maps.size() > 0:
@@ -104,7 +104,7 @@ func place_building():
 	if not batiment_instance: return
 	
 	if map_ref.is_placable(batiment_instance):
-		GlobalScript.play_sound(good_palcement_sound)
+		GlobalScript.play_sound(GOOD_PLACEMENT_SOUND)
 		
 		batiment_instance.modulate = Color(1, 1, 1, 1)
 		
@@ -120,7 +120,7 @@ func place_building():
 		GlobalScript.set_currently_placing(false)
 		remove_grid()
 	else:
-		GlobalScript.play_sound(bad_palcement_sound)
+		GlobalScript.play_sound(BAB_PLACEMENT_SOUND)
 		cancel_placement()
 
 func cancel_placement():

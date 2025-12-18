@@ -5,7 +5,7 @@ extends Node
 
 # [ Santé, Bonheur, Efficacité, Probabilité (%), Nom, Description ]
 var catastrophes_disponibles = {
-	"blizzard": [-5, -5, -5, 20, "Blizzard", "Un blizzard violent frappe la station ! \nLes conditions météo extrêmes affectent la santé et le moral."],
+	"blizzard": [-5, -5, -5, 200, "Blizzard", "Un blizzard violent frappe la station ! \nLes conditions météo extrêmes affectent la santé et le moral."],
 	"panne_electrique": [-10, -5, -15, 15, "Panne électrique", "Une panne majeure du système électrique plonge une partie de la station dans le noir."],
 	"grippe_hivernale": [-20, -10, -5, 10, "Grippe hivernale", "Une épidémie de grippe se propage dans la base confinée, affectant gravement l'équipe."],
 	"depression_saisonniere": [-10, -20, -10, 5, "Dépression saisonnière", "L'isolement et le froid plongent l'équipe dans un profond malaise psychologique."],
