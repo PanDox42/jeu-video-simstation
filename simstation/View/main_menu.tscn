@@ -3,12 +3,12 @@
 [ext_resource type="Script" uid="uid://c4e02x7hylkmt" path="res://Model/main_menu.gd" id="1_8ln24"]
 [ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/placeholder.jpg" id="2_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/logo.png" id="3_oa1go"]
-[ext_resource type="Texture2D" uid="uid://02sg8dbb0l6q" path="res://assets/button/main_button/button.png" id="4_dq6vp"]
+[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="4_dq6vp"]
 [ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://Model/masked_button.gd" id="5_3021e"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="5_jk1qb"]
 [ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_wntf2"]
 [ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="7_dq6vp"]
-[ext_resource type="AudioStream" uid="uid://m0mykqw6ejn5" path="res://assets/sounds/musics/dark_souls_main_theme.mp3" id="8_3021e"]
+[ext_resource type="AudioStream" uid="uid://k2l4hck1y7oc" path="res://assets/sounds/musics/main_theme_music.mp3" id="8_3021e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
 bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
@@ -224,6 +224,7 @@ metadata/_edit_use_anchors_ = true
 [node name="MusiqueDeFond" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("8_3021e")
+volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
