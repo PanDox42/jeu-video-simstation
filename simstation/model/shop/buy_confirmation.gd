@@ -20,8 +20,7 @@ func _ready():
 		message_label.bbcode_text = "[center][font_size=32]Voulez-vous vraiment acheter le batiment : %s ?" % building_name
 	else :
 		confirm_button.visible = false
-		message_label.bbcode_text = "[center][font_size=32]Vous n'avez pas assez d'money pour le batiment : %s\n" % building_name
-		message_label.add_theme_color_override("default_color", "d86700")
+		message_label.bbcode_text = "[center][font_size=32][color=orange]Vous n'avez pas assez d'argent pour le batiment : %s\n" % building_name
 		
 
 func _on_confirm_button_pressed() -> void:

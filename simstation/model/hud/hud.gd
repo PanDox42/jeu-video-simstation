@@ -11,7 +11,7 @@ extends CanvasLayer
 @onready var inventory = $BorderContainer/PanelInventory
 @onready var close_button = $BorderContainer/TButtonCloseInventory
 @onready var stats_button = $BorderContainer/TButtonStatistics
-@onready var confirmation_next_round = $BorderContainer/PanelConfirmNextRound
+@onready var confirmation_next_round = $BorderContainer/TRectConfirmNextRound
 @onready var load_screen = $LoadScreen
 @onready var next_round = $BorderContainer/TRectRoundTransition
 @onready var panel_disaster = $BorderContainer/TRectDisasterPanel
