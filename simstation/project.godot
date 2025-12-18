@@ -17,7 +17,7 @@ config/features=PackedStringArray("4.5", "Forward Plus")
 boot_splash/bg_color=Color(0.09019608, 0.33333334, 0.5176471, 1)
 boot_splash/fullsize=false
 boot_splash/image="uid://chhwh6pxjl8eo"
-config/icon="uid://jxmc7jawk5jx"
+config/icon="uid://chhwh6pxjl8eo"
 
 [autoload]
 
