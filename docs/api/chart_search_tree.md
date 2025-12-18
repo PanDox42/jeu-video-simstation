@@ -12,23 +12,47 @@
 
 ### current_menu
 
+### roots
+
 ### dernier_round_connu
 
 ### tree_canvas
 
-### root
+### root_infra
 
-### node_vie
+### infra_2a
 
-### node_sci
+### infra_3a
 
-### node_hospital
+### infra_2b
 
-### node_canteen
+### infra_3b
 
-### node_confort
+### infra_final
 
-### node_astro
+### root_science
+
+### sci_2
+
+### sci_3a
+
+### sci_4a
+
+### sci_3b
+
+### sci_4b
+
+### sci_final
+
+### root_comms
+
+### com_2
+
+### com_3a
+
+### com_4a
+
+### com_3b
 
 ### start_x
 
