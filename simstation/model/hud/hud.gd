@@ -10,6 +10,7 @@ extends CanvasLayer
 @onready var background = $BorderContainer/TRectHudBorder
 @onready var inventory = $BorderContainer/PanelInventory
 @onready var close_button = $BorderContainer/TButtonCloseInventory
+@onready var stats_button = $BorderContainer/TButtonStatistics
 @onready var confirmation_next_round = $BorderContainer/PanelConfirmNextRound
 @onready var load_screen = $LoadScreen
 @onready var next_round = $BorderContainer/TRectRoundTransition
@@ -103,6 +104,7 @@ func btn_next_round_start_cooldown():
 
 
 func _on_btn_chart_stats_pressed() -> void:
+	stats_button.release_focus()
 	clayer_chart_stats.show()
 	#GameManager.load_scene("res://View/clayer_chart_stats.tscn", "CharStats")
 
@@ -135,6 +137,7 @@ func charger_load_screen():
 
 
 func display_next_round() :
+	close_button.release_focus()
 	GlobalScript.play_sound(ROUND_SOUND)
 	
 	var round = next_round.get_child(0)
