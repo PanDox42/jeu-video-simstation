@@ -45,6 +45,7 @@ func get_environnement(envi): return Global.environnement[envi]
 func get_night_mode() : return Global.environnement["night"]
 func get_currently_placing(): return Global.currently_placing
 func get_batiment_real_name(batName): return Global.info_batiments[batName][2]
+func get_batiment_false_name_by_id(batId): return Global.batiments_place[batId][0]
 
 # SET
 
@@ -82,7 +83,7 @@ func add_recherche_debloque(recherche_nom):
 func add_recherche_en_cours(recherche_nom):
 	Global.recherche_en_cours.append(recherche_nom) 
 
-func add_batiment(id_node: String, type_batiment: String):
+func add_batiment(id_node: int, type_batiment: String):
 	var id_int = int(id_node)
 	Global.batiments_place[id_int] = {
 		"type": type_batiment, 
@@ -97,6 +98,9 @@ func erase_recherche_en_cours(recherche_nom):
 
 # AUTRE
 
+func has_recherche(nom: String) -> bool:
+	return Global.recherche_debloque.has(nom)
+	
 func modifier_argent(delta: int) -> void:
 	set_argent(get_argent() + delta)
 	emit_signal("argent_changed", get_argent())

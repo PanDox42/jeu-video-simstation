@@ -42,7 +42,7 @@ func _ready():
 	GlobalScript.connect("demande_fermeture_info", Callable(self, "cacher_infos"))
 	
 	hide()
-func afficher_infos(id_batiment: String):
+func afficher_infos(id_batiment: int):
 	var infos = GlobalScript.get_batiment_info(id_batiment)
 	
 	if infos == null:

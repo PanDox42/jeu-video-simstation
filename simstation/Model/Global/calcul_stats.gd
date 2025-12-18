@@ -1,14 +1,19 @@
 extends Node2D
 
 # ------------------------------------------------------------------------------
-# SYSTEME DE CALCUL DE STATISTIQUES (TOUR PAR TOUR) - VERSION GLOBALE
+# SYSTEME DE CALCUL DE STATISTIQUES (TOUR PAR TOUR)
 # ------------------------------------------------------------------------------
 
-const TEMP_CONFORT_EXT = 0.0   # Idéal extérieur
-const TEMP_CONFORT_INT = 18.0  # Idéal intérieur (dans les bâtiments)
-const COEFF_TEMP_EXT = 0.3     # Impact du climat polaire
-const COEFF_TEMP_INT = 0.2     # Impact du chauffage des bâtiments
+const TEMP_CONFORT_EXT = -10.0
+const TEMP_CONFORT_INT = 18.0
+const COEFF_TEMP_EXT = 0.15
+const COEFF_TEMP_INT = 0.1
 const COEFF_BATIMENTS = 0.1
+const BONUS_SANTE_HOPITAL = 5.0
+const CAP_SOINS_MAX = 15.0
+
+const PUISSANCE_CHAUFFAGE_PAR_BATIMENT = 9
+const VITESSE_REFROIDISSEMENT = 1.5
 
 func _ready() -> void:
 	# Initialisation via les getters du GlobalScript
@@ -24,8 +29,6 @@ func passer_tour() -> void:
 	_gerer_catastrophes()
 	_appliquer_changements_tour()
 	actualiser_stats_derivees()
-	
-	# Notification pour l'interface
 	GlobalScript.emit_signal("tour_change")
 
 # Appelé lors de la construction pour un boost immédiat
@@ -93,46 +96,70 @@ func _appliquer_changements_tour() -> void:
 	var batiments_sur_carte = GlobalScript.get_batiments_place()
 	var nb_batiments = batiments_sur_carte.size()
 
-	# --- 1. MALUS TEMPÉRATURE EXTÉRIEURE (Le climat) ---
+	# --- 1. COMPTAGE ---
+	var nb_chaufferies = 0
+	var nb_hopitaux = 0
+	for id in batiments_sur_carte:
+		var type = batiments_sur_carte[id]["type"]
+		if type == "chaufferie": nb_chaufferies += 1
+		elif type == "hopital": nb_hopitaux += 1
+	
+	# --- 2. LOGIQUE THERMIQUE ---
+	var vitesse_chauffage_totale = nb_chaufferies * PUISSANCE_CHAUFFAGE_PAR_BATIMENT
+	var somme_temp_int = 0.0
+	
+	for id in batiments_sur_carte:
+		var t_interne = batiments_sur_carte[id]["temp"]
+		if nb_chaufferies > 0:
+			t_interne = min(TEMP_CONFORT_INT, t_interne + vitesse_chauffage_totale)
+		else:
+			t_interne = max(-20.0, t_interne - VITESSE_REFROIDISSEMENT)
+		batiments_sur_carte[id]["temp"] = t_interne
+		somme_temp_int += t_interne
+
+	# --- 3. CALCUL DU DELTA SANTÉ (L'ÉQUILIBRAGE) ---
 	var temp_ext = GlobalScript.get_temperature()
 	var exces_ext = abs(temp_ext - TEMP_CONFORT_EXT)
-	var delta_sante = -(exces_ext * COEFF_TEMP_EXT)
-
-	# --- 2. MALUS TEMPÉRATURE INTÉRIEURE (Le chauffage) ---
-	var somme_temp_int = 0.0
-	var malus_froid_interne = 0.0
 	
+	# --- MODIFICATION ICI : RÈGLE DES 2 CHAUFFERIES ---
+	var efficacite_isolation = 1.0
+	if nb_chaufferies >= 2:
+		# Si on a 2 chaufferies ou plus, on réduit l'impact du froid extérieur de 70%
+		efficacite_isolation = 0.3 
+		print("PROTECTION THERMIQUE : 2+ Chaufferies réduisent le froid extérieur.")
+	elif nb_chaufferies == 1:
+		# Une seule chaufferie réduit le froid de 20%
+		efficacite_isolation = 0.8
+
+	# Calcul du malus extérieur avec l'isolation des chaufferies
+	var delta_sante = -(exces_ext * (COEFF_TEMP_EXT * efficacite_isolation))
+
+	# Malus thermique interne (si les bâtiments sont froids)
+	var moyenne_temp_int = 18.0
 	if nb_batiments > 0:
-		for id in batiments_sur_carte:
-			# On récupère la "temp" stockée dans chaque bâtiment du Global
-			somme_temp_int += batiments_sur_carte[id]["temp"]
-		
-		var moyenne_temp_int = somme_temp_int / nb_batiments
-		
-		# Si la moyenne est sous 18°C, les colons tombent malades
+		moyenne_temp_int = somme_temp_int / nb_batiments
 		if moyenne_temp_int < TEMP_CONFORT_INT:
-			var ecart_interne = TEMP_CONFORT_INT - moyenne_temp_int
-			malus_froid_interne = -(ecart_interne * COEFF_TEMP_INT)
-			print("Malus chauffage (Moyenne: %.1f°C) : %.1f" % [moyenne_temp_int, malus_froid_interne])
-	
-	delta_sante += malus_froid_interne
+			delta_sante -= (TEMP_CONFORT_INT - moyenne_temp_int) * COEFF_TEMP_INT
 
-	# --- 3. IMPACT DES BÂTIMENTS (Bonheur) ---
+	# Bonus de récupération si la base est PARFAITEMENT chauffée (18°C)
+	if moyenne_temp_int >= 18.0 and nb_chaufferies >= 2:
+		delta_sante += 2.0 # Bonus "Confort au chaud"
+		print("BONUS : Base bien chauffée, la santé remonte doucement.")
+
+	# --- 4. SOINS ET BONHEUR ---
+	if nb_hopitaux > 0:
+		delta_sante += min(nb_hopitaux * BONUS_SANTE_HOPITAL, CAP_SOINS_MAX)
+
 	var delta_bonheur = 0.0
 	for id in batiments_sur_carte:
-		if temp_ext < -50:
-			batiments_sur_carte[id]["temp"] -= 1.0 
 		var type_nom = batiments_sur_carte[id]["type"]
-		var bonus_bat = GlobalScript.get_batiment_bonheur(type_nom)
-		delta_bonheur += (bonus_bat * 0.01) * COEFF_BATIMENTS * 10.0
+		delta_bonheur += (GlobalScript.get_batiment_bonheur(type_nom) * 0.01) * COEFF_BATIMENTS * 10.0
 
-	# --- 4. APPLICATION ---
+	# --- 5. APPLICATION ---
 	current_sante += delta_sante
 	
-	# Corrélation santé/bonheur
-	if current_sante < 40: delta_bonheur -= 10.0
-	elif current_sante > 85: delta_bonheur += 5.0
-	
+	if current_sante < 25: delta_bonheur -= 10.0
+	elif current_sante > 75: delta_bonheur += 5.0
 	current_bonheur += delta_bonheur
 	
 	GlobalScript.set_sante(int(current_sante))

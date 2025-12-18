@@ -1,37 +1,47 @@
 extends Node
 
 # DESCRIPTION :
-# FLEMME AUSSI
+# Gestion des événements aléatoires. Valeurs réduites pour éviter le "Game Over" immédiat.
 
-# [ Santé, Bonheur, Efficacité, Probabilité (%), Nom, Description ]
+# Structure : [ Santé, Bonheur, Efficacité, Probabilité (%), Nom, Description ]
 var catastrophes_disponibles = {
-	"blizzard": [-5, -5, -5, 20, "Blizzard", "Un blizzard violent frappe la station ! \nLes conditions météo extrêmes affectent la santé et le moral."],
-	"panne_electrique": [-10, -5, -15, 15, "Panne électrique", "Une panne majeure du système électrique plonge une partie de la station dans le noir."],
-	"grippe_hivernale": [-20, -10, -5, 10, "Grippe hivernale", "Une épidémie de grippe se propage dans la base confinée, affectant gravement l'équipe."],
-	"depression_saisonniere": [-10, -20, -10, 5, "Dépression saisonnière", "L'isolement et le froid plongent l'équipe dans un profond malaise psychologique."],
-	"avalanche": [-20, -20, -20, 1, "Avalanche", "Une avalanche massive s'abat sur la base ! \nDégâts importants et équipe en état de choc."]
+	# Un petit coup de froid, plus fréquent mais moins violent
+	"blizzard": [-3, -2, -2, 8, "Blizzard", "Un blizzard léger souffle sur la station. Les sorties sont limitées."],
+	
+	# Impact principalement sur l'efficacité, peu sur la santé
+	"panne_electrique": [-2, -3, -8, 5, "Panne électrique", "Un court-circuit ralentit les machines. Le moral baisse légèrement."],
+	
+	# Réduit de -20 à -7 pour laisser le temps à l'hôpital de soigner
+	"grippe_hivernale": [-7, -4, -2, 4, "Grippe hivernale", "Quelques colons toussent. L'infirmerie est sollicitée."],
+	
+	# Impact sur le moral uniquement
+	"depression_saisonniere": [-2, -10, -5, 3, "Dépression saisonnière", "Le manque de soleil pèse sur le moral de l'équipe."],
+	
+	# L'événement rare, réduit de -20 à -12 partout
+	"avalanche": [-12, -12, -12, 1, "Avalanche", "Une avalanche a secoué la base. Des réparations sont nécessaires !"]
 }
 
-# Var pour determiner quelle catastrophe est active
 var catastrophe_active = null
 
-# Fonction qui teste si une catastrophe s'active ce tour ou pas
 func verifier_catastrophe() -> Dictionary:
 	catastrophe_active = null
 	
-	for id_catastrophe in catastrophes_disponibles:
+	# Mélanger les clés pour ne pas que le Blizzard bloque toujours les autres
+	var cles = catastrophes_disponibles.keys()
+	cles.shuffle() 
+	
+	for id_catastrophe in cles:
 		var info = catastrophes_disponibles[id_catastrophe]
 		var chance = randi() % 100
 		
-		if chance < info[3]:  # Probabilité 
+		if chance < info[3]: # Probabilité 
 			catastrophe_active = {
 				"id": id_catastrophe,
 				"info": info
 			}
-			print(catastrophe_active)
+			print("ÉVÉNEMENT ACTIF : ", id_catastrophe)
 			return catastrophe_active
 	return {}
 
-# Retourne la catastophe active
 func get_catastrophe_active():
 	return catastrophe_active
