@@ -148,12 +148,18 @@ func play_sound(sound_path: String):
 	sound.play()
 	sound.finished.connect(sound.queue_free)
 
+
+
 func generate_fade_display(start_fade_time, end_fade_time, display_time, element):
+	# Sécurité immédiate : si l'élément est null, on ne fait rien
+	if not is_instance_valid(element):
+		return
+		
 	element.modulate.a = 0
 	element.visible = true
 	
 	# Création du Tween
-	var tween = create_tween()
+	var tween = create_tween().bind_node(element)
 
 	# 1. Apparition en start_fade_time seconde
 	tween.tween_property(element, "modulate:a", 1.0, start_fade_time)
