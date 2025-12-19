@@ -67,17 +67,21 @@ texture = ExtResource("2_yu648")
 metadata/_edit_use_anchors_ = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelGameMenu"]
-layout_mode = 0
-offset_left = 31.0
-offset_top = 79.0
-offset_right = 946.0
-offset_bottom = 635.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.503
+anchor_top = 0.54300004
+anchor_right = 0.503
+anchor_bottom = 0.54300004
+offset_left = -457.91602
+offset_top = -278.29404
+offset_right = 457.08398
+offset_bottom = 277.70596
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelGameMenu/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
 
 [node name="TButtonRetour" type="TextureButton" parent="."]
 anchors_preset = -1

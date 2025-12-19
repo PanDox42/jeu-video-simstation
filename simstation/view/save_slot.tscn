@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cedaw3ncu3a2h"]
+[gd_scene load_steps=5 format=3 uid="uid://ga33hqgy6ip"]
 
-[ext_resource type="Script" uid="uid://du7nikdo5gb10" path="res://model/main_menu/save_slot.gd" id="1_bb4jq"]
+[ext_resource type="Script" uid="uid://du7nikdo5gb10" path="res://model/main_menu/SaveSlot.gd" id="1_68eaj"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_bb4jq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_k7d14"]
@@ -20,7 +20,7 @@ offset_left = -155.52
 offset_top = -54.0
 offset_right = 156.48
 offset_bottom = 55.0
-script = ExtResource("1_bb4jq")
+script = ExtResource("1_68eaj")
 
 [node name="LabelName" type="Label" parent="."]
 layout_mode = 1

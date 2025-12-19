@@ -130,7 +130,7 @@ func get_latest_save_file() -> String:
 		
 		while file_name != "":
 			if not dir.current_is_dir() and file_name.ends_with(".json"):
-				var full_path = "user://" + file_name
+				var full_path = "user://%s" % file_name
 				# On récupère l'heure de modification (en secondes)
 				var modification_time = FileAccess.get_modified_time(full_path)
 				
@@ -145,7 +145,7 @@ func get_latest_save_file() -> String:
 	return latest_file
 	
 func load_game(slot_name: String):
-	var path = "user://" + slot_name + ".json"
+	var path = "user://%s.json" % slot_name
 	if not FileAccess.file_exists(path):
 		print("Aucune sauvegarde trouvée.")
 		return

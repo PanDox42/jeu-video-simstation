@@ -129,5 +129,5 @@ var environnement = {
 # === TEMPS ===
 
 ## Numéro du round actuel (chaque round = 3 mois dans le jeu)
-## Les saisons changent tous les rounds : 0=Été, 1=Automne, 2=Hiver, 3=Printemps
+## Les saisons changent tous les rounds
 var round = 0
