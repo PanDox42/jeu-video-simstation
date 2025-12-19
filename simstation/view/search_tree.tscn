@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqk628cbpj4y8"]
 
 [ext_resource type="Script" uid="uid://e212qo50r3w0" path="res://model/search_tree/chart_search_tree.gd" id="1_i8ovn"]
-[ext_resource type="Texture2D" uid="uid://cm2uw3bh0ymy7" path="res://assets/search_tree/search_tree_background.png" id="2_i8ovn"]
+[ext_resource type="Texture2D" uid="uid://sb2msro4gboo" path="res://assets/search_tree/search_tree_background.png" id="2_i8ovn"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o0hrl"]
 [ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_slc3x"]
 [ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="5_ec1wv"]
@@ -20,38 +20,51 @@ grow_vertical = 2
 [node name="TRectBackground" type="TextureRect" parent="."]
 show_behind_parent = true
 z_index = 10
-offset_left = 116.0
-offset_top = 40.0
-offset_right = 1824.0
-offset_bottom = 1080.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -824.0
+offset_top = -518.0
+offset_right = 824.0
+offset_bottom = 536.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_i8ovn")
 
-[node name="titre" type="RichTextLabel" parent="TRectBackground"]
-layout_mode = 0
-offset_left = 492.0
-offset_top = 49.0
-offset_right = 1396.0
-offset_bottom = 124.0
-theme_override_colors/default_color = Color(1, 1, 1, 1)
+[node name="LabelTitle" type="RichTextLabel" parent="TRectBackground"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.14
+anchor_right = 0.5
+anchor_bottom = 0.14
+offset_left = -458.5
+offset_top = -41.559998
+offset_right = 458.5
+offset_bottom = 42.440002
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.5372549, 0.8117647, 0.9411765, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
+theme_override_constants/outline_size = 15
 theme_override_fonts/normal_font = ExtResource("3_o0hrl")
-theme_override_fonts/bold_font = ExtResource("3_o0hrl")
-theme_override_fonts/bold_italics_font = ExtResource("3_o0hrl")
-theme_override_fonts/italics_font = ExtResource("3_o0hrl")
-theme_override_fonts/mono_font = ExtResource("3_o0hrl")
 bbcode_enabled = true
-text = "[center][font_size=40]Arbre de recherche"
+text = "[center][font_size=65]ARBRE DE RECHERCHE
+"
+scroll_active = false
 
 [node name="Exit_button" type="TextureButton" parent="TRectBackground"]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -229.0
-offset_top = 51.0
-offset_right = -154.5
-offset_bottom = 125.5
+anchors_preset = -1
+anchor_left = 0.92200005
+anchor_top = 0.101
+anchor_right = 0.92200005
+anchor_bottom = 0.101
+offset_left = -36.456055
+offset_top = -37.454002
+offset_right = 38.043945
+offset_bottom = 37.045998
 grow_horizontal = 0
 texture_normal = ExtResource("4_slc3x")
 texture_pressed = ExtResource("5_ec1wv")
@@ -67,11 +80,16 @@ offset_right = 1011.0
 offset_bottom = 412.0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="TRectBackground"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 138.0
-offset_right = 1685.0
-offset_bottom = 766.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50200003
+anchor_top = 0.57000005
+anchor_right = 0.50200003
+anchor_bottom = 0.57000005
+offset_left = -699.2961
+offset_top = -297.78003
+offset_right = 697.7039
+offset_bottom = 298.21997
 
 [node name="tree_canvas" type="Control" parent="TRectBackground/ScrollContainer"]
 layout_mode = 2
