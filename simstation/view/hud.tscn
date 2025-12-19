@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cnva1t7elyuce"]
+[gd_scene load_steps=41 format=3 uid="uid://cnva1t7elyuce"]
 
 [ext_resource type="Script" uid="uid://biwrxmh77pnjx" path="res://model/hud/hud.gd" id="2_ugs5p"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
@@ -39,6 +39,9 @@
 [ext_resource type="Script" uid="uid://dgxvotb63m4ye" path="res://model/hud/statistics/chart_stats.gd" id="35_76rru"]
 [ext_resource type="Texture2D" uid="uid://b3fgp71bysedn" path="res://assets/hud/next_round/day_night_background.png" id="35_wvy0n"]
 [ext_resource type="Texture2D" uid="uid://dspxiq4yflf73" path="res://assets/hud/next_round/disaster_background.png" id="37_nrmyt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xah1"]
+font = ExtResource("3_o5r0d")
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("2_ugs5p")
@@ -567,6 +570,18 @@ texture_normal = ExtResource("32_nrmyt")
 texture_pressed = ExtResource("33_4uvaq")
 texture_hover = ExtResource("34_rf6ic")
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="BorderContainer/PanelChartStats"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = 457.0
+offset_bottom = 99.0
+text = "Rouge = Santé
+Bleu = Efficacité
+Jaune = Bonheur"
+label_settings = SubResource("LabelSettings_7xah1")
+vertical_alignment = 1
 
 [node name="TRectRoundTransition" type="TextureRect" parent="BorderContainer"]
 visible = false
