@@ -8,12 +8,12 @@ extends TextureButton
 ## Ouvre le menu de la boutique
 ## Charge la scène shop.tscn dans le HUD ou bascule sa visibilité
 func _on_pressed_shop() -> void:
-	load_scene("res://View/shop.tscn", "Shop")
+	load_scene("res://view/shop.tscn", "Shop")
 
 ## Ouvre le menu pause
 ## Charge la scène pause.tscn dans le HUD ou bascule sa visibilité
 func _on_pressed_pause():
-	load_scene("res://View/pause.tscn", "Pause")
+	load_scene("res://view/pause.tscn", "Pause")
 
 ## Surveille les entrées clavier pour le menu pause
 ## Détecte l'action "pause" (touche Échap) pour ouvrir le menu

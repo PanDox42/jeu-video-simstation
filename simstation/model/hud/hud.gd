@@ -41,9 +41,6 @@ extends CanvasLayer
 ## Popup de confirmation pour passer au tour suivant
 @onready var confirmation_next_round = $BorderContainer/TRectConfirmNextRound
 
-## Écran de chargement
-@onready var load_screen = $LoadScreen
-
 ## Panneau de transition entre les tours
 @onready var next_round = $BorderContainer/TRectRoundTransition
 
@@ -203,11 +200,6 @@ func _on_close_inventory_pressed_() -> void:
 		close_button.texture_pressed = preload("res://assets/button/eyes_button/open_eye/open_eye_button_click.png")
 		
 	inventory.visible = !inventory.visible
-
-## Cache l'écran de chargement après 1 seconde
-func charger_load_screen():
-	await get_tree().create_timer(1).timeout
-	load_screen.visible = false
 
 
 ## Affiche l'animation de transition de tour
