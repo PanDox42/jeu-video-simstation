@@ -213,6 +213,10 @@ Récupère l'état de placement de bâtiment
 
 **Retourne:** true si un bâtiment est en cours de placement
 
+### get_save_data()
+
+### get_name_station()
+
 ### set_health(val)
 
 Définit la santé moyenne de la station
@@ -261,14 +265,6 @@ Définit l'activation du mode nuit
 
 `active` : true pour activer le mode nuit
 
-### set_round(val: int)
-
-Définit le numéro du round actuel
-
-**Paramètres:**
-
-`val` : Nouveau numéro de round
-
 ### set_temperature(val: int)
 
 Définit la température extérieure
@@ -303,6 +299,22 @@ Enregistre une recherche en cours avec son round de fin
 
 `end_round` : Numéro du round où elle sera terminée
 
+### set_inventory(inventory)
+
+### set_stats(stats)
+
+### set_environement(environment)
+
+### set_round(round)
+
+### set_search_unblocked(unblocked)
+
+### set_name_station(new_name_station)
+
+### set_batiment_place(new_bat_place)
+
+### set_batiment_info(new_bat_info)
+
 ### set_building_unblocked(name: String)
 
 Débloque un type de bâtiment
@@ -327,7 +339,7 @@ Ajoute une recherche en cours (DEPRECATED - typo dans le nom)
 
 `search_name` : Nom de la recherche
 
-### add_building(id_node: int, type: String)
+### add_building(id_node: int, type: String, position:Vector2)
 
 Place un nouveau bâtiment sur la carte
 

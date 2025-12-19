@@ -17,6 +17,7 @@ Se positionne automatiquement à droite de l'écran.
 
 ### boxContainer
 
+Police Minecraft pour le style rétro
 Conteneur vertical pour organiser les éléments
 
 ### close_button
@@ -26,10 +27,6 @@ Bouton pour fermer le panneau
 ### name_label
 
 Label affichant le nom du bâtiment
-
-### health_label
-
-Label affichant la santé du bâtiment
 
 ### hapiness_label
 

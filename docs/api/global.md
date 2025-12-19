@@ -29,6 +29,12 @@ Indique si un bâtiment est actuellement en cours de placement sur la carte
 Données du joueur contenant le nom et le temps de jeu
 Format: {"name": String, "time": int}
 
+### name_station
+
+### money
+
+Crédits disponibles pour acheter des bâtiments et des recherches
+
 ### population
 
 Liste des habitants de la station avec leurs statistiques individuelles
@@ -42,10 +48,6 @@ Liste des noms de recherches déjà débloquées par le joueur
 
 Recherches en cours avec leur round de fin
 Format: {"nom_recherche": round_de_fin}
-
-### money
-
-Crédits disponibles pour acheter des bâtiments et des recherches
 
 ### inventory
 
@@ -95,4 +97,4 @@ Données environnementales de l'Antarctique
 ### round
 
 Numéro du round actuel (chaque round = 3 mois dans le jeu)
-Les saisons changent tous les rounds : 0=Été, 1=Automne, 2=Hiver, 3=Printemps
+Les saisons changent tous les rounds

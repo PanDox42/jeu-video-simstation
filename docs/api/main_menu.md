@@ -18,14 +18,21 @@ Charge dynamiquement les sous-menus sans les dupliquer.
 
 Scène du menu options préchargée
 Scène des crédits préchargée
+Scène de création d'une nouvelle partie
 Instance actuelle du menu secondaire (options ou crédits)
 
 ## Fonctions
+
+### _ready()
 
 ### _on_btn_jouer_pressed() -> void
 
 Lance la partie
 Charge la scène de jeu principale
+
+### _on_btn_new_game_pressed() -> void
+
+### _on_t_button_continue_pressed()
 
 ### _on_btn_options_pressed() -> void
 

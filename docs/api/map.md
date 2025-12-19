@@ -18,6 +18,10 @@ Vérifie les collisions entre bâtiments et détecte les clics pour afficher les
 Nœud contenant tous les bâtiments placés sur la carte
 Ajoute ce nœud au groupe "Map" pour le rendre détectable
 
+### spawn_saved_buildings()
+
+### _create_building_instance(id: int, data: Dictionary)
+
 ### add_temp_building(node: Sprite2D)
 
 Ajoute temporairement un bâtiment à la carte (mode ghost/preview)

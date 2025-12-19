@@ -1,4 +1,4 @@
-# tuto
+# tutorial
 
 **Extends:** `CanvasLayer`
 
@@ -9,7 +9,7 @@ Affiche un tutoriel pas à pas avec des captures d'écran et des descriptions.
 Permet au joueur de naviguer entre les différentes étapes du tutoriel.
 
 
-**Fichier:** `model\main_menu\tuto.gd`
+**Fichier:** `model\main_menu\tutorial.gd`
 
 ## Variables
 

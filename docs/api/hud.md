@@ -17,6 +17,8 @@ Gère l'affichage/masquage de l'inventaire, le mode nuit/jour et les notificatio
 
 ### _ready()
 
+Texture de fond avec inventaire visible
+Texture de fond sans inventaire
 Initialise le HUD et connecte les signaux
 
 ### _update_month()
@@ -30,6 +32,8 @@ Met à jour l'affichage de la saison
 ### _update_temperature()
 
 Met à jour l'affichage de la température
+
+### _update_label()
 
 ### _on_money_changed(new_value)
 
@@ -63,10 +67,6 @@ Ouvre le graphique de statistiques
 
 Bascule la visibilité de l'inventaire et change l'icône de l'œil
 
-### charger_load_screen()
-
-Cache l'écran de chargement après 1 seconde
-
 ### display_next_round()
 
 Affiche l'animation de transition de tour
@@ -86,6 +86,10 @@ Affiche le message "La nuit tombe" ou "Le jour se lève"
 **Paramètres:**
 
 `status` : true pour nuit, false pour jour
+
+### change_visible_chart_stats()
+
+Change la visibilité du panel des statistiques
 
 ### display_disaster()
 

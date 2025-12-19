@@ -1,14 +1,6 @@
 # chart_stats
 
-**Extends:** `CanvasLayer`
-
-ChartStats - Graphique des statistiques de la station
-
-Affiche un graphique linéaire montrant l'évolution des 3 statistiques principales :
-Santé (rouge), Bonheur (jaune), Efficacité (bleu).
-
-Ajoute automatiquement un point à chaque tour et fait défiler horizontalement.
-
+**Extends:** `Panel`
 
 **Fichier:** `model\hud\statistics\chart_stats.gd`
 
@@ -16,19 +8,19 @@ Ajoute automatiquement un point à chaque tour et fait défiler horizontalement.
 
 ### x_spacing
 
-Espacement horizontal entre les points (augmente à chaque tour)
+Espacement horizontal entre les points de données
 
 ### y_spacing
 
-Espacement vertical de base
+Espacement vertical (non utilisé actuellement)
 
 ### health_line
 
-Ligne pour la santé
+Ligne de tracé pour les points de santé (rouge)
 
 ### hapiness_line
 
-Ligne pour le bonheur
+Ligne de tracé pour les points de bonheur (jaune)
 
 ### efficiency_line
 

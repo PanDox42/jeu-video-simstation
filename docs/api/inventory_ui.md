@@ -1,4 +1,4 @@
-# InventaireUI
+# inventory_ui
 
 **Extends:** `Control`
 
@@ -13,7 +13,7 @@ Grise automatiquement les bâtiments en quantité zéro.
 Attache le script de drag & drop à chaque icône pour permettre le placement.
 
 
-**Fichier:** `model\hud\inventory\InventaireUI.gd`
+**Fichier:** `model\hud\inventory\inventory_ui.gd`
 
 ## Fonctions
 

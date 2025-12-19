@@ -11,7 +11,7 @@ Utilisé pour montrer la santé, l'efficacité et le bonheur de la population.
 Se met à jour automatiquement chaque frame selon son nom de nœud.
 
 
-**Fichier:** `model\hud\crop_bar.gd`
+**Fichier:** `model\hud\statistics\crop_bar.gd`
 
 ## Fonctions
 

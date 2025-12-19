@@ -2,9 +2,6 @@
 
 **Extends:** `CanvasLayer`
 
-Permet de lancer des recherches et suit leur progression automatiquement.
-
-
 **Fichier:** `model\search_tree\chart_search_tree.gd`
 
 ## Variables
@@ -12,7 +9,7 @@ Permet de lancer des recherches et suit leur progression automatiquement.
 ### tree: SearchTree
 
 Signal émis quand l'argent change (non utilisé actuellement)
-Instance de l'arbre de recherche contenant toutes les données
+Instance de l'arbre de recherche (structure de données)
 
 ### node_positions
 
@@ -38,6 +35,10 @@ Dernier round connu pour éviter les rafraîchissements inutiles
 
 Conteneur de scroll pour naviguer dans l'arbre
 Canvas interne pour dessiner les boutons et les lignes
+
+### root
+
+Racine principale de l'arbre de recherche
 
 ## Fonctions
 
