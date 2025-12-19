@@ -71,14 +71,14 @@ func _ready():
 	# --- NIVEAU 3 : Spécialisations (2 enfants max par parent du N2) ---
 
 	# Enfants de "Quartiers d'Hivernage" (Vie)
-	var node_hospital = tree.add_child(node_vie, "Soutien Médical", 3, 750000, 40, "Indispensable pour traiter les engelures.", "hospital")
-	var node_canteen = tree.add_child(node_vie, "Logistique Alimentaire", 3, 500000, 30, "Cuisine industrielle pour les rations d'hiver.", "canteen")
+	var node_hospital = tree.add_child(node_vie, "Soutien Médical", 2, 750000, 40, "Indispensable pour traiter les engelures.", "hospital")
+	var node_canteen = tree.add_child(node_vie, "Logistique Alimentaire", 2, 500000, 30, "Cuisine industrielle pour les rations d'hiver.", "canteen")
 
 	# Enfants de "Méthode Scientifique" (Recherche)
 	# Note : Ici on regroupe le Gym et la Rest Room sous le concept de "Santé Mentale" pour respecter les 7 nœuds
-	var node_confort = tree.add_child(node_sci, "Équilibre Psychologique", 3, 600000, 50, "Débloque le Module Sportif et le Salon de détente.", "gym")
+	var node_confort = tree.add_child(node_sci, "Équilibre Psychologique", 2, 600000, 50, "Débloque le Module Sportif et le Salon de détente.", "gym")
 
-	var node_astro = tree.add_child(node_sci, "Astronomie Polaire", 3, 2000000, 100, "Exploite la pureté de l'air pour l'observation.", "observatory")
+	var node_astro = tree.add_child(node_sci, "Astronomie Polaire", 2, 200000, 100, "Exploite la pureté de l'air pour l'observation.", "observatory")
 
 	_update_tree_state_recursive(root)
 

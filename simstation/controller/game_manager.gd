@@ -85,7 +85,7 @@ func has_save_files() -> bool:
 func setup_new_game():
 	GlobalScript.set_name_station("")
 	GlobalScript.set_money(500000)
-	GlobalScript.set_inventory({"labo": 1, "dormitory": 1, "boiler_room": 1, "canteen": 1, "hospital": 1})
+	GlobalScript.set_inventory({"labo": 1, "dormitory": 1, "boiler_room": 1, "canteen": 1, "hospital": 1, "gym": 0, "observatory": 0})
 	GlobalScript.set_stats({
 		"health": 50,
 		"efficiency": 50,
