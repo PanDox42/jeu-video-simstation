@@ -1,52 +1,32 @@
-# Godot 4+ specific ignores
-.godot/
-.android/
+# --- Godot 4+ spécifique ---
+# On ignore le dossier de cache principal (indispensable pour éviter tes conflits)
+**/.godot/
 
-# Godot import and export folders
-.import/
-.export/
-.mono/
+# Anciens dossiers de cache (Godot 3) au cas où
+**/.import/
 
-# Editor settings and metadata
-.editor_settings-3.tres
-.editor_settings-4.tres
-.editor_settings.tres
-project_metadata.cfg
-project_metadata*
-project.godot.tmp
+# --- Paramètres utilisateur et Éditeur ---
+# On ignore les réglages locaux qui changent selon la machine
+**/project_metadata.cfg
+**/.editor_settings-*.tres
+**/editor_settings.tres
+**/*.tmp
 
-# Build and export artifacts
-build/
-bin/
-exports/
-export.cfg
-export_presets.cfg
+# --- Exports et Builds ---
+# On ignore les dossiers où tu génères tes exécutables (.exe, .apk, etc.)
+**/build/
+**/exports/
+**/bin/
+**/*.window.*
+**/*.app
 
-# Import metadata
-*.import
-*.translation
-*.translation.import
-*.tscn.import
-*.scn.import
-*.escn.import
-*.res.import
-
-# IDEs and tools
-.vscode/
-.idea/
-
-# Temporary / backup / logs
-*.tmp
-*.bak
-*.old
-*.log
-
-# OS files
+# --- Fichiers Système ---
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Python or C# cache
-__pycache__/
-*.pyc
-*.pyo
+# --- Outils (VS Code / JetBrains) ---
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
