@@ -252,8 +252,13 @@ func _create_buttons_recursive(node: SearchTree.NodeData):
 		
 	# Cas 4 : Disponible à l'achat (Bleu/Blanc)
 	else:
-		btn.disabled = false
-		btn.modulate = Color(1, 1, 1) # NORMAL
+		# Si une autre recherche est en cours, on bloque celle-ci
+		if GlobalScript.get_research_in_progress().size() > 0:
+			btn.disabled = true
+			btn.modulate = Color(0.5, 0.5, 0.5) # GRIS (bloqué par une autre recherche)
+		else:
+			btn.disabled = false
+			btn.modulate = Color(1, 1, 1) # NORMAL
 		btn.pressed.connect(func(): ajouter_retirer_menu_node(btn.position + Vector2(0, btn.size.y), node))
 	
 	for child in node.children:
