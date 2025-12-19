@@ -49,6 +49,8 @@ Crédits disponibles pour acheter des bâtiments et des recherches
 
 ### inventory
 
+Inventaire des bât
+Bâtiments possédés par le joueur (pas encore placés)
 Quantité de chaque type de bâtiment disponible
 
 ### buildings_place

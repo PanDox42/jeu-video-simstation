@@ -6,7 +6,7 @@ Catastrophes - Système d'événements aléatoires pour SimStation
 
 Gère les catastrophes et événements aléatoires qui peuvent affecter la station.
 
-Chaque round, le système vérifie si une catastrophe se déclenche selon
+Chaque tour, le système vérifie si une catastrophe se déclenche selon
 des probabilités définies. Une seule catastrophe peut se produire par round.
 
 
@@ -37,7 +37,7 @@ Stocke la catastrophe actuellement active (null si aucune)
 
 ### verify_disaster() -> Dictionary
 
-Vérifie aléatoirement si une catastrophe se déclenche ce round
+Vérifie aléatoirement si une catastrophe se déclenche ce tour
 Utilise un système de mélange pour éviter que le blizzard bloque toujours les autres
 
 **Retourne:** Dictionnaire {"id": nom_catastrophe, "info": [données]} ou {} si aucune

@@ -40,13 +40,13 @@ Récupère la carte actuellement active
 
 **Retourne:** Le nœud de la carte courante
 
-### set_current_zoom_cam(zoom_cam : Vector2)
+### set_current_zoom_cam(current_zoom_cam : Vector2)
 
 Définit le niveau de zoom de la caméra
 
 **Paramètres:**
 
-`zoom_cam` : Vecteur représentant le niveau de zoom (x, y)
+`current_zoom_cam` : Vecteur représentant le niveau de zoom (x, y)
 
 ### get_zoom_cam() -> Vector2
 

@@ -1,38 +1,38 @@
 # Documentation API - SimStation
 
-*Générée le 2025-12-19 à 00:58*
+*Générée le 2025-12-19 à 01:53*
 
 Cette documentation couvre **24** fichiers GDScript du projet SimStation.
 
 ## Controller
 
-- [game_manager](game_manager.md) - `controller\game_manager.gd`
+- [game_manager](api/game_manager) - `controller\game_manager.gd`
 
 ## Model
 
-- [InventaireUI](InventaireUI.md) - `model\hud\inventory\InventaireUI.gd`
-- [SearchTree](SearchTree.md) - `model\search_tree\search_tree.gd`
-- [button_action](button_action.md) - `model\button\button_action.gd`
-- [buy_confirmation](buy_confirmation.md) - `model\shop\buy_confirmation.gd`
-- [calcul_stats](calcul_stats.md) - `model\global\calcul_stats.gd`
-- [camera_2d](camera_2d.md) - `model\hud\camera\camera_2d.gd`
-- [chart_search_tree](chart_search_tree.md) - `model\search_tree\chart_search_tree.gd`
-- [chart_stats](chart_stats.md) - `model\hud\statistics\chart_stats.gd`
-- [credits](credits.md) - `model\main_menu\credits.gd`
-- [crop_bar](crop_bar.md) - `model\hud\crop_bar.gd`
-- [disaster](disaster.md) - `model\global\disaster.gd`
-- [drag_building](drag_building.md) - `model\hud\inventory\drag_building.gd`
-- [global](global.md) - `model\global\global.gd`
-- [global_script](global_script.md) - `model\global\global_script.gd`
-- [hud](hud.md) - `model\hud\hud.gd`
-- [info_panel](info_panel.md) - `model\hud\info_panel.gd`
-- [main_menu](main_menu.md) - `model\main_menu\main_menu.gd`
-- [map](map.md) - `model\map\map.gd`
-- [masked_button](masked_button.md) - `model\button\masked_button.gd`
-- [pause](pause.md) - `model\pause\pause.gd`
-- [settings](settings.md) - `model\pause\settings.gd`
-- [shop](shop.md) - `model\shop\shop.gd`
-- [tuto](tuto.md) - `model\main_menu\tuto.gd`
+- [InventaireUI](api/InventaireUI) - `model\hud\inventory\InventaireUI.gd`
+- [SearchTree](api/SearchTree) - `model\search_tree\search_tree.gd`
+- [button_action](api/button_action) - `model\button\button_action.gd`
+- [buy_confirmation](api/buy_confirmation) - `model\shop\buy_confirmation.gd`
+- [calcul_stats](api/calcul_stats) - `model\global\calcul_stats.gd`
+- [camera_2d](api/camera_2d) - `model\hud\camera\camera_2d.gd`
+- [chart_search_tree](api/chart_search_tree) - `model\search_tree\chart_search_tree.gd`
+- [chart_stats](api/chart_stats) - `model\hud\statistics\chart_stats.gd`
+- [credits](api/credits) - `model\main_menu\credits.gd`
+- [crop_bar](api/crop_bar) - `model\hud\crop_bar.gd`
+- [disaster](api/disaster) - `model\global\disaster.gd`
+- [drag_building](api/drag_building) - `model\hud\inventory\drag_building.gd`
+- [global](api/global) - `model\global\global.gd`
+- [global_script](api/global_script) - `model\global\global_script.gd`
+- [hud](api/hud) - `model\hud\hud.gd`
+- [info_panel](api/info_panel) - `model\hud\info_panel.gd`
+- [main_menu](api/main_menu) - `model\main_menu\main_menu.gd`
+- [map](api/map) - `model\map\map.gd`
+- [masked_button](api/masked_button) - `model\button\masked_button.gd`
+- [pause](api/pause) - `model\pause\pause.gd`
+- [settings](api/settings) - `model\pause\settings.gd`
+- [shop](api/shop) - `model\shop\shop.gd`
+- [tuto](api/tuto) - `model\main_menu\tuto.gd`
 
 ---
 

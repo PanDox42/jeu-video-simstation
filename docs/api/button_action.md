@@ -27,11 +27,11 @@ Charge la scène pause.tscn dans le HUD ou bascule sa visibilité
 ### _physics_process(_delta)
 
 Surveille les entrées clavier pour le menu pause
-Détecte l'action "pause" (généralement Échap) pour ouvrir le menu
+Détecte l'action "pause" (touche Échap) pour ouvrir le menu
 
 **Paramètres:**
 
-`_delta` : Delta time (non utilisé)
+`_delta` : Delta time
 
 ### load_scene(scene_path, node_name)
 
