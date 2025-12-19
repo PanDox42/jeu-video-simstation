@@ -40,7 +40,7 @@ anchors_preset = -1
 anchor_left = 0.45
 anchor_top = 0.531
 anchor_right = 0.55
-anchor_bottom = 0.531
+anchor_bottom = 0.6226667
 offset_left = -390.0
 offset_top = -329.48004
 offset_right = 390.0
@@ -50,17 +50,17 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
 metadata/_edit_use_anchors_ = true
 
-[node name="TButtonPlay" type="TextureButton" parent="PanelGameMenu"]
+[node name="TButtonNewGame" type="TextureButton" parent="PanelGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.26144072
 anchor_right = 0.5
 anchor_bottom = 0.26144072
-offset_left = -181.0
-offset_top = -95.528
-offset_right = 181.0
-offset_bottom = 95.472
+offset_left = -154.0
+offset_top = 45.08937
+offset_right = 146.0
+offset_bottom = 195.08937
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_kxc1c")
@@ -69,15 +69,14 @@ texture_hover = ExtResource("5_7a01j")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_5id5m")
-metadata/_edit_use_anchors_ = true
 
-[node name="LabelPlay" type="Label" parent="PanelGameMenu/TButtonPlay"]
+[node name="LabelNewGame" type="Label" parent="PanelGameMenu/TButtonNewGame"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.60723567
-anchor_right = 0.5
-anchor_bottom = 0.60723567
+anchor_left = 0.43093923
+anchor_top = 0.40304717
+anchor_right = 0.5718232
+anchor_bottom = 0.7695393
 offset_left = -74.0
 offset_top = -33.48201
 offset_right = 74.0
@@ -86,8 +85,52 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_n77rl")
-theme_override_font_sizes/font_size = 38
-text = "JOUER"
+theme_override_font_sizes/font_size = 25
+text = "Nouvelle
+partie"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TButtonContinue" type="TextureButton" parent="PanelGameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.26144072
+anchor_right = 0.5
+anchor_bottom = 0.26144072
+offset_left = -154.0
+offset_top = -106.91063
+offset_right = 146.0
+offset_bottom = 43.08937
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_5id5m")
+
+[node name="LabelContinue" type="Label" parent="PanelGameMenu/TButtonContinue"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.35911602
+anchor_top = 0.42660737
+anchor_right = 0.6325967
+anchor_bottom = 0.7930995
+offset_left = -74.0
+offset_top = -33.48201
+offset_right = 74.0
+offset_bottom = 33.51799
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_n77rl")
+theme_override_font_sizes/font_size = 34
+text = "CONTINUER"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TButtonOptions" type="TextureButton" parent="PanelGameMenu"]
@@ -97,10 +140,10 @@ anchor_left = 0.5
 anchor_top = 0.5440792
 anchor_right = 0.5
 anchor_bottom = 0.5440792
-offset_left = -181.0
-offset_top = -95.50403
-offset_right = 181.0
-offset_bottom = 95.49597
+offset_left = -154.0
+offset_top = -18.867981
+offset_right = 146.0
+offset_bottom = 131.13205
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_kxc1c")
@@ -125,48 +168,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_n77rl")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 34
 text = "OPTIONS"
-metadata/_edit_use_anchors_ = true
-
-[node name="TButtonTuto" type="TextureButton" parent="PanelGameMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.5440792
-anchor_right = 0.5
-anchor_bottom = 0.5440792
-offset_left = 576.0
-offset_top = -583.0041
-offset_right = 938.0
-offset_bottom = -392.0041
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("3_kxc1c")
-texture_pressed = ExtResource("4_w7ty5")
-texture_hover = ExtResource("5_7a01j")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("6_5id5m")
-
-[node name="LabelTuto" type="Label" parent="PanelGameMenu/TButtonTuto"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.61776435
-anchor_right = 0.5
-anchor_bottom = 0.6177644
-offset_left = -95.0
-offset_top = -33.492996
-offset_right = 95.0
-offset_bottom = 33.506996
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_n77rl")
-theme_override_font_sizes/font_size = 38
-text = "TUTO"
 horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TButtonExit" type="TextureButton" parent="PanelGameMenu"]
@@ -176,10 +181,10 @@ anchor_left = 0.5
 anchor_top = 0.81500006
 anchor_right = 0.5
 anchor_bottom = 0.81500006
-offset_left = -180.7312
-offset_top = -87.27002
-offset_right = 181.2688
-offset_bottom = 103.72998
+offset_left = -154.0
+offset_top = -73.95502
+offset_right = 146.0
+offset_bottom = 76.04498
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("3_kxc1c")
@@ -204,8 +209,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_n77rl")
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 34
 text = "QUITTER"
+horizontal_alignment = 1
+vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="TRectGameLogo" type="TextureRect" parent="PanelGameMenu"]
@@ -221,44 +228,6 @@ offset_right = -251.33331
 offset_bottom = -51.374664
 scale = Vector2(6, 6)
 texture = ExtResource("8_ss4sa")
-
-[node name="TButtonCredits" type="TextureButton" parent="."]
-anchors_preset = -1
-anchor_left = 0.9140001
-anchor_top = 0.92700005
-anchor_right = 0.9140001
-anchor_bottom = 0.92700005
-offset_left = -119.88013
-offset_top = -63.160034
-offset_right = 119.11987
-offset_bottom = 63.839966
-grow_horizontal = 2
-grow_vertical = 2
-texture_normal = ExtResource("3_kxc1c")
-texture_pressed = ExtResource("4_w7ty5")
-texture_hover = ExtResource("5_7a01j")
-ignore_texture_size = true
-stretch_mode = 0
-script = ExtResource("6_5id5m")
-metadata/_edit_use_anchors_ = true
-
-[node name="LabelCredits" type="Label" parent="TButtonCredits"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.50415903
-anchor_top = 0.622252
-anchor_right = 0.50415903
-anchor_bottom = 0.622252
-offset_left = -62.494003
-offset_top = -22.026001
-offset_right = 62.505997
-offset_bottom = 21.973999
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("7_n77rl")
-theme_override_font_sizes/font_size = 25
-text = "CRÉDITS"
 metadata/_edit_use_anchors_ = true
 
 [node name="PanelVersion" type="Panel" parent="."]
@@ -300,8 +269,90 @@ volume_db = -2.0
 autoplay = true
 bus = &"Music"
 
-[connection signal="pressed" from="PanelGameMenu/TButtonPlay" to="." method="_on_btn_jouer_pressed"]
+[node name="TButtonTuto" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5440792
+anchor_right = 0.5
+anchor_bottom = 0.5440792
+offset_left = 576.0
+offset_top = -568.6055
+offset_right = 938.0
+offset_bottom = -377.60553
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_5id5m")
+
+[node name="LabelTuto" type="Label" parent="TButtonTuto"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.61776435
+anchor_right = 0.5
+anchor_bottom = 0.6177644
+offset_left = -95.0
+offset_top = -33.492996
+offset_right = 95.0
+offset_bottom = 33.506996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_n77rl")
+theme_override_font_sizes/font_size = 38
+text = "TUTO"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TButtonCredits" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.9140001
+anchor_top = 0.92700005
+anchor_right = 0.9140001
+anchor_bottom = 0.92700005
+offset_left = -119.88013
+offset_top = -63.160034
+offset_right = 119.11987
+offset_bottom = 63.839966
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_kxc1c")
+texture_pressed = ExtResource("4_w7ty5")
+texture_hover = ExtResource("5_7a01j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_5id5m")
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelCredits" type="Label" parent="TButtonCredits"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50415903
+anchor_top = 0.622252
+anchor_right = 0.50415903
+anchor_bottom = 0.622252
+offset_left = -62.494003
+offset_top = -22.026001
+offset_right = 62.505997
+offset_bottom = 21.973999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_n77rl")
+theme_override_font_sizes/font_size = 25
+text = "CRÉDITS"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="PanelGameMenu/TButtonNewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="PanelGameMenu/TButtonContinue" to="." method="_on_t_button_continue_pressed"]
 [connection signal="pressed" from="PanelGameMenu/TButtonOptions" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="PanelGameMenu/TButtonTuto" to="." method="_on_btn_tuto_pressed"]
 [connection signal="pressed" from="PanelGameMenu/TButtonExit" to="." method="_on_btn_quitter_pressed"]
+[connection signal="pressed" from="TButtonTuto" to="." method="_on_btn_tuto_pressed"]
 [connection signal="pressed" from="TButtonCredits" to="." method="_on_btn_credits_pressed"]

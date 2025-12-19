@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://3tp6ftqhs3m5"]
+
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="1_vng8i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1xrb"]
+font = ExtResource("1_vng8i")
+font_size = 21
+
+[node name="NewGameCreation" type="Panel"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.47300002
+anchor_right = 0.5
+anchor_bottom = 0.47300002
+offset_left = -321.0
+offset_top = -145.84003
+offset_right = 314.0
+offset_bottom = 145.15997
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 0.177
+anchor_right = 0.508
+anchor_bottom = 0.177
+offset_left = -137.58002
+offset_top = -27.507
+offset_right = 137.41998
+offset_bottom = 27.493
+text = "Nouvelle Partie"
+label_settings = SubResource("LabelSettings_d1xrb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.261
+anchor_top = 0.48600003
+anchor_right = 0.261
+anchor_bottom = 0.48600003
+offset_left = -148.735
+offset_top = -38.42601
+offset_right = 149.265
+offset_bottom = 38.57399
+text = "Nom de la 
+nouvelle partie :"
+label_settings = SubResource("LabelSettings_d1xrb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEditName" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.716
+anchor_top = 0.469
+anchor_right = 0.716
+anchor_bottom = 0.469
+offset_left = -152.66
+offset_top = -27.479004
+offset_right = 152.34
+offset_bottom = 27.520996
+
+[node name="ButtonContinue" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.846
+anchor_top = 0.82600003
+anchor_right = 0.846
+anchor_bottom = 0.82600003
+offset_left = -81.21002
+offset_top = -31.366013
+offset_right = 81.78998
+offset_bottom = 31.633987
+text = "Continuer"

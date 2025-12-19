@@ -32,12 +32,13 @@ func _on_option_button_pressed() -> void:
 func _on_menu_button_pressed() -> void:
 	get_tree().paused = false
 	
-	var play_scene = get_tree().current_scene	
+	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud")
 	if hud.has_node("Pause"):
 		var pause_menu = hud.get_node("Pause")
 		pause_menu.queue_free() 
-		
+	
+	GameManager.save_game(GlobalScript.get_name_station())
 	get_tree().change_scene_to_file("res://View/main_menu.tscn")
 	
 	

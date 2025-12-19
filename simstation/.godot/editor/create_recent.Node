@@ -1,10 +1,14 @@
-TextureRect
-Label
-TextureButton
 Button
+LineEdit      - Matches the "text" keyword.
+Label
 Panel
-ColorRect
+VBoxContainer
+ScrollContainer
+VScrollBar
 CanvasLayer
+TextureRect
+TextureButton
+ColorRect
 Control
 AudioStreamPlayer
 AudioStreamPlayer2D
