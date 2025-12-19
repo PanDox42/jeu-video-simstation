@@ -21,11 +21,15 @@ func _on_btn_new_game_pressed() -> void:
 
 func _on_continue_new_game_clicked():
 	var config_ui = get_node("NewGameCreation") 
+	
+	GameManager.setup_new_game() 
+	
 	if config_ui:
 		var station_name = config_ui.get_node("LineEditName").text
 		if station_name != "":
 			GlobalScript.set_name_station(station_name)
 	
+	# 2. On change de scène une fois que les données sont propres
 	get_tree().change_scene_to_file("res://view/play.tscn")
 	
 func _on_t_button_continue_pressed():

@@ -1,9 +1,9 @@
+ScrollContainer
 Button
 LineEdit      - Matches the "text" keyword.
 Label
 Panel
 VBoxContainer
-ScrollContainer
 VScrollBar
 CanvasLayer
 TextureRect

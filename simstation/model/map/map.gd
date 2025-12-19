@@ -25,7 +25,7 @@ func spawn_saved_buildings():
 	
 	for id_key in saved_buildings:
 		# On convertit explicitement la String en int pour satisfaire la fonction
-		var id_int = id_key.to_int() 
+		var id_int = int(id_key)
 		var data = saved_buildings[id_key]
 		_create_building_instance(id_int, data)
 		
