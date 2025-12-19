@@ -1,233 +1,321 @@
-# SimStation - Description détaillée du jeu
+# SimStation - Jeu de gestion de station polaire
 
-## 📚 Objectifs pédagogiques
-
-Ce projet SimStation vise à développer plusieurs compétences techniques et transversales :
-
-### Compétences techniques
-- **Maîtrise du moteur Godot** : Apprentissage approfondi de l'environnement de développement Godot 4.x, de son système de scènes et de son langage GDScript
-- **Programmation orientée objet** : Utilisation de structures de données complexes, gestion d'états et d'événements
-- **Développement de systèmes de jeu** : Implémentation de mécaniques de gameplay (construction, gestion de ressources, événements aléatoires)
-- **Graphisme isométrique** : Maîtrise de l'affichage 2D isométrique et de la gestion de grilles
-- **Architecture logicielle** : Séparation Modèle-Vue-Contrôleur (MVC) pour une base de code maintenable
-
-### Compétences en gestion de projet
-- **Planification** : Utilisation d'outils de gestion de projet (GANTT, PERT)
-- **Travail en équipe** : Collaboration au sein d'une équipe de 4 développeurs
-- **Gestion des risques** : Identification et mitigation des risques projet
-- **Respect des délais** : Livraison d'un produit fonctionnel dans un délai contraint de 14 semaines
-
-### Compétences transversales
-- **Résolution de problèmes complexes** : Équilibrage du gameplay, gestion de la complexité technique
-- **Créativité** : Conception de mécaniques de jeu engageantes dans un contexte contraint
-- **Adaptation** : Gestion d'imprévus techniques et ajustement du périmètre fonctionnel
+> **Survivez 20 tours en Antarctique en gérant votre base scientifique**
 
 ---
 
-## 🎮 Description sommaire du jeu
+## Table des matières
 
-### Genre
-**SimStation** est un jeu de **simulation et gestion stratégique** en 2D isométrique.
-
-### Type de gameplay
-- **Tour par tour stratégique** : Chaque tour représente 3 mois de temps de jeu
-- **Gestion de ressources** : Équilibrage entre argent, santé, efficacité et bonheur
-- **Construction et développement** : Placement de bâtiments sur une grille isométrique
-- **Progression par la recherche** : Déblocage de nouvelles technologies et bâtiments
-
-### Contexte
-Le joueur dirige une **station scientifique polaire en Antarctique** et doit assurer la survie et le bien-être de son équipage dans un environnement extrêmement hostile. Le jeu combine la planification à long terme, la gestion de crises et l'adaptation à des événements imprévisibles.
-
----
-
-## 🕹️ Actions du joueur
-
-Le joueur dispose de plusieurs actions pour gérer sa station :
-
-### 1. Construction de bâtiments 🏗️
-- **Placer des bâtiments** sur la grille isométrique de la station
-- **Choisir l'emplacement stratégique** en fonction des besoins et de l'espace disponible
-- **Gérer l'inventaire** des bâtiments disponibles
-
-**Bâtiments disponibles** :
-- **Laboratoire de recherche** : Permet de progresser dans l'arbre technologique
-- **Dortoir** : Améliore le repos et le bien-être de l'équipage (+60 bonheur)
-- **Chaufferie** : Chauffe tous les bâtiments de la station (+60 bonheur)
-- **Hôpital** : Soigne les membres d'équipage malades (+60 bonheur)
-- **Cantine** : Fournit de la nourriture chaude (+70 bonheur) [À débloquer]
-- **Salle de sport** : Améliore la condition physique (+70 bonheur) [À débloquer]
-- **Salle de repos** : Offre un espace de détente (+60 bonheur) [À débloquer]
-- **Observatoire** : Permet des découvertes scientifiques (+50 bonheur) [À débloquer]
-
-### 2. Gestion des achats 💰
-- **Acheter de nouveaux bâtiments** via le système de boutique
-- **Planifier les commandes** : Les livraisons prennent plusieurs mois (délai de livraison)
-- **Gérer le budget** : Argent initial de 3 000 000 unités, dépenses importantes pour chaque bâtiment
-- **Anticiper les besoins futurs** en fonction de l'évolution des statistiques
-
-### 3. Recherche et développement 🔬
-- **Débloquer des technologies** via l'arbre de recherche
-- **Choisir des branches de recherche** en fonction de la stratégie adoptée :
-  - **Branche Infrastructure** : Débloquer salle de sport, cantine, salle de repos
-  - **Branche Science** : Débloquer observatoire et autres avancées scientifiques
-- **Progresser graduellement** dans l'arbre technologique pour accéder à de nouveaux bâtiments et améliorations
-
-### 4. Gestion du temps ⏰
-- **Avancer les tours** : Chaque tour correspond à 3 mois de temps de jeu
-- **Planifier à long terme** : Les décisions d'aujourd'hui ont des conséquences plusieurs tours plus tard
-- **Anticiper les saisons** : Le jeu alterne entre été et hiver austral avec des défis différents
-
-### 5. Prise de décisions stratégiques 🎯
-- **Prioriser les investissements** : Choisir entre santé, bonheur ou efficacité
-- **Réagir aux événements aléatoires** : Tempêtes, pannes, crises psychologiques
-- **Optimiser l'utilisation de l'espace** limité sur la grille de construction
-- **Équilibrer développement et survie** immédiate
-
-### 6. Sauvegarde et gestion des parties 💾
-- **Sauvegarder la progression** pour reprendre ultérieurement
-- **Charger des parties existantes**
-- **Gérer plusieurs profils** de joueurs
+- [Objectifs pédagogiques](#objectifs-pédagogiques)
+  - [Objectifs généraux](#-objectifs-généraux)
+  - [Objectifs détaillés](#-objectifs-détaillés)
+- [Description des fonctionnalités](#description-des-fonctionnalités)
+  - [Actions du joueur](#-actions-du-joueur)
+  - [Logique de jeu](#%EF%B8%8F-logique-de-jeu)
+  - [Interface](#%EF%B8%8F-interface)
+- [Scénario type](#scénario-type)
+- [Contexte scientifique](#contexte-scientifique)
+  - [La station polaire](#-la-station-polaire)
+  - [Défis de l'Antarctique](#%EF%B8%8F-défis-de-lantarctique)
+- [Mécanique de jeu](#mécanique-de-jeu)
 
 ---
 
-## 📊 Informations renvoyées au joueur
+## Objectifs pédagogiques
 
-Le jeu fournit au joueur un ensemble d'indicateurs et de feedbacks pour l'aider dans ses décisions :
+Le jeu fait découvrir **la gestion d'une station scientifique en environnement extrême** et les défis de la survie en Antarctique.
 
-### Indicateurs vitaux (en temps réel)
-Le joueur visualise en permanence 4 statistiques principales :
+### 🕹️ Objectifs généraux
 
-#### 1. 🏥 Santé (0-100)
-- **Définition** : État physique général de l'équipage
-- **Facteurs d'influence** :
-  - Température extérieure (varie de -25°C à -39°C)
-  - Présence et fonctionnement de la chaufferie
-  - Disponibilité de l'hôpital en cas de maladie
-  - Événements catastrophiques (accidents, maladies)
-- **Indication visuelle** : Barre de progression
+- Comprendre la gestion des ressources limitées
+- Appréhender les contraintes de survie en milieu hostile
+- Développer une stratégie à long terme (20 tours = 5 ans)
+- Prioriser entre recherche scientifique et survie
 
-#### 2. ⚙️ Efficacité (0-100)
-- **Définition** : Capacité de la station à fonctionner et à produire
-- **Facteurs d'influence** :
-  - Nombre et type de bâtiments fonctionnels
-  - État de santé et de bonheur de l'équipe
-  - Recherches débloquées
-- **Indication visuelle** : Barre de progression
+### 🔍 Objectifs détaillés
 
-#### 3. 😊 Bonheur (0-100)
-- **Définition** : État psychologique et moral de l'équipage
-- **Facteurs d'influence** :
-  - Qualité des infrastructures (dortoirs, salle de repos, etc.)
-  - Accès aux loisirs et au confort (salle de sport, cantine)
-  - Isolement et conditions climatiques
-  - Événements aléatoires (crises psychologiques)
-- **Indication visuelle** : Barre de progression
+#### 1️⃣ Gestion des ressources
 
-#### 4. 🔬 Science (0-100)
-- **Définition** : Niveau de progression scientifique de la station
-- **Facteurs d'influence** :
-  - Présence de laboratoires de recherche
-  - Recherches en cours et complétées
-  - Efficacité globale de la station
-- **Indication visuelle** : Barre de progression
+- Gérer le budget limité avec sagesse
+- Construire les bâtiments au bon moment
+- Équilibrer chauffage, santé et bonheur
+- Optimiser le ratio infrastructures/recherche
 
-### Informations sur l'environnement 🌡️
-- **Température actuelle** : Affichage en degrés Celsius (varie aléatoirement entre -25°C et -39°C)
-- **Saison** : Indication de la saison actuelle (Été austral / Hiver austral)
-- **Cycle jour/nuit** : Visualisation graphique du moment de la journée
-- **Conditions météorologiques** : Alertes en cas de tempête ou conditions extrêmes
+#### 2️⃣ Recherche et développement
 
-### Informations sur la gestion 💼
-- **Argent disponible** : Montant actuel du budget (initialement 3 000 000)
-- **Inventaire des bâtiments** : Liste des bâtiments possédés mais non encore placés
-- **Bâtiments placés** : Affichage visuel sur la carte avec état (température, santé du bâtiment)
-- **Numéro du tour actuel** : Progression temporelle de la partie
+- Débloquer l'arbre technologique progressivement
+- Prioriser les recherches essentielles
+- Planifier l'expansion de la base
+- Compléter toutes les recherches avant le tour 20
 
-### Informations sur la recherche 🌲
-- **Arbre de recherche** : Visualisation graphique des technologies disponibles et débloquées
-- **Recherches en cours** : Indication de la progression des recherches actives
-- **Recherches débloquées** : Liste des technologies déjà acquises
+#### 3️⃣ Compétences développées
 
-### Interface de boutique 🏪
-- **Bâtiments disponibles à l'achat** avec :
-  - Nom et description du bâtiment
-  - Prix d'achat
-  - Effet sur le bonheur
-  - Délai de livraison estimé
-  - Statut (débloqué ou verrouillé selon la recherche)
+- **Planification stratégique** : anticiper les besoins futurs
+- **Gestion de crise** : réagir aux catastrophes
+- **Prise de décision** : arbitrer entre court et long terme
+- **Optimisation** : maximiser l'efficacité avec des ressources limitées
 
-### Événements et notifications 📢
-- **Messages d'événements aléatoires** : Description textuelle des catastrophes ou événements
-- **Conséquences** : Impact chiffré sur les statistiques (ex: -20 santé, -15 bonheur)
-- **Alertes critiques** : Notification quand un indicateur atteint un seuil dangereux
-
-### Graphiques et historique 📈
-- **Évolution des statistiques** : Graphiques montrant l'évolution des 4 indicateurs au fil des tours
-- **Analyse de performance** : Comparaison entre différentes phases de la partie
-
-### Conditions de victoire/défaite 🏆
-- **Objectif à atteindre** : Survivre un certain nombre de tours
-- **Conditions de défaite** :
-  - Santé de l'équipage tombant à 0
-  - Bonheur atteignant un niveau critique prolongé
-  - Faillite économique (argent insuffisant et station non viable)
-
-### Aide contextuelle ℹ️
-- **Descriptions des bâtiments** : Tooltip avec informations détaillées au survol
-- **Tutoriel intégré** : Guides pour les premières actions
-- **Panneau d'information** : Détails sur les mécaniques de jeu
+> ⚠️ **Survivre ne suffit pas** : il faut aussi prospérer et accomplir la mission scientifique.
 
 ---
 
-## 🎯 Objectif de victoire
+## Description des fonctionnalités
 
-Le joueur doit **maintenir la station opérationnelle et l'équipage en bonne santé pendant un nombre défini de tours** (période à déterminer selon le niveau de difficulté).
+### 🎮 Actions du joueur
 
-### Conditions de victoire
-- Tous les indicateurs restent au-dessus de seuils critiques
-- La station atteint un certain niveau de développement
-- L'équipage survit à la période complète sans abandon
+Le joueur peut :
 
-### Conditions de défaite
-- Un indicateur vital (Santé, Efficacité ou Bonheur) tombe à 0
-- Impossibilité financière de poursuivre les opérations
-- Série d'événements catastrophiques rendant la station inhabitable
+- **Construire** des bâtiments via la boutique (dortoirs, chaufferies, laboratoires...)
+- **Lancer des recherches** dans l'arbre technologique
+- **Placer des bâtiments** sur la carte de la station
+- **Gérer le budget** limité en choisissant les investissements prioritaires
+- **Avancer le temps** tour par tour (1 tour = 3 mois)
+- **Consulter les statistiques** de santé, bonheur et efficacité
+
+### ⚙️ Logique de jeu
+
+#### Système de tours
+- **1 tour = 3 mois** (1 saison en Antarctique)
+- **4 saisons** : Été austral → Automne → Hiver → Printemps
+- Les statistiques évoluent à chaque tour en fonction :
+  - De la température extérieure (-25°C à -80°C)
+  - Du chauffage disponible
+  - Des bâtiments construits
+  - Des catastrophes aléatoires
+
+#### Système de chauffage
+- **1 chaufferie = 3 bâtiments** maximum
+- Sans chauffage : perte de santé progressive
+- Avec 2+ chaufferies : protection optimale et bonus de récupération
+
+#### Système de recherche
+- **7 recherches** à débloquer dans l'arbre
+- Chaque recherche débloque un bâtiment unique
+- Durée variable (1 à 2 tours)
+- Une seule recherche possible à la fois
+
+#### Conditions de victoire
+- ✅ Survivre **20 tours**
+- ✅ Terminer **toutes les recherches** (7/7)
+- ✅ Maintenir **toutes les stats > 40%** (santé, bonheur, efficacité)
+
+#### Conditions de défaite
+- ❌ Une stat atteint **0%** → Défaite immédiate
+- ❌ tour 20 sans remplir les conditions → Défaite
+
+### 🖥️ Interface
+
+L'interface comprend :
+
+- **HUD principal** avec statistiques en temps réel
+- **Boutique** pour acheter des bâtiments
+- **Carte interactive** pour placer les constructions
+- **Arbre de recherche** visuel et interactif
+- **Panneau d'informations** contextuelles
+- **Écran de fin** avec statistiques détaillées
 
 ---
 
-## 🌟 Spécificités du jeu
+## Scénario type
 
-### Système de catastrophes aléatoires
-Le jeu intègre des événements imprévisibles qui diversifient chaque partie :
-- **Tempêtes de neige** : Dommages aux bâtiments, impossibilité de construire
-- **Pannes techniques** : Perte temporaire d'efficacité
-- **Crises psychologiques** : Baisse importante du bonheur
-- **Accidents** : Blessures nécessitant des soins médicaux
+### 🚁 Arrivée à la station (tour 0)
 
-### Cycle jour/nuit
-- Alternance visuelle entre jour et nuit
-- Impact potentiel sur certaines activités et le moral
+Le joueur prend le contrôle d'une station scientifique fraîchement établie en Antarctique. La base dispose de :
+- 1 Laboratoire (déjà construit)
+- 1 Dortoir (déjà construit)
+- 500 000 € de budget initial
 
-### Progression non linéaire
-- Plusieurs stratégies viables (focus sur science, sur confort, équilibré)
-- Rejouabilité grâce à l'aléatoire et aux choix de recherche
+**Mission** : Survivre 5 ans et accomplir le programme scientifique complet.
+
+### ❄️ Premiers tours (tours 1-5)
+
+**Priorités :**
+1. Construire **2 chaufferies** rapidement (protection thermique)
+2. Lancer la première recherche ("Survie Thermique")
+3. Construire un **dortoir supplémentaire** (améliorer le bonheur)
+
+**Défis :**
+- Budget limité : choisir entre chauffage et confort
+- Hiver approche : température de -60°C à -80°C
+- Risque de catastrophes (tempête, panne...)
+
+### 🔬 Phase de développement (tours 6-15)
+
+**Objectifs :**
+1. Débloquer **toutes les recherches**
+2. Construire les bâtiments essentiels :
+   - Hôpital (récupération santé)
+   - Cantine (gros bonus bonheur)
+   - Gymnase (maintien moral)
+3. Maintenir les stats > 40%
+
+**Stratégie recommandée :**
+- Prioriser les bâtiments à **bon rapport bonheur/prix** (Salon de détente, Gymnase)
+- Garder 2-3 chaufferies pour 6-9 bâtiments
+- Avancer méthodiquement dans l'arbre de recherche
+
+### 🏆 Phase finale (tours 16-20)
+
+**Objectif unique** : Maintenir les stats > 40% jusqu'au tour 20
+
+**Attention :**
+- L'hiver austral peut faire chuter drastiquement la santé
+- Les catastrophes deviennent plus fréquentes
+- Le budget est serré : ne pas gaspiller
+
+**Victoire** = Tous les objectifs remplis au tour 20 !
 
 ---
 
-## 🎨 Style graphique
+## Contexte scientifique
 
-- **Vue isométrique 2D** : Permet une vision claire de l'organisation spatiale
-- **Environnement polaire** : Tilesets de neige, glace, rochers
-- **Interface épurée** : Focus sur la lisibilité des informations critiques
-- **Ambiance immersive** : Musiques adaptées (Ori, Dark Souls OST)
+### 🏔️ La station polaire
+
+Une station de recherche en Antarctique est un **environnement extrême** qui nécessite :
+
+#### 🏗️ Infrastructures essentielles
+- **Chaufferies** : seule source de chaleur contre le froid mortel
+- **Dortoirs** : repos et moral de l'équipe
+- **Laboratoire** : mission scientifique principale
+- **Hôpital** : traiter hypothermie et engelures
+
+#### 🔬 Bâtiments de recherche
+- **Observatoire** : profite de la pureté de l'air polaire
+- **Salle de sport** : lutter contre l'atrophie musculaire
+- **Cantine** : stockage alimentaire pour 2 ans
+- **Salon de détente** : simulateur de lumière solaire
+
+### ❄️ Défis de l'Antarctique
+
+#### 🌡️ Températures extrêmes
+- **Été** : -25°C à -40°C
+- **Automne** : -40°C à -55°C
+- **Hiver** : -60°C à -80°C ⚠️ Le plus dangereux !
+- **Printemps** : -45°C à -60°C
+
+#### 🌨️ Catastrophes naturelles
+- Tempêtes de neige (-10% santé, -15% bonheur)
+- Pannes techniques (-20% efficacité)
+- Isolation prolongée (-25% bonheur)
+- Problèmes de communication (-15% bonheur)
+
+#### 👥 Facteur humain
+- **Santé** : affectée par le froid et les conditions de vie
+- **Bonheur** : essentiel pour éviter l'abandon de mission
+- **Efficacité** : calculée automatiquement (60% santé + 40% bonheur)
+
+> ⚠️ **Nuit polaire** : 6 mois de nuit totale pendant l'hiver austral
 
 ---
 
-## 🎵 Audio
+## Mécanique de jeu
 
-- **Musiques d' ambiance** : Créent une atmosphère immersive et contemplative
-- **Effets sonores** : Renforcent le feedback des actions du joueur
+### 📊 Système de statistiques
+
+#### Santé (0-100%)
+**Influencée par :**
+- ➖ Température extérieure (malus constant)
+- ➖ Température intérieure < 18°C (malus si bâtiments froids)
+- ➕ Hôpitaux (+5% par hôpital, max +15%)
+- ➕ Chauffage optimal à 18°C (+2% si ≥2 chaufferies)
+
+**Défaite si ≤ 0%**
+
+#### Bonheur (0-100%)
+**Influencé par :**
+- ➕ Chaque bâtiment donne un bonus (×0.1 de sa valeur)
+  - Observatoire : +10%/tour
+  - Salon de détente : +8%/tour
+  - Gymnase : +7%/tour
+- ➕ Santé > 75% → +5%
+- ➖ Santé < 25% → -10%
+
+**Défaite si ≤ 0%**
+
+#### Efficacité (0-100%)
+**Calculée automatiquement :**
+```
+Efficacité = (Santé × 0.6) + (Bonheur × 0.4)
+```
+
+**Défaite si ≤ 0%**
+
+### 🔥 Système de chauffage
+
+#### Fonctionnement
+```
+1 chaufferie = 3 bâtiments maximum
+Efficacité = min(100%, (chaufferies × 3) / bâtiments)
+```
+
+#### Exemples
+| Chaufferies | Bâtiments | Efficacité | Résultat |
+|-------------|-----------|------------|----------|
+| 1 | 3 | 100% | ✅ Optimal |
+| 1 | 6 | 50% | ⚠️ Insuffisant |
+| 2 | 6 | 100% | ✅ Optimal |
+| 3 | 9 | 100% | ✅ Optimal |
+
+#### Protection contre le froid
+| Chaufferies | Protection | Impact froid |
+|-------------|------------|--------------|
+| 0 | 0% | 100% (×1.0) |
+| 1 | 20% | 80% (×0.8) |
+| 2+ | 70% | 30% (×0.3) ⭐ |
+
+### 🌳 Arbre de recherche
+
+```
+Survie Thermique (1 tour) → Chaufferie Centrale
+    ├─ Meilleur isolation (2 tours)
+    │   ├─ Soutien Médical (2 tours) → Hôpital
+    │   └─ Logistique Alimentaire (2 tours) → Cantine
+    │
+    └─ Méthode Scientifique (2 tours)
+        ├─ Équilibre Psychologique (2 tours) → Gymnase
+        └─ Astronomie Polaire (2 tours) → Observatoire
+```
+
+**Total : 7 recherches sur ~13 tours**
+
+### 💰 Économie
+
+#### Budget initial
+- **500 000 €** au départ
+
+#### Prix des bâtiments
+| Bâtiment | Prix | Bonheur/tour |
+|----------|------|--------------|
+| Salon de détente | 250 000 € | +8% |
+| Gymnase | 350 000 € | +7% |
+| Dortoir | 450 000 € | +4% |
+| Cantine | 600 000 € | +5% |
+| Chaufferie | 750 000 € | +2% |
+| Hôpital | 850 000 € | +6% |
+| Laboratoire | 1 200 000 € | +0.5% |
+| Observatoire | 2 500 000 € | +10% |
+
+**Meilleur rapport qualité/prix** : Salon de détente (32 bonheur/M€)
 
 ---
 
-**SimStation** offre une expérience de gestion stratégique exigeante où chaque décision compte. Le joueur doit faire preuve d'anticipation, de flexibilité et de capacité d'adaptation pour maintenir sa station en vie dans l'un des environnements les plus hostiles de la planète.
+## Conseils stratégiques
+
+### ✅ Stratégie gagnante
+
+1. **tours 1-3** : Construire 2 chaufferies + lancer "Survie Thermique"
+2. **tours 4-8** : Débloquer toutes les recherches niveau 2
+3. **tours 9-15** : Construire tous les bâtiments + finir les recherches
+4. **tours 16-20** : Maintenir les stats > 40% jusqu'à la victoire
+
+### ❌ Pièges à éviter
+
+- ❌ Négliger le chauffage → Mort assurée en hiver
+- ❌ Construire trop de bâtiments sans chaufferies suffisantes
+- ❌ Oublier les hôpitaux → Impossible de récupérer la santé
+- ❌ Ignorer le bonheur → Abandon de mission
+- ❌ Dépenser tout l'argent trop vite → Blocage financier
+
+---
+
+**Bon courage, et que votre équipe survive à l'Antarctique ! 🐧❄️**

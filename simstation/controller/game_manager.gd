@@ -167,3 +167,99 @@ func load_game(slot_name: String):
 		print("Données de la station chargées !")
 	else:
 		print("Erreur de lecture de la sauvegarde.")
+
+## Gestionnaire de fin de partie
+var end_manager = null
+
+func _ready():
+	# Charger et initialiser le gestionnaire de fin
+	var EndManagerScript = load("res://controller/game_end_manager.gd")
+	end_manager = EndManagerScript.new()
+	add_child(end_manager)
+	
+	# Connecter aux signaux
+	end_manager.connect("game_won", _on_game_won)
+	end_manager.connect("game_lost", _on_game_lost)
+	GlobalScript.connect("round_changed", _on_round_changed_check_end)
+
+## Appelé à chaque changement de round pour vérifier les conditions de fin
+func _on_round_changed_check_end():
+	if end_manager:
+		end_manager.check_end_conditions()
+
+## Appelé quand le joueur gagne
+func _on_game_won():
+	_show_game_end_screen(true, "Félicitations ! Vous avez réussi votre mission en Antarctique !")
+
+## Appelé quand le joueur perd
+## @param reason: Raison de la défaite
+func _on_game_lost(reason: String):
+	_show_game_end_screen(false, reason)
+
+## Affiche l'écran de fin de jeu
+## @param is_victory: true si victoire, false si défaite
+## @param message: Message à afficher
+func _show_game_end_screen(is_victory: bool, message: String):
+	# Charger la scène de fin de jeu
+	var end_game_scene = load("res://View/end_game.tscn")
+	var play_scene = get_tree().current_scene
+	
+	# Vérifier que la scène actuelle existe
+	if not is_instance_valid(play_scene):
+		print("ERREUR: play_scene invalide")
+		get_tree().paused = true
+		return
+	
+	var hud = play_scene.get_node("hud")
+	
+	# Vérifier que le HUD existe
+	if not is_instance_valid(hud):
+		print("ERREUR: HUD invalide")
+		get_tree().paused = true
+		return
+	
+	# Supprimer l'ancienne instance si elle existe
+	if hud.has_node("EndGame"):
+		hud.get_node("EndGame").queue_free()
+	
+	# Créer une nouvelle instance
+	var instance = end_game_scene.instantiate()
+	instance.name = "EndGame"
+	hud.add_child(instance)
+	
+	# Attendre que le nœud soit prêt
+	await get_tree().process_frame
+	
+	# Vérifier que l'instance est toujours valide
+	if not is_instance_valid(instance):
+		print("ERREUR: Instance EndGame invalide")
+		get_tree().paused = true
+		return
+	
+	# Définir le titre (VICTOIRE ou DEFAITE)
+	if instance.has_node("TRectBackground/RLabelTitle"):
+		var title_node = instance.get_node("TRectBackground/RLabelTitle")
+		if is_instance_valid(title_node):
+			if is_victory:
+				title_node.text = "[center][font_size=65][color=green]VICTOIRE[/color]"
+			else:
+				title_node.text = "[center][font_size=65][color=red]DEFAITE[/color]"
+	
+	# Créer le texte des statistiques
+	var stats_text = message + "\n\n"
+	stats_text += "[font_size=28]Statistiques finales :\n"
+	stats_text += "  Rounds survécus : " + str(GlobalScript.get_round()) + "/20\n"
+	stats_text += "  Santé : " + str(GlobalScript.get_health()) + "%\n"
+	stats_text += "  Bonheur : " + str(GlobalScript.get_hapiness()) + "%\n"
+	stats_text += "  Efficacité : " + str(GlobalScript.get_efficiency()) + "%\n"
+	stats_text += "  Recherches : " + str(GlobalScript.get_search_unblocked().size()) + "/7\n"
+	stats_text += "  Argent : " + GlobalScript.format_money(GlobalScript.get_money()) + " €"
+	
+	# Définir la description avec les statistiques
+	if instance.has_node("TRectBackground/RLabelDescription"):
+		var desc_node = instance.get_node("TRectBackground/RLabelDescription")
+		if is_instance_valid(desc_node):
+			desc_node.text = "[center][font_size=40][b][color=white]" + stats_text
+	
+	# Pause du jeu
+	get_tree().paused = true

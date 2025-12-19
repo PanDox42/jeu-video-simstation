@@ -43,11 +43,10 @@ const COOLING_SPEED = 1.5
 
 ## Initialisation des statistiques au démarrage
 func _ready() -> void:
-	# Initialisation via les getters du GlobalScript
-	if GlobalScript.get_health() <= 0:
-		GlobalScript.set_health(100)
-		GlobalScript.set_hapiness(100)
-		GlobalScript.set_efficiency(100)
+	# Initialisation via les getters du GlobalScript	
+	# Ne plus reset la santé - laisser game_end_manager gérer la défaite
+	GlobalScript.set_hapiness(100)
+	GlobalScript.set_efficiency(100)
 	
 	update_derived_stats()
 
@@ -151,8 +150,19 @@ func _apply_changes_turn() -> void:
 		if type == "boiler_room": nb_boiler_rooms += 1
 		elif type == "hospital": nb_hospitals += 1
 	
-	# --- 2. LOGIQUE THERMIQUE ---
-	var total_heating_speed = nb_boiler_rooms * HEATING_POWER_PER_BUILDING
+	# --- 2. LOGIQUE THERMIQUE AVEC CAPACITÉ ---
+	# Une chaufferie peut chauffer efficacement 3 bâtiments
+	const BUILDINGS_PER_BOILER = 3
+	var heating_capacity = nb_boiler_rooms * BUILDINGS_PER_BOILER
+	var heating_efficiency = 1.0
+	
+	# Si on a plus de bâtiments que de capacité, réduire l'efficacité
+	if nb_buildings > 0 and heating_capacity > 0:
+		heating_efficiency = min(1.0, float(heating_capacity) / float(nb_buildings))
+	elif nb_boiler_rooms == 0:
+		heating_efficiency = 0.0
+	
+	var total_heating_speed = nb_boiler_rooms * HEATING_POWER_PER_BUILDING * heating_efficiency
 	var sum_temp_int = 0.0
 	
 	for id in buildings_on_map:
