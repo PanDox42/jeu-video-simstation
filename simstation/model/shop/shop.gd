@@ -79,7 +79,7 @@ func initialize(building_name: String):
 	
 	content_description.add_theme_constant_override("separation", 10)
 	
-	rect_desc.texture = preload("res://assets/background/popup_background.png")
+	rect_desc.texture = preload("res://assets/shop/popup_background.png")
 	rect_desc.custom_minimum_size = Vector2(0, 400)
 	rect_desc.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	
