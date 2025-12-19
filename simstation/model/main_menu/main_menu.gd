@@ -19,11 +19,11 @@ var menu_instance = null
 
 func _ready():
 	if not GameManager.has_save_files():
-		$PanelGameMenu/TButtonContinue.disabled = true
-		$PanelGameMenu/TButtonContinue.modulate.a = 0.5
+		$TRectGameMenu/TButtonContinue.disabled = true
+		$TRectGameMenu/TButtonContinue.modulate.a = 0.5
 	else:
-		$PanelGameMenu/TButtonContinue.disabled = false
-		$PanelGameMenu/TButtonContinue.modulate.a = 1.0
+		$TRectGameMenu/TButtonContinue.disabled = false
+		$TRectGameMenu/TButtonContinue.modulate.a = 1.0
 
 
 ## Lance la partie
