@@ -11,14 +11,14 @@
 [node name="Pause" type="CanvasLayer"]
 script = ExtResource("1_m0klm")
 
-[node name="AntiClick" type="Panel" parent="."]
+[node name="PanelAntiClick" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="background" type="TextureRect" parent="."]
+[node name="TRectBackground" type="TextureRect" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -32,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_aicil")
 
-[node name="Pause_text" type="RichTextLabel" parent="background"]
+[node name="RLabelPause" type="RichTextLabel" parent="TRectBackground"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -51,14 +51,14 @@ theme_override_fonts/normal_font = ExtResource("3_jn4bt")
 bbcode_enabled = true
 text = "[center][font_size=65]PAUSE"
 
-[node name="Panel" type="Panel" parent="background"]
+[node name="PanelPlacement" type="Panel" parent="TRectBackground"]
 layout_mode = 0
 offset_left = 620.25
 offset_top = 685.0
 offset_right = 660.25
 offset_bottom = 725.0
 
-[node name="continue_button" type="TextureButton" parent="background/Panel"]
+[node name="ButtonContinue" type="TextureButton" parent="TRectBackground/PanelPlacement"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -78,7 +78,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_3rfc6")
 
-[node name="Label" type="Label" parent="background/Panel/continue_button"]
+[node name="LabelContinue" type="Label" parent="TRectBackground/PanelPlacement/ButtonContinue"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -97,7 +97,7 @@ theme_override_font_sizes/font_size = 38
 text = "CONTINUER"
 metadata/_edit_use_anchors_ = true
 
-[node name="options_button" type="TextureButton" parent="background/Panel"]
+[node name="ButtonSettings" type="TextureButton" parent="TRectBackground/PanelPlacement"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -117,7 +117,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_3rfc6")
 
-[node name="Label" type="Label" parent="background/Panel/options_button"]
+[node name="LabelSettings" type="Label" parent="TRectBackground/PanelPlacement/ButtonSettings"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -135,7 +135,7 @@ theme_override_fonts/font = ExtResource("3_jn4bt")
 theme_override_font_sizes/font_size = 38
 text = "OPTIONS"
 
-[node name="menu_button" type="TextureButton" parent="background/Panel"]
+[node name="ButtonMenu" type="TextureButton" parent="TRectBackground/PanelPlacement"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.325
@@ -155,7 +155,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_3rfc6")
 
-[node name="Label" type="Label" parent="background/Panel/menu_button"]
+[node name="LabelMenu" type="Label" parent="TRectBackground/PanelPlacement/ButtonMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.51000005
@@ -173,6 +173,6 @@ theme_override_fonts/font = ExtResource("3_jn4bt")
 theme_override_font_sizes/font_size = 38
 text = "MENU"
 
-[connection signal="pressed" from="background/Panel/continue_button" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="background/Panel/options_button" to="." method="_on_option_button_pressed"]
-[connection signal="pressed" from="background/Panel/menu_button" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="TRectBackground/PanelPlacement/ButtonContinue" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="TRectBackground/PanelPlacement/ButtonSettings" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="TRectBackground/PanelPlacement/ButtonMenu" to="." method="_on_menu_button_pressed"]

@@ -82,8 +82,8 @@ func has_save_files() -> bool:
 			
 	return false # Aucun fichier trouvé
 	
-func setup_new_game():
-	GlobalScript.set_name_station("")
+func setup_new_game(slot_name: String):
+	GlobalScript.set_name_station(slot_name)
 	GlobalScript.set_money(500000)
 	GlobalScript.set_inventory({"labo": 1, "dormitory": 1, "boiler_room": 1, "canteen": 1, "hospital": 1})
 	GlobalScript.set_stats({

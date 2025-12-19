@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var slot_scene: PackedScene # Glisse SaveSlot.tscn ici dans l'inspecteur
+@export var slot_scene: PackedScene # Glisse save_slot.tscn ici dans l'inspecteur
 @onready var list_container = $PanelGameMenu/ScrollContainer/VBoxContainer
 
 func _ready():
@@ -24,7 +24,7 @@ func refresh_save_list():
 
 func create_slot_button(file_name):
 	# Lire le fichier pour extraire les infos (argent, date)
-	var path = "user://" + file_name
+	var path = "user://%s" % file_name
 	var file = FileAccess.open(path, FileAccess.READ)
 	var data = JSON.parse_string(file.get_as_text())
 	
@@ -43,4 +43,4 @@ func _on_slot_clicked(file_name):
 	get_tree().change_scene_to_file("res://view/play.tscn")
 
 func _on_t_button_retour_pressed():
-	get_tree().change_scene_to_file("res://view/main_menu.tscn")
+	queue_free()

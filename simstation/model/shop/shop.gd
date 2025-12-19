@@ -103,35 +103,6 @@ func initialize(building_name: String):
 	
 	content_description.add_child(description)
 	
-	var health = TextureRect.new()
-	health.texture = preload("res://assets/bar/health_icon.png")
-	health.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	health.custom_minimum_size = Vector2(50, 50)
-	health.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN 
-	health.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	
-	content_description.add_child(health)
-
-	var efficiency = TextureRect.new()
-	efficiency.texture = preload("res://assets/bar/efficiency_icon.png")
-	efficiency.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	efficiency.custom_minimum_size = Vector2(50, 50)
-	efficiency.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN 
-	efficiency.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	
-	content_description.add_child(efficiency)
-
-	
-	var hapiness = TextureRect.new()
-	hapiness.texture = preload("res://assets/bar/happiness_icon.png")
-	hapiness.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-	hapiness.custom_minimum_size = Vector2(50, 50)
-	hapiness.size_flags_horizontal = Control.SIZE_SHRINK_BEGIN 
-	hapiness.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
-	
-	content_description.add_child(hapiness)
-	
-	
 	rect_desc.add_child(content_description)
 	
 	content_description.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 20)
