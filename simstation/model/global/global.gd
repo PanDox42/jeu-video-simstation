@@ -4,9 +4,14 @@ extends Node
 # Global qui sert à stocker les infos du joueur, des stats de la partie, des batiments, 
 # de la population, de la money et du nombre de round de la partie.
 
+var user = {"name":"Martin","time":3}
+
 var camera_enable = true;
 var currently_placing = false;
-var user = {"name":"Martin","time":3}
+
+# Besoin d'être sauvegardé
+var name_station = ""
+var money = 500000
 
 var population = [
 	{"health": 100, "efficiency": 100, "happiness": 50}
@@ -14,8 +19,6 @@ var population = [
 
 var search_unblocked = []
 var research_in_progress = {}
-
-var money = 500000
 
 # ce que le joueur possède
 var inventory = {
@@ -30,7 +33,7 @@ var inventory = {
 }
 
 var buildings_place = {
-	# id : {type, temp, health}
+	# id : {type, position, temp, health}
 }
 
 var buildings_info = {

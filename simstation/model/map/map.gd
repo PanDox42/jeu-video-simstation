@@ -16,7 +16,55 @@ extends Node2D
 @onready var buildings_layer = $NodeBuildings 
 
 func _ready():
+	await get_tree().process_frame
+	spawn_saved_buildings()
 	add_to_group("Map")
+	
+func spawn_saved_buildings():
+	var saved_buildings = GlobalScript.get_buildings_place()
+	
+	for id_key in saved_buildings:
+		# On convertit explicitement la String en int pour satisfaire la fonction
+		var id_int = id_key.to_int() 
+		var data = saved_buildings[id_key]
+		_create_building_instance(id_int, data)
+		
+func _create_building_instance(id: int, data: Dictionary):
+	var type_name = data["type"]
+	var texture_path = "res://assets/buildings/" + type_name + ".png"
+	
+	if not FileAccess.file_exists(texture_path):
+		return
+
+	var tex = load(texture_path)
+	var new_building = Sprite2D.new()
+	new_building.texture = tex
+	
+	# --- LOGIQUE DE POSITION SÉCURISÉE ---
+	var p = data["position"]
+	
+	if p is Dictionary:
+		# Si c'est bien notre nouveau format {x, y}
+		new_building.global_position = Vector2(p["x"], p["y"])
+	elif p is String:
+		# Sécurité pour les vieilles sauvegardes corrompues
+		# On transforme le texte "(x, y)" en vrai Vector2
+		p = p.replace("(", "").replace(")", "").split(",")
+		new_building.global_position = Vector2(float(p[0]), float(p[1]))
+	# -------------------------------------
+
+	# Réglages visuels identiques au placement manuel
+	var target_size = GlobalScript.get_size_building(type_name)
+	var ratio = float(target_size) / tex.get_size().x
+	new_building.scale = Vector2(ratio, ratio)
+	
+	# Ajout au parent correct pour être cliquable
+	buildings_layer.add_child(new_building)
+	new_building.z_index = 2 
+	
+	# Métadonnées
+	new_building.set_meta("id", id)
+	new_building.set_meta("building_type", type_name)
 
 func add_temp_building(node: Sprite2D):
 	buildings_layer.add_child(node)

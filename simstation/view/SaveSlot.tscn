@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://ga33hqgy6ip"]
+
+[ext_resource type="Script" uid="uid://du7nikdo5gb10" path="res://model/main_menu/SaveSlot.gd" id="1_68eaj"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_bb4jq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k7d14"]
+font = ExtResource("2_bb4jq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m8txw"]
+font = ExtResource("2_bb4jq")
+
+[node name="SaveSlot" type="Button"]
+custom_minimum_size = Vector2(300, 100)
+anchors_preset = -1
+anchor_left = 0.081
+anchor_top = 0.05
+anchor_right = 0.081
+anchor_bottom = 0.05
+offset_left = -155.52
+offset_top = -54.0
+offset_right = 156.48
+offset_bottom = 55.0
+script = ExtResource("1_68eaj")
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50200003
+anchor_top = 0.381
+anchor_right = 0.50200003
+anchor_bottom = 0.381
+offset_left = -136.62401
+offset_top = -23.529003
+offset_right = 136.37599
+offset_bottom = 23.470997
+label_settings = SubResource("LabelSettings_k7d14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelDate" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.82600003
+anchor_right = 0.5
+anchor_bottom = 0.82600003
+offset_left = -136.0
+offset_top = -21.034004
+offset_right = 137.0
+offset_bottom = 6.965996
+label_settings = SubResource("LabelSettings_m8txw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

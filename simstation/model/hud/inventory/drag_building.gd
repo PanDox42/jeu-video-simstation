@@ -125,7 +125,7 @@ func place_building():
 		
 		map_ref.validate_building(building_instance)
 		
-		GlobalScript.add_building(building_instance.get_meta("id"), name) 
+		GlobalScript.add_building(building_instance.get_meta("id"), name, building_instance.global_position) 
 		
 		building_instance = null
 		dragging = false

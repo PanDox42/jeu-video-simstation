@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://w4gc0ek1yd11"]
+
+[ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/background.jpg" id="1_cnia1"]
+[ext_resource type="Script" uid="uid://w8wcatkxim13" path="res://model/main_menu/saved_game.gd" id="1_yu648"]
+[ext_resource type="PackedScene" uid="uid://ga33hqgy6ip" path="res://view/SaveSlot.tscn" id="2_qlh42"]
+[ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/game_logo.png" id="2_yu648"]
+[ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="3_qlh42"]
+[ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="4_1ouyr"]
+[ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_3bq86"]
+[ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="6_xe8qe"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="7_hyghl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q6dr"]
+bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 40
+corner_radius_top_right = 40
+corner_radius_bottom_right = 40
+corner_radius_bottom_left = 40
+
+[node name="SavedGame" type="CanvasLayer"]
+script = ExtResource("1_yu648")
+slot_scene = ExtResource("2_qlh42")
+
+[node name="TRectBackground" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_cnia1")
+
+[node name="PanelGameMenu" type="Panel" parent="."]
+anchors_preset = -1
+anchor_left = 0.45
+anchor_top = 0.531
+anchor_right = 0.55
+anchor_bottom = 0.531
+offset_left = -390.0
+offset_top = -329.48004
+offset_right = 390.0
+offset_bottom = 328.51996
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0q6dr")
+metadata/_edit_use_anchors_ = true
+
+[node name="TRectGameLogo" type="TextureRect" parent="PanelGameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.024
+anchor_right = 0.5
+anchor_bottom = -0.024
+offset_left = -375.0
+offset_top = -77.208
+offset_right = -251.33331
+offset_bottom = -51.374664
+scale = Vector2(6, 6)
+texture = ExtResource("2_yu648")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelGameMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = -252.0
+offset_right = 448.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TButtonRetour" type="TextureButton" parent="."]
+anchors_preset = -1
+anchor_left = 0.07700001
+anchor_top = 0.915
+anchor_right = 0.07700001
+anchor_bottom = 0.915
+offset_left = -118.84001
+offset_top = -63.200012
+offset_right = 120.15999
+offset_bottom = 63.799988
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("3_qlh42")
+texture_pressed = ExtResource("4_1ouyr")
+texture_hover = ExtResource("5_3bq86")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_xe8qe")
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelRetour" type="Label" parent="TButtonRetour"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50415903
+anchor_top = 0.622252
+anchor_right = 0.50415903
+anchor_bottom = 0.622252
+offset_left = -62.494003
+offset_top = -22.026001
+offset_right = 62.505997
+offset_bottom = 21.973999
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_hyghl")
+theme_override_font_sizes/font_size = 25
+text = "RETOUR"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="TButtonRetour" to="." method="_on_t_button_retour_pressed"]
