@@ -71,7 +71,7 @@ Récupère une donnée d'environnement spécifique
 
 **Paramètres:**
 
-- `environnement`: Clé de la donnée ("temperature", "season", "night")
+`environnement` : Clé de la donnée ("temperature", "season", "night")
 
 **Retourne:** Valeur de la donnée demandée
 
@@ -87,7 +87,7 @@ Récupère le prix d'achat d'un type de bâtiment
 
 **Paramètres:**
 
-- `name`: Nom du type de bâtiment (ex: "dormitory")
+`name` : Nom du type de bâtiment (ex: "dormitory")
 
 **Retourne:** Prix en crédits
 
@@ -97,7 +97,7 @@ Récupère les informations d'un bâtiment placé sur la carte
 
 **Paramètres:**
 
-- `id`: ID du nœud du bâtiment sur la carte
+`id` : ID du nœud du bâtiment sur la carte
 
 **Retourne:** Dictionnaire {type, temp, health} ou null si introuvable
 
@@ -125,7 +125,7 @@ Vérifie si un type de bâtiment est débloqué
 
 **Paramètres:**
 
-- `building_name`: Nom du type de bâtiment
+`building_name` : Nom du type de bâtiment
 
 **Retourne:** true si débloqué
 
@@ -135,7 +135,7 @@ Récupère le bonus de bonheur d'un type de bâtiment
 
 **Paramètres:**
 
-- `building_name`: Nom du type de bâtiment
+`building_name` : Nom du type de bâtiment
 
 **Retourne:** Valeur du bonus de bonheur
 
@@ -145,7 +145,7 @@ Récupère la description d'un type de bâtiment
 
 **Paramètres:**
 
-- `building_name`: Nom du type de bâtiment
+`building_name` : Nom du type de bâtiment
 
 **Retourne:** Texte de description
 
@@ -155,7 +155,7 @@ Récupère le nom d'affichage d'un type de bâtiment
 
 **Paramètres:**
 
-- `building_name`: Nom du type de bâtiment (clé interne)
+`building_name` : Nom du type de bâtiment (clé interne)
 
 **Retourne:** Nom lisible pour l'interface (ex: "Dortoir")
 
@@ -165,7 +165,7 @@ Récupère le type d'un bâtiment placé via son ID
 
 **Paramètres:**
 
-- `building_id`: ID du bâtiment sur la carte
+`building_id` : ID du bâtiment sur la carte
 
 **Retourne:** Type du bâtiment (ex: "dormitory")
 
@@ -175,7 +175,7 @@ Récupère la consommation énergétique d'un type de bâtiment
 
 **Paramètres:**
 
-- `building_name`: Nom du type de bâtiment
+`building_name` : Nom du type de bâtiment
 
 **Retourne:** Consommation en watts
 
@@ -185,7 +185,7 @@ Récupère la quantité d'un type de bâtiment dans l'inventaire
 
 **Paramètres:**
 
-- `nameBat`: Nom du type de bâtiment
+`nameBat` : Nom du type de bâtiment
 
 **Retourne:** Quantité disponible
 
@@ -219,7 +219,7 @@ Définit la santé moyenne de la station
 
 **Paramètres:**
 
-- `val`: Nouvelle valeur (0-100)
+`val` : Nouvelle valeur (0-100)
 
 ### set_efficiency(val)
 
@@ -227,7 +227,7 @@ Définit l'efficacité moyenne de la station
 
 **Paramètres:**
 
-- `val`: Nouvelle valeur (0-100)
+`val` : Nouvelle valeur (0-100)
 
 ### set_hapiness(val)
 
@@ -235,7 +235,7 @@ Définit le bonheur moyen de la station
 
 **Paramètres:**
 
-- `val`: Nouvelle valeur (0-100)
+`val` : Nouvelle valeur (0-100)
 
 ### set_money(val)
 
@@ -243,7 +243,7 @@ Définit l'argent disponible
 
 **Paramètres:**
 
-- `val`: Nouvelle quantité de crédits
+`val` : Nouvelle quantité de crédits
 
 ### set_camera(val)
 
@@ -251,7 +251,7 @@ Définit l'état d'activation de la caméra
 
 **Paramètres:**
 
-- `val`: true pour activer la caméra
+`val` : true pour activer la caméra
 
 ### set_night_mode(active : bool)
 
@@ -259,7 +259,7 @@ Définit l'activation du mode nuit
 
 **Paramètres:**
 
-- `active`: true pour activer le mode nuit
+`active` : true pour activer le mode nuit
 
 ### set_round(val: int)
 
@@ -267,7 +267,7 @@ Définit le numéro du round actuel
 
 **Paramètres:**
 
-- `val`: Nouveau numéro de round
+`val` : Nouveau numéro de round
 
 ### set_temperature(val: int)
 
@@ -275,7 +275,7 @@ Définit la température extérieure
 
 **Paramètres:**
 
-- `val`: Nouvelle température en °C
+`val` : Nouvelle température en °C
 
 ### set_season(saison : String)
 
@@ -283,7 +283,7 @@ Définit la saison actuelle
 
 **Paramètres:**
 
-- `saison`: Nom de la saison ("Été austral", etc.)
+`saison` : Nom de la saison ("Été austral", etc.)
 
 ### set_currently_placing(placing: bool)
 
@@ -291,7 +291,7 @@ Définit l'état de placement de bâtiment
 
 **Paramètres:**
 
-- `placing`: true si un bâtiment est en cours de placement
+`placing` : true si un bâtiment est en cours de placement
 
 ### set_research_in_progress(search_name, end_round)
 
@@ -299,8 +299,9 @@ Enregistre une recherche en cours avec son round de fin
 
 **Paramètres:**
 
-- `search_name`: Nom de la recherche
-- `end_round`: Numéro du round où elle sera terminée
+`search_name` : Nom de la recherche
+
+`end_round` : Numéro du round où elle sera terminée
 
 ### set_building_unblocked(name: String)
 
@@ -308,7 +309,7 @@ Débloque un type de bâtiment
 
 **Paramètres:**
 
-- `name`: Nom du type de bâtiment à débloquer
+`name` : Nom du type de bâtiment à débloquer
 
 ### add_search_unblocked(search_name)
 
@@ -316,7 +317,7 @@ Ajoute une recherche à la liste des recherches débloquées
 
 **Paramètres:**
 
-- `search_name`: Nom de la recherche à ajouter
+`search_name` : Nom de la recherche à ajouter
 
 ### ass_research_in_progress(search_name)
 
@@ -324,7 +325,7 @@ Ajoute une recherche en cours (DEPRECATED - typo dans le nom)
 
 **Paramètres:**
 
-- `search_name`: Nom de la recherche
+`search_name` : Nom de la recherche
 
 ### add_building(id_node: int, type: String)
 
@@ -332,8 +333,9 @@ Place un nouveau bâtiment sur la carte
 
 **Paramètres:**
 
-- `id_node`: ID du nœud sur la carte
-- `type`: Type du bâtiment (ex: "dormitory")
+`id_node` : ID du nœud sur la carte
+
+`type` : Type du bâtiment (ex: "dormitory")
 
 ### erase_research_in_progress(search_name)
 
@@ -341,7 +343,7 @@ Retire une recherche de la liste des recherches en cours
 
 **Paramètres:**
 
-- `search_name`: Nom de la recherche à retirer
+`search_name` : Nom de la recherche à retirer
 
 ### has_search(name: String) -> bool
 
@@ -349,7 +351,7 @@ Vérifie si une recherche est déjà débloquée
 
 **Paramètres:**
 
-- `name`: Nom de la recherche
+`name` : Nom de la recherche
 
 **Retourne:** true si la recherche est débloquée
 
@@ -360,7 +362,7 @@ Modifie l'argent du joueur (ajoute ou retire)
 
 **Paramètres:**
 
-- `delta`: Montant à ajouter (positif) ou retirer (négatif)
+`delta` : Montant à ajouter (positif) ou retirer (négatif)
 
 ### edit_building(name: String, delta: int) -> void
 
@@ -369,8 +371,9 @@ Modifie la quantité d'un bâtiment dans l'inventaire
 
 **Paramètres:**
 
-- `name`: Type de bâtiment
-- `delta`: Quantité à ajouter (positif) ou retirer (négatif)
+`name` : Type de bâtiment
+
+`delta` : Quantité à ajouter (positif) ou retirer (négatif)
 
 ### update_population_stats(health: float, hapiness: float, efficiency: float) -> void
 
@@ -379,9 +382,11 @@ Met à jour les statistiques de toute la population avec un lerp
 
 **Paramètres:**
 
-- `health`: Valeur cible de santé
-- `hapiness`: Valeur cible de bonheur
-- `efficiency`: Valeur d'efficacité (appliquée directement)
+`health` : Valeur cible de santé
+
+`hapiness` : Valeur cible de bonheur
+
+`efficiency` : Valeur d'efficacité (appliquée directement)
 
 ### format_money(value: int) -> String
 
@@ -389,7 +394,7 @@ Formate un nombre en ajoutant des espaces tous les 3 chiffres
 
 **Paramètres:**
 
-- `value`: Nombre à formater
+`value` : Nombre à formater
 
 **Retourne:** String formaté (ex: "1 234 567")
 
@@ -400,7 +405,7 @@ Le player se supprime automatiquement à la fin du son
 
 **Paramètres:**
 
-- `sound_path`: Chemin vers le fichier audio (ex: "res://sounds/click.ogg")
+`sound_path` : Chemin vers le fichier audio (ex: "res://sounds/click.ogg")
 
 ### generate_fade_display(start_fade_time, end_fade_time, display_time, element)
 
@@ -409,7 +414,10 @@ Utile pour afficher temporairement des notifications
 
 **Paramètres:**
 
-- `start_fade_time`: Durée de l'apparition en secondes
-- `end_fade_time`: Durée de la disparition en secondes
-- `display_time`: Durée d'affichage en secondes
-- `element`: Nœud UI à animer (doit avoir modulate.a)
+`start_fade_time` : Durée de l'apparition en secondes
+
+`end_fade_time` : Durée de la disparition en secondes
+
+`display_time` : Durée d'affichage en secondes
+
+`element` : Nœud UI à animer (doit avoir modulate.a)

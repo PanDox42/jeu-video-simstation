@@ -1,6 +1,6 @@
 # Documentation API - SimStation
 
-*Générée le 2025-12-19 à 00:32*
+*Générée le 2025-12-19 à 00:58*
 
 Cette documentation couvre **24** fichiers GDScript du projet SimStation.
 

@@ -1,6 +1,6 @@
-* [🏠 Accueil](/)
+* [Accueil](/)
 
-* [📖 API Documentation](api/index.md)
+* [API Documentation](api/index.md)
 
 ---
 

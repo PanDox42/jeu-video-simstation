@@ -32,7 +32,7 @@ Définit la carte actuellement active
 
 **Paramètres:**
 
-- `map`: Le nœud de la carte à définir comme carte courante
+`map` : Le nœud de la carte à définir comme carte courante
 
 ### get_current_map() -> Node
 
@@ -46,7 +46,7 @@ Définit le niveau de zoom de la caméra
 
 **Paramètres:**
 
-- `zoom_cam`: Vecteur représentant le niveau de zoom (x, y)
+`zoom_cam` : Vecteur représentant le niveau de zoom (x, y)
 
 ### get_zoom_cam() -> Vector2
 
@@ -66,5 +66,6 @@ Si la scène existe déjà, bascule sa visibilité au lieu de la recharger
 
 **Paramètres:**
 
-- `chemin_scene`: Chemin vers le fichier .tscn à charger
-- `name_node`: Nom à donner au nœud instancié
+`chemin_scene` : Chemin vers le fichier .tscn à charger
+
+`name_node` : Nom à donner au nœud instancié

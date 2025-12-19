@@ -11,23 +11,25 @@
 
   <style>
     :root {
-      /* Palette Antarctique Pro */
-      --theme-color: #3498db;
-      /* Bleu glace */
-      --accent-color: #e67e22;
-      /* Orange sécurité (boutons/alertes) */
-      --bg-dark: #0f172a;
-      /* Bleu nuit profond */
-      --bg-sidebar: #1e293b;
-      /* Bleu ardoise */
-      --text-main: #e2e8f0;
-      /* Blanc cassé */
-      --text-muted: #94a3b8;
+      /* Palette plus claire et lisible */
+      --theme-color: #2563eb;
+      /* Bleu vif */
+      --accent-color: #f97316;
+      /* Orange */
+      --bg-main: #ffffff;
+      /* Blanc pur */
+      --bg-sidebar: #f8fafc;
+      /* Gris très clair */
+      --text-main: #1e293b;
+      /* Gris foncé */
+      --text-muted: #64748b;
+      /* Gris moyen */
+      --border-color: #e2e8f0;
     }
 
-    /* Override global pour un look "App" moderne */
+    /* Override global pour un look propre et lisible */
     body {
-      background-color: var(--bg-dark) !important;
+      background-color: var(--bg-main) !important;
       color: var(--text-main) !important;
       font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     }
@@ -35,8 +37,10 @@
     /* Barre latérale stylisée */
     .sidebar {
       background-color: var(--bg-sidebar) !important;
-      border-right: 1px solid #334155 !important;
+      border-right: 1px solid var(--border-color) !important;
       color: var(--text-main);
+      padding-left: 15px !important;
+      padding-right: 10px !important;
     }
 
     .sidebar-nav li a {
@@ -46,50 +50,67 @@
 
     .sidebar-nav li.active>a {
       color: var(--theme-color) !important;
-      border-right: 2px solid var(--theme-color);
-      background: rgba(52, 152, 219, 0.1);
+      border-right: 3px solid var(--theme-color);
+      background: rgba(37, 99, 235, 0.08);
+      font-weight: 600;
     }
 
     /* Contenu Markdown */
     .markdown-section {
-      background-color: transparent !important;
+      background-color: var(--bg-main) !important;
       max-width: 900px;
       padding-top: 40px;
     }
 
     .markdown-section h1,
     .markdown-section h2 {
-      color: #ffffff !important;
+      color: var(--text-main) !important;
       font-weight: 700;
-      border-bottom: 1px solid #334155;
+      border-bottom: 2px solid var(--border-color);
       padding-bottom: 10px;
+    }
+
+    .markdown-section h3 {
+      color: var(--text-main) !important;
+      font-weight: 600;
     }
 
     .markdown-section blockquote {
       border-left: 4px solid var(--accent-color);
-      background: rgba(230, 126, 34, 0.1);
-      color: #cbd5e1;
+      background: rgba(249, 115, 22, 0.08);
+      color: var(--text-main);
     }
 
-    /* Blocs de Code (Look VS Code) */
+    /* Blocs de Code */
     .markdown-section code {
-      background-color: #1e293b !important;
-      color: #38bdf8 !important;
+      background-color: #f1f5f9 !important;
+      color: #0f172a !important;
       border-radius: 4px;
+      border: 1px solid var(--border-color);
     }
 
     .markdown-section pre {
-      background-color: #111827 !important;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
-      border: 1px solid #334155;
+      background-color: #f8fafc !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border-color);
+    }
+
+    .markdown-section pre code {
+      background-color: transparent !important;
+      border: none;
     }
 
     /* Champ de recherche */
     .search input {
-      background-color: #0f172a !important;
-      border: 1px solid #334155 !important;
-      border-radius: 20px !important;
-      color: white !important;
+      background-color: #ffffff !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 8px !important;
+      color: var(--text-main) !important;
+    }
+
+    .search input:focus {
+      border-color: var(--theme-color) !important;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     /* Scrollbar fine */
@@ -98,11 +119,11 @@
     }
 
     ::-webkit-scrollbar-track {
-      background: var(--bg-dark);
+      background: var(--bg-main);
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #334155;
+      background: #cbd5e1;
       border-radius: 10px;
     }
 
@@ -117,10 +138,10 @@
 
   <script>
     window.$docsify = {
-      name: '<span>❄️ SimStation</span>',
+      name: '<span>SimStation</span>',
       repo: 'https://gitlab.com/votre-username/simstation',
       loadSidebar: true,
-      subMaxLevel: 2,
+      subMaxLevel: 0,
       auto2top: true,
 
       search: {

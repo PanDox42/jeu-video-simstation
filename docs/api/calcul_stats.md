@@ -36,7 +36,7 @@ Appelé par le système de construction
 
 **Paramètres:**
 
-- `building_type_name`: Type du bâtiment construit (ex: "dormitory")
+`building_type_name` : Type du bâtiment construit (ex: "dormitory")
 
 ### update_derived_stats() -> void
 
