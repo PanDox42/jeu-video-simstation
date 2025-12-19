@@ -1,112 +1,102 @@
-# 🐧 SimStation
+# 🐧 SimStation - README Complet
 
-**Jeu de gestion d'une station scientifique en Antarctique**
-
-![Godot](https://img.shields.io/badge/Godot-4.x-blue?logo=godot-engine)
-![License](https://img.shields.io/badge/License-MIT-green)
+Ce document contient les instructions pour les joueurs, les développeurs et les détails techniques du projet.
 
 ---
 
-## 📖 Description
+## 🎮 1. SECTION UTILISATEUR (JOUER)
 
-SimStation est un jeu de gestion où vous dirigez une station de recherche en Antarctique. Survivez 20 tours, gérez vos ressources et accomplissez votre mission scientifique dans l'un des environnements les plus hostiles de la planète.
+Si vous souhaitez simplement tester le jeu sans utiliser l'éditeur Godot :
 
-> 📚 **[Voir la documentation complète](WIKI.md)** pour les détails du gameplay, mécaniques et stratégies.
+### 🪟 Windows
+1. Téléchargez le dossier Windows.
+2. Assurez-vous que le fichier **`SimStation.exe`** et le fichier **`.pck`** sont dans le même répertoire.
+3. Double-cliquez sur `SimStation.exe`.
+
+### 🐧 Linux
+1. Téléchargez les fichiers **`SimStation.sh`** et **`SimStation.x86_64`**.
+2. Ouvrez un terminal dans le dossier et autorisez l'exécution :
+   ```bash
+   chmod +x SimStation.sh
+   ```
+3. Lancez le jeu avec :
+   ```bash
+   ./SimStation.sh
+   ```
 
 ---
 
-## 🎯 Objectif du jeu
+## 🛠️ 2. SECTION DÉVELOPPEUR (SOURCES)
 
-**Gagner** = Survivre 20 tours + Terminer 7 recherches + Stats > 40%
-
-**Perdre** = Une stat atteint 0% OU Tour 20 sans conditions remplies
-
----
-
-## 🚀 Installation
+Pour modifier le projet ou l'étudier, vous devez utiliser le moteur Godot.
 
 ### Prérequis
+- Installez **Godot Engine 4.x**.
 
-- [Godot Engine 4.x](https://godotengine.org/download)
-
-### Lancer le projet
-
-1. Cloner le repository :
+### Récupération
+Clonez le dépôt git :
 ```bash
-git clone https://gitlab.music-music.music/votre-repo/simstation.git
+git clone https://gitlab.example.com/votre-repo/simstation.git
 ```
 
-2. Ouvrir Godot Engine
+### Importation
+1. Ouvrez Godot.
+2. Cliquez sur **Importer**.
+3. Sélectionnez le fichier `project.godot` à la racine du projet.
 
-3. Importer le projet :
-   - Cliquer sur "Import"
-   - Naviguer vers le dossier du projet
-   - Sélectionner `project.godot`
-
-4. Lancer le jeu :
-   - Appuyer sur **F5** ou cliquer sur ▶️
+### Lancement
+Appuyez sur **F5** pour démarrer le projet dans l'éditeur.
 
 ---
 
-## 🗂️ Structure du projet
+## 🎯 3. RÈGLES DU JEU
 
-```
-simstation/
-├── controller/          # Logique de jeu
-│   ├── game_manager.gd     # Gestionnaire principal
-│   └── game_end_manager.gd # Conditions victoire/défaite
-├── model/               # Données et calculs
-│   ├── global/             # État global du jeu
-│   ├── shop/               # Boutique de bâtiments
-│   ├── search_tree/        # Arbre de recherche
-│   └── hud/                # Interface utilisateur
-├── view/                # Scènes et assets visuels
-│   ├── *.tscn              # Scènes Godot
-│   └── end_game.tscn       # Écran de fin
-└── assets/              # Images, sons, polices
-```
+- **Concept** : Dirigez une station en Antarctique.
+- **Victoire** : Survivre 20 tours + Terminer 7 recherches + Statistiques > 40%.
+- **Défaite** : Une statistique tombe à 0% ou les conditions ne sont pas remplies au tour 20.
 
 ---
 
-## 🎮 Commandes
+## ⌨️ 4. COMMANDES
 
 | Action | Commande |
 |--------|----------|
-| Ouvrir la boutique | Clic sur icône boutique |
-| Placer un bâtiment | Clic gauche sur la carte |
-| Ouvrir l'arbre de recherche | Clic sur icône recherche |
-| Passer au tour suivant | Clic sur bouton "Suivant" |
+| Boutique | Clic sur l'icône boutique |
+| Bâtiment | Clic gauche sur la carte |
+| Recherche | Clic sur l'icône recherche |
+| Tour suivant | Clic sur bouton "Suivant" |
 
 ---
 
-## 🔧 Configuration technique
+## 🗂️ 5. STRUCTURE DU PROJET
 
-### Constantes importantes
-
-| Fichier | Constante | Valeur | Description |
-|---------|-----------|--------|-------------|
-| `game_end_manager.gd` | `FINAL_ROUND` | 20 | Tours pour victoire |
-| `game_end_manager.gd` | `MIN_STATS_THRESHOLD` | 40 | Seuil stats victoire |
-| `calcul_stats.gd` | `BUILDINGS_PER_BOILER` | 3 | Capacité chaufferie |
-| `calcul_stats.gd` | `HEATING_POWER_PER_BUILDING` | 9 | Puissance chauffage |
-
----
-
-## 📚 Documentation
-
-| Document | Contenu |
-|----------|---------|
-| [WIKI.md](WIKI.md) | Gameplay, mécaniques, stratégies |
-| [docs/](docs/) | Documentation technique générée |
+```
+simstation/
+├── project.godot         # Fichier projet principal (Godot)
+├── controller/           # Scripts de gestion (GameManager, etc.)
+├── model/                # Logique de données (Shop, HUD, Stats)
+├── view/                 # Scènes visuelles (.tscn)
+└── assets/               # Ressources (Images, sons, fonts)
+```
 
 ---
 
-## 👥 Équipe
+## 🔧 6. CONFIGURATION TECHNIQUE (EQUILIBRAGE)
 
-Projet réalisé dans le cadre du cursus universitaire.
+Les réglages se font via les constantes dans les scripts `.gd` :
+
+| Fichier | Constante | Valeur |
+|---------|-----------|--------|
+| `game_end_manager.gd` | `FINAL_ROUND` | 20 |
+| `game_end_manager.gd` | `MIN_STATS_THRESHOLD` | 40 |
+| `calcul_stats.gd` | `BUILDINGS_PER_BOILER` | 3 |
 
 ---
 
-## 📄 Licence
+## 📝 NOTES COMPLÉMENTAIRES
 
-Ce projet est sous licence MIT.
+- **Exportation** : Pour générer de nouveaux exécutables, utilisez le menu **Projet > Exporter** dans Godot.
+- **Documentation** : Consultez `WIKI.md` pour les stratégies avancées.
+- **Licence** : Ce projet est sous licence MIT.
+
+*Projet réalisé dans le cadre d'un cursus universitaire.*
