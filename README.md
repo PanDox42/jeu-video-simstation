@@ -11,7 +11,7 @@
 
 SimStation est un jeu de gestion où vous dirigez une station de recherche en Antarctique. Survivez 20 tours, gérez vos ressources et accomplissez votre mission scientifique dans l'un des environnements les plus hostiles de la planète.
 
-> 📚 **[Voir la documentation complète](description.md)** pour les détails du gameplay, mécaniques et stratégies.
+> 📚 **[Voir la documentation complète](WIKI.md)** pour les détails du gameplay, mécaniques et stratégies.
 
 ---
 
@@ -96,7 +96,7 @@ simstation/
 
 | Document | Contenu |
 |----------|---------|
-| [description.md](description.md) | Gameplay, mécaniques, stratégies |
+| [WIKI.md](WIKI.md) | Gameplay, mécaniques, stratégies |
 | [docs/](docs/) | Documentation technique générée |
 
 ---
