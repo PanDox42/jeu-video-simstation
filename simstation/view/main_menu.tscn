@@ -27,14 +27,14 @@ texture = ExtResource("2_olpy7")
 
 [node name="TRectGameMenu" type="TextureRect" parent="."]
 anchors_preset = -1
-anchor_left = 0.45
-anchor_top = 0.5161852
-anchor_right = 0.528125
-anchor_bottom = 0.6226667
-offset_left = -385.0
-offset_top = -349.48004
-offset_right = 395.0
-offset_bottom = 308.51996
+anchor_left = 0.49600002
+anchor_top = 0.55
+anchor_right = 0.49600002
+anchor_bottom = 0.55
+offset_left = -465.32007
+offset_top = -386.0
+offset_right = 464.67993
+offset_bottom = 387.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_olpy7")

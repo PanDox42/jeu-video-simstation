@@ -9,7 +9,7 @@ func setup(file_name, money, date):
 	$LabelName.text = file_name
 	
 # %02d signifie : un nombre entier sur 2 chiffres, avec un zéro au début si besoin.
-	$LabelDate.text = "Date:  %02d/%02d/%d  %02d:%02d:%02d" % [
+	$LabelDate.text = "Date :  %02d/%02d/%d  %02d:%02d:%02d" % [
 		date.day, 
 		date.month, 
 		date.year, 

@@ -6,21 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/game_logo.png" id="2_yu648"]
 [ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="3_qlh42"]
 [ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="4_1ouyr"]
+[ext_resource type="Texture2D" uid="uid://blnpng8q1bl1s" path="res://assets/menu_pictures/panel_background.png" id="4_3bq86"]
 [ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_3bq86"]
 [ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="6_xe8qe"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="7_hyghl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q6dr"]
-bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
 
 [node name="SavedGame" type="CanvasLayer"]
 script = ExtResource("1_yu648")
@@ -35,86 +24,6 @@ offset_right = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_cnia1")
-
-[node name="PanelGameMenu" type="Panel" parent="."]
-anchors_preset = -1
-anchor_left = 0.45
-anchor_top = 0.531
-anchor_right = 0.55
-anchor_bottom = 0.531
-offset_left = -390.0
-offset_top = -329.48004
-offset_right = 390.0
-offset_bottom = 427.51996
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0q6dr")
-metadata/_edit_use_anchors_ = true
-
-[node name="TRectGameLogo" type="TextureRect" parent="PanelGameMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = -0.024
-anchor_right = 0.5
-anchor_bottom = -0.024
-offset_left = -375.0
-offset_top = -77.208
-offset_right = -251.33331
-offset_bottom = -51.374664
-scale = Vector2(6, 6)
-texture = ExtResource("2_yu648")
-metadata/_edit_use_anchors_ = true
-
-[node name="RLabelSave" type="RichTextLabel" parent="PanelGameMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.172
-anchor_right = 0.5
-anchor_bottom = 0.172
-offset_left = -383.90802
-offset_top = -59.20401
-offset_right = 383.90802
-offset_bottom = 59.79599
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/default_color = Color(0.9519108, 0.8246548, 0, 1)
-theme_override_fonts/normal_font = ExtResource("7_hyghl")
-bbcode_enabled = true
-text = "[center][font_size=64]SAUVEGARDES"
-
-[node name="CRectSeparator" type="ColorRect" parent="PanelGameMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.223
-anchor_right = 0.5
-anchor_bottom = 0.223
-offset_left = -431.5
-offset_top = -2.3110046
-offset_right = 431.5
-offset_bottom = -0.31100464
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PanelGameMenu"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.503
-anchor_top = 0.54300004
-anchor_right = 0.503
-anchor_bottom = 0.54300004
-offset_left = -457.91602
-offset_top = -229.05103
-offset_right = 457.08398
-offset_bottom = 334.94897
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelGameMenu/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_constants/separation = 10
 
 [node name="TButtonRetour" type="TextureButton" parent="."]
 anchors_preset = -1
@@ -154,6 +63,86 @@ theme_override_fonts/font = ExtResource("7_hyghl")
 theme_override_font_sizes/font_size = 25
 text = "RETOUR"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TRectGameMenu" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.49600002
+anchor_top = 0.55
+anchor_right = 0.49600002
+anchor_bottom = 0.55
+offset_left = -465.32007
+offset_top = -386.0
+offset_right = 464.67993
+offset_bottom = 387.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3bq86")
+metadata/_edit_use_anchors_ = true
+
+[node name="RLabelSave" type="RichTextLabel" parent="TRectGameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.172
+anchor_right = 0.5
+anchor_bottom = 0.172
+offset_left = -375.90802
+offset_top = -49.95601
+offset_right = 391.90802
+offset_bottom = 69.04399
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.9519108, 0.8246548, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_hyghl")
+bbcode_enabled = true
+text = "[center][font_size=64]SAUVEGARDES"
+
+[node name="CRectSeparator" type="ColorRect" parent="TRectGameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.27
+anchor_right = 0.5
+anchor_bottom = 0.27
+offset_left = -392.75
+offset_top = -25.960007
+offset_right = 392.75
+offset_bottom = -22.460007
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TRectGameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.609
+anchor_right = 0.499
+anchor_bottom = 0.609
+offset_left = -430.07
+offset_top = -270.75702
+offset_right = 430.93
+offset_bottom = 271.24298
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TRectGameMenu/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="TRectGameLogo" type="TextureRect" parent="TRectGameMenu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.024
+anchor_right = 0.5
+anchor_bottom = -0.024
+offset_left = -375.0
+offset_top = -77.208
+offset_right = -251.33331
+offset_bottom = -51.374664
+scale = Vector2(6, 6)
+texture = ExtResource("2_yu648")
 metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="TButtonRetour" to="." method="_on_t_button_retour_pressed"]
