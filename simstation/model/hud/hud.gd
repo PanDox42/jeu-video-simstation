@@ -76,7 +76,7 @@ const DISASTER_DISPLAY_SOUND = "res://assets/sounds/hud/disaster_display.mp3"
 
 
 ## Texture de fond avec inventaire visible
-const BACKGROUND_TEXTURE_WITH = preload("res://assets/hud/hud_border/border.png"))
+const BACKGROUND_TEXTURE_WITH = preload("res://assets/hud/hud_border/border.png")
 
 ## Texture de fond sans inventaire
 const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/hud/hud_border/border_without_inventory.png")

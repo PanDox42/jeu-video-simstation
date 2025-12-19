@@ -25,7 +25,7 @@ func _ready():
 		$PanelGameMenu/TButtonContinue.disabled = false
 		$PanelGameMenu/TButtonContinue.modulate.a = 1.0
 
--
+
 ## Lance la partie
 ## Charge la scène de jeu principale
 func _on_btn_jouer_pressed() -> void:
@@ -85,4 +85,3 @@ func _on_btn_tuto_pressed():
 	var tuto_instance = tuto_scene.instantiate()
 	
 	add_child(tuto_instance)
-

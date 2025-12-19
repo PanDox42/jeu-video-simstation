@@ -169,10 +169,6 @@ func get_search_unblocked() -> Array: return Global.search_unblocked
 ## Récupère l'état de placement de bâtiment
 ## @return: true si un bâtiment est en cours de placement
 func get_currently_placing(): return Global.currently_placing
-func get_building_display_name(building_name): return Global.buildings_info[building_name][2]
-func get_building_false_name_by_id(building_id): return Global.buildings_place[building_id][0]
-
-func get_size_building(building_name): return Global.buildings_info[building_name][5]
 
 
 func get_save_data():
@@ -285,7 +281,7 @@ func set_batiment_info(newBatInfo):
 ## Débloque un type de bâtiment
 ## @param name: Nom du type de bâtiment à débloquer
 func set_building_unblocked(name: String):
-    Global.buildings_info[name][3] = true
+	Global.buildings_info[name][3] = true
 
 
 # === FONCTIONS D'AJOUT ===
