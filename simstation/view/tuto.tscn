@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dtot0gisi5vyy"]
 
-[ext_resource type="Script" uid="uid://dcqycusxc035r" path="res://model/main_menu/tuto.gd" id="1_463a4"]
+[ext_resource type="Script" uid="uid://dcqycusxc035r" path="res://model/main_menu/tutorial.gd" id="1_463a4"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_p6g3g"]
 [ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="3_ns7xi"]
 [ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="4_17x04"]
@@ -19,7 +19,7 @@ font = ExtResource("2_p6g3g")
 font_size = 23
 font_color = Color(0, 0, 0, 1)
 
-[node name="Tuto" type="CanvasLayer"]
+[node name="Tutorial" type="CanvasLayer"]
 script = ExtResource("1_463a4")
 
 [node name="TRectDisplayImage" type="TextureRect" parent="."]

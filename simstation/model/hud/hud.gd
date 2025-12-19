@@ -59,6 +59,15 @@ extends CanvasLayer
 ## Label affichant le temps de cooldown
 @onready var lbl_cooldown = $BorderContainer/TButtonNextRound/RLabelCooldown
 
+## Label affichant la santé en pourcent
+@onready var lbl_health = $BorderContainer/PanelTopBar/HBoxStateBar/SpriteHealthBarEmpty/RLabelHealth
+
+## Label affichant l'efficacité en pourcent
+@onready var lbl_efficiency = $BorderContainer/PanelTopBar/HBoxStateBar/SpriteEfficiencyBarEmpty/RLabelEfficiency
+
+## Label affichant le bonheur en pourcent
+@onready var lbl_hapiness = $BorderContainer/PanelTopBar/HBoxStateBar/SpriteHappinessBarEmpty/RLabelHappiness
+
 ## Indique si le bouton est en cooldown
 @onready var btn_next_round_reload = true
 
@@ -88,6 +97,7 @@ func _ready():
 	panel_chart_stats.hide()
 	_update_month()
 	_update_season()
+	_update_label()
 	display_night_filter(GlobalScript.get_night_mode())
 	_update_temperature()
 	_on_money_changed(GlobalScript.get_money())
@@ -106,6 +116,11 @@ func _update_season():
 ## Met à jour l'affichage de la température
 func _update_temperature():
 	label_temperature.text = "[center][font_size=24]%d C°" % GlobalScript.get_environnement("temperature")
+	
+func _update_label():
+	lbl_health.text = "[center][font_size=8]Santé - " + str(GlobalScript.get_health()) + "%"
+	lbl_efficiency.text = "[center][font_size=8]Efficacité - " + str(GlobalScript.get_efficiency()) + "%"
+	lbl_hapiness.text = "[center][font_size=8]Bonheur -  " + str(GlobalScript.get_hapiness()) + "%"
 
 ## Met à jour l'affichage de l'argent
 ## @param new_value: Nouvelle valeur de l'argent
@@ -133,6 +148,7 @@ func _on_next_round_pressed():
 	CalculStats.next_round()
 	display_next_round()
 	_update_temperature()
+	_update_label()
 	_update_night_mode()
 	
 	btn_next_round_start_cooldown()

@@ -17,11 +17,11 @@ extends Node
 ## - seasonal_depression: Dépression saisonnière (3%), impact moral fort (-2/-10/-5)
 ## - avalanche: Événement rare (1%), impact critique partout (-12/-12/-12)
 var disasters_available = {
-	"blizzard": [-3, -2, -2, 8, "Tempête de neige", "Un blizzard léger souffle sur la station. Les sorties sont limitées."],
-	"electrical_breakdown": [-2, -3, -8, 5, "Panne électrique", "Un court-circuit ralentit les machines. Le moral baisse légèrement."],
-	"winter_flu": [-7, -4, -2, 4, "Grippe hivernale", "Quelques colons toussent. L'infirmerie est sollicitée."],
-	"seasonal_depression": [-2, -10, -5, 3, "Dépression saisonnière", "Le manque de soleil pèse sur le moral de l'équipe."],
-	"avalanche": [-12, -12, -12, 1, "Avalanche", "Une avalanche a secoué la base. Des réparations sont nécessaires !"]
+	"blizzard": [-3, -2, -2, 15, "Tempête de neige", "Un blizzard léger souffle sur la station. Les sorties sont limitées."],
+	"electrical_breakdown": [-2, -3, -8, 11, "Panne électrique", "Un court-circuit ralentit les machines. Le moral baisse légèrement."],
+	"winter_flu": [-7, -4, -2, 8, "Grippe hivernale", "Quelques colons toussent. L'infirmerie est sollicitée."],
+	"seasonal_depression": [-2, -10, -5, 5, "Dépression saisonnière", "Le manque de soleil pèse sur le moral de l'équipe."],
+	"avalanche": [-12, -12, -12, 2, "Avalanche", "Une avalanche a secoué la base. Des réparations sont nécessaires !"]
 }
 
 ## Stocke la catastrophe actuellement active (null si aucune)

@@ -35,23 +35,15 @@ func _on_btn_new_game_pressed() -> void:
 	var new_game_config = NEW_GAME_CREATION.instantiate()
 	add_child(new_game_config)
 
-	new_game_config.get_node("ButtonContinue").pressed.connect(_on_continue_new_game_clicked)
-
-func _on_continue_new_game_clicked():
-	var config_ui = get_node("NewGameCreation")
-
-	GameManager.setup_new_game()
-
-	if config_ui:
-		var station_name = config_ui.get_node("LineEditName").text
-		if station_name != "":
-			GlobalScript.set_name_station(station_name)
-
-	# 2. On change de scène une fois que les données sont propres
-	get_tree().change_scene_to_file("res://view/play.tscn")
-
 func _on_t_button_continue_pressed():
-	get_tree().change_scene_to_file("res://view/saved_game.tscn")
+	# 1. Charger la scène
+	var saved_game_scene = load("res://view/saved_game.tscn")
+
+	# 2. Créer une instance de cette scène
+	var saved_game_instance = saved_game_scene.instantiate()
+
+	# 3. L'ajouter à l'arbre de scène actuel
+	add_child(saved_game_instance)
 
 ## Ouvre le menu des options
 ## Instancie ou bascule la visibilité du menu settings

@@ -98,7 +98,7 @@ var buildings_info = {
 	"rest_room": [80, "Zone de détente avec simulateur de lumière solaire.", "Salon de détente", false, 250000, 256],
 
 	# --- Haute Technologie ---
-	"observatory": [100, "Télescope infrarouge profitant de la pureté de l'air polaire.", "Observatoire", false, 2500000, 384],
+	"observatory": [80, "Télescope infrarouge profitant de la pureté de l'air polaire.", "Observatoire", false, 2500000, 384],
 }
 
 # === STATISTIQUES GLOBALES ===
@@ -129,5 +129,5 @@ var environnement = {
 # === TEMPS ===
 
 ## Numéro du round actuel (chaque round = 3 mois dans le jeu)
-## Les saisons changent tous les rounds : 0=Été, 1=Automne, 2=Hiver, 3=Printemps
+## Les saisons changent tous les rounds
 var round = 0

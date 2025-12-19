@@ -82,8 +82,8 @@ func has_save_files() -> bool:
 			
 	return false # Aucun fichier trouvé
 	
-func setup_new_game():
-	GlobalScript.set_name_station("")
+func setup_new_game(slot_name: String):
+	GlobalScript.set_name_station(slot_name)
 	GlobalScript.set_money(500000)
 	GlobalScript.set_inventory({"labo": 1, "dormitory": 1, "boiler_room": 1, "canteen": 1, "hospital": 1, "gym": 0, "observatory": 0})
 	GlobalScript.set_stats({
@@ -130,7 +130,7 @@ func get_latest_save_file() -> String:
 		
 		while file_name != "":
 			if not dir.current_is_dir() and file_name.ends_with(".json"):
-				var full_path = "user://" + file_name
+				var full_path = "user://%s" % file_name
 				# On récupère l'heure de modification (en secondes)
 				var modification_time = FileAccess.get_modified_time(full_path)
 				
@@ -145,7 +145,7 @@ func get_latest_save_file() -> String:
 	return latest_file
 	
 func load_game(slot_name: String):
-	var path = "user://" + slot_name + ".json"
+	var path = "user://%s.json" % slot_name
 	if not FileAccess.file_exists(path):
 		print("Aucune sauvegarde trouvée.")
 		return

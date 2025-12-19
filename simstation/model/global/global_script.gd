@@ -269,14 +269,14 @@ func set_round(round):
 func set_search_unblocked(unblocked):
 	Global.search_unblocked = unblocked
 
-func set_name_station(newNameStation):
-	Global.name_station = newNameStation
+func set_name_station(new_name_station):
+	Global.name_station = new_name_station
 
-func set_batiment_place(newBatPlace):
-	Global.buildings_place = newBatPlace
+func set_batiment_place(new_bat_place):
+	Global.buildings_place = new_bat_place
 
-func set_batiment_info(newBatInfo):
-	Global.buildings_info = newBatInfo
+func set_batiment_info(new_bat_info):
+	Global.buildings_info = new_bat_info
 
 ## Débloque un type de bâtiment
 ## @param name: Nom du type de bâtiment à débloquer

@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://ga33hqgy6ip"]
+
+[ext_resource type="Script" uid="uid://du7nikdo5gb10" path="res://model/main_menu/save_slot.gd" id="1_68eaj"]
+[ext_resource type="Texture2D" uid="uid://dtnaiveapy7ir" path="res://assets/menu_pictures/save/save_button.png" id="1_kelsj"]
+[ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="2_bb4jq"]
+[ext_resource type="Texture2D" uid="uid://cmfxmvnxvrcod" path="res://assets/menu_pictures/save/save_button_click.png" id="2_rf1tr"]
+[ext_resource type="Texture2D" uid="uid://jct78sl6mwpq" path="res://assets/menu_pictures/save/save_button_hover.png" id="2_tdjv5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k7d14"]
+font = ExtResource("2_bb4jq")
+
+[sub_resource type="LabelSettings" id="LabelSettings_m8txw"]
+font = ExtResource("2_bb4jq")
+
+[node name="TButtonSaveSlot" type="TextureButton"]
+custom_minimum_size = Vector2(430, 130)
+anchors_preset = -1
+anchor_left = 0.112
+anchor_top = 0.060000002
+anchor_right = 0.112
+anchor_bottom = 0.060000002
+offset_left = -215.04001
+offset_top = -64.8
+offset_right = 84.95999
+offset_bottom = 44.199997
+size_flags_horizontal = 4
+texture_normal = ExtResource("1_kelsj")
+texture_pressed = ExtResource("2_rf1tr")
+texture_hover = ExtResource("2_tdjv5")
+stretch_mode = 0
+script = ExtResource("1_68eaj")
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50200003
+anchor_top = 0.381
+anchor_right = 0.50200003
+anchor_bottom = 0.381
+offset_left = -136.62401
+offset_top = -23.529003
+offset_right = 136.37599
+offset_bottom = 23.470997
+label_settings = SubResource("LabelSettings_k7d14")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelDate" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.82600003
+anchor_right = 0.5
+anchor_bottom = 0.82600003
+offset_left = -136.0
+offset_top = -21.034004
+offset_right = 137.0
+offset_bottom = 6.965996
+label_settings = SubResource("LabelSettings_m8txw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

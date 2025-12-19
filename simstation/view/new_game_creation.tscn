@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://3tp6ftqhs3m5"]
+[gd_scene load_steps=4 format=3 uid="uid://3tp6ftqhs3m5"]
 
+[ext_resource type="Script" uid="uid://biw7m2l7fw444" path="res://model/main_menu/new_game.gd" id="1_d1xrb"]
+[ext_resource type="Texture2D" uid="uid://re2mk5w8ha6v" path="res://assets/menu_pictures/new_game/new_game_background.png" id="1_nm5dq"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="1_vng8i"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_d1xrb"]
-font = ExtResource("1_vng8i")
-font_size = 21
-
-[node name="NewGameCreation" type="Panel"]
+[node name="NewGameCreation" type="TextureRect"]
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.47300002
@@ -16,61 +14,117 @@ offset_left = -321.0
 offset_top = -145.84003
 offset_right = 314.0
 offset_bottom = 145.15997
+texture = ExtResource("1_nm5dq")
+script = ExtResource("1_d1xrb")
 
-[node name="Title" type="Label" parent="."]
+[node name="RLabelTitle" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.508
-anchor_top = 0.177
-anchor_right = 0.508
-anchor_bottom = 0.177
-offset_left = -137.58002
-offset_top = -27.507
-offset_right = 137.41998
-offset_bottom = 27.493
-text = "Nouvelle Partie"
-label_settings = SubResource("LabelSettings_d1xrb")
-horizontal_alignment = 1
-vertical_alignment = 1
+anchor_left = 0.5
+anchor_top = 0.21200001
+anchor_right = 0.5
+anchor_bottom = 0.21200001
+offset_left = -195.602
+offset_top = -29.692005
+offset_right = 195.60199
+offset_bottom = 29.460003
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.9519108, 0.8246548, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_vng8i")
+bbcode_enabled = true
+text = "[center][font_size=32]NOUVELLE PARTIE"
 
-[node name="LabelName" type="Label" parent="."]
+[node name="CRectSeparator" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.261
-anchor_top = 0.48600003
-anchor_right = 0.261
-anchor_bottom = 0.48600003
-offset_left = -148.735
-offset_top = -38.42601
-offset_right = 149.265
-offset_bottom = 38.57399
-text = "Nom de la 
+anchor_left = 0.5
+anchor_top = 0.23500001
+anchor_right = 0.5
+anchor_bottom = 0.23500001
+offset_left = -263.5
+offset_top = 14.114998
+offset_right = 263.5
+offset_bottom = 16.114998
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RLabelName" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.252
+anchor_top = 0.5
+anchor_right = 0.252
+anchor_bottom = 0.5
+offset_left = -168.02
+offset_top = -41.5
+offset_right = 168.18398
+offset_bottom = 44.5
+grow_horizontal = 2
+theme_override_fonts/normal_font = ExtResource("1_vng8i")
+bbcode_enabled = true
+text = "[center][font_size=24]Nom de la
 nouvelle partie :"
-label_settings = SubResource("LabelSettings_d1xrb")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="LineEditName" type="LineEdit" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.716
-anchor_top = 0.469
-anchor_right = 0.716
-anchor_bottom = 0.469
-offset_left = -152.66
-offset_top = -27.479004
-offset_right = 152.34
-offset_bottom = 27.520996
+anchor_left = 0.70900005
+anchor_top = 0.497
+anchor_right = 0.70900005
+anchor_bottom = 0.497
+offset_left = -134.21503
+offset_top = -27.626999
+offset_right = 133.78497
+offset_bottom = 27.373001
+theme_override_fonts/font = ExtResource("1_vng8i")
+placeholder_text = "Saisir le nom de la partie"
+alignment = 1
 
 [node name="ButtonContinue" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.846
-anchor_top = 0.82600003
-anchor_right = 0.846
-anchor_bottom = 0.82600003
-offset_left = -81.21002
-offset_top = -31.366013
-offset_right = 81.78998
-offset_bottom = 31.633987
+anchor_left = 0.809
+anchor_top = 0.804
+anchor_right = 0.809
+anchor_bottom = 0.804
+offset_left = -81.71503
+offset_top = -24.964005
+offset_right = 81.28497
+offset_bottom = 25.035995
+theme_override_fonts/font = ExtResource("1_vng8i")
 text = "Continuer"
+
+[node name="ButtonExit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.194
+anchor_top = 0.804
+anchor_right = 0.194
+anchor_bottom = 0.804
+offset_left = -81.19
+offset_top = -24.964005
+offset_right = 81.81
+offset_bottom = 25.035995
+theme_override_fonts/font = ExtResource("1_vng8i")
+text = "Annuler"
+
+[node name="RLabelAlreadyUsed" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.70900005
+anchor_top = 0.66300005
+anchor_right = 0.70900005
+anchor_bottom = 0.66300005
+offset_left = -128.21503
+offset_top = -16.933014
+offset_right = 127.78497
+offset_bottom = 17.066986
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.7882353, 0.45882353, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_vng8i")
+bbcode_enabled = true
+text = "[center][font_size=16]Nom déjà utilisé ou vide"
+
+[connection signal="pressed" from="ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="pressed" from="ButtonExit" to="." method="_on_button_exit_pressed"]
