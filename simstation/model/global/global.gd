@@ -130,4 +130,4 @@ var environnement = {
 
 ## Numéro du round actuel (chaque round = 3 mois dans le jeu)
 ## Les saisons changent tous les rounds
-var round = 0
+var tours = 0

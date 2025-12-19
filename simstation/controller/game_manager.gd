@@ -62,11 +62,12 @@ func save_game(slot_name: String):
 	var file = FileAccess.open(path, FileAccess.WRITE)
 	if file:
 		var data = GlobalScript.get_save_data()
-		data["slot_name"] = slot_name # On stocke le nom à l'intérieur
-		data["save_date"] = Time.get_datetime_dict_from_system() # Pour l'affichage
+		data["slot_name"] = slot_name 
+		data["save_date"] = Time.get_datetime_dict_from_system()
 		
 		file.store_string(JSON.stringify(data))
-		print("Sauvegardé dans : ", path)
+		file.close() 
+		print("Sauvegardé avec succès dans : ", path)
 		
 func has_save_files() -> bool:
 	var dir = DirAccess.open("user://")
@@ -85,7 +86,7 @@ func has_save_files() -> bool:
 func setup_new_game(slot_name: String):
 	GlobalScript.set_name_station(slot_name)
 	GlobalScript.set_money(500000)
-	GlobalScript.set_inventory({"labo": 1, "dormitory": 1, "boiler_room": 1, "canteen": 1, "hospital": 1, "gym": 0, "observatory": 0})
+	GlobalScript.set_inventory({"labo": 1, "dormitory": 1, "boiler_room": 0, "canteen": 0, "hospital": 0, "gym": 0, "observatory": 0})
 	GlobalScript.set_stats({
 		"health": 50,
 		"efficiency": 50,

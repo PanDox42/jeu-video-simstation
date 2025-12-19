@@ -65,7 +65,7 @@ func get_camera() -> bool: return Global.camera_enable
 
 ## Récupère le numéro du round actuel
 ## @return: Numéro du round (chaque round = 3 mois)
-func get_round() -> int: return Global.round
+func get_round() -> int: return Global.tours
 
 ## Récupère la température extérieure actuelle
 ## @return: Température en °C (négatif)
@@ -179,7 +179,7 @@ func get_save_data():
 		"inventory": Global.inventory,
 		"stats": Global.stats,
 		"environment": Global.environnement,
-		"round": Global.round,
+		"round": Global.tours,
 		"unblocked": Global.search_unblocked,
 		"bat_info": Global.buildings_info,
 		"bat_place": {} # On le laisse vide pour le remplir proprement après
@@ -264,7 +264,7 @@ func set_environement(environment):
 	Global.environnement = environment
 
 func set_round(round):
-	Global.round = round
+	Global.tours = round
 
 func set_search_unblocked(unblocked):
 	Global.search_unblocked = unblocked
