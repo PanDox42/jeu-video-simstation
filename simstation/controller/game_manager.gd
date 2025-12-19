@@ -74,7 +74,7 @@ func setup_new_game():
 		"season": "Été austral"
 	})
 	GlobalScript.set_round(0)
-	GlobalScript.set_search_unblocked({})
+	GlobalScript.set_search_unblocked([])
 	GlobalScript.set_batiment_place({})
 	GlobalScript.set_batiment_info({
 		# Index : [ Bonheur, Description, Nom, Débloqué, Prix (Crédits), Consommation/Énergie ]
