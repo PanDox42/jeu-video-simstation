@@ -59,36 +59,50 @@ func _ready():
 
 	# NIVEAU 1 : La Racine (Vital)
 	# Point de départ unique de la station.
+	 # --- ARBRE DE DÉVELOPPEMENT DE LA STATION ---
+
+
+	# NIVEAU 1 : La Racine (Vital)
+
+	# On commence par le chauffage, car sans lui, personne ne survit au débarquement.
+
 	root = tree.create_root("Survie Thermique", 1, 250000, 0, "Installe le réseau de chaleur primaire.", "boiler_room")
+
 	root.unblocked = true
 
-	# --- NIVEAU 2 : Orientations Majeures (3 enfants) ---
+
+	# --- NIVEAU 2 : Infrastructures de Base (2 enfants max) ---
+
 
 	# Branche A : Vie et Santé
-	var node_vie = tree.add_child(root, "Meilleure Isolation", 2, 450000, 15, "Améliore la rétention de chaleur des parois.", "")
 
-	# Branche B : Recherche et Observation
-	var node_sci = tree.add_child(root, "Méthode Scientifique", 2, 800000, 20, "Optimise les protocoles de collecte de données.", "")
+	var node_vie = tree.add_child(root, "Meilleur isolation", 2, 450000, 15, "Permet d'avoir plus chaud dans les batiments", "")
 
-	# Branche C : Logistique de Base
-	var node_log = tree.add_child(root, "Gestion des Flux", 2, 350000, 10, "Optimisation du transport interne des ressources.", "")
 
-	# --- NIVEAU 3 : Spécialisations (3 enfants par parent du N2) ---
+	# Branche B : Recherche
 
-	# Enfants de "Meilleure Isolation" (Vie)
-	var node_hospital = tree.add_child(node_vie, "Soutien Médical", 3, 750000, 40, "Indispensable pour traiter les engelures.", "hospital")
-	var node_confort = tree.add_child(node_vie, "Équilibre Psychologique", 3, 600000, 50, "Débloque le Module Sportif et le Salon de détente.", "gym")
-	var node_hab = tree.add_child(node_vie, "Optimisation Habitat", 3, 300000, 25, "Réduit l'usure des quartiers d'habitation.", "")
+	var node_sci = tree.add_child(root, "Méthode Scientifique", 2, 800000, 20, "Nouvelle méthode de recherche scientifique", "")
 
-	# Enfants de "Méthode Scientifique" (Science)
-	var node_astro = tree.add_child(node_sci, "Astronomie Polaire", 3, 2000000, 100, "Exploite la pureté de l'air pour l'observation.", "observatory")
-	var node_geo = tree.add_child(node_sci, "Géologie Glaciaire", 3, 900000, 60, "Améliore l'analyse des carottes de glace au labo.", "")
-	var node_clim = tree.add_child(node_sci, "Analyse Climatique", 3, 500000, 35, "Anticipe les tempêtes et les chutes de température.", "")
 
-	# Enfants de "Gestion des Flux" (Logistique)
-	var node_canteen = tree.add_child(node_log, "Logistique Alimentaire", 3, 500000, 30, "Cuisine industrielle pour les rations d'hiver.", "canteen")
-	var node_eau = tree.add_child(node_log, "Traitement des Eaux", 3, 400000, 25, "Système de fonte et de filtration de la neige.", "")
-	var node_energie = tree.add_child(node_log, "Réseau Électrique", 3, 850000, 45, "Améliore le rendement des générateurs de secours.", "")
+
+	# --- NIVEAU 3 : Spécialisations (2 enfants max par parent du N2) ---
+
+
+	# Enfants de "Quartiers d'Hivernage" (Vie)
+
+	var node_hospital = tree.add_child(node_vie, "Soutien Médical", 2, 750000, 40, "Indispensable pour traiter les engelures.", "hospital")
+
+	var node_canteen = tree.add_child(node_vie, "Logistique Alimentaire", 2, 500000, 30, "Cuisine industrielle pour les rations d'hiver.", "canteen")
+
+
+	# Enfants de "Méthode Scientifique" (Recherche)
+
+	# Note : Ici on regroupe le Gym et la Rest Room sous le concept de "Santé Mentale" pour respecter les 7 nœuds
+
+	var node_confort = tree.add_child(node_sci, "Équilibre Psychologique", 2, 600000, 50, "Débloque le Module Sportif et le Salon de détente.", "gym")
+
+
+	var node_astro = tree.add_child(node_sci, "Astronomie Polaire", 2, 200000, 100, "Exploite la pureté de l'air pour l'observation.", "observatory") 	
 	_update_tree_state_recursive(root)
 
 	var start_x = 0
