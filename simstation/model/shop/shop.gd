@@ -130,7 +130,7 @@ func _on_exit_button_pressed() -> void:
 ## Ouvre la fenêtre de confirmation d'achat pour un bâtiment
 ## @param building_name: Nom du bâtiment à acheter
 func buy_building(building_name):
-	var arbre_scene = load("res://View/buy_confirmation.tscn")
+	var arbre_scene = load("res://view/buy_confirmation.tscn")
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud") 
 
