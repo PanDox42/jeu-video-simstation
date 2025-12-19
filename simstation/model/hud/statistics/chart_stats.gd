@@ -5,20 +5,36 @@ var y_spacing = 10
 
 var health_line = Line2D.new()
 var hapiness_line = Line2D.new()
+
+## Ligne pour l'efficacité
 var efficiency_line = Line2D.new()
+
+## Axe X (vertical à gauche)
 var x_line = Line2D.new()
+
+## Axe Y (horizontal en bas)
 var y_line = Line2D.new()
 
+## Conteneur interne pour le dessin (s'agrandit horizontalement)
 @onready var internal_container = Control.new()
 @onready var scrollContainer = $ScrollStatistics
 
+## Largeur du conteneur de scroll
 var size_x
+
+## Hauteur du conteneur de scroll
 var size_y
 
+## Points de données pour la santé
 var health_points: Array[Vector2] = []
+
+## Points de données pour le bonheur
 var points_happiness: Array[Vector2] = []
+
+## Points de données pour l'efficacité
 var points_efficiency: Array[Vector2] = []
 
+## Initialise le graphique et dessine les axes
 func _ready():
 	await get_tree().process_frame
 	size_x = scrollContainer.size.x
@@ -52,6 +68,8 @@ func _ready():
 	
 	scrollContainer.add_child(internal_container)
 
+## Ajoute un nouveau point pour chaque statistique et met à jour le graphique
+## Appelé automatiquement à chaque changement de tour
 func ajouter_point_et_mettre_a_jour():
 	var new_health = GlobalScript.get_health()
 	var new_hapiness = GlobalScript.get_hapiness()
@@ -85,7 +103,10 @@ func ajouter_point_et_mettre_a_jour():
 	create_marker(health_hapiness, Color.YELLOW)
 	
 	scrollContainer.scroll_horizontal = int(internal_container.custom_minimum_size.x)
-	
+
+## Crée un marqueur visuel (losange) à une position donnée
+## @param position: Position du marqueur
+## @param color: Couleur du marqueur
 func create_marker(position: Vector2, color: Color):
 	var marker = Polygon2D.new()
 	
@@ -102,5 +123,6 @@ func create_marker(position: Vector2, color: Color):
 	
 	internal_container.add_child(marker)
 
+## Cache le graphique
 func _on_exit_button_pressed() -> void:
 	hide()

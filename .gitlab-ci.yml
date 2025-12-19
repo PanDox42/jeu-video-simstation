@@ -1,0 +1,27 @@
+# GitLab Pages CI/CD Configuration for SimStation Documentation
+# This file deploys the Docsify documentation site to GitLab Pages
+
+image: alpine:latest
+
+pages:
+  stage: deploy
+  
+  script:
+    # Create public directory
+    - mkdir -p public
+    
+    # Copy all documentation files to public
+    - cp -r docs/* public/
+    
+    # Ensure index.html is at root
+    - cp docs/index.html public/index.html
+    
+  artifacts:
+    paths:
+      - public
+  
+  # Deploy on main/master and docs-test branch
+  only:
+    - main
+    - master
+    - 64-commenter-le-code-entier

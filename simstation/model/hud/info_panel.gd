@@ -1,13 +1,32 @@
+## InfoPanel - Panneau d'informations des bâtiments
+##
+## Affiche les détails d'un bâtiment cliqué : nom, santé, bonheur, description.
+## Pour le laboratoire, affiche aussi un bouton pour accéder à l'arbre de recherche.
+## Se positionne automatiquement à droite de l'écran.
 extends PanelContainer
 
+## Conteneur vertical pour organiser les éléments
 var boxContainer = VBoxContainer.new()
+
+## Bouton pour fermer le panneau
 var close_button = Button.new()
+
+## Label affichant le nom du bâtiment
 var name_label = Label.new()
+
+## Label affichant la santé du bâtiment
 var health_label = Label.new()
+
+## Label affichant le bonheur apporté
 var hapiness_label = Label.new()
+
+## Label affichant la description
 var description_label = Label.new()
+
+## Bouton pour ouvrir l'arbre de recherche (visible uniquement pour le labo)
 var search_button = Button.new()
 
+## Initialise le panneau et ses éléments visuels
 func _ready():
 	set_anchors_preset(Control.PRESET_CENTER_RIGHT)
 	offset_right = -20
@@ -42,6 +61,9 @@ func _ready():
 	GlobalScript.connect("closure_request_info", Callable(self, "hide_infos"))
 	
 	hide()
+
+## Affiche les informations d'un bâtiment
+## @param id_batiment: ID du bâtiment à afficher
 func display_infos(id_batiment: int):
 	var infos = GlobalScript.get_info_building(id_batiment)
 	
@@ -63,12 +85,15 @@ func display_infos(id_batiment: int):
 		search_button.hide()
 	show()
 
+## Cache le panneau d'informations
 func hide_infos():
 	hide()
-	
+
+## Ouvre l'interface de l'arbre de recherche
 func open_search():
 	GameManager.open_search()
-	
+
+## Applique un style personnalisé aux labels
 func styliser_labels():
 	var style = LabelSettings.new()
 	style.font_size = 18

@@ -1,21 +1,22 @@
+## InventaireUI - Interface graphique de l'inventaire
+##
+## Affiche dynamiquement l'inventaire des bâtiments dans une grille.
+## Génère une carte pour chaque type de bâtiment débloqué avec son image et sa quantité.
+## Grise automatiquement les bâtiments en quantité zéro.
+## Attache le script de drag & drop à chaque icône pour permettre le placement.
 extends Control
 
-# DESCRIPTION :
-# Script gérant l'affichage dynamique de l'inventaire des bâtiments dans l'interface (UI).
-# Il peuple une grille (GridContainer) avec les items disponibles dans `Global.inventaire`, 
-# affiche les quantités en temps réel et attribue dynamiquement le script de Drag & Drop aux icônes.
-# Les fonctions disponibles sont :
-# _ready() : Initialise l'interface et s'abonne au signal global pour détecter les changements de stock.
-# display_inventory : Vide la grille actuelle et régénère tous les boutons d'items.
-# create_building_button : Instancie un conteneur avec l'image et la quantité, gère la texture (grisée si stock vide) et attache le script `drag_building.gd`.
-# _on_batiment_changed : Met à jour le texte de la quantité et la color de l'icône d'un bâtiment spécifique sans recharger toute la liste.
-
+## Grille contenant les cartes de bâtiments
 @onready var grid = $ScrollInventory/MarginInventory/GridInventory
 
+## Police Minecraft pour le style rétro
 const MINECRAFT_FONT = preload("res://font/Minecraftia-Regular.ttf")
+
+## Script de drag & drop attaché dynamiquement aux icônes
 const DRAG_SCRIPT = preload("res://model/hud/inventory/drag_building.gd") 
 
 
+## Initialise l'inventaire et se connecte aux signaux
 func _ready():
 	await get_tree().process_frame
 	grid.add_theme_constant_override("v_separation", 15)
@@ -25,6 +26,8 @@ func _ready():
 	GlobalScript.connect("unblocked_building", display_inventory)
 	GlobalScript.connect("building_changed", _on_batiment_changed)
 
+## Régénère complètement l'inventaire
+## Efface tous les éléments et les recrée depuis l'inventaire global
 func display_inventory():
 	print("INVENTAIRE RELOAD")
 	for child in grid.get_children():
@@ -35,6 +38,12 @@ func display_inventory():
 		if(GlobalScript.get_buildings_unblocked(building_name)!=false):
 			create_building_button(building_name, quantite)
 
+## Crée une carte de bâtiment dans l'inventaire
+## Génère un conteneur avec l'icône et le label de quantité
+## Attache le script de drag & drop à l'icône
+## Grise l'icône si la quantité est zéro
+## @param building_name: Nom interne du bâtiment
+## @param quantite: Quantité disponible
 func create_building_button(building_name: String, quantite: int):
 	var container = VBoxContainer.new()
 	container.name = "Box_" + building_name
@@ -75,6 +84,10 @@ func create_building_button(building_name: String, quantite: int):
 	container.add_child(label) 
 	grid.add_child(container)   
 
+## Met à jour la quantité affichée et la couleur d'un bâtiment spécifique
+## Utilisé pour éviter de régénérer tout l'inventaire quand une quantité change
+## @param building_name: Nom du bâtiment à mettre à jour
+## @param new_val: Nouvelle quantité
 func _on_batiment_changed(building_name, new_val):
 	for box in grid.get_children():
 		if box.has_node(building_name):

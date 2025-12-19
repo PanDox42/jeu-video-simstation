@@ -1,6 +1,11 @@
+## Tuto - Tutoriel interactif du jeu
+##
+## Affiche un tutoriel pas à pas avec des captures d'écran et des descriptions.
+## Permet au joueur de naviguer entre les différentes étapes du tutoriel.
 extends CanvasLayer
 
-# Liste des données : [Chemin Image, Texte de description]
+## Données du tutoriel sous forme de liste [Chemin image, Description]
+## Chaque élément représente une étape du tutoriel
 var tuto_data = [
 	["res://assets/tuto/CaptureMainScreen.PNG", "Bienvenue sur SimStation ! Vous allez devoir gérer votre base en Antarctique."],
 	["res://assets/tuto/CapturePlayScreen.PNG", "Voici votre zone de construction. Ici, vous pouvez ajouter des bâtiments en les faisant glisser depuis la gauche."],
@@ -15,15 +20,25 @@ var tuto_data = [
 	["res://assets/tuto/CaptureShop.PNG", "La boutique vous permet d'acheter de nouveaux bâtiments (à condition qu'ils aient été débloqués par les recherches)."],
 ]
 
+## Index de l'étape actuellement affichée
 var index_actuel = 0
 
+## TextureRect affichant l'image de l'étape
 @onready var display_image = $TRectDisplayImage
+
+## Label affichant la description de l'étape
 @onready var description_label = $PanelBottom/LabelDescription
+
+## Label du bouton suivant (change en "Terminer" à la dernière étape)
 @onready var label_next = $PanelBottom/ButtonNext/LabelNext
 
+## Initialise le tutoriel à la première étape
 func _ready():
 	afficher_etape(0)
 
+## Affiche une étape spécifique du tutoriel
+## Met à jour l'image, le texte et le libellé du bouton
+## @param index: Index de l'étape à afficher
 func afficher_etape(index):
 	index_actuel = index
 	var data = tuto_data[index]
@@ -38,6 +53,8 @@ func afficher_etape(index):
 	else:
 		label_next.text = "Suivant"
 
+## Passe à l'étape suivante ou ferme le tutoriel
+## Appelé quand le bouton "Suivant" ou "Terminer" est pressé
 func _on_next_button_pressed():
 	if index_actuel < tuto_data.size() - 1:
 		afficher_etape(index_actuel + 1)
@@ -45,5 +62,6 @@ func _on_next_button_pressed():
 		# Fin du tuto
 		_on_close_button_pressed()
 
+## Ferme le tutoriel
 func _on_close_button_pressed():
 	queue_free()
