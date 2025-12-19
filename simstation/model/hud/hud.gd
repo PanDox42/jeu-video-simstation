@@ -23,9 +23,6 @@ extends CanvasLayer
 ## Panneau du graphique de statistiques
 @onready var panel_chart_stats = $BorderContainer/PanelChartStats
 
-
-@onready var clayer_chart_stats = $BorderContainer/CLayerChartStats
-
 ## Filtre sombre pour le mode nuit
 @onready var panel_night_mode = $BorderContainer/PanelNightMode
 

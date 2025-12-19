@@ -1,4 +1,5 @@
-res://model/main_menu/main_menu.gd
 res://view/saved_game.tscn
-res://model/global/global_script.gd
+res://model/global/global.gd
+res://view/hud.tscn
 res://model/hud/hud.gd
+res://controller/game_manager.gd
