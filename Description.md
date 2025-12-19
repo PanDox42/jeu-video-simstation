@@ -19,36 +19,45 @@
   - [Défis de l'Antarctique](#%EF%B8%8F-défis-de-lantarctique)
 - [Mécanique de jeu](#mécanique-de-jeu)
 
+<br>
+
+---
 ---
 
-## Objectifs pédagogiques
+# 📚 OBJECTIFS PÉDAGOGIQUES
+
+---
 
 Le jeu fait découvrir **la gestion d'une station scientifique en environnement extrême** et les défis de la survie en Antarctique.
 
-### 🕹️ Objectifs généraux
+<br>
+
+## 🕹️ Objectifs généraux
 
 - Comprendre la gestion des ressources limitées
 - Appréhender les contraintes de survie en milieu hostile
 - Développer une stratégie à long terme (20 tours = 5 ans)
 - Prioriser entre recherche scientifique et survie
 
-### 🔍 Objectifs détaillés
+<br>
 
-#### 1️⃣ Gestion des ressources
+## 🔍 Objectifs détaillés
+
+### 1️⃣ Gestion des ressources
 
 - Gérer le budget limité avec sagesse
 - Construire les bâtiments au bon moment
 - Équilibrer chauffage, santé et bonheur
 - Optimiser le ratio infrastructures/recherche
 
-#### 2️⃣ Recherche et développement
+### 2️⃣ Recherche et développement
 
 - Débloquer l'arbre technologique progressivement
 - Prioriser les recherches essentielles
 - Planifier l'expansion de la base
 - Compléter toutes les recherches avant le tour 20
 
-#### 3️⃣ Compétences développées
+### 3️⃣ Compétences développées
 
 - **Planification stratégique** : anticiper les besoins futurs
 - **Gestion de crise** : réagir aux catastrophes
@@ -57,11 +66,18 @@ Le jeu fait découvrir **la gestion d'une station scientifique en environnement 
 
 > ⚠️ **Survivre ne suffit pas** : il faut aussi prospérer et accomplir la mission scientifique.
 
+<br>
+
+---
 ---
 
-## Description des fonctionnalités
+# 🎮 DESCRIPTION DES FONCTIONNALITÉS
 
-### 🎮 Actions du joueur
+---
+
+<br>
+
+## 🎮 Actions du joueur
 
 Le joueur peut :
 
@@ -72,9 +88,11 @@ Le joueur peut :
 - **Avancer le temps** tour par tour (1 tour = 3 mois)
 - **Consulter les statistiques** de santé, bonheur et efficacité
 
-### ⚙️ Logique de jeu
+<br>
 
-#### Système de tours
+## ⚙️ Logique de jeu
+
+### Système de tours
 - **1 tour = 3 mois** (1 saison en Antarctique)
 - **4 saisons** : Été austral → Automne → Hiver → Printemps
 - Les statistiques évoluent à chaque tour en fonction :
@@ -83,27 +101,29 @@ Le joueur peut :
   - Des bâtiments construits
   - Des catastrophes aléatoires
 
-#### Système de chauffage
+### Système de chauffage
 - **1 chaufferie = 3 bâtiments** maximum
 - Sans chauffage : perte de santé progressive
 - Avec 2+ chaufferies : protection optimale et bonus de récupération
 
-#### Système de recherche
+### Système de recherche
 - **7 recherches** à débloquer dans l'arbre
 - Chaque recherche débloque un bâtiment unique
 - Durée variable (1 à 2 tours)
 - Une seule recherche possible à la fois
 
-#### Conditions de victoire
+### Conditions de victoire
 - ✅ Survivre **20 tours**
 - ✅ Terminer **toutes les recherches** (7/7)
 - ✅ Maintenir **toutes les stats > 40%** (santé, bonheur, efficacité)
 
-#### Conditions de défaite
+### Conditions de défaite
 - ❌ Une stat atteint **0%** → Défaite immédiate
-- ❌ tour 20 sans remplir les conditions → Défaite
+- ❌ Tour 20 sans remplir les conditions → Défaite
 
-### 🖥️ Interface
+<br>
+
+## 🖥️ Interface
 
 L'interface comprend :
 
@@ -114,11 +134,18 @@ L'interface comprend :
 - **Panneau d'informations** contextuelles
 - **Écran de fin** avec statistiques détaillées
 
+<br>
+
+---
 ---
 
-## Scénario type
+# 🎬 SCÉNARIO TYPE
 
-### 🚁 Arrivée à la station (tour 0)
+---
+
+<br>
+
+## 🚁 Arrivée à la station (Tour 0)
 
 Le joueur prend le contrôle d'une station scientifique fraîchement établie en Antarctique. La base dispose de :
 - 1 Laboratoire (déjà construit)
@@ -127,7 +154,9 @@ Le joueur prend le contrôle d'une station scientifique fraîchement établie en
 
 **Mission** : Survivre 5 ans et accomplir le programme scientifique complet.
 
-### ❄️ Premiers tours (tours 1-5)
+<br>
+
+## ❄️ Premiers tours (Tours 1-5)
 
 **Priorités :**
 1. Construire **2 chaufferies** rapidement (protection thermique)
@@ -139,7 +168,9 @@ Le joueur prend le contrôle d'une station scientifique fraîchement établie en
 - Hiver approche : température de -60°C à -80°C
 - Risque de catastrophes (tempête, panne...)
 
-### 🔬 Phase de développement (tours 6-15)
+<br>
+
+## 🔬 Phase de développement (Tours 6-15)
 
 **Objectifs :**
 1. Débloquer **toutes les recherches**
@@ -154,7 +185,9 @@ Le joueur prend le contrôle d'une station scientifique fraîchement établie en
 - Garder 2-3 chaufferies pour 6-9 bâtiments
 - Avancer méthodiquement dans l'arbre de recherche
 
-### 🏆 Phase finale (tours 16-20)
+<br>
+
+## 🏆 Phase finale (Tours 16-20)
 
 **Objectif unique** : Maintenir les stats > 40% jusqu'au tour 20
 
@@ -165,54 +198,70 @@ Le joueur prend le contrôle d'une station scientifique fraîchement établie en
 
 **Victoire** = Tous les objectifs remplis au tour 20 !
 
+<br>
+
+---
 ---
 
-## Contexte scientifique
+# 🌍 CONTEXTE SCIENTIFIQUE
 
-### 🏔️ La station polaire
+---
+
+<br>
+
+## 🏔️ La station polaire
 
 Une station de recherche en Antarctique est un **environnement extrême** qui nécessite :
 
-#### 🏗️ Infrastructures essentielles
+### 🏗️ Infrastructures essentielles
 - **Chaufferies** : seule source de chaleur contre le froid mortel
 - **Dortoirs** : repos et moral de l'équipe
 - **Laboratoire** : mission scientifique principale
 - **Hôpital** : traiter hypothermie et engelures
 
-#### 🔬 Bâtiments de recherche
+### 🔬 Bâtiments de recherche
 - **Observatoire** : profite de la pureté de l'air polaire
 - **Salle de sport** : lutter contre l'atrophie musculaire
 - **Cantine** : stockage alimentaire pour 2 ans
 - **Salon de détente** : simulateur de lumière solaire
 
-### ❄️ Défis de l'Antarctique
+<br>
 
-#### 🌡️ Températures extrêmes
+## ❄️ Défis de l'Antarctique
+
+### 🌡️ Températures extrêmes
 - **Été** : -25°C à -40°C
 - **Automne** : -40°C à -55°C
 - **Hiver** : -60°C à -80°C ⚠️ Le plus dangereux !
 - **Printemps** : -45°C à -60°C
 
-#### 🌨️ Catastrophes naturelles
+### 🌨️ Catastrophes naturelles
 - Tempêtes de neige (-10% santé, -15% bonheur)
 - Pannes techniques (-20% efficacité)
 - Isolation prolongée (-25% bonheur)
 - Problèmes de communication (-15% bonheur)
 
-#### 👥 Facteur humain
+### 👥 Facteur humain
 - **Santé** : affectée par le froid et les conditions de vie
 - **Bonheur** : essentiel pour éviter l'abandon de mission
 - **Efficacité** : calculée automatiquement (60% santé + 40% bonheur)
 
 > ⚠️ **Nuit polaire** : 6 mois de nuit totale pendant l'hiver austral
 
+<br>
+
+---
 ---
 
-## Mécanique de jeu
+# ⚙️ MÉCANIQUE DE JEU
 
-### 📊 Système de statistiques
+---
 
-#### Santé (0-100%)
+<br>
+
+## 📊 Système de statistiques
+
+### Santé (0-100%)
 **Influencée par :**
 - ➖ Température extérieure (malus constant)
 - ➖ Température intérieure < 18°C (malus si bâtiments froids)
@@ -221,7 +270,7 @@ Une station de recherche en Antarctique est un **environnement extrême** qui n�
 
 **Défaite si ≤ 0%**
 
-#### Bonheur (0-100%)
+### Bonheur (0-100%)
 **Influencé par :**
 - ➕ Chaque bâtiment donne un bonus (×0.1 de sa valeur)
   - Observatoire : +10%/tour
@@ -232,7 +281,7 @@ Une station de recherche en Antarctique est un **environnement extrême** qui n�
 
 **Défaite si ≤ 0%**
 
-#### Efficacité (0-100%)
+### Efficacité (0-100%)
 **Calculée automatiquement :**
 ```
 Efficacité = (Santé × 0.6) + (Bonheur × 0.4)
@@ -240,15 +289,17 @@ Efficacité = (Santé × 0.6) + (Bonheur × 0.4)
 
 **Défaite si ≤ 0%**
 
-### 🔥 Système de chauffage
+<br>
 
-#### Fonctionnement
+## 🔥 Système de chauffage
+
+### Fonctionnement
 ```
 1 chaufferie = 3 bâtiments maximum
 Efficacité = min(100%, (chaufferies × 3) / bâtiments)
 ```
 
-#### Exemples
+### Exemples
 | Chaufferies | Bâtiments | Efficacité | Résultat |
 |-------------|-----------|------------|----------|
 | 1 | 3 | 100% | ✅ Optimal |
@@ -256,14 +307,16 @@ Efficacité = min(100%, (chaufferies × 3) / bâtiments)
 | 2 | 6 | 100% | ✅ Optimal |
 | 3 | 9 | 100% | ✅ Optimal |
 
-#### Protection contre le froid
+### Protection contre le froid
 | Chaufferies | Protection | Impact froid |
 |-------------|------------|--------------|
 | 0 | 0% | 100% (×1.0) |
 | 1 | 20% | 80% (×0.8) |
 | 2+ | 70% | 30% (×0.3) ⭐ |
 
-### 🌳 Arbre de recherche
+<br>
+
+## 🌳 Arbre de recherche
 
 ```
 Survie Thermique (1 tour) → Chaufferie Centrale
@@ -278,12 +331,14 @@ Survie Thermique (1 tour) → Chaufferie Centrale
 
 **Total : 7 recherches sur ~13 tours**
 
-### 💰 Économie
+<br>
 
-#### Budget initial
+## 💰 Économie
+
+### Budget initial
 - **500 000 €** au départ
 
-#### Prix des bâtiments
+### Prix des bâtiments
 | Bâtiment | Prix | Bonheur/tour |
 |----------|------|--------------|
 | Salon de détente | 250 000 € | +8% |
@@ -297,18 +352,27 @@ Survie Thermique (1 tour) → Chaufferie Centrale
 
 **Meilleur rapport qualité/prix** : Salon de détente (32 bonheur/M€)
 
+<br>
+
+---
 ---
 
-## Conseils stratégiques
+# 💡 CONSEILS STRATÉGIQUES
 
-### ✅ Stratégie gagnante
+---
 
-1. **tours 1-3** : Construire 2 chaufferies + lancer "Survie Thermique"
-2. **tours 4-8** : Débloquer toutes les recherches niveau 2
-3. **tours 9-15** : Construire tous les bâtiments + finir les recherches
-4. **tours 16-20** : Maintenir les stats > 40% jusqu'à la victoire
+<br>
 
-### ❌ Pièges à éviter
+## ✅ Stratégie gagnante
+
+1. **Tours 1-3** : Construire 2 chaufferies + lancer "Survie Thermique"
+2. **Tours 4-8** : Débloquer toutes les recherches niveau 2
+3. **Tours 9-15** : Construire tous les bâtiments + finir les recherches
+4. **Tours 16-20** : Maintenir les stats > 40% jusqu'à la victoire
+
+<br>
+
+## ❌ Pièges à éviter
 
 - ❌ Négliger le chauffage → Mort assurée en hiver
 - ❌ Construire trop de bâtiments sans chaufferies suffisantes
@@ -316,6 +380,9 @@ Survie Thermique (1 tour) → Chaufferie Centrale
 - ❌ Ignorer le bonheur → Abandon de mission
 - ❌ Dépenser tout l'argent trop vite → Blocage financier
 
+<br>
+
+---
 ---
 
 **Bon courage, et que votre équipe survive à l'Antarctique ! 🐧❄️**
