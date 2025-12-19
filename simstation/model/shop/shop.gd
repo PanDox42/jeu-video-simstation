@@ -1,14 +1,24 @@
+## Shop - Interface d'achat des bâtiments
+##
+## Affiche la boutique avec tous les bâtiments débloqués disponibles à l'achat.
+## Génère dynamiquement l'interface pour chaque bâtiment avec son image, prix et description.
+## Se recharge automatiquement quand un nouveau bâtiment est débloqué.
 extends CanvasLayer
 
+## Conteneur pour les cartes de bâtiments dans la boutique
 @onready var buildings_container = $TRectBackground/ScrollBuildings/Buildings
 
+## Police Minecraft pour le style rétro
 const MINECRAFT_FONT = preload("res://font/Minecraftia-Regular.ttf")
 
 
+## Initialise la boutique et se connecte au signal de déverrouillage
 func _ready():
 	GlobalScript.connect("unblocked_building", load_buildings)
 	load_buildings()
 
+## Recharge tous les bâtiments disponibles dans la boutique
+## Efface l'ancien contenu et régénère les cartes pour chaque bâtiment débloqué
 func load_buildings():
 	print("SHOP RELOAD")
 	for child in buildings_container.get_children():
@@ -19,6 +29,9 @@ func load_buildings():
 			initialize(building)
 
 
+## Crée l'interface UI pour un bâtiment dans la boutique
+## Génère deux colonnes : image/prix/bouton à gauche, description/stats à droite
+## @param building_name: Nom interne du bâtiment (ex: "dormitory")
 func initialize(building_name: String):
 	var vboxBat = VBoxContainer.new()
 	var separator = ColorRect.new()
@@ -134,6 +147,7 @@ func initialize(building_name: String):
 	buildings_container.add_child(vboxBat)
 	buildings_container.add_child(vboxDesc)
 
+## Ferme la boutique en la rendant invisible
 func _on_exit_button_pressed() -> void:
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud")
@@ -142,6 +156,8 @@ func _on_exit_button_pressed() -> void:
 		hud.get_node("Shop").visible = false
 
 
+## Ouvre la fenêtre de confirmation d'achat pour un bâtiment
+## @param building_name: Nom du bâtiment à acheter
 func buy_building(building_name):
 	var arbre_scene = load("res://View/buy_confirmation.tscn")
 	var play_scene = get_tree().current_scene

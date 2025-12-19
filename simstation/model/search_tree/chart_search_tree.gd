@@ -1,31 +1,58 @@
+## ChartSearchTree - Interface graphique de l'arbre de recherche
+##
+## Affiche et gère l'interface visuelle de l'arbre de recherche scientifique.
+## Organise 3 arbres (Infrastructure, Science, Communications) en colonnes
+## G
+
+ère l'état des recherches (disponibles, en cours, terminées) avec des couleurs.
+## Permet de lancer des recherches et suit leur progression automatiquement.
 extends CanvasLayer
 
+## Signal émis quand l'argent change (non utilisé actuellement)
 signal money_changed(money)
 
+## Instance de l'arbre de recherche contenant toutes les données
 var tree: SearchTree
+
+## Dictionnaire des positions des nœuds {NodeData: Vector2}
 var node_positions = {}
+
+## Menu contextuel actuellement affiché (null si aucun)
 var current_menu = null
 
-# Mise en page
-const X_SPACING = 300 # Écarté pour les boutons larges
+# Constantes de mise en page
+
+## Espacement horizontal entre les nœuds
+const X_SPACING = 300
+
+## Espacement vertical entre les niveaux
 const Y_SPACING = 150
+
+## Rayon d'un nœud (pour le dessin des lignes)
 const NODE_RADIUS = 30
+
+## Espacement entre les différents arbres (colonnes)
 const TREE_SPACING = 800
 
+## Liste des 3 racines d'arbres [Infrastructure, Science, Communications]
 var roots = []
 
+## Dernier round connu pour éviter les rafraîchissements inutiles
 var dernier_round_connu = -1
 
-# Références
+# Références UI
+
+## Conteneur de scroll pour naviguer dans l'arbre
 @onready var scrollContainer = $TRectBackground/ScrollContainer
 
-# Canvas interne
+## Canvas interne pour dessiner les boutons et les lignes
 var tree_canvas = Control.new()
 
+## Initialise l'interface et construit les 3 arbres de recherche
 func _ready():
 	GlobalScript.connect("round_changed", _on_round_changed)
 		
-	#set_process(false) # désactive _process, on éconameise du CPU !
+	#set_process(false) # désactive _process, on économise du CPU !
 	
 	scrollContainer.add_child(tree_canvas)
 	tree_canvas.draw.connect(_on_tree_canvas_draw)
@@ -90,10 +117,13 @@ func _ready():
 	for r in roots:
 		_create_buttons_recursive(r)
 
+## Appelé quand le round change
+## Vérifie si des recherches sont terminées
 func _on_round_changed():
 	_check_research_completion()
 
-# Vérifie si des recherches en cours sont finies
+## Vérifie si des recherches en cours sont finies
+## Met à jour l'UI si nécessaire
 func _check_research_completion():
 	var current_turn = GlobalScript.get_round()
 	var changes_made = false
@@ -117,6 +147,8 @@ func _check_research_completion():
 		# TRES IMPORTANT : On met à jour la mémoire pour ne pas refresh à la frame suivante !
 		dernier_round_connu = current_turn
 
+## Termine une recherche : applique les gains et débloque les bâtiments
+## @param name_recherche: Nom de la recherche à compléter
 func _complete_research(name_recherche: String):
 	print("Recherche terminée : ", name_recherche)
 	
@@ -142,7 +174,10 @@ func _complete_research(name_recherche: String):
 	GlobalScript.add_search_unblocked(name_recherche)
 	GlobalScript.erase_research_in_progress(name_recherche)
 
-# Fonction helper pour retrouver un noeud par son name
+## Recherche un nœud par son nom dans l'arbre (récursif)
+## @param node: Nœud de départ
+## @param name_to_find: Nom à trouver
+## @return: Le nœud trouvé ou null
 func _find_node_by_name(node, name_to_find):
 	if node.name == name_to_find: return node
 	for child in node.children:
@@ -150,7 +185,8 @@ func _find_node_by_name(node, name_to_find):
 		if res: return res
 	return null
 
-# Met à jour l'état local (unblocked/pas unblocked) en fonction du Global au démarrage
+## Met à jour l'état local (unblocked/pas unblocked) en fonction du Global au démarrage
+## @param node: Nœud à mettre à jour (récursif)
 func _update_tree_state_recursive(node):
 	if node == null: return
 	
@@ -163,8 +199,11 @@ func _update_tree_state_recursive(node):
 	for child in node.children:
 		_update_tree_state_recursive(child)
 
-# --- LOGIQUE D'INTERFACE ---
+# === LOGIQUE D'INTERFACE ===
 
+## Crée les boutons pour tous les nœuds de l'arbre (récursif)
+## Applique les couleurs selon l'état : gris (bloqué), jaune (en cours), vert (terminé), blanc (disponible)
+## @param node: Nœud pour lequel créer le bouton
 func _create_buttons_recursive(node: SearchTree.NodeData):
 	if node == null: return
 	
@@ -250,6 +289,9 @@ func _create_buttons_recursive(node: SearchTree.NodeData):
 	for child in node.children:
 		_create_buttons_recursive(child)
 
+## Affiche ou met à jour le menu contextuel d'un nœud de recherche
+## @param position: Position où afficher le menu
+## @param node: Nœud de recherche sélectionné
 func ajouter_retirer_menu_node(position: Vector2, node: SearchTree.NodeData):
 	if current_menu: current_menu.queue_free()
 	
@@ -312,6 +354,8 @@ func ajouter_retirer_menu_node(position: Vector2, node: SearchTree.NodeData):
 
 	current_menu = menu
 
+## Lance une nouvelle recherche
+## @param node: Nœud de recherche à lancer
 func lancer_recherche(node):
 	if current_menu: current_menu.queue_free()
 	
@@ -327,6 +371,7 @@ func lancer_recherche(node):
 	# Mise à jour de l'interface
 	_refresh_ui()
 
+## Rafraîchit toute l'interface en supprimant et recréant tous les boutons
 func _refresh_ui():
 	# On supprime tout
 	for child in tree_canvas.get_children():
@@ -345,7 +390,12 @@ func _refresh_ui():
 		
 	tree_canvas.queue_redraw()
 
-# --- FONCTIONS MATHEMATIQUES INCHANGEES ---
+# === FONCTIONS MATHÉMATIQUES POUR LE LAYOUT ===
+
+## Calcule récursivement les positions de tous les nœuds dans l'arbre
+## @param node: Nœud à positionner
+## @param position: Position de départ
+## @param depth: Profondeur dans l'arbre
 func _calculate_positions(node, position, depth):
 	if node == null: return
 	var x_offset = _get_subtree_width(node) * X_SPACING * -0.5
@@ -356,6 +406,7 @@ func _calculate_positions(node, position, depth):
 		_calculate_positions(child, Vector2(child_x, (depth + 1) * Y_SPACING), depth + 1)
 		child_x += _get_subtree_width(child) * X_SPACING
 
+## Configure la taille du canvas en fonction des positions calculées
 func _setup_scroll_area():
 	var min_x = INF; var max_x = -INF; var min_y = INF; var max_y = -INF
 	for position in node_positions.values():
@@ -367,17 +418,23 @@ func _setup_scroll_area():
 	tree_canvas.custom_minimum_size = Vector2((max_x - min_x) + padding.x * 2, (max_y - min_y) + padding.y * 2)
 	tree_canvas.queue_redraw()
 
+## Calcule la largeur d'un sous-arbre (nombre de feuilles)
+## @param node: Racine du sous-arbre
+## @return: Largeur du sous-arbre
 func _get_subtree_width(node) -> int:
 	if node.children.size() == 0: return 1
 	var width = 0
 	for child in node.children: width += _get_subtree_width(child)
 	return width
 
+## Callback de dessin pour tracer les lignes entre les nœuds
 func _on_tree_canvas_draw():
 	if tree == null or tree.root == null: return
 	for root in roots:
 		_draw_lines_recursive(root)
 
+## Dessine récursivement les lignes reliant les nœuds parents aux enfants
+## @param node: Nœud de départ
 func _draw_lines_recursive(node):
 	if node == null: return
 	var position = node_positions[node]
@@ -386,6 +443,7 @@ func _draw_lines_recursive(node):
 		tree_canvas.draw_line(position + Vector2(0, NODE_RADIUS), child_pos - Vector2(0, NODE_RADIUS), Color(0.6, 0.6, 0.6), 2)
 		_draw_lines_recursive(child)
 
+## Ferme l'interface de l'arbre de recherche
 func _on_exit_button_pressed() -> void:
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud")

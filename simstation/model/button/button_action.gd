@@ -16,8 +16,8 @@ func _on_pressed_pause():
 	load_scene("res://View/pause.tscn", "Pause")
 
 ## Surveille les entrées clavier pour le menu pause
-## Détecte l'action "pause" (généralement Échap) pour ouvrir le menu
-## @param _delta: Delta time (non utilisé)
+## Détecte l'action "pause" (touche Échap) pour ouvrir le menu
+## @param _delta: Delta time
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("pause"):
 		_on_pressed_pause()

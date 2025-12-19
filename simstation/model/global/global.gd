@@ -45,7 +45,7 @@ var money = 3000000
 
 ## Inventaire des bât
 
-iments possédés par le joueur (non encore placés)
+## Bâtiments possédés par le joueur (pas encore placés)
 ## Quantité de chaque type de bâtiment disponible
 var inventory = {
 	"labo": 1, 

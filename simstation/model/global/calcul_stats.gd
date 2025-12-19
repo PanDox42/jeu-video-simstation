@@ -1,6 +1,6 @@
 ## CalculStats - Système de calcul des statistiques de la station
 ##
-## Gère tous les calculs de statistiques round par round pour SimStation.
+## Gère tous les calculs de statistiques tour par tour pour SimStation.
 ## Calcule l'impact de la température, des bâtiments, des catastrophes
 ## sur la santé, le bonheur et l'efficacité de la population.
 ##
