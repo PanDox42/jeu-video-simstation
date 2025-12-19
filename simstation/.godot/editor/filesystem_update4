@@ -1,5 +1,0 @@
-res://view/saved_game.tscn
-res://model/global/global.gd
-res://view/hud.tscn
-res://model/hud/hud.gd
-res://controller/game_manager.gd
