@@ -24,9 +24,9 @@ func get_current_map() -> Node:
 	return current_map
 	
 ## Définit le niveau de zoom de la caméra
-## @param zoom_cam: Vecteur représentant le niveau de zoom (x, y)
-func set_current_zoom_cam(zoom_cam : Vector2):
-	zoom_cam = zoom_cam
+## @param current_zoom_cam: Vecteur représentant le niveau de zoom (x, y)
+func set_current_zoom_cam(current_zoom_cam : Vector2):
+	zoom_cam = current_zoom_cam
 
 ## Récupère le niveau de zoom actuel de la caméra
 ## @return: Le vecteur de zoom actuel

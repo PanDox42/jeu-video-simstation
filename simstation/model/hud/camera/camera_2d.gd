@@ -1,33 +1,49 @@
+## Camera2D - Caméra de jeu avec contrôles drag et zoom
+##
+## Gère les contrôles de la caméra : déplacement par clic-glisser et zoom à la molette.
+## Limite la caméra aux frontières de la carte pour éviter de sortir de la zone jouable.
+## S'active/désactive selon l'état global de la caméra.
 extends Camera2D
 
-# --- Config Zoom ---
-@export_category("Zoom")
+# === Configuration Zoom ===
+
+## Incrément du zoom à chaque cran de molette
 @export var zoom_step: float = 0.1
+
+## Zoom minimum autorisé
 @export var min_zoom: Vector2 = Vector2(0.6, 0.6)
+
+## Zoom maximum autorisé
 @export var max_zoom: Vector2 = Vector2(3, 3)
 
-# --- Config Limites (Map) ---
-@export_category("Limites Map")
-# Définis ici la taille de ta map en pixels (Top-Left et Bottom-Right)
+# === Configuration Limites Map ===
+
+## Coin supérieur gauche de la carte
 @export var map_limit_top_left: Vector2 = Vector2(-1000, -1000)
+
+## Coin inférieur droit de la carte
 @export var map_limit_bottom_right: Vector2 = Vector2(1000, 1000)
 
-# --- Variables Drag ---
+# === Variables Drag ===
+
+## Indique si on est en train de faire glisser la caméra
 var dragging: bool = false
 
+## Initialise les limites de la caméra
 func _ready() -> void:
-	# Optionnel : Appliquer ces limites aux limites natives de Godot 
-	# pour que le moteur sache aussi où s'arrêter visuellement
+	# Appliquer les limites aux limites natives de Godot
 	limit_left = int(map_limit_top_left.x)
 	limit_top = int(map_limit_top_left.y)
 	limit_right = int(map_limit_bottom_right.x)
 	limit_bottom = int(map_limit_bottom_right.y)
 
+## Gère les entrées de la caméra (drag et zoom)
+## @param event: Événement d'input
 func _unhandled_input(event: InputEvent) -> void:
 	if not GlobalScript.get_camera():
 		return
 
-	# --- GESTION DU DRAG ---
+	# === GESTION DU DRAG ===
 	if event is InputEventMouseButton:
 		if get_viewport().gui_get_focus_owner() != null:
 			return
@@ -36,15 +52,14 @@ func _unhandled_input(event: InputEvent) -> void:
 			dragging = event.pressed
 	
 	elif event is InputEventMouseMotion and dragging:
-		# 1. On applique le mouvement
+		# Appliquer le mouvement
 		position -= event.relative / zoom
 		
-		# 2. CORRECTION CRITIQUE : On empêche la position de sortir des limites
-		# Cela évite le problème où la caméra reste "coincée"
+		# Empêcher la position de sortir des limites
 		position.x = clamp(position.x, map_limit_top_left.x, map_limit_bottom_right.x)
 		position.y = clamp(position.y, map_limit_top_left.y, map_limit_bottom_right.y)
 
-	# --- GESTION DU ZOOM ---
+	# === GESTION DU ZOOM ===
 	if event is InputEventMouseButton and event.pressed:
 		var zoom_change = Vector2.ZERO
 		
@@ -64,12 +79,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			var mouse_position = get_global_mouse_position()
 			position += (mouse_position - position) - (mouse_position - position) * (old_zoom / zoom)
 			
-			# On re-clampe aussi après le zoom pour ne pas sortir de la map en zoomant
+			# Re-clamper après le zoom pour ne pas sortir de la map
 			position.x = clamp(position.x, map_limit_top_left.x, map_limit_bottom_right.x)
 			position.y = clamp(position.y, map_limit_top_left.y, map_limit_bottom_right.y)
 			
 			GameManager.set_current_zoom_cam(zoom)
 
+## Recentre la caméra à l'origine
 func recentrer_camera() -> void:
-	# Définir la position au centre (0, 0)
 	position = Vector2.ZERO

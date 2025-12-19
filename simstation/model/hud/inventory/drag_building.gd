@@ -1,30 +1,41 @@
+## DragBuilding - Système de placement de bâtiments par glisser-déposer
+##
+## Gère l'interface utilisateur pour le placement de bâtiments via drag & drop.
+## Permet de glisser un bâtiment de l'inventaire vers la carte avec :
+## - Grille visuelle temporaire pour l'alignement
+## - Système d'aimantation (snapping) sur grille 64x64
+## - Feedback visuel (vert = OK, rouge = collision)
+## - Validation (clic gauche) ou annulation (clic droit)
 extends TextureRect
 
-# DESCRIPTION GLOBALE DU SCRIPT
-# Ce script gère l'interface utilisateur (UI) pour le placement de bâtiments via un système de
-# "Drag & Drop" (Glisser-Déposer) manuel.
-#
-# Fonctionnalités principales :
-# 1. Détection du clic sur l'icône dans l'inventaire pour commencer le placement.
-# 2. Instanciation visuelle d'un bâtiment temporaire ("fantôme") qui suit la souris.
-# 3. Affichage automatique d'une grille visuelle (lignes) sur la carte pendant le déplacement.
-# 4. Système d'aimantation (Snapping) pour aligner parfaitement le bâtiment sur la grille (64x64).
-# 5. Gestion des collisions : le bâtiment devient rouge si l'emplacement est invalide.
-# 6. Validation (Clic Gauche) : Place le bâtiment, met à jour les stats et retire la grille.
-# 7. Annulation (Clic Droit) : Annule l'opération et rembourse le coût.
-
+## Son joué quand on prend un bâtiment
 const PICK_BUILDING_SOUND = "res://assets/sounds/buildings/pick_for_place.mp3"
+
+## Son joué lors d'un placement invalide
 const BAB_PLACEMENT_SOUND = "res://assets/sounds/buildings/bad_placement.mp3"
+
+## Son joué lors d'un placement réussi
 const GOOD_PLACEMENT_SOUND = "res://assets/sounds/buildings/good_placement.mp3"
+
+## Son joué quand pas assez de ressources
 const NOT_ENOUGH_RESOUCES = "res://assets/sounds/buildings/not_enough_resources.mp3"
 
+## Taille d'une cellule de la grille en pixels
 @export var grid_size : int = 64
 
+## Instance temporaire du bâtiment fantôme suivant la souris
 var building_instance : Sprite2D = null
+
+## Référence à la carte de jeu
 var map_ref = null
+
+## Indique si on est en mode placement
 var dragging : bool = false
+
+## Instance de la grille visuelle temporaire
 var grid_visual_instance : Node2D = null
 
+## Initialise le curseur
 func _ready():
 	mouse_default_cursor_shape = Control.CURSOR_POINTING_HAND
 
@@ -32,6 +43,8 @@ func _ready():
 func _get_drag_data(_at_position):
 	return null
 
+## Gère le clic sur l'icône de bâtiment dans l'inventaire
+## @param event: Événement d'input
 func _gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if GlobalScript.get_currently_placing():
@@ -43,6 +56,8 @@ func _gui_input(event):
 			GlobalScript.play_sound(NOT_ENOUGH_RESOUCES)
 			print("Pas assez de ressources !")
 
+## Gère les clics pendant le placement (validation/annulation)
+## @param event: Événement d'input
 func _unhandled_input(event):
 	if dragging and building_instance:
 		if event is InputEventMouseButton:
@@ -53,6 +68,8 @@ func _unhandled_input(event):
 				cancel_placement()
 				get_viewport().set_input_as_handled()
 
+## Met à jour la position du bâtiment fantôme selon la souris
+## @param _delta: Delta time
 func _process(_delta):
 	if dragging and building_instance and map_ref:
 		var mouse_global_pos = map_ref.get_global_mouse_position()
@@ -61,6 +78,7 @@ func _process(_delta):
 		building_instance.global_position = grid_pos
 		update_visual_feedback()
 
+## Démarre le mode placement : crée le fantôme et la grille
 func start_dragging():
 	GlobalScript.set_currently_placing(true)
 	GlobalScript.play_sound(PICK_BUILDING_SOUND)
@@ -111,6 +129,7 @@ func start_dragging():
 	dragging = true
 	GlobalScript.edit_building(name, -1)
 
+## Valide le placement si l'emplacement est libre
 func place_building():
 	if not building_instance: return
 	
@@ -135,6 +154,7 @@ func place_building():
 		GlobalScript.play_sound(BAB_PLACEMENT_SOUND)
 		cancel_placement()
 
+## Annule le placement et rembourse le bâtiment
 func cancel_placement():
 	if building_instance:
 		building_instance.queue_free()
@@ -145,22 +165,31 @@ func cancel_placement():
 	GlobalScript.set_currently_placing(false)
 	remove_grid()
 
+## Supprime la grille visuelle
 func remove_grid():
 	if grid_visual_instance:
 		grid_visual_instance.queue_free()
 		grid_visual_instance = null
 
+## Met à jour la couleur du fantôme (vert OK / rouge collision)
 func update_visual_feedback():
 	if map_ref.is_placable(building_instance):
 		building_instance.modulate = Color(1, 1, 1, 0.7)
 	else:
 		building_instance.modulate = Color(1, 0.2, 0.2, 0.7)
 
+## GridDrawer - Classe interne pour dessiner la grille temporaire
 class GridDrawer extends Node2D:
+	## Taille d'une cellule
 	var cell_size = 64
+	
+	## Couleur de la grille
 	var grid_color = Color(0.0, 0.0, 0.0, 1.0)
+	
+	## Zone de dessin
 	var draw_area = Rect2(-6000, -6000, 14000, 14000)
 
+	## Dessine les lignes de la grille
 	func _draw():
 		var left = int(draw_area.position.x / cell_size) * cell_size
 		var right = int(draw_area.end.x)
