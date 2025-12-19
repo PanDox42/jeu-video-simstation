@@ -1,9 +1,15 @@
 extends Panel
  
+## Espacement horizontal entre les points de données
 var x_spacing = 10
+
+## Espacement vertical (non utilisé actuellement)
 var y_spacing = 10
 
+## Ligne de tracé pour les points de santé (rouge)
 var health_line = Line2D.new()
+
+## Ligne de tracé pour les points de bonheur (jaune)
 var hapiness_line = Line2D.new()
 
 ## Ligne pour l'efficacité
@@ -17,6 +23,8 @@ var y_line = Line2D.new()
 
 ## Conteneur interne pour le dessin (s'agrandit horizontalement)
 @onready var internal_container = Control.new()
+
+## Conteneur de scroll pour naviguer dans le graphique
 @onready var scrollContainer = $ScrollStatistics
 
 ## Largeur du conteneur de scroll

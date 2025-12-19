@@ -1,9 +1,15 @@
 extends TextureButton
 
+## Nom du fichier de sauvegarde (sans extension .json)
 var slot_file_name = ""
 
+## Signal émis lors de la sélection d'un slot de sauvegarde
 signal slot_selected(file_name)
 
+## Configure les informations affichées sur le slot de sauvegarde
+## @param file_name: Nom du fichier de sauvegarde
+## @param money: Argent disponible (non utilisé)
+## @param date: Dictionnaire contenant la date de sauvegarde
 func setup(file_name, money, date):
 	slot_file_name = file_name
 	$LabelName.text = file_name
@@ -18,5 +24,7 @@ func setup(file_name, money, date):
 		date.second
 	]
 
+## Appelé lors du clic sur le slot
+## Émet le signal slot_selected avec le nom du fichier
 func _on_pressed():
 	emit_signal("slot_selected", slot_file_name)

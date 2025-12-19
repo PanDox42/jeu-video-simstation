@@ -1,7 +1,9 @@
 extends CanvasLayer
 
+## Signal émis quand l'argent change (non utilisé actuellement)
 signal money_changed(money)
 
+## Instance de l'arbre de recherche (structure de données)
 var tree: SearchTree
 
 ## Dictionnaire des positions des nœuds {NodeData: Vector2}
@@ -38,6 +40,7 @@ var dernier_round_connu = -1
 ## Canvas interne pour dessiner les boutons et les lignes
 var tree_canvas = Control.new()
 
+## Racine principale de l'arbre de recherche
 var root;
 
 ## Initialise l'interface et construit les 3 arbres de recherche
