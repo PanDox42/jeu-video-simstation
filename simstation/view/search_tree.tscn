@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dqk628cbpj4y8"]
 
 [ext_resource type="Script" uid="uid://e212qo50r3w0" path="res://model/search_tree/chart_search_tree.gd" id="1_i8ovn"]
-[ext_resource type="Texture2D" uid="uid://gu3tp3ihrp1s" path="res://assets/side/shop_background.png" id="2_ix13j"]
+[ext_resource type="Texture2D" uid="uid://cm2uw3bh0ymy7" path="res://assets/search_tree/search_tree_background.png" id="2_i8ovn"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o0hrl"]
 [ext_resource type="Texture2D" uid="uid://bumd5nqtlxckj" path="res://assets/button/exit_button/exit_button.png" id="4_slc3x"]
 [ext_resource type="Texture2D" uid="uid://bfayxlrb2hkix" path="res://assets/button/exit_button/exit_button_click.png" id="5_ec1wv"]
@@ -20,10 +20,11 @@ grow_vertical = 2
 [node name="TRectBackground" type="TextureRect" parent="."]
 show_behind_parent = true
 z_index = 10
-offset_top = 162.0
-offset_right = 1921.0
+offset_left = 116.0
+offset_top = 40.0
+offset_right = 1824.0
 offset_bottom = 1080.0
-texture = ExtResource("2_ix13j")
+texture = ExtResource("2_i8ovn")
 
 [node name="titre" type="RichTextLabel" parent="TRectBackground"]
 layout_mode = 0

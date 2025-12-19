@@ -24,8 +24,8 @@ const ROUND_SOUND = "res://assets/sounds/hud/next_round.mp3"
 const HIDE_INVENTORY_SOUND = "res://assets/sounds/hud/hide_inventory.mp3"
 const DISASTER_DISPLAY_SOUND = "res://assets/sounds/hud/disaster_display.mp3"
 
-const BACKGROUND_TEXTURE_WITH = preload("res://assets/background/background.png")
-const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/background/background_without_inventory.png")
+const BACKGROUND_TEXTURE_WITH = preload("res://assets/hud/hud_border/border.png")
+const BACKGROUND_TEXTURE_WITHOUT = preload("res://assets/hud/hud_border/border_without_inventory.png")
 
 
 func _ready():
