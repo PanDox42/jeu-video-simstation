@@ -1,26 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://byhx4nqhp22jo"]
+[gd_scene load_steps=12 format=3 uid="uid://byhx4nqhp22jo"]
 
 [ext_resource type="Script" uid="uid://c4e02x7hylkmt" path="res://model/main_menu/main_menu.gd" id="1_ngrdv"]
 [ext_resource type="Texture2D" uid="uid://cl6ubdvrne04k" path="res://assets/menu_pictures/background.jpg" id="2_olpy7"]
 [ext_resource type="Texture2D" uid="uid://o733whwy2vr8" path="res://assets/button/main_button/button.png" id="3_kxc1c"]
+[ext_resource type="Texture2D" uid="uid://blnpng8q1bl1s" path="res://assets/menu_pictures/panel_background.png" id="3_olpy7"]
 [ext_resource type="Texture2D" uid="uid://3lhq2yd4r5q4" path="res://assets/button/main_button/button_click.png" id="4_w7ty5"]
 [ext_resource type="Texture2D" uid="uid://dnfig8oii5wci" path="res://assets/button/main_button/button_hover.png" id="5_7a01j"]
 [ext_resource type="Script" uid="uid://djv63s70hb3cg" path="res://model/button/masked_button.gd" id="6_5id5m"]
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="7_n77rl"]
 [ext_resource type="Texture2D" uid="uid://de6nk4m5jdrro" path="res://assets/menu_pictures/game_logo.png" id="8_ss4sa"]
 [ext_resource type="AudioStream" uid="uid://k2l4hck1y7oc" path="res://assets/sounds/musics/main_theme_music.mp3" id="9_jqfgn"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06t4h"]
-bg_color = Color(0.294118, 0.635294, 0.721569, 0.603922)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 40
-corner_radius_top_right = 40
-corner_radius_bottom_right = 40
-corner_radius_bottom_left = 40
+[ext_resource type="Texture2D" uid="uid://ba5baudbugkvf" path="res://assets/menu_pictures/version_background.png" id="10_kxc1c"]
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_ngrdv")
@@ -35,22 +25,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_olpy7")
 
-[node name="PanelGameMenu" type="Panel" parent="."]
+[node name="TRectGameMenu" type="TextureRect" parent="."]
 anchors_preset = -1
 anchor_left = 0.45
-anchor_top = 0.531
-anchor_right = 0.55
+anchor_top = 0.5161852
+anchor_right = 0.528125
 anchor_bottom = 0.6226667
-offset_left = -390.0
-offset_top = -329.48004
-offset_right = 390.0
-offset_bottom = 328.51996
+offset_left = -385.0
+offset_top = -349.48004
+offset_right = 395.0
+offset_bottom = 308.51996
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
+texture = ExtResource("3_olpy7")
 metadata/_edit_use_anchors_ = true
 
-[node name="TButtonNewGame" type="TextureButton" parent="PanelGameMenu"]
+[node name="TButtonNewGame" type="TextureButton" parent="TRectGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49600002
@@ -58,9 +48,9 @@ anchor_top = 0.21900001
 anchor_right = 0.49600002
 anchor_bottom = 0.21900001
 offset_left = -150.11203
-offset_top = -74.783005
-offset_right = 149.88797
-offset_bottom = 75.216995
+offset_top = -82.783005
+offset_right = 149.88794
+offset_bottom = 67.216995
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_kxc1c")
@@ -70,7 +60,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_5id5m")
 
-[node name="LabelNewGame" type="Label" parent="PanelGameMenu/TButtonNewGame"]
+[node name="LabelNewGame" type="Label" parent="TRectGameMenu/TButtonNewGame"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.49600002
@@ -91,7 +81,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TButtonContinue" type="TextureButton" parent="PanelGameMenu"]
+[node name="TButtonContinue" type="TextureButton" parent="TRectGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -111,7 +101,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_5id5m")
 
-[node name="LabelContinue" type="Label" parent="PanelGameMenu/TButtonContinue"]
+[node name="LabelContinue" type="Label" parent="TRectGameMenu/TButtonContinue"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -132,7 +122,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TButtonOptions" type="TextureButton" parent="PanelGameMenu"]
+[node name="TButtonOptions" type="TextureButton" parent="TRectGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -140,9 +130,9 @@ anchor_top = 0.5440792
 anchor_right = 0.5
 anchor_bottom = 0.61800003
 offset_left = -154.0
-offset_top = -18.867981
+offset_top = -10.867981
 offset_right = 146.0
-offset_bottom = 75.17398
+offset_bottom = 83.17398
 grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("3_kxc1c")
@@ -152,7 +142,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_5id5m")
 
-[node name="LabelOptions" type="Label" parent="PanelGameMenu/TButtonOptions"]
+[node name="LabelOptions" type="Label" parent="TRectGameMenu/TButtonOptions"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -173,7 +163,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TButtonExit" type="TextureButton" parent="PanelGameMenu"]
+[node name="TButtonExit" type="TextureButton" parent="TRectGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -181,9 +171,9 @@ anchor_top = 0.81500006
 anchor_right = 0.5
 anchor_bottom = 0.81500006
 offset_left = -154.0
-offset_top = -73.95502
+offset_top = -57.955017
 offset_right = 146.0
-offset_bottom = 76.04498
+offset_bottom = 92.04498
 grow_horizontal = 2
 grow_vertical = 0
 texture_normal = ExtResource("3_kxc1c")
@@ -193,7 +183,7 @@ ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("6_5id5m")
 
-[node name="LabelExit" type="Label" parent="PanelGameMenu/TButtonExit"]
+[node name="LabelExit" type="Label" parent="TRectGameMenu/TButtonExit"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -214,7 +204,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="TRectGameLogo" type="TextureRect" parent="PanelGameMenu"]
+[node name="TRectGameLogo" type="TextureRect" parent="TRectGameMenu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -229,26 +219,26 @@ scale = Vector2(6, 6)
 texture = ExtResource("8_ss4sa")
 metadata/_edit_use_anchors_ = true
 
-[node name="PanelVersion" type="Panel" parent="."]
+[node name="TRectVersion" type="TextureRect" parent="."]
 anchors_preset = -1
-anchor_left = 0.0615
-anchor_top = 0.9377778
-anchor_right = 0.0615
-anchor_bottom = 0.9377778
-offset_left = -92.08
-offset_top = -36.80011
-offset_right = 92.92
-offset_bottom = 37.19995
-theme_override_styles/panel = SubResource("StyleBoxFlat_06t4h")
+anchor_left = 0.071
+anchor_top = 0.938
+anchor_right = 0.071
+anchor_bottom = 0.938
+offset_left = -107.32001
+offset_top = -41.04004
+offset_right = 108.67999
+offset_bottom = 41.95996
+texture = ExtResource("10_kxc1c")
 metadata/_edit_use_anchors_ = true
 
-[node name="LabelVersion" type="Label" parent="PanelVersion"]
+[node name="LabelVersion" type="Label" parent="TRectVersion"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.508
-anchor_top = 0.574
-anchor_right = 0.508
-anchor_bottom = 0.574
+anchor_top = 0.5860482
+anchor_right = 0.5080001
+anchor_bottom = 0.5860482
 offset_left = -73.98
 offset_top = -33.476036
 offset_right = 74.02
@@ -349,9 +339,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="PanelGameMenu/TButtonNewGame" to="." method="_on_btn_new_game_pressed"]
-[connection signal="pressed" from="PanelGameMenu/TButtonContinue" to="." method="_on_t_button_continue_pressed"]
-[connection signal="pressed" from="PanelGameMenu/TButtonOptions" to="." method="_on_btn_options_pressed"]
-[connection signal="pressed" from="PanelGameMenu/TButtonExit" to="." method="_on_btn_quitter_pressed"]
+[connection signal="pressed" from="TRectGameMenu/TButtonNewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="TRectGameMenu/TButtonContinue" to="." method="_on_t_button_continue_pressed"]
+[connection signal="pressed" from="TRectGameMenu/TButtonOptions" to="." method="_on_btn_options_pressed"]
+[connection signal="pressed" from="TRectGameMenu/TButtonExit" to="." method="_on_btn_quitter_pressed"]
 [connection signal="pressed" from="TButtonTuto" to="." method="_on_btn_tuto_pressed"]
 [connection signal="pressed" from="TButtonCredits" to="." method="_on_btn_credits_pressed"]
