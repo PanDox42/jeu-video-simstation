@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @export var slot_scene: PackedScene # Glisse SaveSlot.tscn ici dans l'inspecteur
-@onready var list_container = $PanelGameMenu/VBoxContainer
+@onready var list_container = $PanelGameMenu/ScrollContainer/VBoxContainer
 
 func _ready():
 	refresh_save_list()
