@@ -1,266 +1,112 @@
-# SimStation
+# 🐧 SimStation
 
-## Groupe : Projet T3
+**Jeu de gestion d'une station scientifique en Antarctique**
 
-### Participants
-- Emre  
-- Fabio  
-- Josué  
-- Martin  
+![Godot](https://img.shields.io/badge/Godot-4.x-blue?logo=godot-engine)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## Présentation du projet
+## 📖 Description
 
-SimStation est un jeu de simulation et de gestion en **2D isométrique**, développé avec le moteur **Godot**, plaçant le joueur à la tête d’une station scientifique située en Antarctique.  
-Le joueur incarne un administrateur chargé d’assurer à la fois la **survie de l’équipage** et le **bon fonctionnement de la station** dans un environnement polaire extrêmement hostile.
+SimStation est un jeu de gestion où vous dirigez une station de recherche en Antarctique. Survivez 20 tours, gérez vos ressources et accomplissez votre mission scientifique dans l'un des environnements les plus hostiles de la planète.
 
-Le cœur du jeu repose sur un équilibre permanent entre **construction**, **gestion**, **planification** et **prise de décision stratégique**. Chaque action du joueur a des conséquences directes sur le fonctionnement global de la station et sur l’état de l’équipe.
-
-Trois indicateurs vitaux structurent l’expérience de jeu :
-- **Santé** : état physique de l’équipage face au froid, aux accidents et aux pénuries.
-- **Efficacité** : capacité de la station à fonctionner et à produire.
-- **Bonheur** : état psychologique des membres, influencé par l’isolement et les conditions extrêmes.
-
-Le joueur doit en permanence arbitrer entre ces indicateurs afin d’éviter l’échec. Une mauvaise gestion des ressources, un manque d’anticipation ou des décisions inadaptées peuvent rapidement mener à une situation critique.
-
-Afin d’assurer une forte rejouabilité et une tension constante, SimStation intègre un **système d’événements dynamiques et aléatoires** : tempêtes détruisant des infrastructures, pannes techniques ou crises psychologiques au sein de l’équipe. Ces événements obligent le joueur à adapter sa stratégie en continu.
-
-Le jeu propose également :
-- un **système de boutique**, permettant de commander bâtiments et équipements avec des délais de livraison de plusieurs mois ;
-- un **système de recherche**, encourageant le développement de nouvelles solutions pour améliorer la productivité et la survie de la station.
-
-L’objectif du joueur est de survivre un certain nombre de jours tout en maintenant l’équilibre global de la station.
+> 📚 **[Voir la documentation complète](description.md)** pour les détails du gameplay, mécaniques et stratégies.
 
 ---
 
-## Objectifs du projet
+## 🎯 Objectif du jeu
 
-Le projet SimStation a pour objectifs de :
-- Produire un **jeu de simulation fonctionnel et équilibré** (MVP).
-- Mettre en pratique la **gestion de projet** (GANTT, PERT, suivi des risques).
-- Développer la maîtrise du moteur **Godot** et de l’affichage isométrique.
-- Proposer une expérience à la fois **exigeante**, **stratégique** et **pédagogique**.
+**Gagner** = Survivre 20 tours + Terminer 7 recherches + Stats > 40%
+
+**Perdre** = Une stat atteint 0% OU Tour 20 sans conditions remplies
 
 ---
 
-## Contraintes de développement
+## 🚀 Installation
 
-- Délai de développement strict de **14 semaines**.
-- Équipe réduite sans graphiste dédié.
-- Création, génération ou adaptation des ressources graphiques en interne.
-- Priorité donnée à la stabilité du gameplay et à l’équilibrage.
+### Prérequis
 
----
+- [Godot Engine 4.x](https://godotengine.org/download)
 
-## Fonctionnalités principales
+### Lancer le projet
 
-- Construction de bâtiments sur une **grille isométrique** valide.
-- Gestion des ressources et des indicateurs vitaux.
-- Événements aléatoires (tempêtes, pannes, crises internes).
-- Système de recherche.
-- Système de commande différée via une boutique.
-- Conditions de victoire et de défaite.
-- Sauvegarde et chargement des parties.
+1. Cloner le repository :
+```bash
+git clone https://gitlab.music-music.music/votre-repo/simstation.git
+```
 
----
+2. Ouvrir Godot Engine
 
-## Public cible
+3. Importer le projet :
+   - Cliquer sur "Import"
+   - Naviguer vers le dossier du projet
+   - Sélectionner `project.godot`
 
-- **Joueurs de stratégie et de gestion** recherchant un défi exigeant.
-- **Étudiants et testeurs** participant aux phases de validation et de retours utilisateurs.
-- **Secteur éducatif**, pour une utilisation comme outil de simulation et d’apprentissage.
+4. Lancer le jeu :
+   - Appuyer sur **F5** ou cliquer sur ▶️
 
 ---
 
-## État d’avancement
+## 🗂️ Structure du projet
 
-- Logique principale du jeu implémentée.
-- Production graphique en cours.
-- Phase actuelle : tests internes et équilibrage de la difficulté.
-- Livraison finale prévue à la **semaine 14**.
-
----
-
-## Lien de téléchargement
-
-- À compléter : en cours de développement.
-
----
-
-## Captures d’écran
-
-## Captures d’écran
-
-### Vue générale de la station
-![Carte de la station et bâtiments](/home/fabio/Images/Capture d’écran du 2025-12-14 23-0)
-
-Cette capture présente la carte isométrique de la station polaire, avec les bâtiments construits par le joueur et l’organisation globale de la base.
+```
+simstation/
+├── controller/          # Logique de jeu
+│   ├── game_manager.gd     # Gestionnaire principal
+│   └── game_end_manager.gd # Conditions victoire/défaite
+├── model/               # Données et calculs
+│   ├── global/             # État global du jeu
+│   ├── shop/               # Boutique de bâtiments
+│   ├── search_tree/        # Arbre de recherche
+│   └── hud/                # Interface utilisateur
+├── view/                # Scènes et assets visuels
+│   ├── *.tscn              # Scènes Godot
+│   └── end_game.tscn       # Écran de fin
+└── assets/              # Images, sons, polices
+```
 
 ---
 
-### Boutique
-![Interface de la boutique](/home/fabio/Images/Capture d’écran du 2025-12-14 23-08-37.png)
+## 🎮 Commandes
 
-La boutique permet de commander de nouveaux bâtiments et équipements, avec des délais de livraison nécessitant une planification à long terme.
-
----
-
-### Arbre de recherche
-![Arbre de recherche](/home/fabio/Images/Capture d’écran du 2025-12-14 23-09-03.png)
-
-L’arbre de recherche offre différentes améliorations et débloque de nouvelles possibilités pour optimiser la survie et l’efficacité de la station.
-
-
-## Procédures d’installation et d’exécution
-
-- À compléter : en cours de développement.
+| Action | Commande |
+|--------|----------|
+| Ouvrir la boutique | Clic sur icône boutique |
+| Placer un bâtiment | Clic gauche sur la carte |
+| Ouvrir l'arbre de recherche | Clic sur icône recherche |
+| Passer au tour suivant | Clic sur bouton "Suivant" |
 
 ---
 
-## Documentation
+## 🔧 Configuration technique
 
-- Manuel utilisateur : à venir.
-- Rapport de projet et documentation technique inclus dans le dossier Projet T3.
+### Constantes importantes
 
-## Structure du projet
+| Fichier | Constante | Valeur | Description |
+|---------|-----------|--------|-------------|
+| `game_end_manager.gd` | `FINAL_ROUND` | 20 | Tours pour victoire |
+| `game_end_manager.gd` | `MIN_STATS_THRESHOLD` | 40 | Seuil stats victoire |
+| `calcul_stats.gd` | `BUILDINGS_PER_BOILER` | 3 | Capacité chaufferie |
+| `calcul_stats.gd` | `HEATING_POWER_PER_BUILDING` | 9 | Puissance chauffage |
 
-```text
-t3-simstation/
-├── README.md
-└── simstation/
-    ├── assets/
-    │   ├── arbre_recherche/
-    │   ├── bar/
-    │   ├── batiments/
-    │   │   └── en rab/
-    │   ├── buildings/
-    │   │   └── more_buildings/
-    │   ├── confirm_button/
-    │   ├── exit_button/
-    │   ├── menu_pictures/
-    │   │   ├── placeholder.jpg
-    │   │   └── placeholder.jpg.import
-    │   ├── particles/
-    │   ├── shop/
-    │   │   └── buy_button/
-    │   ├── side/
-    │   ├── snow/
-    │   ├── sons/
-    │   │   └── musiques/
-    │   │       ├── dark_souls_main_theme.mp3
-    │   │       ├── dark_souls_main_theme.mp3.import
-    │   │       ├── ori_music.mp3
-    │   │       └── ori_music.mp3.import
-    │   ├── sounds/
-    │   │   └── musics/
-    │   │       ├── dark_souls_main_theme.mp3
-    │   │       ├── dark_souls_main_theme.mp3.import
-    │   │       ├── ori_music.mp3
-    │   │       └── ori_music.mp3.import
-    │   ├── text_button/
-    │   ├── tileset1/
-    │   │   ├── environment/
-    │   │   │   ├── rocks_small/
-    │   │   │   └── trees/
-    │   │   ├── rocks_big/
-    │   │   └── walls_and_floors/
-    │   │       ├── floor_tiles/
-    │   │       └── wall_tiles/
-    │   └── tileset2/
-    │       ├── Decoration/
-    │       ├── Fences/
-    │       ├── ground/
-    │       │   ├── ice/
-    │       │   ├── misc/
-    │       │   └── snow/
-    │       ├── Terrain/
-    │       │   ├── Ice/
-    │       │   ├── Misc/
-    │       │   └── Snow/
-    │       └── Trees/
-    ├── Controller/
-    │   ├── game_manager.gd
-    │   └── game_manager.gd.uid
-    ├── default_bus_layout.tres
-    ├── font/
-    │   ├── Minecraftia-Regular.ttf
-    │   └── Minecraftia-Regular.ttf.import
-    ├── global_script.gd
-    ├── global_script.gd.uid
-    ├── hud_theme.tres
-    ├── icon.svg
-    ├── icon.svg.import
-    ├── Model/
-    │   ├── arbre_recherche.gd
-    │   ├── arbre_recherche.gd.uid
-    │   ├── arbre_recherche_graphique.gd
-    │   ├── arbre_recherche_graphique.gd.uid
-    │   ├── button_action.gd
-    │   ├── button_action.gd.uid
-    │   ├── buy_confirmation.gd
-    │   ├── buy_confirmation.gd.uid
-    │   ├── camera_2d.gd
-    │   ├── camera_2d.gd.uid
-    │   ├── chart_stats.gd
-    │   ├── chart_stats.gd.uid
-    │   ├── credits.gd
-    │   ├── credits.gd.uid
-    │   ├── crop_bar.gd
-    │   ├── crop_bar.gd.uid
-    │   ├── drag_building.gd
-    │   ├── drag_building.gd.uid
-    │   ├── efficiency_bar_empty.gd
-    │   ├── efficiency_bar_empty.gd.uid
-    │   ├── Global/
-    │   │   ├── calcul_stats.gd
-    │   │   ├── calcul_stats.gd.uid
-    │   │   ├── global.gd
-    │   │   ├── global.gd.uid
-    │   │   ├── global_script.gd
-    │   │   └── global_script.gd.uid
-    │   ├── HUD/
-    │   │   ├── resize_control.gd
-    │   │   ├── resize_control.gd.uid
-    │   │   ├── resize_state_bar.gd
-    │   │   └── resize_state_bar.gd.uid
-    │   ├── hud.gd
-    │   ├── hud.gd.uid
-    │   ├── info_panel.gd
-    │   ├── info_panel.gd.uid
-    │   ├── InventaireUI.gd
-    │   ├── InventaireUI.gd.uid
-    │   ├── main_menu.gd
-    │   ├── main_menu.gd.uid
-    │   ├── map.gd
-    │   ├── map.gd.uid
-    │   ├── night_mode.gd
-    │   ├── night_mode.gd.uid
-    │   ├── options.gd
-    │   ├── options.gd.uid
-    │   ├── pause.gd
-    │   ├── pause.gd.uid
-    │   ├── shadow_manager.gd
-    │   ├── shadow_manager.gd.uid
-    │   ├── shop.gd
-    │   ├── shop.gd.uid
-    │   ├── state_bar.gd
-    │   └── state_bar.gd.uid
-    ├── project.godot
-    ├── themes/
-    │   └── hud_theme.tres
-    └── View/
-        ├── arbre_recherche.tscn
-        ├── buy_confirmation.tscn
-        ├── chart_stats.tscn
-        ├── credits.tscn
-        ├── description_batiment.tscn
-        ├── hud.tscn
-        ├── main_menu.tscn
-        ├── Map.tscn
-        ├── occluder.gd
-        ├── occluder.gd.uid
-        ├── options.tscn
-        ├── pause.tscn
-        ├── play.tscn
-        └── shop.tscn
+---
+
+## 📚 Documentation
+
+| Document | Contenu |
+|----------|---------|
+| [description.md](description.md) | Gameplay, mécaniques, stratégies |
+| [docs/](docs/) | Documentation technique générée |
+
+---
+
+## 👥 Équipe
+
+Projet réalisé dans le cadre du cursus universitaire.
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence MIT.
