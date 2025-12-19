@@ -36,7 +36,7 @@ func get_zoom_cam() -> Vector2:
 ## Ouvre l'interface de l'arbre de recherche
 ## Charge et affiche la scène de l'arbre de recherche dans le HUD
 func open_search():
-	load_scene("res://View/search_tree.tscn", "ArbreRecherche")
+	load_scene("res://view/search_tree.tscn", "ArbreRecherche")
 	
 ## Charge dynamiquement une scène dans le HUD
 ## Si la scène existe déjà, bascule sa visibilité au lieu de la recharger
@@ -201,7 +201,7 @@ func _on_game_lost(reason: String):
 ## @param message: Message à afficher
 func _show_game_end_screen(is_victory: bool, message: String):
 	# Charger la scène de fin de jeu
-	var end_game_scene = load("res://View/end_game.tscn")
+	var end_game_scene = load("res://view/end_game.tscn")
 	var play_scene = get_tree().current_scene
 	
 	# Vérifier que la scène actuelle existe

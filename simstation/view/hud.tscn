@@ -4,7 +4,7 @@
 [ext_resource type="FontFile" uid="uid://cpy65047eb1jb" path="res://font/Minecraftia-Regular.ttf" id="3_o5r0d"]
 [ext_resource type="Texture2D" uid="uid://cd2dc2vr6blus" path="res://assets/bar/health_bar_empty.png" id="6_nmx3l"]
 [ext_resource type="Texture2D" uid="uid://e14rlujxv2r6" path="res://assets/bar/filled_bar.png" id="7_s7bk8"]
-[ext_resource type="Script" path="res://model/hud/statistics/crop_bar.gd" id="8_fj0si"]
+[ext_resource type="Script" uid="uid://blpgf8txxyl8p" path="res://model/hud/statistics/crop_bar.gd" id="8_fj0si"]
 [ext_resource type="Texture2D" uid="uid://cgjqbebqtphh2" path="res://assets/bar/efficiency_bar_empty.png" id="9_1cvsb"]
 [ext_resource type="Texture2D" uid="uid://cjxus45xwl0ka" path="res://assets/bar/happiness_bar_empty.png" id="10_0ig0g"]
 [ext_resource type="Texture2D" uid="uid://dqr6pies270gc" path="res://assets/button/next_round_button/next_round.png" id="10_o4crf"]

@@ -73,7 +73,7 @@ func _on_btn_credits_pressed() -> void:
 ## Ouvre le tutoriel
 ## Charge et affiche l'écran de tutoriel interactif
 func _on_btn_tuto_pressed():
-	var tuto_scene = load("res://View/tuto.tscn")
+	var tuto_scene = load("res://view/tuto.tscn")
 	var tuto_instance = tuto_scene.instantiate()
 	
 	add_child(tuto_instance)

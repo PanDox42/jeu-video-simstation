@@ -26,7 +26,7 @@ func _on_resume_button_pressed() -> void:
 ## Ouvre le menu des options
 ## Charge et affiche le menu settings dans le HUD
 func _on_option_button_pressed() -> void:
-	var options_scene = load("res://View/settings.tscn")
+	var options_scene = load("res://view/settings.tscn")
 	var play_scene = get_tree().current_scene
 	var hud = play_scene.get_node("hud")
 
@@ -51,4 +51,4 @@ func _on_menu_button_pressed() -> void:
 		pause_menu.queue_free() 
 	
 	GameManager.save_game(GlobalScript.get_name_station())
-	get_tree().change_scene_to_file("res://View/main_menu.tscn")
+	get_tree().change_scene_to_file("res://view/main_menu.tscn")
