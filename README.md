@@ -1,4 +1,4 @@
-# ❄️ SimStation - README Complet
+# ❄️ SimStation - README
 
 Ce document contient les instructions pour les joueurs, les développeurs et les détails techniques du projet.
 
