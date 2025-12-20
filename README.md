@@ -9,17 +9,22 @@ Ce document contient les instructions pour les joueurs, les développeurs et les
 Si vous souhaitez simplement tester le jeu sans utiliser l'éditeur Godot :
 
 ### 🪟 Windows
-1. Téléchargez le dossier Windows.
-2. Assurez-vous que le fichier **`SimStation.exe`** et le fichier **`.pck`** sont dans le même répertoire.
-3. Double-cliquez sur `SimStation.exe`.
+1. Naviguez dans le dossier **`installer/windows/`**.
+2. Lancez l'installeur **`SimStation_Installer.exe`**.
+3. Suivez les instructions pour installer le jeu sur votre système.
+4. Lancez SimStation depuis le menu démarrer ou via le raccourci créé.
 
 ### 🐧 Linux
-1. Téléchargez les fichiers **`SimStation.sh`** et **`SimStation.x86_64`**.
-2. Ouvrez un terminal dans le dossier et autorisez l'exécution :
+1. Naviguez dans le dossier **`installer/linux/`**.
+2. Assurez-vous que tous les fichiers sont présents :
+   - `SimStation.x86_64` (exécutable)
+   - `SimStation.pck` (ressources du jeu)
+   - `SimStation.sh` (script de lancement)
+3. Ouvrez un terminal dans ce dossier et autorisez l'exécution :
    ```bash
-   chmod +x SimStation.sh
+   chmod +x SimStation.sh SimStation.x86_64
    ```
-3. Lancez le jeu avec :
+4. Lancez le jeu avec :
    ```bash
    ./SimStation.sh
    ```
@@ -42,7 +47,7 @@ git clone https://gitlab.example.com/votre-repo/simstation.git
 ### Importation
 1. Ouvrez Godot.
 2. Cliquez sur **Importer**.
-3. Sélectionnez le fichier `project.godot` à la racine du projet.
+3. Sélectionnez le fichier `project.godot` situé dans le dossier **`simstation/`**.
 
 ### Lancement
 Appuyez sur **F5** pour démarrer le projet dans l'éditeur.
@@ -52,7 +57,7 @@ Appuyez sur **F5** pour démarrer le projet dans l'éditeur.
 ## 🎯 3. RÈGLES DU JEU
 
 - **Concept** : Dirigez une station en Antarctique.
-- **Victoire** : Survivre 20 tours + Terminer 7 recherches + Statistiques > 40%.
+- **Victoire** : Survivre 20 tours + Terminer les 7 recherches + Statistiques > 40%.
 - **Défaite** : Une statistique tombe à 0% ou les conditions ne sont pas remplies au tour 20.
 
 ---
@@ -63,33 +68,31 @@ Appuyez sur **F5** pour démarrer le projet dans l'éditeur.
 |--------|----------|
 | Boutique | Clic sur l'icône boutique |
 | Bâtiment | Clic gauche sur la carte |
-| Recherche | Clic sur l'icône recherche |
-| Tour suivant | Clic sur bouton "Suivant" |
+| Recherche | Clic sur le bouton recherche du laboratoire |
+| Tour suivant | Clic sur le bouton passer le tour |
 
 ---
 
 ## 🗂️ 5. STRUCTURE DU PROJET
 
 ```
-simstation/
-├── project.godot         # Fichier projet principal (Godot)
-├── controller/           # Scripts de gestion (GameManager, etc.)
-├── model/                # Logique de données (Shop, HUD, Stats)
-├── view/                 # Scènes visuelles (.tscn)
-└── assets/               # Ressources (Images, sons, fonts)
+t3-simstation/
+├── installer/            # Builds exportés pour les utilisateurs
+│   ├── windows/          # Installeur Windows
+│   │   └── SimStation_Installer.exe
+│   └── linux/            # Fichiers Linux
+│       ├── SimStation.x86_64
+│       ├── SimStation.pck
+│       └── SimStation.sh
+├── simstation/           # Code source du projet
+│   ├── project.godot     # Fichier projet principal (Godot)
+│   ├── controller/       # Scripts de gestion (GameManager, etc.)
+│   ├── model/            # Logique de données (Shop, HUD, Stats)
+│   ├── view/             # Scènes visuelles (.tscn)
+│   └── assets/           # Ressources (Images, sons, fonts)
+├── docs/                 # Documentation générée (Docsify)
+└── README.md             # Ce fichier
 ```
-
----
-
-## 🔧 6. CONFIGURATION TECHNIQUE (EQUILIBRAGE)
-
-Les réglages se font via les constantes dans les scripts `.gd` :
-
-| Fichier | Constante | Valeur |
-|---------|-----------|--------|
-| `game_end_manager.gd` | `FINAL_ROUND` | 20 |
-| `game_end_manager.gd` | `MIN_STATS_THRESHOLD` | 40 |
-| `calcul_stats.gd` | `BUILDINGS_PER_BOILER` | 3 |
 
 ---
 
@@ -99,4 +102,4 @@ Les réglages se font via les constantes dans les scripts `.gd` :
 - **Documentation** : Consultez `WIKI.md` pour les stratégies avancées.
 - **Licence** : Ce projet est sous licence MIT.
 
-*Projet réalisé dans le cadre d'un cursus universitaire.*
+*Projet réalisé dans le cadre d'un BUT INFORMATIQUE.*
