@@ -1,4 +1,4 @@
-# 🐧 SimStation - README Complet
+# ❄️ SimStation - README Complet
 
 Ce document contient les instructions pour les joueurs, les développeurs et les détails techniques du projet.
 
@@ -99,7 +99,7 @@ t3-simstation/
 ## 📝 NOTES COMPLÉMENTAIRES
 
 - **Exportation** : Pour générer de nouveaux exécutables, utilisez le menu **Projet > Exporter** dans Godot.
-- **Documentation** : Consultez `WIKI.md` pour les stratégies avancées.
+- **Documentation** : Consultez `WIKI.md` pour les stratégies avancées ou la [documentation SimStation](https://t4-simstation-mschnider-0c3992935ec57cbdfa0167207f3802487810b77.pages.unistra.fr/#/) pour plus d'informations concernant l'aspect technique du projet. 
 - **Licence** : Ce projet est sous licence MIT.
 
 *Projet réalisé dans le cadre d'un BUT INFORMATIQUE.*
