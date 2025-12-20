@@ -6,8 +6,9 @@ image: alpine:latest
 pages:
   stage: deploy
   
-  # Manual deployment - click the button in GitLab to deploy
-  when: manual
+  # Deployment for all pushes on main
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
   
   script:
     # Create public directory
