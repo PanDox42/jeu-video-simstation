@@ -41,7 +41,7 @@ Pour modifier le projet ou l'étudier, vous devez utiliser le moteur Godot.
 ### Récupération
 Clonez le dépôt git :
 ```bash
-git clone https://gitlab.example.com/votre-repo/simstation.git
+git clone https://git.unistra.fr/mschnider/t3-simstation.git
 ```
 
 ### Importation
