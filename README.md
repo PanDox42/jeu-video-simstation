@@ -112,7 +112,7 @@ t3-simstation/
 # En Jeu
 <img src="img/in_game_1.jpg" alt="In Game" width="800">
 
-# Désastre
+# Catastrophe naturelle
 <img src="img/disaster.jpg" alt="Disaster" width="800">
 
 # Arbre de Recherche
