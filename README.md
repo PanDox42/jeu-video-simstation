@@ -96,6 +96,35 @@ t3-simstation/
 
 ---
 
+## 🖼️ Quelques images du jeu
+
+<div align="center">
+
+# Menu Principal
+<img src="img/main_menu.jpg" alt="Main Menu" width="800">
+
+# Nouvelle Partie
+<img src="img/new_game.jpg" alt="New Game" width="800">
+
+# Charger une Partie (Continuer)
+<img src="img/load_game.jpg" alt="Load Game" width="800">
+
+# En Jeu
+<img src="img/in_game_1.jpg" alt="In Game" width="800">
+
+# Désastre
+<img src="img/disaster.jpg" alt="Disaster" width="800">
+
+# Arbre de Recherche
+<img src="img/search_tree.jpg" alt="Search Tree" width="800">
+
+# Boutique
+<img src="img/shop.jpg" alt="Shop" width="800">
+
+</div>
+
+---
+
 ## 📝 NOTES COMPLÉMENTAIRES
 
 - **Exportation** : Pour générer de nouveaux exécutables, utilisez le menu **Projet > Exporter** dans Godot.
