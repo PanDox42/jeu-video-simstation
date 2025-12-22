@@ -1,7 +1,9 @@
 # Normalize EOL for all files that Git considers text files.
 * text=auto eol=lf
-*.html linguist-detectable=false
+*.html binary
 *.html linguist-vendored
+*.html linguist-documentation
+*.html -linguist-detectable
 *.gd linguist-detectable=true
 *.tscn linguist-detectable=false
 *.tres linguist-detectable=false
