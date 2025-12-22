@@ -1,5 +1,7 @@
 # ❄️ SimStation - README
 
+[![Status](https://camo.githubusercontent.com/43016e90af7ddd2f27160ce75c236c7c5380d0b2c4812d3153751e1053c39179/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f5374617475742d5465726d696e2543332541392d73756363657373)](https://github.com/PanDox42/jeu-video-simstation)
+
 Ce document contient les instructions pour les joueurs, les développeurs et les détails techniques du projet.
 
 ---
@@ -41,7 +43,7 @@ Pour modifier le projet ou l'étudier, vous devez utiliser le moteur Godot.
 ### Récupération
 Clonez le dépôt git :
 ```bash
-git clone https://git.unistra.fr/mschnider/t3-simstation.git
+git clone https://github.com/PanDox42/jeu-video-simstation
 ```
 
 ### Importation
