@@ -94,7 +94,7 @@ Le joueur peut :
 
 ### Système de tours
 - **1 tour = 3 mois** (1 saison en Antarctique)
-- **4 saisons** : Été austral → Automne → Hiver → Printemps
+- **4 saisons** : Été austral → Automne austral → Hiver austral → Printemps austral
 - Les statistiques évoluent à chaque tour en fonction :
   - De la température extérieure (-25°C à -80°C)
   - Du chauffage disponible
@@ -192,7 +192,7 @@ Le joueur prend le contrôle d'une station scientifique fraîchement établie en
 **Objectif unique** : Maintenir les stats > 40% jusqu'au tour 20
 
 **Attention :**
-- L'hiver austral peut faire chuter drastiquement la santé
+- L'hiver peut faire chuter drastiquement la santé
 - Les catastrophes deviennent plus fréquentes
 - Le budget est serré : ne pas gaspiller
 
@@ -246,7 +246,7 @@ Une station de recherche en Antarctique est un **environnement extrême** qui n�
 - **Bonheur** : essentiel pour éviter l'abandon de mission
 - **Efficacité** : calculée automatiquement (60% santé + 40% bonheur)
 
-> ⚠️ **Nuit polaire** : 6 mois de nuit totale pendant l'hiver austral
+> ⚠️ **Nuit polaire** : 6 mois de nuit totale pendant l'hiver (comprenant l'hiver austral et le printemps austral)
 
 <br>
 
