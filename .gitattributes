@@ -7,3 +7,5 @@
 **/*.gd linguist-detectable=true
 **/*.tscn linguist-detectable=false
 **/*.tres linguist-detectable=false
+installer/ filter=lfs diff=lfs merge=lfs -text
+installer/** filter=lfs diff=lfs merge=lfs -text
