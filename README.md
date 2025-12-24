@@ -130,7 +130,7 @@ t3-simstation/
 ## 📝 NOTES COMPLÉMENTAIRES
 
 - **Exportation** : Pour générer de nouveaux exécutables, utilisez le menu **Projet > Exporter** dans Godot.
-- **Documentation** : Consultez `WIKI.md` pour les stratégies avancées ou la [documentation SimStation](https://pandox42.github.io/jeu-video-simstation/) pour plus d'informations concernant l'aspect technique du projet. 
+- **Documentation** : Consultez [`WIKI.md`](WIKI.md) pour les stratégies avancées ou la [`Documentation SimStation`](https://pandox42.github.io/jeu-video-simstation/) pour plus d'informations concernant l'aspect technique du projet. 
 - **Licence** : Ce projet est sous licence MIT.
 
 *Projet réalisé dans le cadre d'un BUT INFORMATIQUE.*
