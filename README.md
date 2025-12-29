@@ -4,6 +4,8 @@
 
 Ce document contient les instructions pour les joueurs, les développeurs et les détails techniques du projet.
 
+> 🔎 **Petite précision** : ce dépôt GitHub est une duplication (re-homing) d'un dépôt GitLab.
+
 ---
 
 ## 🎮 1. SECTION UTILISATEUR (JOUER)
